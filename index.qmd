@@ -8,7 +8,6 @@ Materijali za predmet **Analiza prostorno-vremenskih podataka**.
 
 ::: {.grid}
 ::: {.g-col-12 .g-col-md-6}
-### 02 Intro Spatial
 
 Uvodna prezentacija sa pregledom tipova prostornih podataka u R-u.
 
