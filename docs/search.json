@@ -364,24 +364,24 @@
     "text": "Literatura\n\nMoraga, Paula. (2023). Spatial Statistics for Data Science: Theory and Practice with R. Chapman & Hall/CRC Data Science Series. ISBN 9781032633510 https://www.paulamoraga.com/book-spatial/\nhttps://oliviergimenez.github.io/coding/\nhttps://www.r-spatial.org/\nhttps://geocompr.robinlovelace.net/\nKilibarda M., Matematička kartografija, https://osgl.grf.bg.ac.rs/books/mk/\nKnjiga: Satellite Image Time Series Analysis on EO Data Cubes (e-sensing)\n\n\n\nGitHub repozitorijumi:\n\ne-sensing/sits"
   },
   {
-    "objectID": "02_introSpatial/readme.html",
-    "href": "02_introSpatial/readme.html",
-    "title": "Analiza prostorno-vremenskih podataka",
-    "section": "",
-    "text": "Slides: https://thomasmock.quarto.pub/reports-presentations/"
-  },
-  {
-    "objectID": "02_introSpatial/readme.html#beautiful-presentations-and-reports-with-quarto",
-    "href": "02_introSpatial/readme.html#beautiful-presentations-and-reports-with-quarto",
-    "title": "Analiza prostorno-vremenskih podataka",
-    "section": "",
-    "text": "Slides: https://thomasmock.quarto.pub/reports-presentations/"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Analiza prostorno-vremenskih podataka",
     "section": "",
-    "text": "Prezentacije\n\nTipovi prostornih podataka u R-u"
+    "text": "Materijali za predmet Analiza prostorno-vremenskih podataka.\n\n\n\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u.\nOtvori prezentaciju"
+  },
+  {
+    "objectID": "index.html#o-kursu",
+    "href": "index.html#o-kursu",
+    "title": "Analiza prostorno-vremenskih podataka",
+    "section": "",
+    "text": "Materijali za predmet Analiza prostorno-vremenskih podataka.\n\n\n\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u.\nOtvori prezentaciju"
+  },
+  {
+    "objectID": "index.html#napomena",
+    "href": "index.html#napomena",
+    "title": "Analiza prostorno-vremenskih podataka",
+    "section": "Napomena",
+    "text": "Napomena\nNove prezentacije će biti dodavane tokom godine."
   }
 ]

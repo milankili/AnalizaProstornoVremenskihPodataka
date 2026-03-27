@@ -8,8 +8,12 @@ website:
     left:
       - href: index.qmd
         text: Početna
+    right:
+      - icon: github
+        href: https://github.com/milankili/AnalizaProstornoVremenskihPodataka
 
 format:
   html:
     theme: cosmo
     toc: false
+    smooth-scroll: true
