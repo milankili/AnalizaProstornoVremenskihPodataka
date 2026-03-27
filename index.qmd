@@ -9,6 +9,8 @@ Materijali za predmet **Analiza prostorno-vremenskih podataka**.
 ::: {.grid}
 ::: {.g-col-12 .g-col-md-6}
 
+### Tipovi prostornih podataka u R jeziku 
+
 Uvodna prezentacija sa pregledom tipova prostornih podataka u R-u.
 
 [Otvori prezentaciju](02_introSpatial/p1.html)
