@@ -1,6 +1,8 @@
 02_introSpatial/
+00_R/
 .Rhistory
 .RData
+deploy.bat
 .Rproj.user/
 .quarto/
 /.quarto/

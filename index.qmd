@@ -25,6 +25,24 @@ Uvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim pake
 
 :::
 
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm .p-3}
+
+
+### ️Uvod  u R 
+
+Uvodna prezentacija za R.
+
+<br>
+[Otvori prezentaciju](00_R/Uvod_u_R.html){.btn .btn-primary role="button"}
+:::
+:::
+
+:::
+
 ---
 
 ## Preporučena literatura
