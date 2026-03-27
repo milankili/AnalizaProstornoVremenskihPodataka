@@ -1,0 +1,15 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Analiza prostorno-vremenskih podataka"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Početna
+
+format:
+  html:
+    theme: cosmo
+    toc: false

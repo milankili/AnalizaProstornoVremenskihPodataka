@@ -1,0 +1,8 @@
+---
+title: "Analiza prostorno-vremenskih podataka"
+---
+
+# Prezentacije
+
+
+- [Tipovi prostornih podataka u R-u](02_introSpatial/p1.qmd)
