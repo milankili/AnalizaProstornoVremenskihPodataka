@@ -1,5 +1,7 @@
 02_introSpatial/
 00_R/
+!docs/02_introSpatial/
+!docs/00_R/
 .Rhistory
 .RData
 deploy.bat
