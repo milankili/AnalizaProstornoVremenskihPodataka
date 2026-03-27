@@ -1,1 +1,5 @@
-/.quarto/
+02_introSpatial/
+.Rhistory
+.RData
+.Rproj.user/
+.quarto/
