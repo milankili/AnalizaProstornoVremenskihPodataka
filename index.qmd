@@ -4,19 +4,49 @@ title: "Analiza prostorno-vremenskih podataka"
 
 ## O kursu
 
-Materijali za predmet **Analiza prostorno-vremenskih podataka**.
+Ovde možete pronaći materijale za predmet **Analiza prostorno-vremenskih podataka**. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine.
+
+---
+
+##  Prezentacije i vežbe
 
 ::: {.grid}
+
 ::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm .p-3}
+### ️ Tipovi prostornih podataka u R jeziku
 
-### Tipovi prostornih podataka u R jeziku 
+Uvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.
 
-Uvodna prezentacija sa pregledom tipova prostornih podataka u R-u.
-
-[Otvori prezentaciju](02_introSpatial/p1.html)
+<br>
+[Otvori prezentaciju](02_introSpatial/p1.html){.btn .btn-primary role="button"}
 :::
 :::
 
+:::
+
+---
+
+## Preporučena literatura
+
+Materijali i analize pokrivene na ovim predavanjima u velikoj meri se oslanjaju na sledeću literaturu:
+
+* **Pebesma, E., & Bivand, R. (2023).** *Spatial Data Science: With Applications in R*. Chapman and Hall/CRC. 
+  * Dostupno na: [https://r-spatial.org/book/](https://r-spatial.org/book/)
+* **Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023).** *R for Data Science* (2nd ed.). O'Reilly Media. 
+  * Dostupno na: [https://r4ds.hadley.nz/](https://r4ds.hadley.nz/)
+* **Moraga, P. (2023).** *Spatial Statistics for Data Science: Theory and Practice with R*. Chapman and Hall/CRC. 
+  * Dostupno na: [https://www.paulamoraga.com/book-spatial/](https://www.paulamoraga.com/book-spatial/)
+* **Camara, G., Simoes, R., Souza, F., Carlos, F., Andrade, P., Ferreira, K., Brito, P., Assunção, A., & Pelletier, C. (2024).** *Satellite Image Time Series Analysis on Earth Observation Data Cubes*. 
+  * Dostupno na: [https://e-sensing.github.io/sitsbook/](https://e-sensing.github.io/sitsbook/)
+* **Sekulić, A., Kilibarda, M., Heuvelink, G. B., Nikolić, M., & Bajat, B. (2020).** *Random Forest Spatial Interpolation*. Remote Sensing, 12(10), 1687. 
+  * Dostupno na: [https://www.mdpi.com/2072-4292/12/10/1687](https://www.mdpi.com/2072-4292/12/10/1687)
+* **Kilibarda, M.** *Matematička kartografija*. 
+  * Dostupno na: [https://osgl.grf.bg.ac.rs/books/mk/](https://osgl.grf.bg.ac.rs/books/mk/)
+
+---
+
+::: {.callout-note appearance="simple" icon="false"}
 ## Napomena
-
-Nove prezentacije će biti dodavane tokom godine.
+Nove prezentacije i materijali će biti dodavani u kontinuitetu tokom godine.
+:::

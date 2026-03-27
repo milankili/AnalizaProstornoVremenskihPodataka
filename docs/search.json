@@ -368,20 +368,27 @@
     "href": "index.html",
     "title": "Analiza prostorno-vremenskih podataka",
     "section": "",
-    "text": "Materijali za predmet Analiza prostorno-vremenskih podataka.\n\n\n\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u.\nOtvori prezentaciju"
+    "text": "Ovde možete pronaći materijale za predmet Analiza prostorno-vremenskih podataka. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine."
   },
   {
     "objectID": "index.html#o-kursu",
     "href": "index.html#o-kursu",
     "title": "Analiza prostorno-vremenskih podataka",
     "section": "",
-    "text": "Materijali za predmet Analiza prostorno-vremenskih podataka.\n\n\n\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u.\nOtvori prezentaciju"
+    "text": "Ovde možete pronaći materijale za predmet Analiza prostorno-vremenskih podataka. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine."
   },
   {
-    "objectID": "index.html#napomena",
-    "href": "index.html#napomena",
+    "objectID": "index.html#prezentacije-i-vežbe",
+    "href": "index.html#prezentacije-i-vežbe",
     "title": "Analiza prostorno-vremenskih podataka",
-    "section": "Napomena",
-    "text": "Napomena\nNove prezentacije će biti dodavane tokom godine."
+    "section": "Prezentacije i vežbe",
+    "text": "Prezentacije i vežbe\n\n\n\n️ Tipovi prostornih podataka u R jeziku\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.\n Otvori prezentaciju"
+  },
+  {
+    "objectID": "index.html#preporučena-literatura",
+    "href": "index.html#preporučena-literatura",
+    "title": "Analiza prostorno-vremenskih podataka",
+    "section": "Preporučena literatura",
+    "text": "Preporučena literatura\nMaterijali i analize pokrivene na ovim predavanjima u velikoj meri se oslanjaju na sledeću literaturu:\n\nPebesma, E., & Bivand, R. (2023). Spatial Data Science: With Applications in R. Chapman and Hall/CRC.\n\nDostupno na: https://r-spatial.org/book/\n\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed.). O’Reilly Media.\n\nDostupno na: https://r4ds.hadley.nz/\n\nMoraga, P. (2023). Spatial Statistics for Data Science: Theory and Practice with R. Chapman and Hall/CRC.\n\nDostupno na: https://www.paulamoraga.com/book-spatial/\n\nCamara, G., Simoes, R., Souza, F., Carlos, F., Andrade, P., Ferreira, K., Brito, P., Assunção, A., & Pelletier, C. (2024). Satellite Image Time Series Analysis on Earth Observation Data Cubes.\n\nDostupno na: https://e-sensing.github.io/sitsbook/\n\nSekulić, A., Kilibarda, M., Heuvelink, G. B., Nikolić, M., & Bajat, B. (2020). Random Forest Spatial Interpolation. Remote Sensing, 12(10), 1687.\n\nDostupno na: https://www.mdpi.com/2072-4292/12/10/1687\n\nKilibarda, M. Matematička kartografija.\n\nDostupno na: https://osgl.grf.bg.ac.rs/books/mk/\n\n\n\n\n\n\n\n\n\nNapomena\n\n\n\nNove prezentacije i materijali će biti dodavani u kontinuitetu tokom godine."
   }
 ]
