@@ -6,6 +6,11 @@ title: "Analiza prostorno-vremenskih podataka"
 
 Ovde možete pronaći materijale za predmet **Analiza prostorno-vremenskih podataka**. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine.
 
+Vezbe su na linku [https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/vezbe](https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/vezbe)
+
+Podaci za vežbe i predavanja su dostupni na [https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/data](https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/data)
+
+
 ---
 
 ##  Prezentacije i vežbe
@@ -18,8 +23,7 @@ Ovde možete pronaći materijale za predmet **Analiza prostorno-vremenskih podat
 
 Uvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.
 
-<br>
-[Otvori prezentaciju](02_introSpatial/p1.html){.btn .btn-primary role="button"}
+
 :::
 :::
 

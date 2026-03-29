@@ -1,0 +1,309 @@
+---
+title: "Uvod u R"
+author: "Milan Kilibarda"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: show
+    code-tools: true
+    embed-resources: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+
+# Pitanja za manipulaciju vektorima
+
+1. **Kreiraj vektor celih brojeva od 1 do 100.**
+
+Pomoću `:` i `seq()` napravi dva vektora sa vrednostima od 1 do 100.
+Prikaži prvi vektor u konzoli.
+
+```{r}
+x1 <- 1:100
+x2 <- seq(1, 100)
+x1
+```
+
+------------------------------------------------------------------------
+
+2. **Izdvoji elemente iz vektora.**
+
+Iz `x <- c(10, 20, 30, 40, 50)`: - Izdvoji 2. i 4. element. - Izdvoji
+sve osim 3. elementa.
+
+```{r}
+2+2
+```
+
+Ovde nešto pojašnjavam. Da bi nam bilo **jasno**. Jer je bitno
+*vežbati*. ***Najbitnije!*** Lako se dodaje i [link](google.com). ....
+
+------------------------------------------------------------------------
+
+3. **Primeni logičko filtriranje.**
+
+U vektoru `x <- c(5, 10, 15, 20, 25)` izdvoji sve vrednosti veće od 12.
+
+------------------------------------------------------------------------
+
+4. **Promeni vrednosti u vektoru.**
+
+U `x <- c(1, 2, 3, 4, 5)`: - Promeni prvi element na 100. - Sve parne
+brojeve postavi na 0.
+
+------------------------------------------------------------------------
+
+5. **Izračunaj osnovne statistike.**
+
+Za `x <- c(3, 7, 2, 9, 5)` izračunaj: - Sumu, - Srednju vrednost, -
+Minimum i maksimum.
+
+------------------------------------------------------------------------
+
+6. **Kombinuj dva vektora.**
+
+Kombinuj `a <- c(1, 2, 3)` i `b <- c(4, 5, 6)` u jedan vektor dužine 6.
+
+------------------------------------------------------------------------
+
+7. **Sortiraj vektor.**
+
+Sortiraj `x <- c(5, 2, 8, 1, 9)`: - Rastuće, - Opadajuće.
+
+------------------------------------------------------------------------
+
+8. **Ukloni NA vrednosti.**
+
+U `x <- c(1, NA, 3, NA, 5)`: - Prebroj koliko ima `NA`, - Napravi novi
+vektor bez `NA` vrednosti.
+
+------------------------------------------------------------------------
+
+9. **Koristi funkciju which().**
+
+Za `x <- c(5, 10, 15, 20, 25)`: - Pronađi indekse elemenata većih od
+15, - Pronađi poziciju maksimalnog elementa.
+
+------------------------------------------------------------------------
+
+10. **Demonstriraj vektor recycling.**
+
+Za `x <- c(1, 2, 3, 4)` i `y <- c(10, 20)` izračunaj `x + y` i objasni
+rezultat.
+
+------------------------------------------------------------------------
+
+# Pitanja za manipulaciju listama
+
+1. **Kreiraj listu sa najmanje 4 elementa različitih tipova.**
+
+Na primer: numerički vektor, tekstualni vektor, logički vektor, i
+matrica.
+
+------------------------------------------------------------------------
+
+2. **Pristupi elementu liste pomoću `$` i `[[ ]]`.**
+
+Iz prethodno kreirane liste izdvoji: - Tekstualni vektor pomoću `$`, -
+Matricu pomoću `[[ ]]`.
+
+------------------------------------------------------------------------
+
+3. **Dodaj novi element u listu.**
+
+Dodaj novi element (npr. faktor) u postojeću listu.
+
+------------------------------------------------------------------------
+
+4. **Izmeni postojeći element u listi.**
+
+Promeni prvi element liste tako da sadrži vrednosti `100, 200, 300`.
+
+------------------------------------------------------------------------
+
+5. **Proveri strukturu liste.**
+
+Koristi `str()` i `length()` da pregledaš strukturu i broj elemenata u
+listi.
+
+------------------------------------------------------------------------
+
+6. **Iteriraj kroz elemente liste.**
+
+Napiši petlju koja prolazi kroz sve elemente liste i ispisuje njihov tip
+pomoću `typeof()`.
+
+------------------------------------------------------------------------
+
+7. **Primeni funkciju na svaki element liste.**
+
+Koristi `lapply()` da izračunaš dužinu (`length`) svakog elementa u
+listi.
+
+------------------------------------------------------------------------
+
+8. **Ugnežđene liste.**
+
+Kreiraj listu koja sadrži drugu listu. Pristupi nekom elementu iz
+ugnežđene liste.
+
+------------------------------------------------------------------------
+
+9. **Kombinuj dve liste.**
+
+Imenuj dve liste `a` i `b`, spoji ih u novu listu `c`.
+
+------------------------------------------------------------------------
+
+10. **Pretvori listu u data frame (ako je moguće).**
+
+Kreiraj listu gde svi elementi imaju istu dužinu i pokušaj da je
+pretvoriš u `data.frame` pomoću `as.data.frame()`.
+
+------------------------------------------------------------------------
+
+# Pitanja za manipulaciju data frame-ovima
+
+1. **Kreiraj jednostavan data frame.**
+
+Kreiraj data frame sa 3 kolone: 
+`Ime` (tekst), 
+`Godine` (brojevi),
+`Student` (logički), 
+`PrviUpis` (faktorski) 
+sa najmanje 10 redova.
+
+------------------------------------------------------------------------
+
+2. **Prikaži prve i poslednje redove.**
+
+Koristi `head()` i `tail()` da prikažeš prvih i poslednjih 3 reda.
+
+------------------------------------------------------------------------
+
+3. **Pristupi koloni.**
+
+Izdvoji kolonu `Godine` pomoću `$` i pomoću indeksiranja `[ , ]`.
+
+------------------------------------------------------------------------
+
+4. **Filtriraj redove prema uslovu.**
+
+Izdvoji sve redove gde je `Godine` veće od 22.
+
+------------------------------------------------------------------------
+
+5. **Dodaj novu kolonu.**
+
+Dodaj kolonu `Ocena` koja sadrži nasumične vrednosti od 6 do 10.
+
+------------------------------------------------------------------------
+
+6. **Izmeni postojeću kolonu.**
+
+Povećaj sve vrednosti u koloni `Godine` za 1.
+
+------------------------------------------------------------------------
+
+7. **Sortiraj data frame.**
+
+Sortiraj data frame prema koloni `Godine` opadajuće.
+
+------------------------------------------------------------------------
+
+8. **Grupisanje i agregacija.**\
+Koristi `aggregate()` da izračunaš prosečne `Godine` po vrednosti u
+koloni `Student`.
+
+------------------------------------------------------------------------
+
+9. **Uklanjanje redova/kolona.**
+
+Ukloni kolonu `Ocena` i izbriši prvi red.
+
+------------------------------------------------------------------------
+
+10. **Spoji dva data frame-a.**
+
+Kreiraj dva data frame-a sa istom strukturom i spoji ih redom pomoću
+`rbind()`.
+
+------------------------------------------------------------------------
+
+# Pitanja za funkcije, petlje i uslove
+
+1. **Napiši jednostavnu funkciju.**
+
+Napiši funkciju `pozdrav()` koja prima ime kao argument i vraća string
+„Zdravo, \[ime\]!“.
+
+------------------------------------------------------------------------
+
+2. **Funkcija sa više argumenata.**
+
+Napiši funkciju koja prima dva broja i vraća njihov maksimum.
+
+------------------------------------------------------------------------
+
+3. **Funkcija koja koristi if/else.**
+
+Napiši funkciju koja proverava da li je broj paran ili neparan i vraća
+odgovarajući string.
+
+------------------------------------------------------------------------
+
+4. **For petlja za sumiranje.**
+
+Koristi `for` petlju da izračunaš zbir kvadrata brojeva od 1 do 10.
+
+------------------------------------------------------------------------
+
+5. **While petlja za brojanje.**
+
+Koristi `while` petlju da brojiš od 1 do 5 i ispišeš svaki broj.
+
+------------------------------------------------------------------------
+
+6. **If/else u petlji.**
+
+Napiši `for` petlju koja prolazi kroz vektor i ispisuje „Veliko“ ako je
+broj veći od 50, ili „Malo“ ako nije.
+
+------------------------------------------------------------------------
+
+7. **FizzBuzz problem.**
+
+Implementiraj FizzBuzz od 1 do 20: 
+- za brojeve deljive sa 3 ispiši„Fizz“, 
+- za brojeve deljive sa 5 ispiši „Buzz“, 
+- za brojeve deljive sa 3 i 5 ispiši „FizzBuzz“, 
+- u ostalim slučajevima ispiši broj.
+
+------------------------------------------------------------------------
+
+8. **Apply funkcija.**
+
+Koristi `apply()` na `mtcars` da izračunaš srednju vrednost za svaku
+kolonu.
+
+------------------------------------------------------------------------
+
+9. **Funkcija koja vraća listu.**
+
+Napiši funkciju koja za dati vektor vraća listu sa minimumom, maksimumom
+i srednjom vrednošću.
+
+------------------------------------------------------------------------
+
+10. **Uslov sa više grana (if / else if / else).**
+
+Napiši funkciju koja prima broj i vraća: 
+- „Negativan“ ako je broj \<0, 
+- „Nula“ ako je broj == 0, 
+- „Pozitivan“ ako je broj \> 0.
+
+------------------------------------------------------------------------

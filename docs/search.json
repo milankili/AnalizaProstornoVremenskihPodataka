@@ -74,7 +74,7 @@
     "href": "00_R/Uvod_u_R.html#r-je-case-sensitive",
     "title": "Uvod u R",
     "section": "R je case sensitive\n",
-    "text": "R je case sensitive\n\n💡 Napomena:\nPromenljive u R-u su osetljive na veličinu slova (Case Sensitive), pa su Promenljiva i promenljiva dve različite promenljive.\n\nName &lt;- 1\nname &lt;- 0\nName + 1\n\n[1] 2\n\n\nSvi kreirani objekti se skladište u ovkiru radnog okruženja i mogu se pregledati komandom ls():\n\nls()\n\n[1] \"die\"             \"has_annotations\" \"name\"            \"Name\"           \n[5] \"pandoc_dir\"      \"quarto_bin_path\"\n\n\nUklanjanje odredenog objekta iz radnog okruženja/memorije vrši se komandom rm():\n\nrm(Name)"
+    "text": "R je case sensitive\n\n💡 Napomena:\nPromenljive u R-u su osetljive na veličinu slova (Case Sensitive), pa su Promenljiva i promenljiva dve različite promenljive.\n\nName &lt;- 1\nname &lt;- 0\nName + 1\n\n[1] 2\n\n\nSvi kreirani objekti se skladište u ovkiru radnog okruženja i mogu se pregledati komandom ls():\n\nls()\n\n[1] \"die\"             \"has_annotations\" \"name\"            \"Name\"           \n\n\nUklanjanje odredenog objekta iz radnog okruženja/memorije vrši se komandom rm():\n\nrm(Name)"
   },
   {
     "objectID": "00_R/Uvod_u_R.html#funkcije-u-r-u",
@@ -88,7 +88,7 @@
     "href": "00_R/Uvod_u_R.html#funkcije-u-r-u---simulacija-bacanja-kocke",
     "title": "Uvod u R",
     "section": "📊 Funkcije u R-u - simulacija bacanja kocke",
-    "text": "📊 Funkcije u R-u - simulacija bacanja kocke\n\n🎲 Simulacija bacanja kockice: Funkcija sample omogućava nasumično biranje elemenata.\n\n\ndie &lt;- 1:6                     # Definisanje vektora (kockica sa 6 strana)\nsample(x = die, size = 1)      # Nasumično biranje jednog broja\n\n[1] 5\n\n\n💡 Napomena:\n\n\nsample() služi za uzorkovanje iz vektora."
+    "text": "📊 Funkcije u R-u - simulacija bacanja kocke\n\n🎲 Simulacija bacanja kockice: Funkcija sample omogućava nasumično biranje elemenata.\n\n\ndie &lt;- 1:6                     # Definisanje vektora (kockica sa 6 strana)\nsample(x = die, size = 1)      # Nasumično biranje jednog broja\n\n[1] 3\n\n\n💡 Napomena:\n\n\nsample() služi za uzorkovanje iz vektora."
   },
   {
     "objectID": "00_R/Uvod_u_R.html#help",
@@ -109,14 +109,14 @@
     "href": "00_R/Uvod_u_R.html#sintaksa-funkcije",
     "title": "Uvod u R",
     "section": "Sintaksa funkcije",
-    "text": "Sintaksa funkcije\nFunkcija se kreira pomoću ključne reči function() i vitičastih zagrada {}:\nime_funkcije &lt;- function(argumenti) {\n  # Telo funkcije\n  return(rezultat)  # Povratna vrednost\n}\nNa primer, funkcija koja simulira bacanje dve kockice i sumiranje rezultata se može kreirati na sledeci nacin:\n\nroll &lt;- function() {\n  die &lt;- 1:6\n  dice &lt;- sample(die, size = 2, replace = TRUE)\n  sum(dice)\n}\nroll()\n\n[1] 9\n\n\nKljučne napomene:\n\nOva funkcija nema argumente – koristi fiksne vrednosti.\nFunkcija sample() služi za nasumično uzorkovanje.\nArgument replace = TRUE omogućava ponavljanje vrednosti."
+    "text": "Sintaksa funkcije\nFunkcija se kreira pomoću ključne reči function() i vitičastih zagrada {}:\nime_funkcije &lt;- function(argumenti) {\n  # Telo funkcije\n  return(rezultat)  # Povratna vrednost\n}\nNa primer, funkcija koja simulira bacanje dve kockice i sumiranje rezultata se može kreirati na sledeci nacin:\n\nroll &lt;- function() {\n  die &lt;- 1:6\n  dice &lt;- sample(die, size = 2, replace = TRUE)\n  sum(dice)\n}\nroll()\n\n[1] 8\n\n\nKljučne napomene:\n\nOva funkcija nema argumente – koristi fiksne vrednosti.\nFunkcija sample() služi za nasumično uzorkovanje.\nArgument replace = TRUE omogućava ponavljanje vrednosti."
   },
   {
     "objectID": "00_R/Uvod_u_R.html#argumenti-funkcije",
     "href": "00_R/Uvod_u_R.html#argumenti-funkcije",
     "title": "Uvod u R",
     "section": "Argumenti funkcije",
-    "text": "Argumenti funkcije\nArgumenti funkcije su promenljive od kojih zavisi rezultat izvršavanja funkcije, i definišu se u okviru operatora function().\nNa primer, zamislimo da kockica nema vrednosti od 1 do 6, nego proizvoljnih šest vrednosti koje su definisane pravilima igre. U tom slučaju, mora se ostaviti mogućnost za definisanje vrednosti.\n\nroll2 &lt;- function(dice) {\n  dice &lt;- sample(dice, size = 2, replace = TRUE)\n  sum_dice &lt;- sum(dice)\n  return(sum_dice) #  povratna vrednost\n}\n\nroll2(dice = 2:8) # bacanje 2 kockice koje imaju vrednosti od 2 do 8, ne 1 do 6\n\n[1] 10"
+    "text": "Argumenti funkcije\nArgumenti funkcije su promenljive od kojih zavisi rezultat izvršavanja funkcije, i definišu se u okviru operatora function().\nNa primer, zamislimo da kockica nema vrednosti od 1 do 6, nego proizvoljnih šest vrednosti koje su definisane pravilima igre. U tom slučaju, mora se ostaviti mogućnost za definisanje vrednosti.\n\nroll2 &lt;- function(dice) {\n  dice &lt;- sample(dice, size = 2, replace = TRUE)\n  sum_dice &lt;- sum(dice)\n  return(sum_dice) #  povratna vrednost\n}\n\nroll2(dice = 2:8) # bacanje 2 kockice koje imaju vrednosti od 2 do 8, ne 1 do 6\n\n[1] 9"
   },
   {
     "objectID": "00_R/Uvod_u_R.html#r-paketi",
@@ -193,7 +193,7 @@
     "href": "00_R/Uvod_u_R.html#atributi-dates-i-times",
     "title": "Uvod u R",
     "section": "Atributi (Dates i times)",
-    "text": "Atributi (Dates i times)\n\nPostojanje atributa class omogućava predstavljanje dodatnih tipova podataka, koji su različiti od osnovnih tipova kao što su double, integer, character itd.\nKarakterističan primer je skladištenje informacija o vremenu koristeći POSIXct klasu, koja predstavlja datum i vreme kao broj sekundi koje su protekle od 1. januara 1970. godine.\n\n\nvreme.sad &lt;- Sys.time()\nvreme.sad\n\n[1] \"2026-03-29 10:50:40 CEST\"\n\ntypeof(vreme.sad)\n\n[1] \"double\"\n\nclass(vreme.sad)\n\n[1] \"POSIXct\" \"POSIXt\""
+    "text": "Atributi (Dates i times)\n\nPostojanje atributa class omogućava predstavljanje dodatnih tipova podataka, koji su različiti od osnovnih tipova kao što su double, integer, character itd.\nKarakterističan primer je skladištenje informacija o vremenu koristeći POSIXct klasu, koja predstavlja datum i vreme kao broj sekundi koje su protekle od 1. januara 1970. godine.\n\n\nvreme.sad &lt;- Sys.time()\nvreme.sad\n\n[1] \"2026-03-29 11:58:10 CEST\"\n\ntypeof(vreme.sad)\n\n[1] \"double\"\n\nclass(vreme.sad)\n\n[1] \"POSIXct\" \"POSIXt\""
   },
   {
     "objectID": "00_R/Uvod_u_R.html#faktorski-podaci-u-r-u",
@@ -795,21 +795,21 @@
     "href": "index.html",
     "title": "Analiza prostorno-vremenskih podataka",
     "section": "",
-    "text": "Ovde možete pronaći materijale za predmet Analiza prostorno-vremenskih podataka. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine."
+    "text": "Ovde možete pronaći materijale za predmet Analiza prostorno-vremenskih podataka. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine.\nVezbe su na linku https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/vezbe\nPodaci za vežbe i predavanja su dostupni na https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/data"
   },
   {
     "objectID": "index.html#o-kursu",
     "href": "index.html#o-kursu",
     "title": "Analiza prostorno-vremenskih podataka",
     "section": "",
-    "text": "Ovde možete pronaći materijale za predmet Analiza prostorno-vremenskih podataka. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine."
+    "text": "Ovde možete pronaći materijale za predmet Analiza prostorno-vremenskih podataka. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine.\nVezbe su na linku https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/vezbe\nPodaci za vežbe i predavanja su dostupni na https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/data"
   },
   {
     "objectID": "index.html#prezentacije-i-vežbe",
     "href": "index.html#prezentacije-i-vežbe",
     "title": "Analiza prostorno-vremenskih podataka",
     "section": "Prezentacije i vežbe",
-    "text": "Prezentacije i vežbe\n\n\n\n️ Tipovi prostornih podataka u R jeziku\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.\n Otvori prezentaciju\n\n\n\n\n\n\n️Uvod u R\nUvodna prezentacija za R.\n Otvori prezentaciju"
+    "text": "Prezentacije i vežbe\n\n\n\n️ Tipovi prostornih podataka u R jeziku\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.\n\n\n\n\n\n\n️Uvod u R\nUvodna prezentacija za R.\n Otvori prezentaciju"
   },
   {
     "objectID": "index.html#preporučena-literatura",
@@ -817,12 +817,5 @@
     "title": "Analiza prostorno-vremenskih podataka",
     "section": "Preporučena literatura",
     "text": "Preporučena literatura\nMaterijali i analize pokrivene na ovim predavanjima u velikoj meri se oslanjaju na sledeću literaturu:\n\nPebesma, E., & Bivand, R. (2023). Spatial Data Science: With Applications in R. Chapman and Hall/CRC.\n\nDostupno na: https://r-spatial.org/book/\n\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed.). O’Reilly Media.\n\nDostupno na: https://r4ds.hadley.nz/\n\nMoraga, P. (2023). Spatial Statistics for Data Science: Theory and Practice with R. Chapman and Hall/CRC.\n\nDostupno na: https://www.paulamoraga.com/book-spatial/\n\nCamara, G., Simoes, R., Souza, F., Carlos, F., Andrade, P., Ferreira, K., Brito, P., Assunção, A., & Pelletier, C. (2024). Satellite Image Time Series Analysis on Earth Observation Data Cubes.\n\nDostupno na: https://e-sensing.github.io/sitsbook/\n\nSekulić, A., Kilibarda, M., Heuvelink, G. B., Nikolić, M., & Bajat, B. (2020). Random Forest Spatial Interpolation. Remote Sensing, 12(10), 1687.\n\nDostupno na: https://www.mdpi.com/2072-4292/12/10/1687\n\nKilibarda, M. Matematička kartografija.\n\nDostupno na: https://osgl.grf.bg.ac.rs/books/mk/\n\n\n\n\n\n\n\n\n\nNapomena\n\n\n\nNove prezentacije i materijali će biti dodavani u kontinuitetu tokom godine."
-  },
-  {
-    "objectID": "vezbe/Rintro.html",
-    "href": "vezbe/Rintro.html",
-    "title": "Uvod u R",
-    "section": "",
-    "text": "Pitanja za manipulaciju vektorima\n\nKreiraj vektor celih brojeva od 1 do 100.\n\nPomoću : i seq() napravi dva vektora sa vrednostima od 1 do 100. Prikaži prvi vektor u konzoli.\n\n\nCode\nx1 &lt;- 1:100\nx2 &lt;- seq(1, 100)\nx1\n\n\n  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18\n [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36\n [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54\n [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72\n [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90\n [91]  91  92  93  94  95  96  97  98  99 100\n\n\n\n\nIzdvoji elemente iz vektora.\n\nIz x &lt;- c(10, 20, 30, 40, 50): - Izdvoji 2. i 4. element. - Izdvoji sve osim 3. elementa.\n\n\nCode\n2+2\n\n\n[1] 4\n\n\nOvde nešto pojašnjavam. Da bi nam bilo jasno. Jer je bitno vežbati. Najbitnije! Lako se dodaje i link. ….\n\n\nPrimeni logičko filtriranje.\n\nU vektoru x &lt;- c(5, 10, 15, 20, 25) izdvoji sve vrednosti veće od 12.\n\n\nPromeni vrednosti u vektoru.\n\nU x &lt;- c(1, 2, 3, 4, 5): - Promeni prvi element na 100. - Sve parne brojeve postavi na 0.\n\n\nIzračunaj osnovne statistike.\n\nZa x &lt;- c(3, 7, 2, 9, 5) izračunaj: - Sumu, - Srednju vrednost, - Minimum i maksimum.\n\n\nKombinuj dva vektora.\n\nKombinuj a &lt;- c(1, 2, 3) i b &lt;- c(4, 5, 6) u jedan vektor dužine 6.\n\n\nSortiraj vektor.\n\nSortiraj x &lt;- c(5, 2, 8, 1, 9): - Rastuće, - Opadajuće.\n\n\nUkloni NA vrednosti.\n\nU x &lt;- c(1, NA, 3, NA, 5): - Prebroj koliko ima NA, - Napravi novi vektor bez NA vrednosti.\n\n\nKoristi funkciju which().\n\nZa x &lt;- c(5, 10, 15, 20, 25): - Pronađi indekse elemenata većih od 15, - Pronađi poziciju maksimalnog elementa.\n\n\nDemonstriraj vektor recycling.\n\nZa x &lt;- c(1, 2, 3, 4) i y &lt;- c(10, 20) izračunaj x + y i objasni rezultat.\n\n\n\nPitanja za manipulaciju listama\n\nKreiraj listu sa najmanje 4 elementa različitih tipova.\n\nNa primer: numerički vektor, tekstualni vektor, logički vektor, i matrica.\n\n\nPristupi elementu liste pomoću $ i [[ ]].\n\nIz prethodno kreirane liste izdvoji: - Tekstualni vektor pomoću $, - Matricu pomoću [[ ]].\n\n\nDodaj novi element u listu.\n\nDodaj novi element (npr. faktor) u postojeću listu.\n\n\nIzmeni postojeći element u listi.\n\nPromeni prvi element liste tako da sadrži vrednosti 100, 200, 300.\n\n\nProveri strukturu liste.\n\nKoristi str() i length() da pregledaš strukturu i broj elemenata u listi.\n\n\nIteriraj kroz elemente liste.\n\nNapiši petlju koja prolazi kroz sve elemente liste i ispisuje njihov tip pomoću typeof().\n\n\nPrimeni funkciju na svaki element liste.\n\nKoristi lapply() da izračunaš dužinu (length) svakog elementa u listi.\n\n\nUgnežđene liste.\n\nKreiraj listu koja sadrži drugu listu. Pristupi nekom elementu iz ugnežđene liste.\n\n\nKombinuj dve liste.\n\nImenuj dve liste a i b, spoji ih u novu listu c.\n\n\nPretvori listu u data frame (ako je moguće).\n\nKreiraj listu gde svi elementi imaju istu dužinu i pokušaj da je pretvoriš u data.frame pomoću as.data.frame().\n\n\n\nPitanja za manipulaciju data frame-ovima\n\nKreiraj jednostavan data frame.\n\nKreiraj data frame sa 3 kolone: Ime (tekst), Godine (brojevi), Student (logički), PrviUpis (faktorski) sa najmanje 10 redova.\n\n\nPrikaži prve i poslednje redove.\n\nKoristi head() i tail() da prikažeš prvih i poslednjih 3 reda.\n\n\nPristupi koloni.\n\nIzdvoji kolonu Godine pomoću $ i pomoću indeksiranja [ , ].\n\n\nFiltriraj redove prema uslovu.\n\nIzdvoji sve redove gde je Godine veće od 22.\n\n\nDodaj novu kolonu.\n\nDodaj kolonu Ocena koja sadrži nasumične vrednosti od 6 do 10.\n\n\nIzmeni postojeću kolonu.\n\nPovećaj sve vrednosti u koloni Godine za 1.\n\n\nSortiraj data frame.\n\nSortiraj data frame prema koloni Godine opadajuće.\n\n\nGrupisanje i agregacija.\nKoristi aggregate() da izračunaš prosečne Godine po vrednosti u koloni Student.\n\n\n\nUklanjanje redova/kolona.\n\nUkloni kolonu Ocena i izbriši prvi red.\n\n\nSpoji dva data frame-a.\n\nKreiraj dva data frame-a sa istom strukturom i spoji ih redom pomoću rbind().\n\n\n\nPitanja za funkcije, petlje i uslove\n\nNapiši jednostavnu funkciju.\n\nNapiši funkciju pozdrav() koja prima ime kao argument i vraća string „Zdravo, [ime]!“.\n\n\nFunkcija sa više argumenata.\n\nNapiši funkciju koja prima dva broja i vraća njihov maksimum.\n\n\nFunkcija koja koristi if/else.\n\nNapiši funkciju koja proverava da li je broj paran ili neparan i vraća odgovarajući string.\n\n\nFor petlja za sumiranje.\n\nKoristi for petlju da izračunaš zbir kvadrata brojeva od 1 do 10.\n\n\nWhile petlja za brojanje.\n\nKoristi while petlju da brojiš od 1 do 5 i ispišeš svaki broj.\n\n\nIf/else u petlji.\n\nNapiši for petlju koja prolazi kroz vektor i ispisuje „Veliko“ ako je broj veći od 50, ili „Malo“ ako nije.\n\n\nFizzBuzz problem.\n\nImplementiraj FizzBuzz od 1 do 20: - za brojeve deljive sa 3 ispiši„Fizz“, - za brojeve deljive sa 5 ispiši „Buzz“, - za brojeve deljive sa 3 i 5 ispiši „FizzBuzz“, - u ostalim slučajevima ispiši broj.\n\n\nApply funkcija.\n\nKoristi apply() na mtcars da izračunaš srednju vrednost za svaku kolonu.\n\n\nFunkcija koja vraća listu.\n\nNapiši funkciju koja za dati vektor vraća listu sa minimumom, maksimumom i srednjom vrednošću.\n\n\nUslov sa više grana (if / else if / else).\n\nNapiši funkciju koja prima broj i vraća: - „Negativan“ ako je broj &lt;0, - „Nula“ ako je broj == 0, - „Pozitivan“ ako je broj &gt; 0."
   }
 ]

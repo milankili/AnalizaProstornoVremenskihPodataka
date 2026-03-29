@@ -1,6 +1,12 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "!vezbe/**"
+
+  resources:
+    - vezbe/
 
 website:
   title: "Analiza prostorno-vremenskih podataka"
@@ -17,3 +23,4 @@ format:
     theme: cosmo
     toc: false
     smooth-scroll: true
+  
