@@ -4,9 +4,11 @@ project:
   render:
     - "*.qmd"
     - "!vezbe/**"
+    - "!01_tidyverse/**"
 
   resources:
     - vezbe/
+    - 01_tidyverse/
 
 website:
   title: "Analiza prostorno-vremenskih podataka"

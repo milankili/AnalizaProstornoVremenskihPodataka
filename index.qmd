@@ -23,6 +23,8 @@ Podaci za vežbe i predavanja su dostupni na [https://github.com/milankili/Anali
 
 Uvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.
 
+<br>
+[Otvori prezentaciju]("02_introSpatial/p1.html"){.btn .btn-primary role="button"}
 
 :::
 :::
@@ -42,6 +44,30 @@ Uvodna prezentacija za R.
 
 <br>
 [Otvori prezentaciju](00_R/Uvod_u_R.html){.btn .btn-primary role="button"}
+:::
+:::
+
+:::
+
+
+:::
+:::
+
+:::
+
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm .p-3}
+
+
+### ️Uvod  u Tidvyverse 
+
+Uvodna prezentacija za Tidvyverse. U ovoj prezentaciji su predstavljeni ključni paketi poput ggplot2, za vizualizaciju, dplyr i tidyr, za manipulaciju, kao i readr, za uvoz podataka.
+
+<br>
+[Otvori prezentaciju](01_tidyverse/tidyverse.html){.btn .btn-primary role="button"}
 :::
 :::
 
