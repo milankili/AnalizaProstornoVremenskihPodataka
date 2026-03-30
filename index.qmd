@@ -13,12 +13,13 @@ Podaci za vežbe i predavanja su dostupni na [https://github.com/milankili/Anali
 
 ---
 
-##  Prezentacije i vežbe
+## Prezentacije 
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100 .shadow-sm .p-3}
+
 ### ️ Tipovi prostornih podataka u R jeziku
 
 Uvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.
@@ -29,14 +30,8 @@ Uvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim pake
 :::
 :::
 
-:::
-
-
-::: {.grid}
-
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100 .shadow-sm .p-3}
-
 
 ### ️Uvod  u R 
 
@@ -48,20 +43,12 @@ Uvodna prezentacija za R.
 :::
 :::
 
-:::
-
-
-
-
-::: {.grid}
-
 ::: {.g-col-12 .g-col-md-6}
 ::: {.card .h-100 .shadow-sm .p-3}
 
+### ️Uvod  u Tidyverse 
 
-### ️Uvod  u Tidvyverse 
-
-Uvodna prezentacija za Tidvyverse. U ovoj prezentaciji su predstavljeni ključni paketi poput ggplot2, za vizualizaciju, dplyr i tidyr, za manipulaciju, kao i readr, za uvoz podataka.
+Uvodna prezentacija za Tidyverse. U ovoj prezentaciji su predstavljeni ključni paketi poput ggplot2, za vizualizaciju, dplyr i tidyr, za manipulaciju, kao i readr, za uvoz podataka.
 
 <br>
 [Otvori prezentaciju](01_tidyverse/tidyverse.html){.btn .btn-primary role="button"}

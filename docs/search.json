@@ -14,11 +14,11 @@
     "text": "Ovde možete pronaći materijale za predmet Analiza prostorno-vremenskih podataka. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine.\nVezbe su na linku https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/vezbe\nPodaci za vežbe i predavanja su dostupni na https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/data"
   },
   {
-    "objectID": "index.html#prezentacije-i-vežbe",
-    "href": "index.html#prezentacije-i-vežbe",
+    "objectID": "index.html#prezentacije",
+    "href": "index.html#prezentacije",
     "title": "Analiza prostorno-vremenskih podataka",
-    "section": "Prezentacije i vežbe",
-    "text": "Prezentacije i vežbe\n\n\n\n️ Tipovi prostornih podataka u R jeziku\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.\n Otvori prezentaciju\n\n\n\n\n\n\n️Uvod u R\nUvodna prezentacija za R.\n Otvori prezentaciju\n\n\n\n\n\n\n️Uvod u Tidvyverse\nUvodna prezentacija za Tidvyverse. U ovoj prezentaciji su predstavljeni ključni paketi poput ggplot2, za vizualizaciju, dplyr i tidyr, za manipulaciju, kao i readr, za uvoz podataka.\n Otvori prezentaciju"
+    "section": "Prezentacije",
+    "text": "Prezentacije\n\n\n\n️ Tipovi prostornih podataka u R jeziku\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.\n Otvori prezentaciju\n\n\n\n\n️Uvod u R\nUvodna prezentacija za R.\n Otvori prezentaciju\n\n\n\n\n️Uvod u Tidyverse\nUvodna prezentacija za Tidyverse. U ovoj prezentaciji su predstavljeni ključni paketi poput ggplot2, za vizualizaciju, dplyr i tidyr, za manipulaciju, kao i readr, za uvoz podataka.\n Otvori prezentaciju"
   },
   {
     "objectID": "index.html#preporučena-literatura",
@@ -116,7 +116,7 @@
     "href": "00_R/Uvod_u_R.html#funkcije-u-r-u---simulacija-bacanja-kocke",
     "title": "Uvod u R",
     "section": "📊 Funkcije u R-u - simulacija bacanja kocke",
-    "text": "📊 Funkcije u R-u - simulacija bacanja kocke\n\n🎲 Simulacija bacanja kockice: Funkcija sample omogućava nasumično biranje elemenata.\n\n\ndie &lt;- 1:6                     # Definisanje vektora (kockica sa 6 strana)\nsample(x = die, size = 1)      # Nasumično biranje jednog broja\n\n[1] 5\n\n\n💡 Napomena:\n\n\nsample() služi za uzorkovanje iz vektora."
+    "text": "📊 Funkcije u R-u - simulacija bacanja kocke\n\n🎲 Simulacija bacanja kockice: Funkcija sample omogućava nasumično biranje elemenata.\n\n\ndie &lt;- 1:6                     # Definisanje vektora (kockica sa 6 strana)\nsample(x = die, size = 1)      # Nasumično biranje jednog broja\n\n[1] 4\n\n\n💡 Napomena:\n\n\nsample() služi za uzorkovanje iz vektora."
   },
   {
     "objectID": "00_R/Uvod_u_R.html#help",
@@ -144,7 +144,7 @@
     "href": "00_R/Uvod_u_R.html#argumenti-funkcije",
     "title": "Uvod u R",
     "section": "Argumenti funkcije",
-    "text": "Argumenti funkcije\nArgumenti funkcije su promenljive od kojih zavisi rezultat izvršavanja funkcije, i definišu se u okviru operatora function().\nNa primer, zamislimo da kockica nema vrednosti od 1 do 6, nego proizvoljnih šest vrednosti koje su definisane pravilima igre. U tom slučaju, mora se ostaviti mogućnost za definisanje vrednosti.\n\nroll2 &lt;- function(dice) {\n  dice &lt;- sample(dice, size = 2, replace = TRUE)\n  sum_dice &lt;- sum(dice)\n  return(sum_dice) #  povratna vrednost\n}\n\nroll2(dice = 2:8) # bacanje 2 kockice koje imaju vrednosti od 2 do 8, ne 1 do 6\n\n[1] 8"
+    "text": "Argumenti funkcije\nArgumenti funkcije su promenljive od kojih zavisi rezultat izvršavanja funkcije, i definišu se u okviru operatora function().\nNa primer, zamislimo da kockica nema vrednosti od 1 do 6, nego proizvoljnih šest vrednosti koje su definisane pravilima igre. U tom slučaju, mora se ostaviti mogućnost za definisanje vrednosti.\n\nroll2 &lt;- function(dice) {\n  dice &lt;- sample(dice, size = 2, replace = TRUE)\n  sum_dice &lt;- sum(dice)\n  return(sum_dice) #  povratna vrednost\n}\n\nroll2(dice = 2:8) # bacanje 2 kockice koje imaju vrednosti od 2 do 8, ne 1 do 6\n\n[1] 11"
   },
   {
     "objectID": "00_R/Uvod_u_R.html#r-paketi",
@@ -221,7 +221,7 @@
     "href": "00_R/Uvod_u_R.html#atributi-dates-i-times",
     "title": "Uvod u R",
     "section": "Atributi (Dates i times)",
-    "text": "Atributi (Dates i times)\n\nPostojanje atributa class omogućava predstavljanje dodatnih tipova podataka, koji su različiti od osnovnih tipova kao što su double, integer, character itd.\nKarakterističan primer je skladištenje informacija o vremenu koristeći POSIXct klasu, koja predstavlja datum i vreme kao broj sekundi koje su protekle od 1. januara 1970. godine.\n\n\nvreme.sad &lt;- Sys.time()\nvreme.sad\n\n[1] \"2026-03-30 18:08:57 CEST\"\n\ntypeof(vreme.sad)\n\n[1] \"double\"\n\nclass(vreme.sad)\n\n[1] \"POSIXct\" \"POSIXt\""
+    "text": "Atributi (Dates i times)\n\nPostojanje atributa class omogućava predstavljanje dodatnih tipova podataka, koji su različiti od osnovnih tipova kao što su double, integer, character itd.\nKarakterističan primer je skladištenje informacija o vremenu koristeći POSIXct klasu, koja predstavlja datum i vreme kao broj sekundi koje su protekle od 1. januara 1970. godine.\n\n\nvreme.sad &lt;- Sys.time()\nvreme.sad\n\n[1] \"2026-03-30 18:28:46 CEST\"\n\ntypeof(vreme.sad)\n\n[1] \"double\"\n\nclass(vreme.sad)\n\n[1] \"POSIXct\" \"POSIXt\""
   },
   {
     "objectID": "00_R/Uvod_u_R.html#faktorski-podaci-u-r-u",
@@ -389,14 +389,14 @@
     "href": "00_R/Uvod_u_R.html#kontrola-toka",
     "title": "Uvod u R",
     "section": "🔀 Kontrola toka",
-    "text": "🔀 Kontrola toka\nKontrola toka u R-u omogućava uslovno izvršavanje koda pomoću if, else if i else blokova.\n\n\nKontrola toka if-else\n\n\nif (logicki uslov) {\n  # Deo koda za slucaj TRUE\n} else {\n  # Deo koda za skucaj FALSE\n}\n\n\nPrimer\n\n# y vece od 10?\ny = sample(1:20, size = 1)\nif (y &gt; 10) {\n  print(\"Vece od 10\")\n} else {\n  print(\"Manje od 10\")\n}\n\n[1] \"Manje od 10\""
+    "text": "🔀 Kontrola toka\nKontrola toka u R-u omogućava uslovno izvršavanje koda pomoću if, else if i else blokova.\n\n\nKontrola toka if-else\n\n\nif (logicki uslov) {\n  # Deo koda za slucaj TRUE\n} else {\n  # Deo koda za skucaj FALSE\n}\n\n\nPrimer\n\n# y vece od 10?\ny = sample(1:20, size = 1)\nif (y &gt; 10) {\n  print(\"Vece od 10\")\n} else {\n  print(\"Manje od 10\")\n}\n\n[1] \"Vece od 10\""
   },
   {
     "objectID": "00_R/Uvod_u_R.html#kontrola-toka-else-if",
     "href": "00_R/Uvod_u_R.html#kontrola-toka-else-if",
     "title": "Uvod u R",
     "section": "Kontrola toka else if\n",
-    "text": "Kontrola toka else if\n\n\n\nKontrola toka else if\n\n\nif (logicki_uslov_1) {\n  # Deo koda za slucaj TRUE\n} else if (logicki_uslov_2) {\n  # Deo koda kada je prvi uslov FALSE \n  # ali je drugi    uslov TRUE\n} else {\n  # Deo koda kada su oba uslova FALSE\n}\n\n\nPrimer\n\n# y vece od 1 ali manje od 10?\n\nif (y &gt; 1) {\n  print(\"Vece od 1\")\n} else if (y &lt; 10) {\n  print(\"vece od 1 ali manje od 10\")\n} else {\n  print(\"Broj je veci od 10\")\n}\n\n[1] \"vece od 1 ali manje od 10\""
+    "text": "Kontrola toka else if\n\n\n\nKontrola toka else if\n\n\nif (logicki_uslov_1) {\n  # Deo koda za slucaj TRUE\n} else if (logicki_uslov_2) {\n  # Deo koda kada je prvi uslov FALSE \n  # ali je drugi    uslov TRUE\n} else {\n  # Deo koda kada su oba uslova FALSE\n}\n\n\nPrimer\n\n# y vece od 1 ali manje od 10?\n\nif (y &gt; 1) {\n  print(\"Vece od 1\")\n} else if (y &lt; 10) {\n  print(\"vece od 1 ali manje od 10\")\n} else {\n  print(\"Broj je veci od 10\")\n}\n\n[1] \"Vece od 1\""
   },
   {
     "objectID": "00_R/Uvod_u_R.html#petlje",
