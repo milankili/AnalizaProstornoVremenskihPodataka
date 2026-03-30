@@ -44,16 +44,13 @@ Uvodna prezentacija za R.
 
 <br>
 [Otvori prezentaciju](00_R/Uvod_u_R.html){.btn .btn-primary role="button"}
-:::
-:::
-
-:::
-
 
 :::
 :::
 
 :::
+
+
 
 
 ::: {.grid}
@@ -68,6 +65,7 @@ Uvodna prezentacija za Tidvyverse. U ovoj prezentaciji su predstavljeni ključni
 
 <br>
 [Otvori prezentaciju](01_tidyverse/tidyverse.html){.btn .btn-primary role="button"}
+
 :::
 :::
 

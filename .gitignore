@@ -8,3 +8,5 @@ deploy.bat
 .Rproj.user/
 .quarto/
 /.quarto/
+
+**/*.quarto_ipynb
