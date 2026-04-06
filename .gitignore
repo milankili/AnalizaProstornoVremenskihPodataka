@@ -1,7 +1,9 @@
 02_introSpatial/
 00_R/
+01_tidyverse/
 !docs/02_introSpatial/
 !docs/00_R/
+!docs/01_tidyverse/
 .Rhistory
 .RData
 deploy.bat
