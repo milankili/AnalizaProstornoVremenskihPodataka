@@ -1,0 +1,1528 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Analiza prostorno-vremenskih podataka",
+    "section": "",
+    "text": "Ovde možete pronaći materijale za predmet Analiza prostorno-vremenskih podataka. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine.\nVezbe su na linku https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/vezbe\nPodaci za vežbe i predavanja su dostupni na https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/data"
+  },
+  {
+    "objectID": "index.html#o-kursu",
+    "href": "index.html#o-kursu",
+    "title": "Analiza prostorno-vremenskih podataka",
+    "section": "",
+    "text": "Ovde možete pronaći materijale za predmet Analiza prostorno-vremenskih podataka. Ovaj materijal je namenjen za Master studije geoinformatike na Građevinskom fakultetu u Beogradu, 2026. godine.\nVezbe su na linku https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/vezbe\nPodaci za vežbe i predavanja su dostupni na https://github.com/milankili/AnalizaProstornoVremenskihPodataka/tree/main/data"
+  },
+  {
+    "objectID": "index.html#prezentacije",
+    "href": "index.html#prezentacije",
+    "title": "Analiza prostorno-vremenskih podataka",
+    "section": "Prezentacije",
+    "text": "Prezentacije\n\n\n\n️ Tipovi prostornih podataka u R jeziku\nUvodna prezentacija sa pregledom tipova prostornih podataka u R-u, osnovnim paketima i strukturama.\n Otvori prezentaciju\n\n\n\n\n️Uvod u R\nUvodna prezentacija za R.\n Otvori prezentaciju\n\n\n\n\n️Uvod u Tidyverse\nUvodna prezentacija za Tidyverse. U ovoj prezentaciji su predstavljeni ključni paketi poput ggplot2, za vizualizaciju, dplyr i tidyr, za manipulaciju, kao i readr, za uvoz podataka.\n Otvori prezentaciju\n\n\n\n\n️Uvod u sf paket\nOvaj izvor predstavlja sveobuhvatan vodič za korišćenje sf paketa u programskom jeziku R, koji je dizajniran za efikasan rad sa prostornim vektorskim podacima. Prezentacija pokriva ključne funkcionalnosti sf paketa, uključujući kreiranje, manipulaciju i analizu prostornih objekata, kao i integraciju sa drugim R paketima za prostornu analizu.\n Otvori prezentaciju"
+  },
+  {
+    "objectID": "index.html#preporučena-literatura",
+    "href": "index.html#preporučena-literatura",
+    "title": "Analiza prostorno-vremenskih podataka",
+    "section": "Preporučena literatura",
+    "text": "Preporučena literatura\nMaterijali i analize pokrivene na ovim predavanjima u velikoj meri se oslanjaju na sledeću literaturu:\n\nPebesma, E., & Bivand, R. (2023). Spatial Data Science: With Applications in R. Chapman and Hall/CRC.\n\nDostupno na: https://r-spatial.org/book/\n\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed.). O’Reilly Media.\n\nDostupno na: https://r4ds.hadley.nz/\n\nMoraga, P. (2023). Spatial Statistics for Data Science: Theory and Practice with R. Chapman and Hall/CRC.\n\nDostupno na: https://www.paulamoraga.com/book-spatial/\n\nCamara, G., Simoes, R., Souza, F., Carlos, F., Andrade, P., Ferreira, K., Brito, P., Assunção, A., & Pelletier, C. (2024). Satellite Image Time Series Analysis on Earth Observation Data Cubes.\n\nDostupno na: https://e-sensing.github.io/sitsbook/\n\nSekulić, A., Kilibarda, M., Heuvelink, G. B., Nikolić, M., & Bajat, B. (2020). Random Forest Spatial Interpolation. Remote Sensing, 12(10), 1687.\n\nDostupno na: https://www.mdpi.com/2072-4292/12/10/1687\n\nKilibarda, M. Matematička kartografija.\n\nDostupno na: https://osgl.grf.bg.ac.rs/books/mk/\n\n\n\n\n\n\n\n\n\nNoteNapomena\n\n\n\nNove prezentacije i materijali će biti dodavani u kontinuitetu tokom godine."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#info-grafik",
+    "href": "02_introSpatial/p1.html#info-grafik",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Info grafik",
+    "text": "Info grafik"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#video-pregled",
+    "href": "02_introSpatial/p1.html#video-pregled",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Video pregled",
+    "text": "Video pregled"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#sadržaj",
+    "href": "02_introSpatial/p1.html#sadržaj",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Sadržaj",
+    "text": "Sadržaj\n\n\n\n\n\nflowchart LR\n    A[Tipovi prostornih podataka] --&gt; B[Površinski podaci];\n    B --&gt; C[Vektorski];\n    B --&gt; D[Rasterski];\n    A --&gt; E[Geostatistički podaci];\n    A --&gt; F[Point pattern];\n    A --&gt; G[Prostorno vremenski podaci];\n    G --&gt; H[Površinski];\n    G --&gt; I[Geostatistički];\n    G --&gt; J[Point pattern];\n    A --&gt; K[Spatial functional data];\n    A --&gt; L[Podaci o kretanju - Mobility data];"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#uvod",
+    "href": "02_introSpatial/p1.html#uvod",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Uvod",
+    "text": "Uvod\nProstorni podaci se koriste u različitim oblastima za podršku donošenju odluka vezanih za:\n✅ Zaštitu životne sredine 🌱\n✅ Javno zdravlje 🏥\n✅ Ekologiju 🦅\n✅ Poljoprivredu 🌾\n✅ Urbanističko planiranje 🏙️\n✅ Ekonomiju i društvo 📈\nProstorni podaci omogućavaju analizu, modelovanje i vizualizaciju kako bi se doneli informisani zaključci i odluke."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#izvori-prostornih-podataka",
+    "href": "02_introSpatial/p1.html#izvori-prostornih-podataka",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "📡 Izvori prostornih podataka",
+    "text": "📡 Izvori prostornih podataka\nProstorni podaci dolaze iz različitih izvora koji omogućavaju praćenje, analizu i donošenje odluka.\n🔹 Daljinska detekcija 🛰️\n- Sateliti i dronovi omogućavaju snimanje korišćenja zemljišta i ekoloških promena.\n🔹 Monitoring stanice 🌡️\n- Beleže podatke o temperaturi, padavinama, kvalitetu vazduha i drugim ekološkim promenljivama.\n🔹 Ankete i istraživanja 📋\n- Sakupljaju informacije o društvenim, ekonomskim i zdravstvenim faktorima.\n🔹 Mobilni telefoni i društvene mreže 📱\n- Omogućavaju informacije o lokaciji, aktivnostima i kretanju korisnika.\nProstorni podaci iz ovih izvora igraju ključnu ulogu u analizi i donošenju strateških odluka."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#tipovi-prostornih-podataka",
+    "href": "02_introSpatial/p1.html#tipovi-prostornih-podataka",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🗺️ Tipovi prostornih podataka",
+    "text": "🗺️ Tipovi prostornih podataka\nProstorni podaci mogu se klasifikovati prema njihovoj strukturi i načinu reprezentacije.\n\n\n\n\n\nflowchart LR\n    A[Tipovi prostornih podataka] --&gt; B[Površinski podaci];\n    B --&gt; C[Vektorski];\n    B --&gt; D[Rasterski];\n    A --&gt; E[Geostatistički podaci];\n    A --&gt; F[Point pattern];\n    A --&gt; G[Prostorno vremenski podaci];\n    G --&gt; H[Površinski];\n    G --&gt; I[Geostatistički];\n    G --&gt; J[Point pattern];\n    A --&gt; K[Spatial functional data];\n    A --&gt; L[Podaci o kretanju - Mobility data];"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#površinski-podaci-areal-data-1",
+    "href": "02_introSpatial/p1.html#površinski-podaci-areal-data-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🗺️ Površinski podaci (Areal Data)",
+    "text": "🗺️ Površinski podaci (Areal Data)\nPovršinski podaci predstavljaju agregirana merenja u prostoru, organizovana prema oblastima, administrativnim jedinicama ili pikselima.\n🏛️ Kako nastaju površinski podaci?\n\n📌 Merenja se grupišu po predefinisanim oblastima (opštine, regije, klimatske zone…).\n📌 Mogu biti predstavljeni vektorski (poligoni) ili rasterski (pikseli).\n📌 Koriste se u različitim disciplinama kao što su epidemiologija, ekologija i klimatologija."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primeri-primene-površinskih-podataka",
+    "href": "02_introSpatial/p1.html#primeri-primene-površinskih-podataka",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Primeri primene površinskih podataka",
+    "text": "Primeri primene površinskih podataka\n📍 Prostorna epidemiologija 🏥\n- Slučajevi bolesti se agregiraju unutar administrativnih oblasti (npr. po opštinama).\n- Omogućava analizu širenja bolesti i javnozdravstvenih rizika.\n🌍 Daljinska detekcija 🛰️\n- Sateliti pružaju podatke o temperaturi, padavinama i vegetaciji na nivou piksela.\n- Koristi se za monitoring klimatskih promena, poljoprivredu i ekologiju."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#vektorski-vs.-rasterski-pristup",
+    "href": "02_introSpatial/p1.html#vektorski-vs.-rasterski-pristup",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "📊 Vektorski vs. Rasterski pristup\n",
+    "text": "📊 Vektorski vs. Rasterski pristup\n\n\n\n\n\n\n\n\nTip površinskih podataka\nOpis\nPrimeri\n\n\n\n🏙️ Vektorski\n\nPodaci su organizovani kao poligoni (opštine, regije)\nPopisna statistika, epidemiologija\n\n\n🌄 Rasterski\n\nProstorni podaci su predstavljeni mrežom piksela\nSatelitski snimci, klimatski modeli, DEM\n\n\n\n✅ Vektorski podaci su korisni kada je fokus na administrativnim ili političkim jedinicama.\n✅ Rasterski podaci su idealni za kontinualne varijable poput temperature i vlažnosti."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prikaz-broja-iznenadnih-smrti-odojčadi",
+    "href": "02_introSpatial/p1.html#prikaz-broja-iznenadnih-smrti-odojčadi",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🗺️ Prikaz broja iznenadnih smrti odojčadi",
+    "text": "🗺️ Prikaz broja iznenadnih smrti odojčadi\n\nPrikaz broja iznenadnih smrti odojčadi (Sudden Infant Death Syndrome - SIDS)\nu svakom okrugu Severne Karoline, SAD, za 1974. i 1979. godinu.\nOvi podaci su deo sf paketa (Pebesma, 2022) i koriste se za analizu prostorne distribucije smrtnosti odojčadi.\n\n\nlibrary(sf)\nlibrary(mapview)\nd &lt;- st_read(system.file(\"shape/nc.shp\", package = \"sf\"),\n             quiet = TRUE)\nmapview(d, zcol = \"SID74\")"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primer-površinskih-podatak-o-prihodima",
+    "href": "02_introSpatial/p1.html#primer-površinskih-podatak-o-prihodima",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🗺️ Primer površinskih podatak o prihodima",
+    "text": "🗺️ Primer površinskih podatak o prihodima\nPrikaz medijane prihoda domaćinstava po popisnim jedinicama u Distriktu Kolumbija,\nna osnovu podataka iz walker-data.\n📊 Ovi podaci omogućavaju:\n\n✅ Analizu prostorne raspodele prihoda među različitim oblastima.\n✅ Razumevanje ekonomskih razlika između popisnih jedinica.\n✅ Pomoć pri razvoju strategija za ekonomske politike i urbani razvoj."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primer-površinskih-podatak-o-prihodima-1",
+    "href": "02_introSpatial/p1.html#primer-površinskih-podatak-o-prihodima-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🗺️ Primer površinskih podatak o prihodima",
+    "text": "🗺️ Primer površinskih podatak o prihodima\n\nlibrary(tidycensus)\noptions(tigris_use_cache = TRUE)\ndc_income &lt;- get_acs(\n  geography = \"tract\", \n  variables = \"B19013_001\",\n  state = \"DC\", \n  year = 2020,\n  geometry = TRUE)\n\nmapview(dc_income, zcol=\"estimate\")"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primer-površinskih-podataka-dem",
+    "href": "02_introSpatial/p1.html#primer-površinskih-podataka-dem",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🌄 Primer površinskih podataka DEM",
+    "text": "🌄 Primer površinskih podataka DEM\nPrikaz nadmorske visine u ćelijama rastera koje pokrivaju Luksemburg, iz terra paketa (Hijmans, 2022).\nU ovom slučaju, sve oblasti su iste veličine, odgovaraju pikselima rastera.\n\nlibrary(terra)\nd &lt;- rast(system.file(\"ex/elev.tif\", package = \"terra\"))\nplot(d)"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primer-površinskih-podataka-zlatibor",
+    "href": "02_introSpatial/p1.html#primer-površinskih-podataka-zlatibor",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🌄 Primer površinskih podataka Zlatibor",
+    "text": "🌄 Primer površinskih podataka Zlatibor"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primer-površinskih-podataka-zlatibor-1",
+    "href": "02_introSpatial/p1.html#primer-površinskih-podataka-zlatibor-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🌄 Primer površinskih podataka Zlatibor",
+    "text": "🌄 Primer površinskih podataka Zlatibor\n\nlibrary(terra)\nlibrary(sf)\nlibrary(geodata)\n\n# alt = elevation_30s('SRB', path=tempdir() )\n# terra::res(alt)\n# 0.008333333 rezolucija oko 1km rezolucija \n# 0.008333333*pi/180*6377 km je 0.93 km\n\nalt = rast(\"/vsicurl/https://zenodo.org/record/6211553/files/copernicus_DSM_30arcsec_mood_bbox_epsg4326.tif\") \n# https://zenodo.org/record/6211553\nnames(alt) = \"h\"\nzlatibor = crop(alt, ext(19.65,19.75, 43.60, 43.75)) \n# meters * 1000 (scaled to Integer; example: value 23220 = 23.220 m a.s.l.)\nvalues(zlatibor) =  round(values(zlatibor)/1000)\n\npol = st_as_sf(as.polygons(zlatibor, dissolve=FALSE) )\nplot(zlatibor, col= terrain.colors(160,alpha=0.5) )\ncc = st_coordinates(st_centroid(st_geometry(pol)))\ntext(cc[, 1], cc[, 2], labels = paste( pol$h) , cex=0.4 )"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#geostatistički-podaci-1",
+    "href": "02_introSpatial/p1.html#geostatistički-podaci-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "📍 Geostatistički podaci",
+    "text": "📍 Geostatistički podaci\nGeostatistički podaci predstavljaju merenja koja su dostupna samo na određenim tačkama u prostoru.\nKoriste se za predviđanje vrednosti u nepoznatim lokacijama uzimajući u obzir prostornu autokorelaciju.\n🔬 Karakteristike geostatističkih podataka\n\n✅ Diskretni uzorci – merenja su dostupna samo na ograničenom broju lokacija.\n✅ Kontinuirani fenomeni – vrednosti između mernih tačaka moraju se modelovati ili interpolirati.\n✅ Prostorna autokorelacija – najčešće bliske lokacije imaju sličnije vrednosti nego udaljene tačke."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primer-zagađenje-vazduha",
+    "href": "02_introSpatial/p1.html#primer-zagađenje-vazduha",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🏭 Primer: Zagađenje vazduha\n",
+    "text": "🏭 Primer: Zagađenje vazduha\n\n📌 Problem: Želimo da predvidimo nivo zagađenja vazduha u gradovima na osnovu merenja sa stanica.\n📌 Rešenje:\n- Koristimo merenja sa postojećih mernih stanica.\n- Primenujemo geostatističke metode (npr. Kriging, IDW) za predikciju vrednosti na nepoznatim lokacijama.\n- Uzimamo u obzir prostornu autokorelaciju i ekološke faktore (vremenske uslove, nadmorsku visinu, industriju).\n📊 Ovi podaci se koriste u:\n\n📍 Meteorologiji (predikcija temperature, padavina)\n🏭 Ekologiji (zagađenje vazduha, kvaliteta vode)\n🚜 Poljoprivredi (vlaga u zemljištu, raspodela hranljivih materija)"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#geostatistički-podaci-primer-meuse",
+    "href": "02_introSpatial/p1.html#geostatistički-podaci-primer-meuse",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Geostatistički podaci primer meuse",
+    "text": "Geostatistički podaci primer meuse\nPrikaz koncentracije olova u gornjem sloju zemljišta (mg po kg zemljišta) na 155 lokacija uzetih na plavnoj ravnici reke Meuse, u blizini Steina, Holandija, dobijene iz sp paketa (Pebesma i Bivand, 2022).\n\nlibrary(sp)\nlibrary(sf)\nlibrary(mapview)\ndata(meuse)\nmeuse &lt;- st_as_sf(meuse, coords = c(\"x\", \"y\"), crs = 28992)\nmapview(meuse, zcol = \"lead\",  map.types = \"CartoDB.Voyager\")"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#geostatistički-podaci-primer-ekonometrija",
+    "href": "02_introSpatial/p1.html#geostatistički-podaci-primer-ekonometrija",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Geostatistički podaci primer ekonometrija",
+    "text": "Geostatistički podaci primer ekonometrija\nKarta prikazuje cenu po kvadratnom metru (Evra po kvadratnom metru) za specifičan skup stanova u Atini, Grčka, iz 2017. godine, preuzetu iz spData paketa (Bivand, Nowosad, i Lovelace, 2022).\n\nlibrary(spData)\nmapview(properties, zcol = \"prpsqm\")"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#tačkasti-obrasci-point-patterns-1",
+    "href": "02_introSpatial/p1.html#tačkasti-obrasci-point-patterns-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "📍 Tačkasti obrasci (Point Patterns)",
+    "text": "📍 Tačkasti obrasci (Point Patterns)\nTačkasti obrasci se javljaju kada analizirana varijabla odgovara lokaciji određenog događaja,\nkao što su požari u šumi, lokacije kriminalnih incidenata ili adrese obolelih osoba.\n🔎 Cilj analize tačkastih obrazaca\n\n✅ Razumevanje prostornog procesa koji generiše ove tačke.\n✅ Identifikacija prostorne strukture – da li se tačke grupišu, nasumično raspoređuju ili pokazuju pravilnost.\n✅ Pomoć pri predikciji budućih događaja i donošenju odluka zasnovanih na podacima."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primeri-tačkastih-obrazaca-u-praksi",
+    "href": "02_introSpatial/p1.html#primeri-tačkastih-obrazaca-u-praksi",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Primeri tačkastih obrazaca u praksi",
+    "text": "Primeri tačkastih obrazaca u praksi\n📌 Epidemiologija 🏥\n- Karte adresa obolelih osoba omogućavaju analizu prostorne distribucije bolesti.\n- Može se ispitivati prisustvo klastera u vezi sa ekološkim faktorima.\n📌 Ekologija 🌲🔥\n- Analiza lokacija požara u šumi pomaže u identifikaciji uzroka i sprečavanju budućih požara.\n- Omogućava razumevanje uticaja klime i ljudskih aktivnosti na požare.\n📌 Urbana geografija i kriminalistika 🚔\n- Prostorna analiza mesta kriminalnih incidenata može pomoći u planiranju policijskih patrola.\n- Identifikacija rizičnih zona i donošenje strategija za smanjenje kriminala."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#point-patterns-i-geovizualizacija",
+    "href": "02_introSpatial/p1.html#point-patterns-i-geovizualizacija",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Point patterns i geovizualizacija",
+    "text": "Point patterns i geovizualizacija\n\n\nEngleski akušer Džon Snou dokazao je da se kolera 1854. u Londonu širila zagađenom vodom sa pumpe u Broad ulici. Kartirao je adrese zaraženih.\nNjegova karta slučajeva oko pumpe postala je simbol javnog zdravlja, a uklanjanje ručke pumpe pomoglo je zaustavljanju epidemije.\nGeovizulizacija je omogućila jasan prikaz prostornih obrazaca i razumevanje problema."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#point-patterns-primer-šumski-požari",
+    "href": "02_introSpatial/p1.html#point-patterns-primer-šumski-požari",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Point patterns primer šumski požari",
+    "text": "Point patterns primer šumski požari\n\n\nPrimer prostornog tačkastog obrasca su požari u Castilla-La Manchi, Španija, između 1998. i 2007. godine, sadržani u clmfires podacima iz spatstat paketa (Baddeley, Turner i Rubak, 2022). Podaci clmfires predstavljaju označeni tačkasti obrazac sa informacijama o svakom požaru.\n\n\n# Učitavanje paketa za analizu tačkastih obrazaca\nlibrary(spatstat)\n# Ekstrahovanje godina iz datuma požara\nyr  &lt;- factor(format(marks(clmfires)$date, format=\"%Y\"))\n# Grupisanje požara po godinama\nX   &lt;- split(clmfires, f=yr)\n# Odabir godina za prikaz\nfAl &lt;- c(\"1998\", \"2007\")\n# Podešavanje margina grafika\npar(mar = c(1, 1, 2, 1))\n# Iscrtavanje požara za odabrane godine\nplot(X[fAl], use.marks=FALSE, main.panel=fAl, main=\"\", pch = \"+\")"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#šumski-požari-point-pattern",
+    "href": "02_introSpatial/p1.html#šumski-požari-point-pattern",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Šumski požari point pattern",
+    "text": "Šumski požari point pattern"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorno-vremenski-podaci-1",
+    "href": "02_introSpatial/p1.html#prostorno-vremenski-podaci-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "⏳ Prostorno-vremenski podaci",
+    "text": "⏳ Prostorno-vremenski podaci\nProstorno-vremenski podaci nastaju kada su informacije istovremeno prostorno i vremenski referencirane.\nMogu se posmatrati kao vremenske agregacije ili vremenski preseci prostorno-vremenskog procesa.\n🔑 Zašto su prostorno-vremenski podaci važni?\n\n✅ Omogućavaju analizu promena kroz vreme i prostor.\n✅ Koriste se za predviđanje i donošenje odluka u realnom vremenu.\n✅ Ključni su u meteorologiji, ekologiji, urbanizmu i javnom zdravlju."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primeri-prostorno-vremenskih-podataka",
+    "href": "02_introSpatial/p1.html#primeri-prostorno-vremenskih-podataka",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "📊 Primeri prostorno-vremenskih podataka\n",
+    "text": "📊 Primeri prostorno-vremenskih podataka\n\n📍 Površinski podaci 🏙️\n- Broj saobraćajnih nesreća u svakoj američkoj saveznoj državi za svaki mesec 2020. godine.\n- Omogućava analizu sezonskih i regionalnih obrazaca nesreća.\n📍 Geostatistički podaci 🌍\n- Nivo zagađenja vazduha meren na 100 stanica u Nemačkoj svakog sata određenog dana.\n- Koristi se za predikciju i modelovanje kvaliteta vazduha kroz vreme i prostor.\n📍 Tačkasti obrasci 📌\n- Lokacije zemljotresa u svetu za svaku godinu od 2000. do 2020.\n- Omogućava analizu učestalosti i prostorne distribucije seizmičkih aktivnosti."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorno-vremenski-vektorski-površinski-podaci",
+    "href": "02_introSpatial/p1.html#prostorno-vremenski-vektorski-površinski-podaci",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorno vremenski vektorski površinski podaci",
+    "text": "Prostorno vremenski vektorski površinski podaci\n\nlibrary(tmap)\nlibrary(sf)\nsystem.file(\"gpkg/nc.gpkg\", package = \"sf\") |&gt;\n    read_sf() |&gt; st_transform('EPSG:32119') -&gt; nc.32119\ntm_shape(nc.32119) + \n    tm_polygons(c(\"SID74\", \"SID79\"), title = \"SIDS\") +\n    tm_layout(legend.outside = TRUE, \n              panel.labels = c(\"1974-78\", \"1979-84\")) +\n    tm_facets(free.scales=FALSE)"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorno-vremenski-vektorski-površinski-podaci-1",
+    "href": "02_introSpatial/p1.html#prostorno-vremenski-vektorski-površinski-podaci-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorno vremenski vektorski površinski podaci",
+    "text": "Prostorno vremenski vektorski površinski podaci"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorno-vremenski-rasterski-površinski-podaci",
+    "href": "02_introSpatial/p1.html#prostorno-vremenski-rasterski-površinski-podaci",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorno vremenski rasterski površinski podaci",
+    "text": "Prostorno vremenski rasterski površinski podaci\nNDVI indeks za područje planine Kilimandžaro.\n\nlibrary(raster)\nlibrary(mapview)\nlibrary(leafsync)\nkili_data &lt;- system.file(\"extdata\", \"kiliNDVI.tif\", package = \"mapview\")\nkiliNDVI &lt;- stack(kili_data) # 23 lejera u seriji\nlibrary(RColorBrewer)\nclr &lt;- colorRampPalette(brewer.pal(9, \"YlGn\")) # paleta boja\nm1 &lt;- mapview(kiliNDVI[[1]] , col.regions = clr, \n              legend = TRUE, map.types = \"Esri.WorldImagery\")\nm2 &lt;- mapview(kiliNDVI[[5]], col.regions = clr ,\n              legend = TRUE, map.types = \"Esri.WorldImagery\")\nm3 &lt;- mapview(kiliNDVI[[10]], col.regions = clr, \n              legend = TRUE, map.types = \"Esri.WorldImagery\")\nm4 &lt;- mapview(kiliNDVI[[20]],col.regions = clr, \n              legend = TRUE, map.types = \"Esri.WorldImagery\")\nsync(m1, m2, m3, m4) # 4 panela sinhronizovana"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#ndvi-kilimandžaro",
+    "href": "02_introSpatial/p1.html#ndvi-kilimandžaro",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "NDVI Kilimandžaro",
+    "text": "NDVI Kilimandžaro"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorno-vremenski-rasterski-površinski-podaci-2",
+    "href": "02_introSpatial/p1.html#prostorno-vremenski-rasterski-površinski-podaci-2",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🌧️ Prostorno-vremenski rasterski površinski podaci 2",
+    "text": "🌧️ Prostorno-vremenski rasterski površinski podaci 2\nMesečni podaci o padavinama na osnovu BCSD klimatskih projekcija.\nOvi podaci omogućavaju analizu klimatskih obrazaca i promena u različitim regionima kroz vreme.\n\nlibrary(stars)\nsystem.file(\"nc/bcsd_obs_1999.nc\", package = \"stars\") |&gt; read_stars() -&gt; w\n\npr, tas, \n\nplot(w)"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#zemljotresi-prostorno-vremenski-point-pattern-podaci",
+    "href": "02_introSpatial/p1.html#zemljotresi-prostorno-vremenski-point-pattern-podaci",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Zemljotresi prostorno vremenski point pattern podaci",
+    "text": "Zemljotresi prostorno vremenski point pattern podaci\n\nlibrary(lubridate)\nif (\"all_week.csv\" %in% dir(\".\") == FALSE) {\n  url &lt;- \"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv\"\n  download.file(url = url, destfile = \"all_week.csv\") # Preuzimanje fajla i čuvanje lokalno\n  }\n# Učitavanje CSV fajla u R kao dataframe 'quakes'\nquakes &lt;- read.csv(\"all_week.csv\", header = TRUE, sep = ',', stringsAsFactors = FALSE)\n# Pretvaranje kolone 'time' iz tekstualnog formata u datum-vrijeme format (POSIXct)\nquakes$time &lt;- ymd_hms(quakes$time)\n# Pretvaranje kolone 'updated' u isti datum-vrijeme format\nquakes$updated &lt;- ymd_hms(quakes$updated)\n# Pretvaranje kategorijskih (faktorskih) varijabli za lakše analiziranje i filtriranje podataka\nquakes$magType &lt;- as.factor(quakes$magType)         # Tip magnitude (npr. ML, MB, MW)\nquakes$net &lt;- as.factor(quakes$net)                 # Mreža koja je zabilježila potres\nquakes$type &lt;- as.factor(quakes$type)               # Tip događaja (npr. \"earthquake\", \"quarry blast\")\nquakes$status &lt;- as.factor(quakes$status)           # Status događaja (npr. \"reviewed\", \"automatic\")\nquakes$locationSource &lt;- as.factor(quakes$locationSource) # Izvor informacija o lokaciji\nquakes$magSource &lt;- as.factor(quakes$magSource)     # Izvor informacija o magnitudi\n# Filtriranje podataka tako da ostanu samo zapisi koji se odnose na zemljotrese\nearthquakes &lt;- quakes[quakes$type == \"earthquake\",]"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#zemljotresi-interaktivna-karta",
+    "href": "02_introSpatial/p1.html#zemljotresi-interaktivna-karta",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Zemljotresi interaktivna karta",
+    "text": "Zemljotresi interaktivna karta\n\npaste(\"Karta mljotresa za period od \", earthquakes$time[nrow(earthquakes)], earthquakes$time[1] , sep = \" do \")\n\n[1] \"Karta mljotresa za period od  do 2025-01-23 14:49:26.278 do 2025-01-30 14:18:18.81\"\n\n\n\nlibrary(mapview)\ndf &lt;- st_as_sf(x = earthquakes, coords = c(\"longitude\", \"latitude\"), crs = 4326)\nmapview(df, zcol = \"mag\", legend = TRUE, map.types = c(\"CartoDB.Positron\"), cex= 4, alpha = 0.3)"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorno-vremenski-tačkasti-obrasci-pojava-vukova-u-francuskoj-kroz-vreme",
+    "href": "02_introSpatial/p1.html#prostorno-vremenski-tačkasti-obrasci-pojava-vukova-u-francuskoj-kroz-vreme",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorno vremenski tačkasti obrasci pojava vukova u Francuskoj kroz vreme",
+    "text": "Prostorno vremenski tačkasti obrasci pojava vukova u Francuskoj kroz vreme"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorno-vremenski-geostatistički-podaci",
+    "href": "02_introSpatial/p1.html#prostorno-vremenski-geostatistički-podaci",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorno-vremenski geostatistički podaci",
+    "text": "Prostorno-vremenski geostatistički podaci\nProstorno-vremenski geostatistički podaci koriste se za analizu kontinuiranih fenomena koji se menjaju kroz prostor i vreme.\n📊 Podaci o kvalitetu vazduha\n\n✅ Izvor: airBase – Evropska baza podataka o kvalitetu vazduha.\n✅ Obuhvat: Dnevni proseci za ruralne stanice u Nemačkoj (1998–2009).\n✅ Cilj analize: Razumevanje prostorno-vremenskih promena u kvalitetu vazduha na nivou regiona.\n🔗 Više informacija: air"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorno-vremenski-geostatisički-podaci",
+    "href": "02_introSpatial/p1.html#prostorno-vremenski-geostatisički-podaci",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorno vremenski geostatisički podaci",
+    "text": "Prostorno vremenski geostatisički podaci\n\nlibrary(spacetime)\ndata(air)\nrural = STFDF(stations, dates, data.frame(PM10 = as.vector(air)))\nstplot(rural[,4378:4383])\n\n# poslednjih 6 dana iz podatka"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorno-vremenski-geostatisički-podaci-1",
+    "href": "02_introSpatial/p1.html#prostorno-vremenski-geostatisički-podaci-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorno vremenski geostatisički podaci",
+    "text": "Prostorno vremenski geostatisički podaci\nhttps://r-spatial.org/book/06-Cubes.html"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorni-funkcionalni-podaci-1",
+    "href": "02_introSpatial/p1.html#prostorni-funkcionalni-podaci-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorni funkcionalni podaci",
+    "text": "Prostorni funkcionalni podaci\nProstorni funkcionalni podaci nastaju kada se tri tipa prostornih podataka (površinski, geostatistički i tačkasti obrasci) kombinuju sa nasumičnim funkcijama.\nPrimer ispod prikazuje funkcionalne geostatističke podatke iz paketa geoFourierFDA (Sassi 2021), koji predstavljaju prosečnu dnevnu temperaturu tokom 30 godina na 14 meteoroloških stanica u Kanadi:\n\\[\n\\{\\chi_{s_i} : i = 1, \\dots, 35\\}\n\\]\n📊 Zašto su prostorni funkcionalni podaci korisni?\n\n✅ Omogućavaju detaljno modelovanje kontinualnih procesa u prostoru.\n✅ Mogu se koristiti za predikciju prostorno-vremenskih trendova."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorni-funkcionalni-podaci-2",
+    "href": "02_introSpatial/p1.html#prostorni-funkcionalni-podaci-2",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorni funkcionalni podaci",
+    "text": "Prostorni funkcionalni podaci\nLokacije kanadskih meteoroloških stanica.\n\nlibrary(sf)               # Paket za rad sa prostornim podacima\nlibrary(geoFourierFDA)    # Paket za geofourier analizu, pak::pkg_install(\"geoFourierFDA\")\nlibrary(rnaturalearth)    # Paket za preuzimanje geografskih podataka\nlibrary(ggplot2)          # Paket za vizuelizaciju podataka\n# Učitavanje karte Kanade sa granicama provincija\nmap &lt;- rnaturalearth::ne_states(\"Canada\", returnclass = \"sf\") \n# Kreiranje data frame-a sa koordinatama stanica\nd &lt;- data.frame(canada$m_coord) \n# Dodavanje naziva stanica\nd$location &lt;- attr(canada$m_coord, \"dimnames\")[[1]]           \nd &lt;- st_as_sf(d, coords = c(\"W.longitude\", \"N.latitude\"))     \nst_crs(d) &lt;- 4326                                             \n\nggplot(map) + geom_sf() +                                     # Prikaz karte Kanade\n  geom_sf(data = d, size = 6) +                               # Dodavanje lokacija stanica na karti\n  geom_sf_label(data = d, aes(label = location), nudge_y = 2) # Oznake sa imenima stanica"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorni-funkcionalni-podaci-3",
+    "href": "02_introSpatial/p1.html#prostorni-funkcionalni-podaci-3",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorni funkcionalni podaci",
+    "text": "Prostorni funkcionalni podaci\nDnevne temperature, agregirana dnevna merenja tokom 30 godina na 10 kanadskih meteoroloških stanica.\n\nd &lt;- data.frame(canada$m_data)                    # Učitavanje temperaturnih podataka stanica\nd$time &lt;- 1:nrow(d)                               # Dodavanje vremenske ose (indeksiranje po redovima)\n\ndf &lt;- tidyr::pivot_longer(data = d,               # Pretvaranje podataka iz širokog u dugi format\n  cols = names(d)[-which(names(d) == \"time\")],    # Odabir kolona koje se pivotiraju (sve osim 'time')\n  names_to = \"variable\", values_to = \"value\")     # 'variable' sadrži imena stanica, 'value' njihove vrijednosti\n\nggplot(df, aes(x = time, y = value)) +            # Kreiranje linijskog grafa temperature kroz vrijeme\n  geom_line(aes(color = variable))                # Prikaz promjene temperature po stanicama različitim bojama"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#prostorni-funkcionalni-podaci-4",
+    "href": "02_introSpatial/p1.html#prostorni-funkcionalni-podaci-4",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Prostorni funkcionalni podaci",
+    "text": "Prostorni funkcionalni podaci\nJedan od ciljeva analize ovih podataka mogao bi biti predikcija dnevne temperaturne funkcije:\n\\[\nX_{s0}:[0,365)→R\n\\]\nna nekoj lokaciji na kojoj nema opažanja. Ovo bi se moglo postići korišćenjem funkcionalnih geostatističkih metoda, kao što je Kriging ili Fourierova analiza iz paketa geoFourierFDA."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#karta-najverovatnijih-temperatura-za-1.01-bilo-koje-godine",
+    "href": "02_introSpatial/p1.html#karta-najverovatnijih-temperatura-za-1.01-bilo-koje-godine",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Karta najverovatnijih temperatura za 1.01 bilo koje godine",
+    "text": "Karta najverovatnijih temperatura za 1.01 bilo koje godine\nPriprema podataka za prostornu interpolaciju.\n\n# Učitavanje potrebnih paketa\nlibrary(sf)        # Rad sa prostornim podacima\nlibrary(gstat)     # Geostatističke analize i kriging\nlibrary(terra)     # Rad sa raster podacima za predikciju\nlibrary(tidyr)     # Transformacija podataka\nlibrary(ggplot2)   # Vizualizacija rezultata\n\n# Podaci o temperaturi za sve stanice\nd &lt;- data.frame(canada$m_data)\nd$time &lt;- 1:nrow(d)\nhead(d)\n\n  St..Johns Halifax Sydney Yarmouth Charlottvl Fredericton Scheffervll Arvida\n1      -3.6    -4.4   -3.8     -1.4       -5.8        -7.9       -22.5  -14.1\n2      -3.1    -4.2   -3.5     -1.6       -5.6        -7.5       -23.0  -14.4\n3      -3.4    -5.3   -4.6     -2.5       -7.3        -9.3       -23.0  -15.0\n4      -4.4    -5.4   -5.0     -2.3       -7.0        -8.7       -21.8  -14.3\n5      -2.9    -5.6   -4.1     -2.4       -6.7        -9.1       -23.5  -16.2\n6      -4.5    -7.1   -6.1     -3.7       -8.9       -10.9       -24.4  -16.3\n  Bagottville Quebec Sherbrooke Montreal Ottawa Toronto London Thunder.Bay\n1       -14.6  -10.8      -10.1     -8.7   -9.4    -5.4   -5.2       -14.0\n2       -14.7  -11.4      -10.5     -9.9  -10.4    -5.4   -5.7       -14.0\n3       -15.5  -12.5      -11.4     -9.8   -9.9    -5.0   -5.3       -13.5\n4       -14.3  -11.2      -10.2     -9.0   -9.2    -5.9   -5.8       -13.9\n5       -15.8  -12.0      -11.3     -9.8  -10.1    -5.7   -6.5       -14.4\n6       -16.9  -13.2      -12.6    -10.7  -11.0    -5.6   -5.6       -14.5\n  Winnipeg Churchill Regina Pr..Albert Uranium.City Edmonton Calgary Kamloops\n1    -17.9     -24.9  -15.7      -19.3        -23.5    -12.6    -8.6     -5.3\n2    -16.9     -25.0  -15.0      -18.0        -23.6    -12.7    -8.4     -5.6\n3    -17.7     -26.5  -15.8      -18.5        -24.6    -14.2    -9.2     -6.5\n4    -18.5     -26.7  -17.3      -19.4        -25.5    -14.8   -10.8     -6.8\n5    -18.2     -26.7  -17.0      -20.3        -26.5    -15.4   -12.0     -7.3\n6    -18.4     -28.5  -17.1      -20.3        -27.9    -15.1   -11.7     -7.9\n  Vancouver Victoria Pr..George Pr..Rupert Whitehorse Dawson Yellowknife\n1       2.3      3.0      -10.5        0.4      -17.6  -28.0       -24.5\n2       2.1      2.7      -11.4        0.5      -18.6  -28.9       -25.3\n3       1.9      2.7      -11.0       -0.2      -18.6  -29.5       -26.1\n4       2.0      2.9      -11.9       -0.6      -20.0  -29.0       -27.7\n5       1.6      2.6      -13.5       -1.0      -20.9  -28.8       -27.8\n6       1.4      2.1      -13.2       -0.6      -21.0  -29.9       -28.1\n  Iqaluit Inuvik Resolute time\n1   -23.3  -26.3    -30.7    1\n2   -24.0  -27.1    -30.6    2\n3   -24.4  -27.8    -31.4    3\n4   -24.7  -28.2    -31.9    4\n5   -25.3  -27.2    -31.5    5\n6   -26.3  -27.6    -31.1    6"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#transformacija-podataka",
+    "href": "02_introSpatial/p1.html#transformacija-podataka",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Transformacija podataka",
+    "text": "Transformacija podataka\n\n# Pretvaranje podataka iz širokog u dugi format\ndf &lt;- tidyr::pivot_longer(data = d, \n                          cols = names(d)[-which(names(d) == \"time\")], \n                          names_to = \"station\", values_to = \"temperature\")\nhead(df)\n\n# A tibble: 6 × 3\n   time station     temperature\n  &lt;int&gt; &lt;chr&gt;             &lt;dbl&gt;\n1     1 St..Johns          -3.6\n2     1 Halifax            -4.4\n3     1 Sydney             -3.8\n4     1 Yarmouth           -1.4\n5     1 Charlottvl         -5.8\n6     1 Fredericton        -7.9\n\n# Filtriranje podataka samo za prvi dan\ndf_day1 &lt;- df[df$time == 1, ]\n\nhead(df_day1)\n\n# A tibble: 6 × 3\n   time station     temperature\n  &lt;int&gt; &lt;chr&gt;             &lt;dbl&gt;\n1     1 St..Johns          -3.6\n2     1 Halifax            -4.4\n3     1 Sydney             -3.8\n4     1 Yarmouth           -1.4\n5     1 Charlottvl         -5.8\n6     1 Fredericton        -7.9"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#interpolacija-funkcionalnih-podataka",
+    "href": "02_introSpatial/p1.html#interpolacija-funkcionalnih-podataka",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Interpolacija funkcionalnih podataka",
+    "text": "Interpolacija funkcionalnih podataka\nPriprema podataka za prostornu interpolaciju kreiranje sf objekata.\n\n# Dodavanje koordinata stanicama\ncoords &lt;- data.frame(canada$m_coord)\ndf_day1$lon &lt;- coords$W.longitude\ndf_day1$lat &lt;- coords$N.latitude\n\n# Pretvaranje u prostorni objekat (sf format)\nstations_sf &lt;- st_as_sf(df_day1, coords = c(\"lon\", \"lat\"), crs = 4326)\n\n# Transformacija u projekcioni sistem (za mjerenje udaljenosti u metrima)\nstations_sf &lt;- st_transform(stations_sf, crs = 3347)  # Lambert Conformal Conic za Kanadu\nhead(stations_sf)\n\nSimple feature collection with 6 features and 3 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 7178799 ymin: 783547 xmax: 9011898 ymax: 2144542\nProjected CRS: NAD83 / Statistics Canada Lambert\n# A tibble: 6 × 4\n   time station     temperature          geometry\n  &lt;int&gt; &lt;chr&gt;             &lt;dbl&gt;       &lt;POINT [m]&gt;\n1     1 St..Johns          -3.6 (9011898 2144542)\n2     1 Halifax            -4.4 (8440991 1422258)\n3     1 Sydney             -3.8 (8584181 1711371)\n4     1 Yarmouth           -1.4 (8280336 1238108)\n5     1 Charlottvl         -5.8  (7178799 783547)\n6     1 Fredericton        -7.9 (8164033 1444745)"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#kreiranje-rastera-i-predikcija",
+    "href": "02_introSpatial/p1.html#kreiranje-rastera-i-predikcija",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Kreiranje rastera i predikcija",
+    "text": "Kreiranje rastera i predikcija\n\n# Definisanje raster mreže za predikciju (rezolucija 10 km)\ncanada_bbox &lt;- st_bbox(stations_sf)\nr &lt;- raster(xmn = canada_bbox[\"xmin\"], xmx = canada_bbox[\"xmax\"], \n            ymn = canada_bbox[\"ymin\"], ymx = canada_bbox[\"ymax\"], \n            res = 10000, crs = st_crs(stations_sf)$proj4string) # 10 km rezolucija\n\n# Konvertovanje rastera u tačke za predikciju\nprediction_points &lt;- rasterToPoints(r, spatial = TRUE)\nprediction_points_sf &lt;- st_as_sf(prediction_points)\n\n\nidw_model = gstat(formula = temperature ~ 1, \n               data = stations_sf, \n               set = list(idp = 2))\n\n# Konvertovanje raster sloja u SpatialPixelsDataFrame za gstat\ngrd &lt;- as(r, \"SpatialPixelsDataFrame\")\npredikcija = predict(idw_model, grd)\n\n[inverse distance weighted interpolation]"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#plot-i-karta",
+    "href": "02_introSpatial/p1.html#plot-i-karta",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Plot i karta",
+    "text": "Plot i karta\n\nokruziKanada = st_transform(map, crs = 3347)\n## Kreiranje rastera i predikcija\n# Temperaturna predikcija\nplot(raster(predikcija), main = \"IDW Predikcija Temperature (10 km)\", col = terrain.colors(100)) \n# Granice Kanade\nplot(st_geometry(okruziKanada), add = TRUE, border = \"black\", lwd = 1)      # Stanice            \nplot(st_geometry(stations_sf), add = TRUE, pch ='+', col='red', cex = 1.5)"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#primer-funkcionalnih-rasterskih-podataka-tessera",
+    "href": "02_introSpatial/p1.html#primer-funkcionalnih-rasterskih-podataka-tessera",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Primer funkcionalnih rasterskih podataka TESSERA",
+    "text": "Primer funkcionalnih rasterskih podataka TESSERA"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#podaci-o-kretanju-1",
+    "href": "02_introSpatial/p1.html#podaci-o-kretanju-1",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "🚶 Podaci o kretanju",
+    "text": "🚶 Podaci o kretanju\nPodaci o kretanju prikazuju broj pojedinaca ili drugih elemenata koji se kreću između lokacija (Mahmood et al., 2022).\nKoriste se za analizu migracija, transporta, širenja bolesti i ekonomskih tokova.\n🔬 Primer: Analiza tokova populacije u Brazilu\n\nOvi podaci dolaze iz paketa epiflows (Piatkowski et al., 2018; Moraga et al., 2019).\nOmogućavaju predikciju i vizualizaciju širenja zaraznih bolesti na osnovu kretanja između geografskih lokacija.\n📌 Paket epiflows sadrži dataset Brazil_epiflows\n- Prikazuje broj putnika između brazilskih saveznih država i drugih lokacija.\n- Ovi podaci omogućavaju kreiranje epiflows objekta (ef), koji se koristi za analizu tokova kretanja."
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#podaci-o-kretanju-primer",
+    "href": "02_introSpatial/p1.html#podaci-o-kretanju-primer",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Podaci o kretanju primer",
+    "text": "Podaci o kretanju primer\n\nlibrary(\"epiflows\")\ndata(\"Brazil_epiflows\")\n\nloc &lt;- merge(x = YF_locations, y = YF_coordinates,\nby.x = \"location_code\", by.y = \"id\", sort = FALSE)\n\nef &lt;- make_epiflows(flows = YF_flows, locations = loc,\n                    coordinates = c(\"lon\", \"lat\"),\n                    pop_size = \"location_population\",\n                    duration_stay = \"length_of_stay\",\n                    num_cases = \"num_cases_time_window\",\n                    first_date = \"first_date_cases\",\n                    last_date = \"last_date_cases\")\nvis_epiflows(ef)"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#podaci-o-kretanju-primer-interaktivni-grafik",
+    "href": "02_introSpatial/p1.html#podaci-o-kretanju-primer-interaktivni-grafik",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Podaci o kretanju primer interaktivni grafik",
+    "text": "Podaci o kretanju primer interaktivni grafik"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#podaci-o-kretanju-primer-interaktivna-karta",
+    "href": "02_introSpatial/p1.html#podaci-o-kretanju-primer-interaktivna-karta",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Podaci o kretanju primer interaktivna karta",
+    "text": "Podaci o kretanju primer interaktivna karta\n\nmap_epiflows(ef)"
+  },
+  {
+    "objectID": "02_introSpatial/p1.html#literatura",
+    "href": "02_introSpatial/p1.html#literatura",
+    "title": "Tipovi prostornih podataka u R-u",
+    "section": "Literatura",
+    "text": "Literatura\n\nMoraga, Paula. (2023). Spatial Statistics for Data Science: Theory and Practice with R. Chapman & Hall/CRC Data Science Series. ISBN 9781032633510 https://www.paulamoraga.com/book-spatial/\nhttps://oliviergimenez.github.io/coding/\nhttps://www.r-spatial.org/\nhttps://geocompr.robinlovelace.net/\nKilibarda M., Matematička kartografija, https://osgl.grf.bg.ac.rs/books/mk/\nKnjiga: Satellite Image Time Series Analysis on EO Data Cubes (e-sensing)\n\n\n\nGitHub repozitorijumi:\n\ne-sensing/sits"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#sadrzaj",
+    "href": "00_R/Uvod_u_R.html#sadrzaj",
+    "title": "Uvod u R",
+    "section": "Sadrzaj",
+    "text": "Sadrzaj\n\n\nDeo I: Osnovno o R-u?\n\nDeo II: Uvod u sintaksu R programskog jezika\n\nDeo III: R paketi\n\nDeo IV: Tipovi i strukture podataka u R-u\n\nDeo V: R jezik"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#infografik",
+    "href": "00_R/Uvod_u_R.html#infografik",
+    "title": "Uvod u R",
+    "section": "Infografik",
+    "text": "Infografik"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#pregledani-video",
+    "href": "00_R/Uvod_u_R.html#pregledani-video",
+    "title": "Uvod u R",
+    "section": "Pregledani video",
+    "text": "Pregledani video"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#zašto-r",
+    "href": "00_R/Uvod_u_R.html#zašto-r",
+    "title": "Uvod u R",
+    "section": "Zašto R?",
+    "text": "Zašto R?\n\n🚀 Moćan statistički alat: R je programski jezik, inicijalno namenjen statističkom računanju i vizualizaciji podataka.\n🌍 Besplatan i otvorenog koda: Free and open source okruženje dostupno na različitim platformama.\n🤝 Aktivna zajednica: Fantastična podrška kroz #rstats zajednicu na Twitter-u i Stack Overflow.\n📦 Proširivo okruženje: Mnoštvo dostupnih paketa za različite oblasti - pogledaj CRAN Task View.\n🎓 Akademska prihvaćenost: R je široko prihvaćen u akademskoj zajednici za istraživanja i nastavu.\n📈 Brz rast: Jedan od najbrže rastućih programskih jezika u svetu podataka.\n🗺️ Rad sa prostornim podacima: Jedna od ključnih oblasti razvoja, sa snažnim paketima za GIS analize."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#r-okruzenje",
+    "href": "00_R/Uvod_u_R.html#r-okruzenje",
+    "title": "Uvod u R",
+    "section": "R okruzenje",
+    "text": "R okruzenje\n\nR GUI"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#r-studio",
+    "href": "00_R/Uvod_u_R.html#r-studio",
+    "title": "Uvod u R",
+    "section": "R-studio",
+    "text": "R-studio\n\nR GUI"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#aritmetičke-operacije",
+    "href": "00_R/Uvod_u_R.html#aritmetičke-operacije",
+    "title": "Uvod u R",
+    "section": "Aritmetičke operacije",
+    "text": "Aritmetičke operacije\n\n\nAritmetičke operacije\n\n\nOperator\nZnačenje\n\n\n\n+\nSabiranje\n\n\n-\nOduzimanje\n\n\n*\nMnoženje\n\n\n/\nDeljenje\n\n\n^\nStepenovanje\n\n\n\n\nPrimeri\n\n5 + 3\n\n[1] 8\n\n1 * 10\n\n[1] 10\n\n10^2\n\n[1] 100"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#specijalne-vrednosti",
+    "href": "00_R/Uvod_u_R.html#specijalne-vrednosti",
+    "title": "Uvod u R",
+    "section": "Specijalne vrednosti",
+    "text": "Specijalne vrednosti\n\n\nSpecijalne vrednosti\n\n\nValue\nZnacenje\n\n\n\nInf\nInfinity\n\n\nNA\nNot Available\n\n\nNaN\nNot a Number\n\n\nNULL\nEmpty object\n\n\n\n\nPrimeri specijalnih vrednosti\n\n1/0\n\n[1] Inf\n\nNA + 3\n\n[1] NA\n\nNA == 1\n\n[1] NA\n\n0/0\n\n[1] NaN\n\nNULL\n\nNULL"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#logički-operatori-i-specijalne-vrednosti",
+    "href": "00_R/Uvod_u_R.html#logički-operatori-i-specijalne-vrednosti",
+    "title": "Uvod u R",
+    "section": "Logički operatori i specijalne vrednosti",
+    "text": "Logički operatori i specijalne vrednosti\n\n\nLogički operatori\n\n\nOperator\nZnačenje\n\n\n\n==\nJednako\n\n\n&gt;\nVece\n\n\n&gt;=\nManje ili jednako\n\n\n&lt;\nManje\n\n\n&lt;=\nManje ili jednako\n\n\n!=\nRazličito\n\n\n&\ni\n\n\n|\nili\n\n\n!\nNegacija\n\n\n\n\nPrimeri\n\n1 &lt; 2\n\n[1] TRUE\n\n2 &gt;= 2\n\n[1] TRUE\n\n2 != 2\n\n[1] FALSE"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#objekti-i-promenljive-u-r-u",
+    "href": "00_R/Uvod_u_R.html#objekti-i-promenljive-u-r-u",
+    "title": "Uvod u R",
+    "section": "Objekti i promenljive u R-u",
+    "text": "Objekti i promenljive u R-u\n\n🗂️ Objektno-orijentisan jezik: R je objektno-orijentisan programski jezik namenjen radu sa podacima.\n📦 Podaci kao objekti: Svi podaci i funkcije čuvaju se u okviru R objekata.\n🏷️ Promenljive kao objekti: Svaku promenljivu možemo smatrati objektom, tj. naziv/ime pod kojim skladištimo i pozivamo određene podatke.\n🔗 Dodeljivanje vrednosti: Za dodeljivanje imena promenljivoj koristi se operator &lt;- ili =.\n\n📊 Primer:\n\ndie &lt;- 1:6  # Skladištenje niza brojeva od 1 do 6\n\ndie         # Pozivanje promenljive \"die\"\n\n[1] 1 2 3 4 5 6\n\n\n\n🔢 Operator :: Koristi se za kreiranje vektora brojeva u obliku od:do (npr. 1:6).\n📝 Komentari: # služi za komentarisanje koda. Sve što stoji desno od znaka # neće se izvršavati."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#r-je-case-sensitive",
+    "href": "00_R/Uvod_u_R.html#r-je-case-sensitive",
+    "title": "Uvod u R",
+    "section": "R je case sensitive\n",
+    "text": "R je case sensitive\n\n💡 Napomena:\nPromenljive u R-u su osetljive na veličinu slova (Case Sensitive), pa su Promenljiva i promenljiva dve različite promenljive.\n\nName &lt;- 1\nname &lt;- 0\nName + 1\n\n[1] 2\n\n\nSvi kreirani objekti se skladište u ovkiru radnog okruženja i mogu se pregledati komandom ls():\n\nls()\n\n[1] \"die\"             \"name\"            \"Name\"            \"pandoc_dir\"     \n[5] \"quarto_bin_path\"\n\n\nUklanjanje odredenog objekta iz radnog okruženja/memorije vrši se komandom rm():\n\nrm(Name)"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#funkcije-u-r-u",
+    "href": "00_R/Uvod_u_R.html#funkcije-u-r-u",
+    "title": "Uvod u R",
+    "section": "📊 Funkcije u R-u",
+    "text": "📊 Funkcije u R-u\n\n🔢 Matematičke funkcije: Osnovna instalacija R-a sadrži glavne matematičke funkcije:\n\n\nround(3.1415)    # Zaokruživanje broja\n\n[1] 3\n\nfactorial(3)     # Faktorijel broja 3\n\n[1] 6\n\npi               # Pozivanje konstante π\n\n[1] 3.141593\n\nsin(pi/2)        # Sinus od π/2\n\n[1] 1\n\n\n💡 Napomena:\n\n\nround() zaokružuje brojeve.\n\nfactorial() računa faktorijel.\n\npi vraća vrednost broja π.\n\nsin() izračunava sinus."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#funkcije-u-r-u---simulacija-bacanja-kocke",
+    "href": "00_R/Uvod_u_R.html#funkcije-u-r-u---simulacija-bacanja-kocke",
+    "title": "Uvod u R",
+    "section": "📊 Funkcije u R-u - simulacija bacanja kocke",
+    "text": "📊 Funkcije u R-u - simulacija bacanja kocke\n\n🎲 Simulacija bacanja kockice: Funkcija sample omogućava nasumično biranje elemenata.\n\n\ndie &lt;- 1:6                     # Definisanje vektora (kockica sa 6 strana)\nsample(x = die, size = 1)      # Nasumično biranje jednog broja\n\n[1] 5\n\n\n💡 Napomena:\n\n\nsample() služi za uzorkovanje iz vektora."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#help",
+    "href": "00_R/Uvod_u_R.html#help",
+    "title": "Uvod u R",
+    "section": "❔Help",
+    "text": "❔Help\nJedna od veoma korisnih mogućnosti R programskog okruženja je brz i jednostavan uvid u dokumentaciju za određene funkcije, putem komande help. Na primer, da biste saznali više o funkciji sample, jednostavno pozovite:\n\nPozivanje komande ?sample otvara pomoćni prozor sa svim relevantnim informacijama o funkciji.\nOva komanda uključuje opis funkcije, argumente, primene i slične funkcije.\n\n\n?sample"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#kreiranje-sopstvene-funkcije-u-r-u",
+    "href": "00_R/Uvod_u_R.html#kreiranje-sopstvene-funkcije-u-r-u",
+    "title": "Uvod u R",
+    "section": "📊 Kreiranje sopstvene funkcije u R-u",
+    "text": "📊 Kreiranje sopstvene funkcije u R-u\nFunkcije su osnovni gradivni blokovi R programskog jezika. Omogućavaju nam da organizujemo kod, izbegnemo ponavljanje i povećamo efikasnost.\nŠta je funkcija?\nFunkcija je blok koda koji izvršava određeni zadatak.\nSastoji se od:\n\n\nImena (naziv funkcije)\n\nArgumenata (ulazni podaci)\n\nTela (kod koji se izvršava)\n\nPovratne vrednosti (rezultat funkcije)"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#sintaksa-funkcije",
+    "href": "00_R/Uvod_u_R.html#sintaksa-funkcije",
+    "title": "Uvod u R",
+    "section": "Sintaksa funkcije",
+    "text": "Sintaksa funkcije\nFunkcija se kreira pomoću ključne reči function() i vitičastih zagrada {}:\nime_funkcije &lt;- function(argumenti) {\n  # Telo funkcije\n  return(rezultat)  # Povratna vrednost\n}\nNa primer, funkcija koja simulira bacanje dve kockice i sumiranje rezultata se može kreirati na sledeci nacin:\n\nroll &lt;- function() {\n  die &lt;- 1:6\n  dice &lt;- sample(die, size = 2, replace = TRUE)\n  sum(dice)\n}\nroll()\n\n[1] 12\n\n\nKljučne napomene:\n\nOva funkcija nema argumente – koristi fiksne vrednosti.\nFunkcija sample() služi za nasumično uzorkovanje.\nArgument replace = TRUE omogućava ponavljanje vrednosti."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#argumenti-funkcije",
+    "href": "00_R/Uvod_u_R.html#argumenti-funkcije",
+    "title": "Uvod u R",
+    "section": "Argumenti funkcije",
+    "text": "Argumenti funkcije\nArgumenti funkcije su promenljive od kojih zavisi rezultat izvršavanja funkcije, i definišu se u okviru operatora function().\nNa primer, zamislimo da kockica nema vrednosti od 1 do 6, nego proizvoljnih šest vrednosti koje su definisane pravilima igre. U tom slučaju, mora se ostaviti mogućnost za definisanje vrednosti.\n\nroll2 &lt;- function(dice) {\n  dice &lt;- sample(dice, size = 2, replace = TRUE)\n  sum_dice &lt;- sum(dice)\n  return(sum_dice) #  povratna vrednost\n}\n\nroll2(dice = 2:8) # bacanje 2 kockice koje imaju vrednosti od 2 do 8, ne 1 do 6\n\n[1] 13"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#r-paketi",
+    "href": "00_R/Uvod_u_R.html#r-paketi",
+    "title": "Uvod u R",
+    "section": "📦 R Paketi",
+    "text": "📦 R Paketi\nR paketi su osnova R ekosistema. Oni omogućavaju proširivanje funkcionalnosti R-a za različite tematske oblasti.\nŠta su R paketi?\n\n\nSet funkcija: Kreirani od strane korisnika za rešavanje specifičnih zadataka.\n\nDokumentacija: Uključuju help dokumentaciju i primere korišćenja.\n\nPodaci: Često sadrže i male setove podataka za demonstraciju.\n\nBroj R paketa\n\nDo danas, na CRAN-u (Centralni R Arhiv) postoji preko 20000 paketa.\n\n\nCRAN Task View pruža pregled paketa po tematskim oblastima.\nJoš mnostvo R paketa je dostupno u svojoj razvojnoj verziji na web repozitorijumima (github)"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#instalacija-r-paketa",
+    "href": "00_R/Uvod_u_R.html#instalacija-r-paketa",
+    "title": "Uvod u R",
+    "section": "Instalacija R paketa",
+    "text": "Instalacija R paketa\n\nPaketi se instaliraju pozivom komande install.packages()\n\nInstaliranje paketa znači njegovo smestanje u memoriji racunara, na odredenoj lokaciji, odnosno folderu kojeg nazivamo library.\nDa bi funkcije određenog paketa bile dostupne prilikom rada, neophodno ga je učitati paket u radno oruženje, odnosno u radnu sesiju komandom library().\n\nPrimer instaliranja i učitavanja paketa readxl:\n\ninstall.packages(\"readxl\")\nlibrary(readxl)\n\n\nPaket readxl omogućava funkcije za lako i brzo učitavanje excel fajlova."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#vektori-1234",
+    "href": "00_R/Uvod_u_R.html#vektori-1234",
+    "title": "Uvod u R",
+    "section": "Vektori 1️⃣2️⃣3️⃣4️⃣",
+    "text": "Vektori 1️⃣2️⃣3️⃣4️⃣\n\nVektor je osnovna i najjednostavnija struktura podataka u R-u\nOsnovna karakteristika vektora je da sadrži samo podatke istog tipa.\nR razlikuje šest osnovnih tipova podataka:\n\n\n\nTip\nTest\nKonverzija\n\n\n\ndouble\nis.double\nas.double\n\n\ninteger\nis.integer\nas.integer\n\n\ncharacter\nis.character\nas.character\n\n\nlogical\nis.logical\nas.logical\n\n\ncomplex\nis.complex\nas.complex\n\n\nraw\nis.raw\nas.raw\n\n\n\n\n\nis.vector je komanda koja se koristi za test-proveru da li je određeni objekat vektor."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#primeri-kreiranja-različitih-tipova-vektora",
+    "href": "00_R/Uvod_u_R.html#primeri-kreiranja-različitih-tipova-vektora",
+    "title": "Uvod u R",
+    "section": "Primeri kreiranja različitih tipova vektora",
+    "text": "Primeri kreiranja različitih tipova vektora\n\ndie &lt;- c(1, 2, 3, 4, 5, 6)\ndie &lt;- 1:6\ndie &lt;- seq(1, 6, 1)\ntypeof(die)\n\n[1] \"double\"\n\nint &lt;- c(-1L, 2L, 4L)\ntypeof(int)\n\n[1] \"integer\"\n\ntext &lt;- c(\"Geodezija\",  \"Geoinformatika\")\ntypeof(text)\n\n[1] \"character\"\n\n3 &gt; 4\n\n[1] FALSE\n\nlogic &lt;- c(TRUE, FALSE, TRUE)\ntypeof(logic)\n\n[1] \"logical\"\n\ntypeof(F)\n\n[1] \"logical\"\n\nvec &lt;- c(1, 2, 3, NA)\nis.na(vec)\n\n[1] FALSE FALSE FALSE  TRUE"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#konverzija-tipova-podataka-coercion",
+    "href": "00_R/Uvod_u_R.html#konverzija-tipova-podataka-coercion",
+    "title": "Uvod u R",
+    "section": "Konverzija tipova podataka (Coercion)",
+    "text": "Konverzija tipova podataka (Coercion)\n\nKonverzija tipova podataka se npr. dešava kada se u jednom vektoru (ili matrici) nađu podaci razlicitih tipova.\nU tom slucaju R automatski sve podatke svodi na jedan tip po određenom pravilu.\n\n\nPravilo konverzije tipova podataka u R-u"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#element-wise-procedura-kod-vektora",
+    "href": "00_R/Uvod_u_R.html#element-wise-procedura-kod-vektora",
+    "title": "Uvod u R",
+    "section": "Element-wise procedura kod vektora",
+    "text": "Element-wise procedura kod vektora\nElement-wise operacije omogućavaju primenu funkcije ili operatora na svaki element vektora ili matrice pojedinačno.\nU R-u, mnoge funkcije su optimizovane da automatski primenjuju operacije na svaki element objekta bez potrebe za eksplicitnim petljama.\n\nElement wise procedura"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#vector-recycling",
+    "href": "00_R/Uvod_u_R.html#vector-recycling",
+    "title": "Uvod u R",
+    "section": "Vector Recycling",
+    "text": "Vector Recycling\nVector recycling je procedura u R-u koja omogućava automatsko ponavljanje kraćih vektora kako bi odgovarali dužini dužih vektora prilikom primene operacija između vektora različitih dužina.\n\nVector recycling procedura"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#atributi",
+    "href": "00_R/Uvod_u_R.html#atributi",
+    "title": "Uvod u R",
+    "section": "Atributi",
+    "text": "Atributi\n\nAtribut je informacija koju možemo dodeliti vektoru (ili bilo kojem R objektu).\nAtribut neće uticati na vrednosti objekta i neće se prikazivati kada prikazujemo objekat.\nPostojanje atributa vezanih za neki objekat može se proveriti funkcijom attributes().\nMeđutim, postojanje određenih/specijalnih atributa vezanih za neki objekat može uticati na to kako će određena funkcija tretirati taj objekat.\n\nPrimer: Provera atributa\nPostavimo primer objekta die i proverimo njegove atribute.\n\n# Definisanje vektora\ndie &lt;- 1:6\n\n# Provera atributa objekta 'die'\nattributes(die)\n\nNULL"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#atributi-1",
+    "href": "00_R/Uvod_u_R.html#atributi-1",
+    "title": "Uvod u R",
+    "section": "Atributi",
+    "text": "Atributi\n\nNajcesće korišćeni atributi su: names, dimensions i classes.\n\n\ndie &lt;- 1:6\nnames(die)\n\nNULL\n\nnames(die) &lt;- c(\"one\", \"two\", \"three\", \"four\", \"five\", \"six\")\nnames(die)\n\n[1] \"one\"   \"two\"   \"three\" \"four\"  \"five\"  \"six\"  \n\nattributes(die)\n\n$names\n[1] \"one\"   \"two\"   \"three\" \"four\"  \"five\"  \"six\"  \n\ndie + 1 # atributi ne uticu na vrednosti  \n\n  one   two three  four  five   six \n    2     3     4     5     6     7"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#atributi-dimensions-i-class",
+    "href": "00_R/Uvod_u_R.html#atributi-dimensions-i-class",
+    "title": "Uvod u R",
+    "section": "Atributi (dimensions i class)",
+    "text": "Atributi (dimensions i class)\n\nDodavanje atributa dimensions vrši se komandom dim().\nU ovom primeru, jedno-dimenzionalni objekat (vektor) se transformiše u dvo-dimenzionalnu strukturu (matricu), čime se menja i drugi atribut class.\n\n\ndim(die) &lt;- c(2, 3)\nclass(die)\n\n[1] \"matrix\" \"array\" \n\n\n\nKao što je rečeno ranije, atributi mogu uticati na to kako ce se određene funkcije odnositi prema tom objektu.\nTako na primer, promena atributa class, uticaće na komandu print koja se izvrsava u pozadini kada želimo prikazati objekat na ekranu.\n\n\ndie\n\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#atributi-dates-i-times",
+    "href": "00_R/Uvod_u_R.html#atributi-dates-i-times",
+    "title": "Uvod u R",
+    "section": "Atributi (Dates i times)",
+    "text": "Atributi (Dates i times)\n\nPostojanje atributa class omogućava predstavljanje dodatnih tipova podataka, koji su različiti od osnovnih tipova kao što su double, integer, character itd.\nKarakterističan primer je skladištenje informacija o vremenu koristeći POSIXct klasu, koja predstavlja datum i vreme kao broj sekundi koje su protekle od 1. januara 1970. godine.\n\n\nvreme.sad &lt;- Sys.time()\nvreme.sad\n\n[1] \"2026-04-14 16:03:28 CEST\"\n\ntypeof(vreme.sad)\n\n[1] \"double\"\n\nclass(vreme.sad)\n\n[1] \"POSIXct\" \"POSIXt\""
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#faktorski-podaci-u-r-u",
+    "href": "00_R/Uvod_u_R.html#faktorski-podaci-u-r-u",
+    "title": "Uvod u R",
+    "section": "Faktorski podaci u R-u",
+    "text": "Faktorski podaci u R-u\nFaktorski podaci su posebna vrsta podataka u R-u koji se koriste za predstavljanje kategoričkih promenljivih.\nŠta su faktorski podaci?\n\n\nKategoričke promenljive: Predstavljaju grupe ili kategorije (npr. pol, boja, nivo obrazovanja).\n\nFiksni nivoi: Imaju unapred definisane vrednosti (nivoi).\n\nInterno kodirani: R čuva faktore kao celobrojne vrednosti sa pridruženim labelama.\n\nKreiranje faktora\nFaktori se kreiraju pomoću funkcije factor().\n\n# Primer: Faktor za predstavljanje polova\npol &lt;- factor(c(\"muško\", \"žensko\", \"muško\", \"žensko\"))\npol\n\n[1] muško  žensko muško  žensko\nLevels: muško žensko"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#matrice",
+    "href": "00_R/Uvod_u_R.html#matrice",
+    "title": "Uvod u R",
+    "section": "🔢 Matrice",
+    "text": "🔢 Matrice\nMatrice su dvo-dimenzionalne strukture u R-u koje skladište podatke u redovima i kolonama.\nKreiranje matrica\nMatrice se kreiraju pomoću funkcije matrix(). Ključni argumenti su:\n\nnrow – broj redova\nncol – broj kolona\nbyrow = TRUE/FALSE – način popunjavanja (po redovima ili kolonama)\n\n\n# Definisanje niza vrednosti\ndie &lt;- c(1, 2, 3, 4, 5, 6)\n\n# Kreiranje matrice sa popunjavanjem po kolonama\nm1 &lt;- matrix(die, ncol  = 2)\nprint(m1)\n\n     [,1] [,2]\n[1,]    1    4\n[2,]    2    5\n[3,]    3    6\n\n# Kreiranje matrice sa popunjavanjem po redovima\nm2 &lt;- matrix(die, nrow = 2, byrow = TRUE)\nprint(m2)\n\n     [,1] [,2] [,3]\n[1,]    1    2    3\n[2,]    4    5    6"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#nizovi-arrays",
+    "href": "00_R/Uvod_u_R.html#nizovi-arrays",
+    "title": "Uvod u R",
+    "section": "Nizovi (Arrays) 🔢 🔢 🔢",
+    "text": "Nizovi (Arrays) 🔢 🔢 🔢\nNizovi (arrays) su n-dimenzionalne strukture podataka u R-u koje proširuju koncept matrica na više dimenzija.\n🏗 Struktura nizova\n\nMožemo ih zamisliti kao skup matrica poređanih duž dodatne dimenzije.\nSvaka matrica može predstavljati jedan set podataka prikupljen u određenom trenutku ili na određenom mestu.\nČesto se koriste u analizi vremenskih serija, obradi slika i GIS podacima.\n\n🎨 Primena nizova\n\n\nRGB fotografije se mogu predstaviti kao trodimenzionalni niz gde svaki sloj matrice sadrži vrednosti refleksije za R (crvenu), G (zelenu) i B (plavu) komponentu.\n\nMultispektralne slike sa satelita mogu sadržavati 10+ slojeva, gde svaki sloj odgovara refleksiji na različitoj talasnoj dužini."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#kreiranje-nizova",
+    "href": "00_R/Uvod_u_R.html#kreiranje-nizova",
+    "title": "Uvod u R",
+    "section": "🛠 Kreiranje nizova",
+    "text": "🛠 Kreiranje nizova\nNizovi se kreiraju pomoću funkcije array().\nKljučni argumenti su:\n- data – ulazni podaci (vektor koji će se oblikovati u niz)\n- dim – dimenzije niza (broj redova, kolona i dodatnih slojeva)\nPrimer kreiranja niza\n\n\n\n# Kreiranje 3x3x2 niza (2 sloja matrica 3x3)\ndata &lt;- 1:18\ndim &lt;- c(3, 3, 2)  # 3 reda, 3 kolone, 2 sloja\narray_data &lt;- array(data, dim = dim)\n\n\n\nprint(array_data)\n\n, , 1\n\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9\n\n, , 2\n\n     [,1] [,2] [,3]\n[1,]   10   13   16\n[2,]   11   14   17\n[3,]   12   15   18"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#liste",
+    "href": "00_R/Uvod_u_R.html#liste",
+    "title": "Uvod u R",
+    "section": "Liste 📦",
+    "text": "Liste 📦\nListe su jednodimenzionalne strukture podataka u R-u koje mogu sadržavati objekte različitih tipova.\n🔑 Ključne osobine lista:\n\n✅ Slično vektorima, liste grupišu podatke u jedan objekat.\n✅ Za razliku od vektora, elementi liste mogu biti različitih tipova (brojevi, tekst, logičke vrednosti, pa čak i druge liste).\n✅ Često se koriste za skladištenje rezultata analize ili podataka različitih struktura."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#kreiranje-liste",
+    "href": "00_R/Uvod_u_R.html#kreiranje-liste",
+    "title": "Uvod u R",
+    "section": "🛠 Kreiranje liste",
+    "text": "🛠 Kreiranje liste\nListe se kreiraju pomoću funkcije list().\n\n\n\n# Kreiranje liste sa različitim tipovima podataka\nnum &lt;- c(1,2,3,4,5,6)         # Numerički vektor\nint &lt;- c(10L, 20L, 30L)       # Celi brojevi (integer)\ntext &lt;- c(\"Geodezija\", \"Geoinformatika\")  # Tekstualni vektor\nlogic &lt;- c(TRUE, FALSE, TRUE) # Logičke vrednosti (boolean)\n\nlista &lt;- list(num, int, text, logic)\n\n\n\nlista\n\n[[1]]\n[1] 1 2 3 4 5 6\n\n[[2]]\n[1] 10 20 30\n\n[[3]]\n[1] \"Geodezija\"      \"Geoinformatika\"\n\n[[4]]\n[1]  TRUE FALSE  TRUE"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#data-frame",
+    "href": "00_R/Uvod_u_R.html#data-frame",
+    "title": "Uvod u R",
+    "section": "Data Frame 📊",
+    "text": "Data Frame 📊\nData Frame je tabelarna struktura podataka u R-u koja skladišti vektore iste dužine u kolonama.\n🔑 Ključne osobine Data Frame-a:\n\n✅ Slično Excel tabelama – koristi se za skladištenje podataka u redovima i kolonama.\n✅ Kolone mogu biti različitih tipova (brojevi, tekst, logičke vrednosti).\n✅ Dvo-dimenzionalna verzija liste – svaka kolona može biti različitog tipa, ali svi vektori moraju imati istu dužinu.\n✅ Najčešće korišćena struktura podataka u statistici, GIS-u, analizi podataka i mašinskom učenju."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#data-frame-primer",
+    "href": "00_R/Uvod_u_R.html#data-frame-primer",
+    "title": "Uvod u R",
+    "section": "Data Frame Primer 📊",
+    "text": "Data Frame Primer 📊\nU R-u, Data Frame može biti kreiran čak i kada ulazni vektori nisu iste dužine.\nU tom slučaju, R primenjuje “element recycling”, tj. ponavlja kraće vektore dok ne dostignu dužinu najdužeg vektora.\n\n\n\n# Definisanje vektora različitih dužina\nnum &lt;- c(1, 2, 3, 4, 5, 6)      # 6 elemenata\nint &lt;- c(10L, 20L, 30L)         # 3 elementa\ntext &lt;- c(\"Geo\", \"Info\")        # 2 elementa\nlogic &lt;- c(TRUE, FALSE, TRUE)   # 3 elementa\n\n# Kreiranje Data Frame-a\ndataframe &lt;- data.frame(numeric = num, \n                        integer = int, \n                        tekst = text, \n                        logic = logic)\n\n\n\n# Prikaz formiranog Data Frame-a\ndataframe\n\n  numeric integer tekst logic\n1       1      10   Geo  TRUE\n2       2      20  Info FALSE\n3       3      30   Geo  TRUE\n4       4      10  Info  TRUE\n5       5      20   Geo FALSE\n6       6      30  Info  TRUE"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#sumarno-o-strukturama-podataka-u-r-u",
+    "href": "00_R/Uvod_u_R.html#sumarno-o-strukturama-podataka-u-r-u",
+    "title": "Uvod u R",
+    "section": "Sumarno o strukturama podataka u R-u",
+    "text": "Sumarno o strukturama podataka u R-u\n\nStrukture podataka u R-u"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#komanda-str",
+    "href": "00_R/Uvod_u_R.html#komanda-str",
+    "title": "Uvod u R",
+    "section": "Komanda str() 🔍",
+    "text": "Komanda str() 🔍\nKomanda str() omogućava brz pregled strukture R objekta.\nKoristi se za ispitivanje tipova podataka, broja elemenata i organizacije objekta.\n🛠 Primer upotrebe str()\n\n\n# Pregled strukture Data Frame-a\nstr(dataframe)\n\n'data.frame':   6 obs. of  4 variables:\n $ numeric: num  1 2 3 4 5 6\n $ integer: int  10 20 30 10 20 30\n $ tekst  : chr  \"Geo\" \"Info\" \"Geo\" \"Info\" ...\n $ logic  : logi  TRUE FALSE TRUE TRUE FALSE TRUE"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#izdvajanje-selektovanje-vrednosti-podataka",
+    "href": "00_R/Uvod_u_R.html#izdvajanje-selektovanje-vrednosti-podataka",
+    "title": "Uvod u R",
+    "section": "Izdvajanje (selektovanje) vrednosti podataka 🎯",
+    "text": "Izdvajanje (selektovanje) vrednosti podataka 🎯\nU R-u postoji šest različitih načina izdvajanja vrednosti podataka,\na koriste se tri operatora za selektovanje elemenata:\n\n\n[[ – koristi se za liste i data frame-ove (vraća direktnu vrednost)\n\n[ – koristi se za vektore, matrice i data frame-ove (vraća podskup)\n\n$ – koristi se za izdvajanje kolona iz Data Frame-a i listi po nazivu"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-vektora",
+    "href": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-vektora",
+    "title": "Uvod u R",
+    "section": "Izdvajanje vrednosti vektora 🎯",
+    "text": "Izdvajanje vrednosti vektora 🎯\nU R-u možemo izdvajati vrednosti iz vektora koristeći pozitivne celobrojne indekse.\nIndeksiranje uvek počinje od 1 (za razliku od nekih drugih jezika kao što su Python i C, gde kreće od 0).\n🛠 Primer izdvajanja vrednosti\n\n# Definisanje vektora\nx &lt;- c(2.1, 4.2, 3.3, 5.4)\n\n# 1. Izbor specifičnih elemenata (3. i 1.)\nx[c(3, 1)]  \n\n[1] 3.3 2.1\n\n# 2. Sortirano indeksiranje (vraća sortirani vektor)\nx[order(x)]  \n\n[1] 2.1 3.3 4.2 5.4\n\n# 3. Ponovljeni indeks (pristup istom elementu više puta)\nx[c(1, 1)]  \n\n[1] 2.1 2.1\n\n# 4. Korišćenje decimalnih brojeva (automatsko zaokruživanje)\nx[c(2.1, 2.9)]  # U pozadini se svodi na x[c(2, 2)]\n\n[1] 4.2 4.2"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-vektora-1",
+    "href": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-vektora-1",
+    "title": "Uvod u R",
+    "section": "Izdvajanje vrednosti vektora 🎯",
+    "text": "Izdvajanje vrednosti vektora 🎯\nU R-u možemo izdvajati vrednosti vektora koristeći negativne celobrojne indekse i logičke vrednosti."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-data-frame-a",
+    "href": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-data-frame-a",
+    "title": "Uvod u R",
+    "section": "🎯 Izdvajanje vrednosti Data frame-a",
+    "text": "🎯 Izdvajanje vrednosti Data frame-a\n\nIzdvajanje vrednosti vektora i data frame-a celobrojnim vektorima"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#izdvajanje-redova-iz-data-frame-a",
+    "href": "00_R/Uvod_u_R.html#izdvajanje-redova-iz-data-frame-a",
+    "title": "Uvod u R",
+    "section": "📋 Izdvajanje redova iz Data Frame-a",
+    "text": "📋 Izdvajanje redova iz Data Frame-a\n\n# Učitavanje ugrađenog Data Frame-a 'mtcars'\ndata(mtcars)\n\n# Izdvajanje prvih 10 redova\nmtcars[1:10, ]\n\n                   mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1\nDuster 360        14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4\nMerc 240D         24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230          22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nMerc 280          19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4\n\n\n🔹 Napomena:\n- mtcars[1:10, ] selektuje prvih 10 redova, dok se sve kolone zadržavaju.\n- Ako želimo samo određene kolone, dodajemo selektor za kolone (mtcars[1:10, c(\"mpg\", \"hp\")])."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#prikaz-prvih-redova-data-frame-a",
+    "href": "00_R/Uvod_u_R.html#prikaz-prvih-redova-data-frame-a",
+    "title": "Uvod u R",
+    "section": "🔍 Prikaz prvih redova Data Frame-a",
+    "text": "🔍 Prikaz prvih redova Data Frame-a\n\ndata(mtcars)\n\n# Prikaz prvih n redova (podrazumevano 6)\nhead(mtcars)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1\n\n# Izdvajanje prvih 10 redova\nmtcars[1:10, ]\n\n                   mpg cyl  disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2\nValiant           18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1\nDuster 360        14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4\nMerc 240D         24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2\nMerc 230          22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2\nMerc 280          19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4\n\n\n🔹 Napomena:\n- head(mtcars) prikazuje prvih 6 redova bez potrebe za ručnim indeksiranjem.\n- Možemo koristiti head(mtcars, n = 10) za prikaz prvih 10 redova."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#razlika-između-vektora-i-data-frame-a-pri-selektovanju",
+    "href": "00_R/Uvod_u_R.html#razlika-između-vektora-i-data-frame-a-pri-selektovanju",
+    "title": "Uvod u R",
+    "section": "🏷️ Razlika između vektora i Data Frame-a pri selektovanju",
+    "text": "🏷️ Razlika između vektora i Data Frame-a pri selektovanju\n\n# Selekcija prve kolone (kao vektor)\na &lt;- mtcars[1:10, 1]\nclass(a)  # Vratiće \"numeric\"\n\n[1] \"numeric\"\n\n# Selekcija prve kolone, ali zadržavajući Data Frame strukturu\nb &lt;- mtcars[1:10, 1, drop = FALSE]\nclass(b)  # Vratiće \"data.frame\"\n\n[1] \"data.frame\"\n\n\n🔹 Napomena:\n- drop = FALSE osigurava da se kolona zadrži kao Data Frame, umesto da se pretvori u vektor.\n- Ovo je važno kada radimo sa više podataka i zadržavamo format tabele."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-data-frame-a-operatorom",
+    "href": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-data-frame-a-operatorom",
+    "title": "Uvod u R",
+    "section": "💡 Izdvajanje vrednosti Data Frame-a operatorom $\n",
+    "text": "💡 Izdvajanje vrednosti Data Frame-a operatorom $\n\n\n# Struktura Data Frame-a\nstr(mtcars)\n\n'data.frame':   32 obs. of  11 variables:\n $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...\n $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...\n $ disp: num  160 160 108 258 360 ...\n $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...\n $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...\n $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...\n $ qsec: num  16.5 17 18.6 19.4 17 ...\n $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...\n $ am  : num  1 1 1 0 0 0 0 0 0 0 ...\n $ gear: num  4 4 4 3 3 3 3 4 4 4 ...\n $ carb: num  4 4 1 1 2 1 4 2 2 4 ...\n\n# Izdvajanje kolone 'hp' i pregled njenih vrednosti\nsummary(mtcars$hp)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   52.0    96.5   123.0   146.7   180.0   335.0 \n\n\n🔹 Napomena:\n- $ operator omogućava lako selektovanje kolone po imenu (mtcars$hp).\n- summary(mtcars$hp) daje osnovnu deskriptivnu statistiku te kolone."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-liste",
+    "href": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-liste",
+    "title": "Uvod u R",
+    "section": "Izdvajanje vrednosti liste",
+    "text": "Izdvajanje vrednosti liste\n\nlst &lt;- list(numbers = c(1, 2), \n            logical = TRUE, \n            strings = c(\"a\", \"b\", \"c\"))\n\nlst\n\n$numbers\n[1] 1 2\n\n$logical\n[1] TRUE\n\n$strings\n[1] \"a\" \"b\" \"c\""
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-liste-1",
+    "href": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-liste-1",
+    "title": "Uvod u R",
+    "section": "🗂️ Izdvajanje vrednosti liste",
+    "text": "🗂️ Izdvajanje vrednosti liste\nU R-u liste mogu sadržavati različite tipove podataka, pa postoji nekoliko načina za izdvajanje njihovih elemenata.\n🔑 Načini selektovanja iz liste:\n1️⃣ lst[1] – vraća podlistu (uvek kao lista).\n2️⃣ lst$numbers – selektuje element po imenu (često kao vektor).\n3️⃣ lst[[1]] – direktno izdvaja prvi element liste u njegovom originalnom tipu.\n\n# Kreiranje liste\nlst &lt;- list(numbers = c(1, 2), \n            logical = TRUE, \n            strings = c(\"a\", \"b\", \"c\"))\n\n# Izdvajanje elemenata liste\nlst[1]       # Vraća listu sa jednim elementom\n\n$numbers\n[1] 1 2\n\nlst$numbers  # Vraća vektor brojeva\n\n[1] 1 2\n\nlst[[1]]     # Vraća vektor brojeva (identično lst$numbers)\n\n[1] 1 2"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-liste-2",
+    "href": "00_R/Uvod_u_R.html#izdvajanje-vrednosti-liste-2",
+    "title": "Uvod u R",
+    "section": "Izdvajanje vrednosti liste",
+    "text": "Izdvajanje vrednosti liste\n\nIzdvajanje vrednosti liste"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#modifikovanje-vrednosti-vektora",
+    "href": "00_R/Uvod_u_R.html#modifikovanje-vrednosti-vektora",
+    "title": "Uvod u R",
+    "section": "✏️ Modifikovanje vrednosti vektora",
+    "text": "✏️ Modifikovanje vrednosti vektora\nU R-u možemo menjati pojedinačne ili više vrednosti u vektoru pomoću indeksiranja.\n🛠 Primer modifikacije vrednosti u vektoru\n\nvec &lt;- c(0, 0, 0, 0, 0, 0)\nvec\n\n[1] 0 0 0 0 0 0\n\nvec[1]\n\n[1] 0\n\nvec[1] &lt;- 1000\nvec\n\n[1] 1000    0    0    0    0    0\n\nvec[c(1, 3, 5)] &lt;- c(1, 1, 1)\nvec\n\n[1] 1 0 1 0 1 0"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#modifikovanje-vrednosti-data-frame-a",
+    "href": "00_R/Uvod_u_R.html#modifikovanje-vrednosti-data-frame-a",
+    "title": "Uvod u R",
+    "section": "✏️ Modifikovanje vrednosti Data Frame-a",
+    "text": "✏️ Modifikovanje vrednosti Data Frame-a\nU R-u možemo dodavati, menjati i reorganizovati kolone unutar Data Frame-a.\n🛠 Primer modifikacije Data Frame-a\n\n# Učitavanje ugrađenog Data Frame-a\ndata(mtcars)\n# Čuvanje originalnih imena kolona\nmtcars_names &lt;- names(mtcars)\n# Dodavanje nove kolone sa imenima redova\nmtcars$name &lt;- row.names(mtcars)\n# Prikaz atributa Data Frame-a\nattributes(mtcars)\n# Uklanjanje imena redova (postavljanje na NULL)\nrow.names(mtcars)  &lt;- NULL\n# Dodavanje ID kolone (indeksiranje redova)\nmtcars$id &lt;- 1:nrow(mtcars)\n# Reorganizacija kolona (ID i ime dolaze na početak)\nmtcars &lt;- mtcars[, c(\"id\", \"name\", mtcars_names)]\n# Kreiranje logičkog vektora koji označava automobile sa 4 cilindra\nfour_cyl &lt;- ifelse(mtcars$cyl == 4, TRUE, FALSE)"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#kontrola-toka",
+    "href": "00_R/Uvod_u_R.html#kontrola-toka",
+    "title": "Uvod u R",
+    "section": "🔀 Kontrola toka",
+    "text": "🔀 Kontrola toka\nKontrola toka u R-u omogućava uslovno izvršavanje koda pomoću if, else if i else blokova.\n\n\nKontrola toka if-else\n\n\nif (logicki uslov) {\n  # Deo koda za slucaj TRUE\n} else {\n  # Deo koda za skucaj FALSE\n}\n\n\nPrimer\n\n# y vece od 10?\ny = sample(1:20, size = 1)\nif (y &gt; 10) {\n  print(\"Vece od 10\")\n} else {\n  print(\"Manje od 10\")\n}\n\n[1] \"Vece od 10\""
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#kontrola-toka-else-if",
+    "href": "00_R/Uvod_u_R.html#kontrola-toka-else-if",
+    "title": "Uvod u R",
+    "section": "Kontrola toka else if\n",
+    "text": "Kontrola toka else if\n\n\n\nKontrola toka else if\n\n\nif (logicki_uslov_1) {\n  # Deo koda za slucaj TRUE\n} else if (logicki_uslov_2) {\n  # Deo koda kada je prvi uslov FALSE \n  # ali je drugi    uslov TRUE\n} else {\n  # Deo koda kada su oba uslova FALSE\n}\n\n\nPrimer\n\n# y vece od 1 ali manje od 10?\n\nif (y &gt; 1) {\n  print(\"Vece od 1\")\n} else if (y &lt; 10) {\n  print(\"vece od 1 ali manje od 10\")\n} else {\n  print(\"Broj je veci od 10\")\n}\n\n[1] \"Vece od 1\""
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#petlje",
+    "href": "00_R/Uvod_u_R.html#petlje",
+    "title": "Uvod u R",
+    "section": "🔄 Petlje",
+    "text": "🔄 Petlje\nPetlje omogućavaju ponavljanje izvršavanja koda dok god su zadovoljeni određeni uslovi.\n\n🔑 Ključne napomene:\n✅ for petlja se koristi kada znamo koliko puta treba ponoviti kod.\n✅ while petlja se koristi kada želimo ponavljanje dok je uslov tačan.\n✅ Obe petlje omogućavaju automatizaciju ponavljajućih zadataka."
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#primer-3",
+    "href": "00_R/Uvod_u_R.html#primer-3",
+    "title": "Uvod u R",
+    "section": "Primer",
+    "text": "Primer\n\n\n\nfor i while petlje\n\nfor (promenljiva in sekvenca) {\n  # Kod koji se izvrsava u  \n  # zavisnosti od vrednosti promenljive\n}\n\nwhile (logicki_uslov) {\n  # Kod koji se izvrsava \n  # dok je uslov TRUE\n}\n\n\n\n# sum of squares\nt &lt;- 1:3\ny &lt;- 0\n\nfor (x in t) {\n  y &lt;- y + x^2\n}\nprint(y)\n\n[1] 14\n\nx=2;\ny=0\nbrIteracija =0\n\nwhile (y&lt;20) {\n    brIteracija =brIteracija +1\n    y &lt;- y + x^2\n    print(paste(\"Iteracija broj:\", \n                brIteracija, \n                \"y =\", y, sep=\" \"))\n}\n\n[1] \"Iteracija broj: 1 y = 4\"\n[1] \"Iteracija broj: 2 y = 8\"\n[1] \"Iteracija broj: 3 y = 12\"\n[1] \"Iteracija broj: 4 y = 16\"\n[1] \"Iteracija broj: 5 y = 20\""
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#definisanje-radnog-direktorijuma",
+    "href": "00_R/Uvod_u_R.html#definisanje-radnog-direktorijuma",
+    "title": "Uvod u R",
+    "section": "📂 Definisanje radnog direktorijuma",
+    "text": "📂 Definisanje radnog direktorijuma\nRadni direktorijum (working directory) je folder u kojem R traži i čuva fajlove.\nPostavljanje tačnog radnog direktorijuma je ključno za učitavanje i čuvanje podataka.\n🔑 Ključne napomene:\n✅ getwd() – prikazuje trenutni radni direktorijum.\n✅ setwd() – omogućava postavljanje novog direktorijuma.\n✅ list.files() – prikazuje sve fajlove u direktorijumu.\n✅ Svi fajlovi bez pune putanje se traže u radnom direktorijumu.\nPravilno postavljen radni direktorijum omogućava lakši rad sa fajlovima i analizom podataka u R-u! 🚀\n\ngetwd()\n\n[1] \"C:/Users/user/Documents/GitHub/AnalizaProstornoVremenskihPodataka/00_R\"\n\n\n\nsetwd(\"D:/R_projects/Space_Time Data/!Uvod u R\")"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#paket-here-rad-sa-putanjama-fajlova",
+    "href": "00_R/Uvod_u_R.html#paket-here-rad-sa-putanjama-fajlova",
+    "title": "Uvod u R",
+    "section": "📌 Paket here – Rad sa putanjama fajlova",
+    "text": "📌 Paket here – Rad sa putanjama fajlova\nPaket here omogućava jednostavno i dinamičko upravljanje putanjama fajlova u R projektima.\nKoristan je jer eliminiše potrebu za ručno podešavanje radnog direktorijuma (setwd()).\n\n✅ Automatski prepoznaje direktorijum R projekta\n✅ Omogućava lakše organizovanje fajlova u potprojekte (data/, results/)\n✅ Radi bez potrebe za setwd()\n\n🛠 Instalacija paketa here\n\n\ninstall.packages(\"here\")  # Instalacija paketa (pokrenuti samo jednom)\nread.csv(\"data\", \"podaci.csv\"))  # Automatsko prepoznavanje putanje"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#učitavanje-podataka-u-r-u",
+    "href": "00_R/Uvod_u_R.html#učitavanje-podataka-u-r-u",
+    "title": "Uvod u R",
+    "section": "📥 Učitavanje podataka u R-u",
+    "text": "📥 Učitavanje podataka u R-u\nU R-u možemo učitavati podatke iz različitih formata kao što su CSV, Excel, RDS, JSON, i drugi.\n📌 Učitavanje CSV fajlova\n\nfile_path &lt;- here::here(\"00_R\",\"data\", \"Studenti_IG2_20_21.txt\")\nfile_path\n\n[1] \"C:/Users/user/Documents/GitHub/AnalizaProstornoVremenskihPodataka/00_R/data/Studenti_IG2_20_21.txt\"\n\nstudenti &lt;- read.table(file_path, sep = \",\", header = TRUE, \n                       stringsAsFactors = FALSE)\nhead(studenti) # komanda\n\n  Broj      Prezime       Ime Br..Ind. God.upisa prvi_kol drugi_kol\n1    1      Aleksic Andrijana     1008        18       40        NA\n2    2   Andrijevic  Katarina     1036        17       10        NA\n3    3      Ackovic      Mina     1018        18      100        51\n4    4        Babic    Milica     1032        17       NA        NA\n5    5 Bastovanovic       Iva     1010        18       20        60\n6    6    Biberovic      Anja     1007        18      100        80\n  jun_prvi_kol jun_drugi_kol jun_ceo_ispit\n1           NA            NA            NA\n2           NA            NA            NA\n3           NA            NA            NA\n4           NA            NA            NA\n5           85            NA            NA\n6           NA            NA            NA"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#ucitavanje-podataka-u-r-u",
+    "href": "00_R/Uvod_u_R.html#ucitavanje-podataka-u-r-u",
+    "title": "Uvod u R",
+    "section": "Ucitavanje podataka u R-u",
+    "text": "Ucitavanje podataka u R-u\n\nfile_path &lt;- here::here(\"00_R\",\"data\", \"Studenti_IG2_20_21.txt\")\nfile_path\n\n[1] \"C:/Users/user/Documents/GitHub/AnalizaProstornoVremenskihPodataka/00_R/data/Studenti_IG2_20_21.txt\"\n\nstudenti &lt;- read.table(file_path, sep = \",\", header = TRUE, \n                       stringsAsFactors = FALSE)\nhead(studenti) # komanda\n\n  Broj      Prezime       Ime Br..Ind. God.upisa prvi_kol drugi_kol\n1    1      Aleksic Andrijana     1008        18       40        NA\n2    2   Andrijevic  Katarina     1036        17       10        NA\n3    3      Ackovic      Mina     1018        18      100        51\n4    4        Babic    Milica     1032        17       NA        NA\n5    5 Bastovanovic       Iva     1010        18       20        60\n6    6    Biberovic      Anja     1007        18      100        80\n  jun_prvi_kol jun_drugi_kol jun_ceo_ispit\n1           NA            NA            NA\n2           NA            NA            NA\n3           NA            NA            NA\n4           NA            NA            NA\n5           85            NA            NA\n6           NA            NA            NA"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#neke-funkcije-za-uvoz-i-izvoz-podataka-u-r",
+    "href": "00_R/Uvod_u_R.html#neke-funkcije-za-uvoz-i-izvoz-podataka-u-r",
+    "title": "Uvod u R",
+    "section": "Neke funkcije za uvoz i izvoz podataka u R",
+    "text": "Neke funkcije za uvoz i izvoz podataka u R\nU R-u postoji više funkcija za čitanje i pisanje podataka iz fajlova i obratno kao što su:\n\nreadLines, writeLines;\nscan, write;\nread.csv, write.csv;\nread.csv2, write.csv2;\nread.delim, write.delim;\nread.delim2, write.delim2;"
+  },
+  {
+    "objectID": "00_R/Uvod_u_R.html#literatura",
+    "href": "00_R/Uvod_u_R.html#literatura",
+    "title": "Uvod u R",
+    "section": "Literatura",
+    "text": "Literatura\n\nR Core Team. (2023). An Introduction to R. Retrieved from https://cran.r-project.org/doc/manuals/R-intro.pdf\nR Core Team. (2023). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. Retrieved from https://www.R-project.org/\nWickham, H. (2023) R for Data Science (2e). https://r4ds.hadley.nz/"
+  },
+  {
+    "objectID": "03_sf/sf.html#uvod-u-sf-paket-rad-sa-prostornim-podacima-u-r-u",
+    "href": "03_sf/sf.html#uvod-u-sf-paket-rad-sa-prostornim-podacima-u-r-u",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🌍 Uvod u sf paket – rad sa prostornim podacima u R-u",
+    "text": "🌍 Uvod u sf paket – rad sa prostornim podacima u R-u\nPaket sf (Simple Features for R) omogućava rad sa prostornim podacima na efikasan i intuitivan način koristeći Tidyverse sintaksu.\nZašto koristiti sf?\n\nOmogućava jednostavno čuvanje, manipulaciju i vizualizaciju prostornih podataka.\nPodržava različite geometrijske tipove (tačke, linije, poligoni) i njihove kombinacije.\nKompatibilan je sa tidyverse ( u prvom redu sa dplyr, ggplot2 ), što olakšava manipulaciju i vizualizaciju podataka.\nRadi sa standardnim formatima prostornih podataka (gpkg, GeoJSON, PostGIS,shapefile, itd.).\nOmogućava prostorne analize poput preseka, bufer zona i prostornih pridruživanja … i mnoge GIS operacije."
+  },
+  {
+    "objectID": "03_sf/sf.html#šta-su-simple-features",
+    "href": "03_sf/sf.html#šta-su-simple-features",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🗺️ Šta su Simple Features?",
+    "text": "🗺️ Šta su Simple Features?\n\n\nFeature = entitet ili objekt sa prostornom lokacijom → npr. zgrada, reka, ili neopipljive pojave: granice država, opština i drugo.\n\nili prostornim obuhvatom nekog entiteta (bbox- xmin, ymin, xmax, ymax)\n\n\n\nGeometrija opisuje prostorne osobine:\n\n\nTačka (point)\n\nLinija (linestring, više povezanih tačaka)\n\nPoligon (zatvorena linija)\nSkupovi gore pomenutih geometrijiskih primitiva\n\n\n\nOsim geometrije, feature/entitet ima i atribute:\n\nvremenski, tekstualni, kvantitativni (npr. ime, boja, temperatura, broj stanovnika, koncentracija cinka u zemljištu, klasu zemljišnog pokrivača i drugo.)\n\n\n\n📊 Kada sf klase nisu prikladne?\n\n\nKontinuirane pojave (npr. temperatura vode, nadmorska visina)\n→ bolje se prikazuju raster podacima (polja, funkcija prostora → vrednost)"
+  },
+  {
+    "objectID": "03_sf/sf.html#čuvanje-geometrija-u-data.frame-tibble",
+    "href": "03_sf/sf.html#čuvanje-geometrija-u-data.frame-tibble",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "💾 Čuvanje geometrija u data.frame tibble",
+    "text": "💾 Čuvanje geometrija u data.frame tibble\n\nsf objekti su data.frame objekti sa posebnom kolonom koja sadrži geometrijske informacije.\n\nJednostavan (S3) pristup za čuvanje prostorne geometrije u data.frame:\n\nkoristi se list-column za geometriju\n\n\n\nSvaki red data.frame-a:\n\nsadrži atribute (npr. ime, boja, visina, temperatura, broj stanovnika)\ni jednu geometriju u obliku objekta (npr. tačka, linija, poligon, …)\novakvi podaci imaju uređenu (tidy) strukturu."
+  },
+  {
+    "objectID": "03_sf/sf.html#sf-ilustracija",
+    "href": "03_sf/sf.html#sf-ilustracija",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "sf ilustracija",
+    "text": "sf ilustracija\n\n(Illustration (c) 2018 by Allison Horst)"
+  },
+  {
+    "objectID": "03_sf/sf.html#klase-u-sf-paketu",
+    "href": "03_sf/sf.html#klase-u-sf-paketu",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🧱 Klase u sf paketu",
+    "text": "🧱 Klase u sf paketu\n📦 Glavne klase:\n\n\nsf: data.frame sa jednom ili više list-kolona geometrije + atribut sf_column\n\n\nsfc: list-kolona sa više geometrija (feature geometries)\n\nsfg: pojedinačna geometrija u sfc list-koloni\n\ncrs: koordinatni referentni sistem (atribut sfc objekta)\n\n\nStruktura sf objekta"
+  },
+  {
+    "objectID": "03_sf/sf.html#hijerarhija-sf-objekta",
+    "href": "03_sf/sf.html#hijerarhija-sf-objekta",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🧭 Hijerarhija sf objekta",
+    "text": "🧭 Hijerarhija sf objekta\n\n\n\n\n\nflowchart TB\n    %% Glavni čvor\n    A[\"📦 &lt;b&gt; sf objekat &lt;/b&gt; &lt;br/&gt; ( data.frame + sfc geometrija )\"]\n    \n    %% Prvi nivo\n    A --&gt; B[\"📊 &lt;b&gt; Atributi &lt;/b&gt; &lt;br/&gt; ( kolone kao u data.frame )\"]\n    A --&gt; C[\"🗺️ &lt;b&gt; Geometrija &lt;/b&gt; &lt;br/&gt; ( sfc - Simple Feature Column )\"]\n\n    %% Drugi nivo (geometrije)\n    C --&gt; D1[\"📍 POINT &lt;br/&gt; &lt;i&gt; ( tačka ) &lt;/i&gt;\"]\n    C --&gt; D2[\"➖ LINESTRING &lt;br/&gt; &lt;i&gt; ( linija ) &lt;/i&gt;\"]\n    C --&gt; D3[\"⬛ POLYGON &lt;br/&gt; &lt;i&gt; ( poligon ) &lt;/i&gt;\"]\n    C --&gt; D4[\"🧩 MULTI* &lt;br/&gt; &lt;i&gt; ( višestruke geometrije ) &lt;/i&gt;\"]\n\n    %% Stilovi\n    style A fill:#e3f2fd,stroke:#0d47a1,stroke-width:3px,color:#0d47a1\n    style B fill:#e1f5fe,stroke:#0288d1,stroke-width:2px\n    style C fill:#e1f5fe,stroke:#0288d1,stroke-width:2px\n\n    style D1 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px\n    style D2 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px\n    style D3 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px\n    style D4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px"
+  },
+  {
+    "objectID": "03_sf/sf.html#tipovi-sfg-geometrija-i-struktura",
+    "href": "03_sf/sf.html#tipovi-sfg-geometrija-i-struktura",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🧩 Tipovi sfg geometrija i struktura:",
+    "text": "🧩 Tipovi sfg geometrija i struktura:\n\n\n\n\n\n\nTip\nStruktura\n\n\n\nPOINT\nnumerički vektor (x, y)\n\n\nMULTIPOINT\nmatrica (tačke po redovima)\n\n\nLINESTRING\nmatrica (tačke po redovima)\n\n\nPOLYGON\nlista matrica: spoljašnji prsten + (0 ili više) unutrašnjih\n\n\nMULTILINESTRING\nlista matrica (linije kao nizovi tačaka)\n\n\nMULTIPOLYGON\nlista lista sa strukturom poput POLYGON\n\n\n\nGEOMETRYCOLLECTION\nlista od 2+ prethodnih geometrijskih objekata\n\n\n\nℹ️ Sve geometrije mogu imati praznu formu → označava nedostajuću (NA) geometriju"
+  },
+  {
+    "objectID": "03_sf/sf.html#ključne-funkcije-u-sf-paketu",
+    "href": "03_sf/sf.html#ključne-funkcije-u-sf-paketu",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "⚙️ Ključne funkcije u sf paketu",
+    "text": "⚙️ Ključne funkcije u sf paketu\n\nSve funkcije i metode u sf paketu počinju sa st_\n\n\nst_ označava space-time → tradicija preuzeta iz PostGIS standarda\n🧠 Funkcije su organizovane po tipu zadatka – od prostornih odnosa, preko konstrukcije geometrije, do uvoza i prikaza podataka.\n\n\n\n\n\n\n\n\n🗂️ Kategorija\n🔧 Funkcije\n\n\n\nbinary predicates\n\nst_contains, st_covers, st_equals, st_touches, st_intersects, …\n\n\nbinary operations\n\nst_relate, st_distance\n\n\n\nunary operations\n\nst_area, st_length, st_is_valid, st_geometry_type, …\n\n\nmiscellaneous\n\nst_sample, st_join, st_make_grid, sf_extSoftVersion, …\n\n\nsetters\n\nst_set_crs, st_set_agr\n\n\n\nconstructors\n\nst_sfc, st_sf, st_point, st_polygon, …\n\n\nin-/output\n\nst_read, st_write, read_sf, write_sf, st_layers\n\n\n\nplotting\n\nst_viewport, sf.colors, st_wrap_dateline"
+  },
+  {
+    "objectID": "03_sf/sf.html#metode-za-sf-klase-značenje-boja",
+    "href": "03_sf/sf.html#metode-za-sf-klase-značenje-boja",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🎨 Metode za sf klase — značenje boja",
+    "text": "🎨 Metode za sf klase — značenje boja\nBoje označavaju različite grupe funkcija:\n\n🟢 Geometrijske operacije – npr. st_union, st_intersection, st_buffer\n\n🔴 Manipulacija klasama – npr. as.matrix, coerce, format, cast\n\n🔵 Tidyverse integracija – npr. mutate, filter, join, group_by\n\n➕ Ops – deo aritmetičkih operacija (npr. +, -, Ops)\n\n\nSimple Features for R: Standardized Support for Spatial Vector Data by Edzer Pebesma"
+  },
+  {
+    "objectID": "03_sf/sf.html#učitavanje-sf-paketa-i-kreiranje-objekta-iz-data.frame",
+    "href": "03_sf/sf.html#učitavanje-sf-paketa-i-kreiranje-objekta-iz-data.frame",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Učitavanje sf paketa i kreiranje objekta iz data.frame",
+    "text": "Učitavanje sf paketa i kreiranje objekta iz data.frame\n\n# install.packages(\"sf\")  # Instalacija (pokrenuti samo jednom)\nlibrary(sf)\n\n# Kreiranje prostornog objekta sa koordinatama tačaka\nsf_data &lt;- st_as_sf(\n    data.frame(ime = c(\"Tačka 1\", \"Tačka 2\"), \n             lon = c(20.45, 19.87), \n             lat = c(44.78, 45.26)), # klasičan data.frame\n    coords = c(\"lon\", \"lat\"), # st_as_sf očekuje kolone sa koordinatama da napravi sfc kolonu\n    crs = 4326 # WGS 84 koordinatni sistem\n)\n\n# Prikaz podataka\nprint(sf_data)\n\nSimple feature collection with 2 features and 1 field\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 19.87 ymin: 44.78 xmax: 20.45 ymax: 45.26\nGeodetic CRS:  WGS 84\n      ime            geometry\n1 Tačka 1 POINT (20.45 44.78)\n2 Tačka 2 POINT (19.87 45.26)"
+  },
+  {
+    "objectID": "03_sf/sf.html#geometrije-podržane-u-okviru-sf-paketa-sfg-simple-feature-geometry",
+    "href": "03_sf/sf.html#geometrije-podržane-u-okviru-sf-paketa-sfg-simple-feature-geometry",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🏗️ Geometrije podržane u okviru sf paketa – sfg (Simple Feature Geometry)\n",
+    "text": "🏗️ Geometrije podržane u okviru sf paketa – sfg (Simple Feature Geometry)\n\n\n📍 Tačke i grupe tačaka\n\n\nst_point() – pojedinačna tačka (POINT)\n\n\nst_multipoint() – skup više tačaka (MULTIPOINT)\n\n\n\n📏 Linije i više linija\n\n\nst_linestring() – linija definisana nizom tačaka (LINESTRING)\n\n\nst_multilinestring() – skup više linija (MULTILINESTRING)\n\n\n\n📐 Poligoni i više poligona\n\n\nst_polygon() – poligon definisan nizom koordinata (POLYGON)\n\n\nst_multipolygon() – više poligona zajedno (MULTIPOLYGON)\n\n\n\n🔄 Raznovrsne geometrije u jednoj strukturi\n\n\nst_geometrycollection() – kolekcija različitih geometrijskih objekata (GEOMETRYCOLLECTION)"
+  },
+  {
+    "objectID": "03_sf/sf.html#geometrije-podržane-u-okviru-sf-paketa---geometry-sfg",
+    "href": "03_sf/sf.html#geometrije-podržane-u-okviru-sf-paketa---geometry-sfg",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Geometrije podržane u okviru sf paketa - Geometry (sfg)",
+    "text": "Geometrije podržane u okviru sf paketa - Geometry (sfg)\n\nTipovi Simple feature geometrija () u okviru paketa"
+  },
+  {
+    "objectID": "03_sf/sf.html#well-known-text-zapis-različitih-geometrijskih-struktura",
+    "href": "03_sf/sf.html#well-known-text-zapis-različitih-geometrijskih-struktura",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Well-Known-Text zapis različitih geometrijskih struktura",
+    "text": "Well-Known-Text zapis različitih geometrijskih struktura\n\nWell-Known-Text Geometry primitives (wikipedia)"
+  },
+  {
+    "objectID": "03_sf/sf.html#well-known-text-zapis-različitih-geometrijskih-struktura-1",
+    "href": "03_sf/sf.html#well-known-text-zapis-različitih-geometrijskih-struktura-1",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Well-Known-Text zapis različitih geometrijskih struktura",
+    "text": "Well-Known-Text zapis različitih geometrijskih struktura\n\nWell-Known-Text Multipart geometries (wikipedia)"
+  },
+  {
+    "objectID": "03_sf/sf.html#kako-definišemo-geometriju-numerički",
+    "href": "03_sf/sf.html#kako-definišemo-geometriju-numerički",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🔢 Kako definišemo geometriju? numerički",
+    "text": "🔢 Kako definišemo geometriju? numerički\n\nt = st_point(c(20.45, 44.78))  # Pojedinačna tačka¸\nl = st_linestring(matrix(c(30, 10, 10, 30, 40, 40), ncol = 2, byrow = TRUE))  # Linija od dve tačke\np = st_polygon(list(matrix(c(35, 10,\n                             45, 45, \n                             15, 40, \n                             10, 20, 35 ,10), ncol = 2, byrow = TRUE)))  # Poligon 4 tačke \n\n# Prikaz svih geometrija u jednom panelu\npar(mfrow = c(1,3))  # Podešavanje panela 1x3\nplot(t, main = \"Tačka\", col = \"red\", pch = 16, cex = 2)\nplot(l, main = \"Linija\", border = \"black\", lwd = 2)\nplot(p, main = \"Poligon\", border = \"blue\", lwd = 2)"
+  },
+  {
+    "objectID": "03_sf/sf.html#kako-definišemo-geometriju-wkt",
+    "href": "03_sf/sf.html#kako-definišemo-geometriju-wkt",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🔢 Kako definišemo geometriju? WKT",
+    "text": "🔢 Kako definišemo geometriju? WKT\n\n# Kreiranje geometrijskih objekata pomoću WKT sintakse\npoint_wkt &lt;- st_as_sfc(\"POINT(20.45 44.78)\")  # Pojedinačna tačka\nlinestring_wkt &lt;- st_as_sfc(\"LINESTRING (30 10, 10 30, 40 40)\")  # Linija od dve tačke\npolygon_wkt &lt;- st_as_sfc(\"POLYGON ((35 10, 45 45, 15 40, 10 20, 35 10))\")  # Poligon od 4 tačke\n\n# Kreiranje sf objekta sa više geometrija\nsf_geom &lt;- st_sf(name = c(\"Tačka\", \"Linija\", \"Poligon\"), \n                 geometry = c(point_wkt, linestring_wkt, polygon_wkt))\n\n# Prikaz rezultata seta podataka koji ima različite geometrije za svaki red\nplot(sf_geom$geometry, border=c(\"red\", \"black\", \"blue\"))"
+  },
+  {
+    "objectID": "03_sf/sf.html#geometry-sfg",
+    "href": "03_sf/sf.html#geometry-sfg",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Geometry (sfg)",
+    "text": "Geometry (sfg)\n\nNpr., možemo kreirati tačke grf_point (zgrada Građevinskog fakulteta) i ub_point (Univerzitetska biblioteka) koje su reprezentovane geometrijom POINT sa komandom st_point\n\n\n\n# prvi nivo je je sfg objekat koji je samo geometrijski primitiv\ngrf_point = st_point( c(20.475974, 44.805770)  )\nub_point = st_point(  c(20.4747303 ,44.806143)  )\n\nPrikazivanje kreiranih tačaka u R konzoli daće nam WKT reprezentaciju\n\ngrf_point\n\n# POINT (20.47597 44.80577)"
+  },
+  {
+    "objectID": "03_sf/sf.html#geometry-sfg-1",
+    "href": "03_sf/sf.html#geometry-sfg-1",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Geometry (sfg)",
+    "text": "Geometry (sfg)\n\nAko pogledamo klasu objekata koji smo kreirali, videćemo da smo kreirali geometrijski deo, (sfg) objekat, koji sadrži tri dela:\n\n\nXY - Dimenziju, koja može biti (XY, XYZ, XYM or XYZM)\n\n\nPOINT - Tip geometrije (jedan od nabrojanih)\n\nsfg - klasu u okviru Simple Features (sfg = Simple Feature Geometry)\n\n\n\n\nclass(grf_point)\n\n[1] \"XY\"    \"POINT\" \"sfg\""
+  },
+  {
+    "objectID": "03_sf/sf.html#geometry-column-sfc",
+    "href": "03_sf/sf.html#geometry-column-sfc",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Geometry column (sfc)",
+    "text": "Geometry column (sfc)\n\nObjekti tipa (sfg) su sadržani u okviru sfc (geometry column) objekata\nTo se može uraditi komandom st_sfc\n\n\nGeometry column objekat sadrži i informacije o koordinatnom referentnom sistemu (Coordinate Reference System (CRS)) , sadržane u okviru crs podatka\n\ncrs može biti definisan na jedan od dva načina:\n\n\nPROJ.4 definicija (\"+proj=longlat +datum=WGS84\")\n\nEPSG kod (4326)\n\n\n\n\ngrf_ub_sfc = st_sfc(grf_point, ub_point, crs = 4326)\n# Ovde je prikazana kolona koja sadrži geometriju za navedene dve tačke sa pridruženim odgovarajućim koordinatnim sistemom.\ngrf_ub_sfc\n\nGeometry set for 2 features \nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 20.47473 ymin: 44.80577 xmax: 20.47597 ymax: 44.80614\nGeodetic CRS:  WGS 84\n\n# Geometry set for 2 features \n# Geometry type: POINT\n# Dimension:     XY\n# Bounding box:  xmin: 20.47473 ymin: 44.80577 xmax: 20.47597 ymax: 44.80614\n# Geodetic CRS:  WGS 84\n# POINT (20.47597 44.80577)\n# POINT (20.47473 44.80614)"
+  },
+  {
+    "objectID": "03_sf/sf.html#layer-sf",
+    "href": "03_sf/sf.html#layer-sf",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🌍 🗂 Layer (sf)",
+    "text": "🌍 🗂 Layer (sf)\n\nObjekat sfc može biti proširen sa ne-prostornim atributnim podacima, čime nastaje sf (layer) objekat.\nTo omogućava kombinovanje prostornih i tabelarnih podataka u istom datasetu.\n\n\natributi = data.frame(name = c(\"Građevinski fakultet\", \"Univerzitetska biblioteka\"))  # Kreiranje atributne tabele\natributi  # Prikaz atributnih podataka\n\n                       name\n1      Građevinski fakultet\n2 Univerzitetska biblioteka\n\ngrf_ub_sfc # Postojeći sfc geometrija\n\nGeometry set for 2 features \nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 20.47473 ymin: 44.80577 xmax: 20.47597 ymax: 44.80614\nGeodetic CRS:  WGS 84\n\ngrf_ub_sf = st_sf(atributi, grf_ub_sfc)  # Kreiranje sf objekta spajanjem atributa i geometrije  \ngrf_ub_sf  # Prikaz kreiranog sf objekta\n\nSimple feature collection with 2 features and 1 field\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 20.47473 ymin: 44.80577 xmax: 20.47597 ymax: 44.80614\nGeodetic CRS:  WGS 84\n                       name                grf_ub_sfc\n1      Građevinski fakultet POINT (20.47597 44.80577)\n2 Univerzitetska biblioteka POINT (20.47473 44.80614)"
+  },
+  {
+    "objectID": "03_sf/sf.html#koraci-u-konstrukciji-sf-objekta-grf_ub_sf",
+    "href": "03_sf/sf.html#koraci-u-konstrukciji-sf-objekta-grf_ub_sf",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🏗️ Koraci u konstrukciji sf objekta grf_ub_sf\n",
+    "text": "🏗️ Koraci u konstrukciji sf objekta grf_ub_sf\n\n\n\n1️⃣ Određivanje koordinata 📍\n- Definisali smo dve tačke:\n- Građevinski fakultet\n- Univerzitetska biblioteka\n2️⃣ Kreiranje geometrijskih objekata (sfg)\n- Svaka tačka je kreirana kao sfg (Simple Feature Geometry) objekat.\n3️⃣ Kombinovanje sfg objekata u sfc (geometry column)\n- Više sfg objekata su objedinjeni u geometrijsku kolonu (sfc).\n- U ovom koraku smo definisali i Koordinatni referentni sistem (crs).\n4️⃣ Dodavanje atributa i kreiranje sf objekta\n- Dodali smo atributne podatke (npr. naziv lokacije)\n- Dobijeni objekat sada pripada sf klasi, što omogućava prostorne analize.\n\n# prvi nivo je je sfg geometrijski primitiv point\n\ngrf_point = st_point( c(20.475974, 44.805770)  )\nub_point = st_point(  c(20.4747303 ,44.806143)  )\n\n# kolekcija \ngrf_ub_sfc = st_sfc(grf_point, ub_point, crs = 4326)\n\n# atributi \natributi = data.frame(\n            name = c(\"Gradjevinski fakultet\", \n                    \"Univerzitetska biblioteka\"))\n                    \n# df objekat, sf lejer\ngrf_ub_sf = st_sf(atributi, grf_ub_sfc)"
+  },
+  {
+    "objectID": "03_sf/sf.html#podaci-o-vulkanima-kao-obična-tabela",
+    "href": "03_sf/sf.html#podaci-o-vulkanima-kao-obična-tabela",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Podaci o vulkanima kao obična tabela",
+    "text": "Podaci o vulkanima kao obična tabela\n\n# Učitavanje potrebnih paketa\nlibrary(sf)\nlibrary(tidyverse)\n\n# Učitavanje podataka iz CSV-a, vulkani\nvulkani &lt;- read_csv(\"https://github.com/plotly/datasets/raw/refs/heads/master/volcano_db.csv\")\n\n# Pregled prvih redova podataka\nstr(vulkani)\n\nspc_tbl_ [1,571 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ Number      : chr [1:1571] \"0803-001\" \"1505-096\" \"1402-08=\" \"0103-004\" ...\n $ Volcano Name: chr [1:1571] \"Abu\" \"Acamarachi\" \"Acatenango\" \"Acigol-Nevsehir\" ...\n $ Country     : chr [1:1571] \"Japan\" \"Chile\" \"Guatemala\" \"Turkey\" ...\n $ Region      : chr [1:1571] \"Honshu-Japan\" \"Chile-N\" \"Guatemala\" \"Turkey\" ...\n $ Latitude    : num [1:1571] 34.5 -23.3 14.5 38.6 46.2 ...\n $ Longitude   : num [1:1571] 131.6 -67.6 -90.9 34.5 -121.5 ...\n $ Elev        : num [1:1571] 571 6046 3976 1689 3742 ...\n $ Type        : chr [1:1571] \"Shield volcano\" \"Stratovolcano\" \"Stratovolcano\" \"Maar\" ...\n $ Status      : chr [1:1571] \"Holocene\" \"Holocene\" \"Historical\" \"Holocene\" ...\n $ Last Known  : chr [1:1571] \"Unknown\" \"Unknown\" \"D1\" \"U\" ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   Number = col_character(),\n  ..   `Volcano Name` = col_character(),\n  ..   Country = col_character(),\n  ..   Region = col_character(),\n  ..   Latitude = col_double(),\n  ..   Longitude = col_double(),\n  ..   Elev = col_double(),\n  ..   Type = col_character(),\n  ..   Status = col_character(),\n  ..   `Last Known` = col_character()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt;"
+  },
+  {
+    "objectID": "03_sf/sf.html#podaci-o-vulkanima-kreiranje-sf-objekta",
+    "href": "03_sf/sf.html#podaci-o-vulkanima-kreiranje-sf-objekta",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Podaci o vulkanima kreiranje sf objekta",
+    "text": "Podaci o vulkanima kreiranje sf objekta\n\n# Pretvaranje u prostorni objekat\nvulkani_sf &lt;- st_as_sf(vulkani, coords = c(\"Longitude\", \"Latitude\"), crs = 4326)\n\n# Prikaz podataka u sf formatu\nstr(vulkani_sf)\n\nsf [1,571 × 9] (S3: sf/tbl_df/tbl/data.frame)\n $ Number      : chr [1:1571] \"0803-001\" \"1505-096\" \"1402-08=\" \"0103-004\" ...\n $ Volcano Name: chr [1:1571] \"Abu\" \"Acamarachi\" \"Acatenango\" \"Acigol-Nevsehir\" ...\n $ Country     : chr [1:1571] \"Japan\" \"Chile\" \"Guatemala\" \"Turkey\" ...\n $ Region      : chr [1:1571] \"Honshu-Japan\" \"Chile-N\" \"Guatemala\" \"Turkey\" ...\n $ Elev        : num [1:1571] 571 6046 3976 1689 3742 ...\n $ Type        : chr [1:1571] \"Shield volcano\" \"Stratovolcano\" \"Stratovolcano\" \"Maar\" ...\n $ Status      : chr [1:1571] \"Holocene\" \"Holocene\" \"Historical\" \"Holocene\" ...\n $ Last Known  : chr [1:1571] \"Unknown\" \"Unknown\" \"D1\" \"U\" ...\n $ geometry    :sfc_POINT of length 1571; first list element:  'XY' num [1:2] 131.6 34.5\n - attr(*, \"sf_column\")= chr \"geometry\"\n - attr(*, \"agr\")= Factor w/ 3 levels \"constant\",\"aggregate\",..: NA NA NA NA NA NA NA NA\n  ..- attr(*, \"names\")= chr [1:8] \"Number\" \"Volcano Name\" \"Country\" \"Region\" ..."
+  },
+  {
+    "objectID": "03_sf/sf.html#podaci-o-vulkanima-kreiranje-sf-plot",
+    "href": "03_sf/sf.html#podaci-o-vulkanima-kreiranje-sf-plot",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Podaci o vulkanima kreiranje sf plot",
+    "text": "Podaci o vulkanima kreiranje sf plot\n\n# Prikaz - plot podataka u sf formatu\nplot(vulkani_sf[\"Elev\"], \n     main = \"Prikaz visine vulkana\")"
+  },
+  {
+    "objectID": "03_sf/sf.html#podaci-o-vulkanima-kreiranje-ggplot",
+    "href": "03_sf/sf.html#podaci-o-vulkanima-kreiranje-ggplot",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Podaci o vulkanima kreiranje ggplot",
+    "text": "Podaci o vulkanima kreiranje ggplot\n\nlibrary(ggplot2)\n\nggplot(data = vulkani_sf) +\n  geom_sf(aes(color = Elev), size = 2) +\n  scale_color_viridis_c(option = \"plasma\") +  # Paleta boja prilagođena za visinske vrednosti\n  labs(title = \"Najviši vulkani sveta\",\n       subtitle = \"Boja označava visinu vulkana\",\n       color = \"Visina (m)\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "03_sf/sf.html#najčešće-korišćene-funkcije-u-sf-paketu",
+    "href": "03_sf/sf.html#najčešće-korišćene-funkcije-u-sf-paketu",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Najčešće korišćene funkcije u sf paketu",
+    "text": "Najčešće korišćene funkcije u sf paketu\nsf paket omogućava rad sa prostornim podacima u R-u kroz širok spektar funkcija.\nNajčešće korišćene funkcije možemo podeliti u tri grupe:\n\n📌 ** 1️⃣Direktnam manipulacija sf objektima**\n📌 ** 2️⃣ Prostorne analize i geometrijske operacije**\n📌 ** 3️⃣ Izdvajanje podataka i filtriranje**"
+  },
+  {
+    "objectID": "03_sf/sf.html#izdvajanje-geometrije-iz-sf-objekta",
+    "href": "03_sf/sf.html#izdvajanje-geometrije-iz-sf-objekta",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "📌 Izdvajanje geometrije iz sf objekta",
+    "text": "📌 Izdvajanje geometrije iz sf objekta\nSvaki sf objekat sadrži geometrijsku kolonu (sfc) koja može biti izdvojena pomoću funkcije st_geometry().\nOvo omogućava rad samo sa prostornim podacima, bez ne-prostornih atributa.\n\nst_geometry(grf_ub_sf)\n\nGeometry set for 2 features \nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 20.47473 ymin: 44.80577 xmax: 20.47597 ymax: 44.80614\nGeodetic CRS:  WGS 84"
+  },
+  {
+    "objectID": "03_sf/sf.html#izdvajanje-atributa-iz-sf-objekta",
+    "href": "03_sf/sf.html#izdvajanje-atributa-iz-sf-objekta",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "📑 Izdvajanje atributa iz sf objekta",
+    "text": "📑 Izdvajanje atributa iz sf objekta\nSvaki sf objekat sadrži atributne podatke (tabelarne informacije) pored geometrijske komponente (sfc).\nAko želimo da radimo samo sa atributima (bez geometrije), koristimo:\n📌 Metode za izdvajanje atributa (attribute table)\n-st_set_geometry(x, NULL) – Uklanja geometrijsku kolonu iz sf objekta.\n-st_drop_geometry(x) – Lakši način za uklanjanje geometrije i dobijanje data.frame formata.\n\n# st_set_geometry(grf_ub_sf, NULL)\nst_drop_geometry(grf_ub_sf)\n\n                       name\n1      Građevinski fakultet\n2 Univerzitetska biblioteka\n\n\n\n✔ Omogućava rad sa tabelarnim podacima bez prostorne komponente.\n✔ Pomaže pri filtriranju i analizi atributa u sf objektima.\n✔ st_drop_geometry() je kraći i preporučen metod za brzo izdvajanje atributa."
+  },
+  {
+    "objectID": "03_sf/sf.html#izdvajanje-koordinata",
+    "href": "03_sf/sf.html#izdvajanje-koordinata",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Izdvajanje koordinata",
+    "text": "Izdvajanje koordinata\n\n\nKoordinate (matrix objekat) iz sf, sfc ili sfg objekta može se izvršiti komandom st_coordinates\n\n\n\nst_coordinates(grf_ub_sf)\n\n            X        Y\n[1,] 20.47597 44.80577\n[2,] 20.47473 44.80614"
+  },
+  {
+    "objectID": "03_sf/sf.html#učitavanje-prostornih-podataka-u-sf-klase",
+    "href": "03_sf/sf.html#učitavanje-prostornih-podataka-u-sf-klase",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Učitavanje prostornih podataka u sf klase",
+    "text": "Učitavanje prostornih podataka u sf klase\nRazličiti tipovi/formati prostornih podataka su podržani u okviru sf paketa, posredstvom gdal biblioteke:\n\nst_drivers(what = \"vector\")\n\n                         name\nMEM                       MEM\nPCIDSK                 PCIDSK\nnetCDF                 netCDF\nPDS4                     PDS4\nVICAR                   VICAR\nJP2OpenJPEG       JP2OpenJPEG\nPDF                       PDF\nMBTiles               MBTiles\nBAG                       BAG\nEEDA                     EEDA\nOGCAPI                 OGCAPI\nGDALG                   GDALG\nESRI Shapefile ESRI Shapefile\nMapInfo File     MapInfo File\nLVBAG                   LVBAG\nS57                       S57\nDGN                       DGN\nOGR_VRT               OGR_VRT\nCSV                       CSV\nGML                       GML\nGPX                       GPX\nKML                       KML\nGeoJSON               GeoJSON\nGeoJSONSeq         GeoJSONSeq\nESRIJSON             ESRIJSON\nTopoJSON             TopoJSON\nOGR_GMT               OGR_GMT\nGPKG                     GPKG\nSQLite                 SQLite\nODBC                     ODBC\nWAsP                     WAsP\nPGeo                     PGeo\nMSSQLSpatial     MSSQLSpatial\nPostgreSQL         PostgreSQL\nMySQL                   MySQL\nOpenFileGDB       OpenFileGDB\nDXF                       DXF\nCAD                       CAD\nFlatGeobuf         FlatGeobuf\nGeoRSS                 GeoRSS\nVFK                       VFK\nPGDUMP                 PGDUMP\nOSM                       OSM\nGPSBabel             GPSBabel\nOGR_PDS               OGR_PDS\nWFS                       WFS\nOAPIF                   OAPIF\nEDIGEO                 EDIGEO\nIdrisi                 Idrisi\nXLS                       XLS\nODS                       ODS\nXLSX                     XLSX\nElasticsearch   Elasticsearch\nCarto                   Carto\nAmigoCloud         AmigoCloud\nSXF                       SXF\nSelafin               Selafin\nJML                       JML\nPLSCENES             PLSCENES\nCSW                       CSW\nVDV                       VDV\nMVT                       MVT\nNGW                       NGW\nMapML                   MapML\nGTFS                     GTFS\nPMTiles               PMTiles\nJSONFG                 JSONFG\nMiraMonVector   MiraMonVector\nADBC                     ADBC\nAVCBin                 AVCBin\nAVCE00                 AVCE00\nAIVector             AIVector\nHTTP                     HTTP\n                                                          long_name write  copy\nMEM            In Memory raster, vector and multidimensional raster  TRUE FALSE\nPCIDSK                                         PCIDSK Database File  TRUE FALSE\nnetCDF                                   Network Common Data Format  TRUE  TRUE\nPDS4                                   NASA Planetary Data System 4  TRUE  TRUE\nVICAR                                               MIPL VICAR file  TRUE  TRUE\nJP2OpenJPEG           JPEG-2000 driver based on JP2OpenJPEG library FALSE  TRUE\nPDF                                                  Geospatial PDF  TRUE  TRUE\nMBTiles                                                     MBTiles  TRUE  TRUE\nBAG                                      Bathymetry Attributed Grid  TRUE  TRUE\nEEDA                                          Earth Engine Data API FALSE FALSE\nOGCAPI                                                       OGCAPI FALSE FALSE\nGDALG                                GDAL Streamed Algorithm driver FALSE FALSE\nESRI Shapefile                                       ESRI Shapefile  TRUE FALSE\nMapInfo File                                           MapInfo File  TRUE FALSE\nLVBAG                                   Kadaster LV BAG Extract 2.0 FALSE FALSE\nS57                                                  IHO S-57 (ENC)  TRUE FALSE\nDGN                                                Microstation DGN  TRUE FALSE\nOGR_VRT                                    VRT - Virtual Datasource FALSE FALSE\nCSV                                    Comma Separated Value (.csv)  TRUE FALSE\nGML                                 Geography Markup Language (GML)  TRUE FALSE\nGPX                                                             GPX  TRUE FALSE\nKML                                   Keyhole Markup Language (KML)  TRUE FALSE\nGeoJSON                                                     GeoJSON  TRUE FALSE\nGeoJSONSeq                                         GeoJSON Sequence  TRUE FALSE\nESRIJSON                                                   ESRIJSON FALSE FALSE\nTopoJSON                                                   TopoJSON FALSE FALSE\nOGR_GMT                                    GMT ASCII Vectors (.gmt)  TRUE FALSE\nGPKG                                                     GeoPackage  TRUE  TRUE\nSQLite                                          SQLite / Spatialite  TRUE FALSE\nODBC                              Open Database Connectivity (ODBC) FALSE FALSE\nWAsP                                               WAsP .map format  TRUE FALSE\nPGeo                                      ESRI Personal GeoDatabase FALSE FALSE\nMSSQLSpatial                  Microsoft SQL Server Spatial Database  TRUE FALSE\nPostgreSQL                                       PostgreSQL/PostGIS  TRUE FALSE\nMySQL                                                         MySQL  TRUE FALSE\nOpenFileGDB                ESRI FileGeodatabase (using OpenFileGDB)  TRUE FALSE\nDXF                                                     AutoCAD DXF  TRUE FALSE\nCAD                                                  AutoCAD Driver FALSE FALSE\nFlatGeobuf                                               FlatGeobuf  TRUE FALSE\nGeoRSS                                                       GeoRSS  TRUE FALSE\nVFK                            Czech Cadastral Exchange Data Format FALSE FALSE\nPGDUMP                                          PostgreSQL SQL dump  TRUE FALSE\nOSM                                       OpenStreetMap XML and PBF FALSE FALSE\nGPSBabel                                                   GPSBabel  TRUE FALSE\nOGR_PDS                                Planetary Data Systems TABLE FALSE FALSE\nWFS                                   OGC WFS (Web Feature Service) FALSE FALSE\nOAPIF                                            OGC API - Features FALSE FALSE\nEDIGEO                                French EDIGEO exchange format FALSE FALSE\nIdrisi                                         Idrisi Vector (.vct) FALSE FALSE\nXLS                                                 MS Excel format FALSE FALSE\nODS             Open Document/ LibreOffice / OpenOffice Spreadsheet  TRUE FALSE\nXLSX                                 MS Office Open XML spreadsheet  TRUE FALSE\nElasticsearch                                        Elastic Search  TRUE FALSE\nCarto                                                         Carto  TRUE FALSE\nAmigoCloud                                               AmigoCloud  TRUE FALSE\nSXF                                     Storage and eXchange Format FALSE FALSE\nSelafin                                                     Selafin  TRUE FALSE\nJML                                                    OpenJUMP JML  TRUE FALSE\nPLSCENES                                     Planet Labs Scenes API FALSE FALSE\nCSW                          OGC CSW (Catalog  Service for the Web) FALSE FALSE\nVDV                             VDV-451/VDV-452/INTREST Data Format  TRUE FALSE\nMVT                                             Mapbox Vector Tiles  TRUE FALSE\nNGW                                                     NextGIS Web  TRUE  TRUE\nMapML                                                         MapML  TRUE FALSE\nGTFS                             General Transit Feed Specification FALSE FALSE\nPMTiles                                              ProtoMap Tiles  TRUE FALSE\nJSONFG                             OGC Features and Geometries JSON  TRUE FALSE\nMiraMonVector                    MiraMon Vectors (.pol, .arc, .pnt)  TRUE FALSE\nADBC                                    Arrow Database Connectivity FALSE FALSE\nAVCBin                                     Arc/Info Binary Coverage FALSE FALSE\nAVCE00                                Arc/Info E00 (ASCII) Coverage FALSE FALSE\nAIVector              Artificial Intelligence powered vector driver FALSE FALSE\nHTTP                                          HTTP Fetching Wrapper FALSE FALSE\n               is_raster is_vector   vsi\nMEM                 TRUE      TRUE FALSE\nPCIDSK              TRUE      TRUE  TRUE\nnetCDF              TRUE      TRUE FALSE\nPDS4                TRUE      TRUE  TRUE\nVICAR               TRUE      TRUE  TRUE\nJP2OpenJPEG         TRUE      TRUE  TRUE\nPDF                 TRUE      TRUE  TRUE\nMBTiles             TRUE      TRUE  TRUE\nBAG                 TRUE      TRUE  TRUE\nEEDA               FALSE      TRUE FALSE\nOGCAPI              TRUE      TRUE  TRUE\nGDALG               TRUE      TRUE  TRUE\nESRI Shapefile     FALSE      TRUE  TRUE\nMapInfo File       FALSE      TRUE  TRUE\nLVBAG              FALSE      TRUE  TRUE\nS57                FALSE      TRUE  TRUE\nDGN                FALSE      TRUE  TRUE\nOGR_VRT            FALSE      TRUE  TRUE\nCSV                FALSE      TRUE  TRUE\nGML                FALSE      TRUE  TRUE\nGPX                FALSE      TRUE  TRUE\nKML                FALSE      TRUE  TRUE\nGeoJSON            FALSE      TRUE  TRUE\nGeoJSONSeq         FALSE      TRUE  TRUE\nESRIJSON           FALSE      TRUE  TRUE\nTopoJSON           FALSE      TRUE  TRUE\nOGR_GMT            FALSE      TRUE  TRUE\nGPKG                TRUE      TRUE  TRUE\nSQLite             FALSE      TRUE  TRUE\nODBC               FALSE      TRUE FALSE\nWAsP               FALSE      TRUE  TRUE\nPGeo               FALSE      TRUE FALSE\nMSSQLSpatial       FALSE      TRUE FALSE\nPostgreSQL         FALSE      TRUE FALSE\nMySQL              FALSE      TRUE FALSE\nOpenFileGDB         TRUE      TRUE  TRUE\nDXF                FALSE      TRUE  TRUE\nCAD                 TRUE      TRUE  TRUE\nFlatGeobuf         FALSE      TRUE  TRUE\nGeoRSS             FALSE      TRUE  TRUE\nVFK                FALSE      TRUE FALSE\nPGDUMP             FALSE      TRUE  TRUE\nOSM                FALSE      TRUE  TRUE\nGPSBabel           FALSE      TRUE FALSE\nOGR_PDS            FALSE      TRUE  TRUE\nWFS                FALSE      TRUE  TRUE\nOAPIF              FALSE      TRUE FALSE\nEDIGEO             FALSE      TRUE  TRUE\nIdrisi             FALSE      TRUE  TRUE\nXLS                FALSE      TRUE FALSE\nODS                FALSE      TRUE  TRUE\nXLSX               FALSE      TRUE  TRUE\nElasticsearch      FALSE      TRUE FALSE\nCarto              FALSE      TRUE FALSE\nAmigoCloud         FALSE      TRUE FALSE\nSXF                FALSE      TRUE  TRUE\nSelafin            FALSE      TRUE  TRUE\nJML                FALSE      TRUE  TRUE\nPLSCENES            TRUE      TRUE FALSE\nCSW                FALSE      TRUE FALSE\nVDV                FALSE      TRUE  TRUE\nMVT                FALSE      TRUE  TRUE\nNGW                 TRUE      TRUE FALSE\nMapML              FALSE      TRUE  TRUE\nGTFS               FALSE      TRUE  TRUE\nPMTiles            FALSE      TRUE  TRUE\nJSONFG             FALSE      TRUE  TRUE\nMiraMonVector      FALSE      TRUE  TRUE\nADBC               FALSE      TRUE FALSE\nAVCBin             FALSE      TRUE  TRUE\nAVCE00             FALSE      TRUE  TRUE\nAIVector           FALSE      TRUE FALSE\nHTTP                TRUE      TRUE FALSE"
+  },
+  {
+    "objectID": "03_sf/sf.html#srbija-sa-granicama-autonomnih-pokrajina-koji-je-dat-u-okviru-čitanje-iz-gis-fajla",
+    "href": "03_sf/sf.html#srbija-sa-granicama-autonomnih-pokrajina-koji-je-dat-u-okviru-čitanje-iz-gis-fajla",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Srbija sa granicama autonomnih pokrajina koji je dat u okviru čitanje iz GIS fajla",
+    "text": "Srbija sa granicama autonomnih pokrajina koji je dat u okviru čitanje iz GIS fajla\n\nsrbija &lt;- sf::st_read( \"data/RAP.shp\")\n\nReading layer `RAP' from data source \n  `C:\\Users\\user\\Documents\\GitHub\\AnalizaProstornoVremenskihPodataka\\03_sf\\data\\RAP.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 3 features and 6 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 332049.4 ymin: 4633470 xmax: 663034.2 ymax: 5116035\nProjected CRS: WGS 84 / UTM zone 34N"
+  },
+  {
+    "objectID": "03_sf/sf.html#dimenzije-i-klasa",
+    "href": "03_sf/sf.html#dimenzije-i-klasa",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Dimenzije i klasa",
+    "text": "Dimenzije i klasa\n\ndim(srbija)\n\n[1] 3 7\n\nclass(srbija)\n\n[1] \"sf\"         \"data.frame\""
+  },
+  {
+    "objectID": "03_sf/sf.html#plot-sf-objekta",
+    "href": "03_sf/sf.html#plot-sf-objekta",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "plot sf objekta",
+    "text": "plot sf objekta\n\nplot(srbija)"
+  },
+  {
+    "objectID": "03_sf/sf.html#manipulacija-sf-objektima",
+    "href": "03_sf/sf.html#manipulacija-sf-objektima",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Manipulacija sf objektima",
+    "text": "Manipulacija sf objektima\n\nmethods(class=\"sf\")\n\n  [1] $&lt;-                          [                           \n  [3] [[&lt;-                         [&lt;-                         \n  [5] aggregate                    anti_join                   \n  [7] arrange                      as.data.frame               \n  [9] cbind                        coerce                      \n [11] dbDataType                   dbWriteTable                \n [13] distinct                     dplyr_reconstruct           \n [15] drop_na                      duplicated                  \n [17] filter                       full_join                   \n [19] gather                       group_by                    \n [21] group_split                  identify                    \n [23] initialize                   inner_join                  \n [25] left_join                    merge                       \n [27] mutate                       nest                        \n [29] pivot_longer                 pivot_wider                 \n [31] plot                         points                      \n [33] print                        rbind                       \n [35] rename                       rename_with                 \n [37] right_join                   rowwise                     \n [39] sample_frac                  sample_n                    \n [41] select                       semi_join                   \n [43] separate                     separate_rows               \n [45] show                         slice                       \n [47] slotsFromS3                  spread                      \n [49] st_agr                       st_agr&lt;-                    \n [51] st_area                      st_as_s2                    \n [53] st_as_sf                     st_as_sfc                   \n [55] st_bbox                      st_boundary                 \n [57] st_break_antimeridian        st_buffer                   \n [59] st_cast                      st_centroid                 \n [61] st_collection_extract        st_concave_hull             \n [63] st_convex_hull               st_coordinates              \n [65] st_crop                      st_crs                      \n [67] st_crs&lt;-                     st_difference               \n [69] st_drop_geometry             st_exterior_ring            \n [71] st_filter                    st_geometry                 \n [73] st_geometry&lt;-                st_inscribed_circle         \n [75] st_interpolate_aw            st_intersection             \n [77] st_intersects                st_is                       \n [79] st_is_full                   st_is_valid                 \n [81] st_join                      st_line_merge               \n [83] st_m_range                   st_make_valid               \n [85] st_minimum_bounding_circle   st_minimum_rotated_rectangle\n [87] st_nearest_points            st_node                     \n [89] st_normalize                 st_point_on_surface         \n [91] st_polygonize                st_precision                \n [93] st_reverse                   st_sample                   \n [95] st_segmentize                st_set_precision            \n [97] st_shift_longitude           st_simplify                 \n [99] st_snap                      st_sym_difference           \n[101] st_transform                 st_triangulate              \n[103] st_triangulate_constrained   st_union                    \n[105] st_voronoi                   st_wrap_dateline            \n[107] st_write                     st_z_range                  \n[109] st_zm                        summarise                   \n[111] text                         transform                   \n[113] transmute                    ungroup                     \n[115] unite                        unnest                      \nsee '?methods' for accessing help and source code"
+  },
+  {
+    "objectID": "03_sf/sf.html#manipulacija-sf-objektima-1",
+    "href": "03_sf/sf.html#manipulacija-sf-objektima-1",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Manipulacija sf objektima",
+    "text": "Manipulacija sf objektima\n\nsrbija\n\nSimple feature collection with 3 features and 6 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 332049.4 ymin: 4633470 xmax: 663034.2 ymax: 5116035\nProjected CRS: WGS 84 / UTM zone 34N\n  OBJECTID SifRAP            ImeRAP SHAPE_Leng  SHAPE_Area I\n1        1      9 Kosovo i Metohija   719739.7 10892519039 1\n2        2      7  Centralna Srbija  1950257.8 55974052295 1\n3        3      8         Vojvodina  1158156.6 21525723338 1\n                        geometry\n1 POLYGON ((548473.6 4678936,...\n2 POLYGON ((528287.9 4963217,...\n3 POLYGON ((528287.9 4963217,..."
+  },
+  {
+    "objectID": "03_sf/sf.html#manipulacija-sf-objektima-2",
+    "href": "03_sf/sf.html#manipulacija-sf-objektima-2",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Manipulacija sf objektima",
+    "text": "Manipulacija sf objektima\n\nsrbija[2, ] # izdvojamo samo drugi entitet\n\nSimple feature collection with 1 feature and 6 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 348832.6 ymin: 4675726 xmax: 663034.2 ymax: 4993905\nProjected CRS: WGS 84 / UTM zone 34N\n  OBJECTID SifRAP           ImeRAP SHAPE_Leng  SHAPE_Area I\n2        2      7 Centralna Srbija    1950258 55974052295 1\n                        geometry\n2 POLYGON ((528287.9 4963217,...\n\nsrbija[, 5] # svi entiteti/redovi a samo jedan atribut/kolona SHAPE_Area\n\nSimple feature collection with 3 features and 1 field\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 332049.4 ymin: 4633470 xmax: 663034.2 ymax: 5116035\nProjected CRS: WGS 84 / UTM zone 34N\n   SHAPE_Area                       geometry\n1 10892519039 POLYGON ((548473.6 4678936,...\n2 55974052295 POLYGON ((528287.9 4963217,...\n3 21525723338 POLYGON ((528287.9 4963217,...\n\nsrbija[\"SHAPE_Area\"] # svi entiteti/redovi a samo jedan atribut/kolona SHAPE_Area\n\nSimple feature collection with 3 features and 1 field\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 332049.4 ymin: 4633470 xmax: 663034.2 ymax: 5116035\nProjected CRS: WGS 84 / UTM zone 34N\n   SHAPE_Area                       geometry\n1 10892519039 POLYGON ((548473.6 4678936,...\n2 55974052295 POLYGON ((528287.9 4963217,...\n3 21525723338 POLYGON ((528287.9 4963217,..."
+  },
+  {
+    "objectID": "03_sf/sf.html#grafički-prikaz-plot-po-atributu-koji-je-na-petom-mestu",
+    "href": "03_sf/sf.html#grafički-prikaz-plot-po-atributu-koji-je-na-petom-mestu",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Grafički prikaz, plot po atributu koji je na petom mestu",
+    "text": "Grafički prikaz, plot po atributu koji je na petom mestu\nUkoliko želimo da prikažemo učitani objekat, to možemo uraditi prostom komandom plot:\n\nplot(srbija[\"SHAPE_Area\"])"
+  },
+  {
+    "objectID": "03_sf/sf.html#dodavanje-estetike",
+    "href": "03_sf/sf.html#dodavanje-estetike",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Dodavanje estetike",
+    "text": "Dodavanje estetike\n\nplot(st_geometry(srbija), border = \"grey\")"
+  },
+  {
+    "objectID": "03_sf/sf.html#interaktivni-prikaz-sa-mapview",
+    "href": "03_sf/sf.html#interaktivni-prikaz-sa-mapview",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Interaktivni prikaz sa mapview\n",
+    "text": "Interaktivni prikaz sa mapview\n\n\nlibrary(mapview)\nmapview(srbija, zcol = \"SHAPE_Area\", legend = TRUE)"
+  },
+  {
+    "objectID": "03_sf/sf.html#koordinatne-transformacije-sf-objekata",
+    "href": "03_sf/sf.html#koordinatne-transformacije-sf-objekata",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🌍 Koordinatne transformacije sf objekata",
+    "text": "🌍 Koordinatne transformacije sf objekata\nKoordinatne transformacije omogućavaju prebacivanje prostornih podataka iz jednog koordinatnog referentnog sistema (CRS) u drugi.\nU sf paketu to radimo pomoću funkcije st_transform().\n🔄 Kako definisati CRS?\n\nMožemo koristiti dva standardna načina:\n\n1️⃣ EPSG kod → (4326) ili\n2️⃣ PROJ.4 string → (\"+proj=longlat +datum=WGS84\")\n\n\n# srbija_wgs = st_transform(srbija, crs = \"+proj=longlat +datum=WGS84\")\nsrbija_wgs = st_transform(srbija, 4326)\nsrbija_wgs\n\nSimple feature collection with 3 features and 6 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 18.83812 ymin: 41.85251 xmax: 23.00629 ymax: 46.19005\nGeodetic CRS:  WGS 84\n  OBJECTID SifRAP            ImeRAP SHAPE_Leng  SHAPE_Area I\n1        1      9 Kosovo i Metohija   719739.7 10892519039 1\n2        2      7  Centralna Srbija  1950257.8 55974052295 1\n3        3      8         Vojvodina  1158156.6 21525723338 1\n                        geometry\n1 POLYGON ((21.58771 42.26112...\n2 POLYGON ((21.35781 44.82179...\n3 POLYGON ((21.35781 44.82179..."
+  },
+  {
+    "objectID": "03_sf/sf.html#geometrijske-operacije-sa-sf-objektima",
+    "href": "03_sf/sf.html#geometrijske-operacije-sa-sf-objektima",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Geometrijske operacije sa sf objektima",
+    "text": "Geometrijske operacije sa sf objektima\nGeometrijske operacije nad vektorskim podacima u sf paketu mogu se podeliti u tri glavne grupe, prema vrsti rezultata koji generišu: numeričke, logičke i prostorne.\n🎯 Zašto koristiti geometrijske operacije u sf?\n\n\n✔ Omogućavaju prostornu analizu i manipulaciju podacima.\n✔ Pomažu u GIS modeliranju i kartografiji.\n✔ Neophodne su za preklapanje i interakciju slojeva."
+  },
+  {
+    "objectID": "03_sf/sf.html#numeričke-operacije",
+    "href": "03_sf/sf.html#numeričke-operacije",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "📌 1️⃣ Numeričke operacije 🔢",
+    "text": "📌 1️⃣ Numeričke operacije 🔢\nFunkcije koje izračunavaju geometrijske karakteristike objekata.\n\n-Unutar jednog sloja (sf objekta)\nst_area() – računa površinu poligona\nst_length() – računa dužinu linija\n\n-Između više slojeva (sf objekata)\n\n\nst_distance() – računa razdaljinu između geometrija"
+  },
+  {
+    "objectID": "03_sf/sf.html#logičke-operacije",
+    "href": "03_sf/sf.html#logičke-operacije",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "📌 2️⃣ Logičke operacije ✅",
+    "text": "📌 2️⃣ Logičke operacije ✅\nFunkcije koje evaluiraju neki logički uput i vraćaju TRUE/FALSE.\n-Unutar jednog sloja\n- st_is_valid() – proverava da li je geometrija validna\n-Između više slojeva\n- st_intersects() – proverava da li se geometrije preklapaju\n- st_within() – proverava da li je jedan objekat potpuno unutar drugog"
+  },
+  {
+    "objectID": "03_sf/sf.html#prostorne-operacije",
+    "href": "03_sf/sf.html#prostorne-operacije",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "📌 3️⃣ Prostorne operacije 🌍",
+    "text": "📌 3️⃣ Prostorne operacije 🌍\nFunkcije koje kreiraju novu geometriju na osnovu postojeće.\n-Unutar jednog sloja\n- st_centroid() – kreira centroid poligona\n- st_buffer() – kreira buffer zonu oko objekata\n-Između više slojeva\n- st_union() – spaja dve ili više geometrija u jednu\n- st_intersection() – kreira novi sloj koji predstavlja presek dva sloja\n\n\n\n\n\n\nNote\n\n\n\nObrati pažnju nije ista funkcija st_intersection() i st_intersects().\nst_intersects() logički predikat koji vraća TRUE/FALSE (odnosno sparse matricu indeksa) i služi da pita da li se preklapaju?\nst_intersection() prostorna operacija koja izračunava i vraća potpuno novu geometriju preseka."
+  },
+  {
+    "objectID": "03_sf/sf.html#numeričke-geometrijske-operacije",
+    "href": "03_sf/sf.html#numeričke-geometrijske-operacije",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "📏 Numeričke geometrijske operacije",
+    "text": "📏 Numeričke geometrijske operacije\nsf paket omogućava izvođenje različitih numeričkih operacija na prostornim objektima, uključujući izračunavanje dužine, površine, udaljenosti i dimenzije geometrije.\n\n\n\n\n\n\nFunkcija\nOpis\n\n\n\nst_length()\nIzračunava dužinu linijskih objekata\n\n\nst_area()\nIzračunava površinu poligona\n\n\nst_distance()\nIzračunava udaljenost između geometrija\n\n\n\nst_bbox()\nVraća bounding box (minimalni pravougaonik oko geometrije)\n\n\nst_dimension()\nVraća dimenziju geometrije (0=tačka, 1=linija, 2=poligon)"
+  },
+  {
+    "objectID": "03_sf/sf.html#zašto-su-ove-operacije-korisne",
+    "href": "03_sf/sf.html#zašto-su-ove-operacije-korisne",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🎯 Zašto su ove operacije korisne?\n",
+    "text": "🎯 Zašto su ove operacije korisne?\n\n\n✔ Pomažu u geometrijskim analizama – određivanje površine, dužine ili rastojanja između objekata.\n✔ Koriste se u GIS aplikacijama – prostorna analitika i modelovanje.\n✔ Neophodne su za prostorne transformacije – rad sa prostornim podacima i koordinatnim sistemima."
+  },
+  {
+    "objectID": "03_sf/sf.html#numeričke-geometrijske-operacije---površina",
+    "href": "03_sf/sf.html#numeričke-geometrijske-operacije---površina",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Numeričke geometrijske operacije - površina",
+    "text": "Numeričke geometrijske operacije - površina\nNa primer, možemo izračunati površinu poligona sf objekta srbija:\n\nsrbija$area = st_area(srbija)\nsrbija$area[1:3]\n\nUnits: [m^2]\n[1] 10885979124 55940445913 21512844136\n\n\nRezultat je klase units:\n\nclass(srbija$area)\n\n[1] \"units\""
+  },
+  {
+    "objectID": "03_sf/sf.html#numeričke-geometrijske-operacije-površina-jedinice",
+    "href": "03_sf/sf.html#numeričke-geometrijske-operacije-površina-jedinice",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Numeričke geometrijske operacije površina jedinice",
+    "text": "Numeričke geometrijske operacije površina jedinice\nJedinice se mogu promeniti sa komandom set_units iz paketa units\n\nlibrary(units)\n\nsrbija$area = set_units(srbija$area, km^2)\nsrbija$area[1:3]\n\nUnits: [km^2]\n[1] 10885.98 55940.45 21512.84\n\nsrbija$area = as.numeric(srbija$area) # pretvaranje u numerički format (bez jedinica) korisno za plotove i ML, statistiku,..."
+  },
+  {
+    "objectID": "03_sf/sf.html#logičke-operacije-nad-sf-geometrijom",
+    "href": "03_sf/sf.html#logičke-operacije-nad-sf-geometrijom",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🔍 Logičke operacije nad sf geometrijom",
+    "text": "🔍 Logičke operacije nad sf geometrijom\nAko imamo dva sf objekta, x i y, možemo koristiti logičke operacije da proverimo prostorne relacije između njihovih geometrija.\nSvaka funkcija vraća TRUE/FALSE vrednosti, pokazujući da li se određeni odnosi javljaju između feature-a u okviru x i y.\n\n\n\n\n\n\nFunkcija\nOpis\n\n\n\nst_intersects()\nDa li se geometrije seku?\n\n\nst_disjoint()\nDa li su geometrije potpuno razdvojene?\n\n\nst_touches()\nDa li se geometrije dodiruju, ali se ne preklapaju?\n\n\nst_crosses()\nDa li seku jedna drugu, ali ne potpuno?\n\n\nst_within()\nDa li je x unutar y?\n\n\nst_contains()\nDa li x sadrži y?\n\n\nst_overlaps()\nDa li x i y delimično preklapaju?\n\n\nst_covers()\nDa li x pokriva celu geometriju y?\n\n\nst_covered_by()\nDa li je x potpuno unutar y?\n\n\nst_equals()\nDa li su x i y identični?\n\n\nst_equals_exact()\nDa li su x i y skoro identični (uz toleranciju greške)?"
+  },
+  {
+    "objectID": "03_sf/sf.html#zašto-su-ove-logičke-operacije-korisne",
+    "href": "03_sf/sf.html#zašto-su-ove-logičke-operacije-korisne",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🎯 Zašto su ove logičke operacije korisne?\n",
+    "text": "🎯 Zašto su ove logičke operacije korisne?\n\n\n✔ Neophodne su za prostorne upite i GIS analize.\n✔ Pomažu u prostornom filtriranju i analizi podataka.\n✔ Omogućavaju kompleksne prostorne relacije između objekata."
+  },
+  {
+    "objectID": "03_sf/sf.html#logičke-operacije-nad-sf-geometrijom-st_intersects",
+    "href": "03_sf/sf.html#logičke-operacije-nad-sf-geometrijom-st_intersects",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🔍 Logičke operacije nad sf geometrijom st_intersects",
+    "text": "🔍 Logičke operacije nad sf geometrijom st_intersects\n✔ TRUE – Dve geometrije imaju presek\n✔ FALSE – Geometrije su potpuno razdvojene\n\n# sparse = FALSE, funkcija vraća logičku (TRUE/FALSE) matricu\nsrbija_int = st_intersects(srbija, srbija[1,], sparse = FALSE)\nsrbija_int\n\n      [,1]\n[1,]  TRUE\n[2,]  TRUE\n[3,] FALSE"
+  },
+  {
+    "objectID": "03_sf/sf.html#logičke-operacije-nad-sf-geometrijom-st_intersects-slikovito",
+    "href": "03_sf/sf.html#logičke-operacije-nad-sf-geometrijom-st_intersects-slikovito",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🔍 Logičke operacije nad sf geometrijom st_intersects slikovito",
+    "text": "🔍 Logičke operacije nad sf geometrijom st_intersects slikovito"
+  },
+  {
+    "objectID": "03_sf/sf.html#sf-geometrijske-operacije",
+    "href": "03_sf/sf.html#sf-geometrijske-operacije",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "sf geometrijske operacije",
+    "text": "sf geometrijske operacije\nPaket sf omogućava izvođenje standardnih geometrijskih operacija koje kreiraju novu geometriju. Ove operacije mogu se primeniti na svaki feature u okviru sf objekta.\n\n\n\n\n\n\nFunkcija\nOpis\n\n\n\nst_centroid()\nRačuna centroid geometrije\n\n\nst_buffer()\nKreira buffer zonu oko geometrije\n\n\nst_sample()\nGeneriše nasumične tačke unutar geometrije\n\n\nst_convex_hull()\nKreira konveksni omotač geometrije\n\n\nst_voronoi()\nKreira Voronoi dijagram na osnovu geometrijskih tačaka"
+  },
+  {
+    "objectID": "03_sf/sf.html#sf-geometrijske-operacije-slikovito",
+    "href": "03_sf/sf.html#sf-geometrijske-operacije-slikovito",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "sf geometrijske operacije slikovito",
+    "text": "sf geometrijske operacije slikovito"
+  },
+  {
+    "objectID": "03_sf/sf.html#zašto-koristiti-sf-geometrijske-operacije",
+    "href": "03_sf/sf.html#zašto-koristiti-sf-geometrijske-operacije",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🎯 Zašto koristiti sf geometrijske operacije?",
+    "text": "🎯 Zašto koristiti sf geometrijske operacije?\n\n✔ Omogućavaju prostorne analize i manipulacije geometrijom.\n✔ Pomažu u pripremi prostornih podataka za analizu.\n✔ Koriste se u GIS aplikacijama, prostornim modelima …"
+  },
+  {
+    "objectID": "03_sf/sf.html#sf-geometrijske-operacije-primer-st_centroid",
+    "href": "03_sf/sf.html#sf-geometrijske-operacije-primer-st_centroid",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "📍 sf geometrijske operacije – primer st_centroid()\n",
+    "text": "📍 sf geometrijske operacije – primer st_centroid()\n\nFunkcija st_centroid() iz sf paketa omogućava izračunavanje centroida poligona.\nTo su tačke koje predstavljaju geometrijski centar svakog poligona u datasetu.\n\nsrbija_centroids = st_centroid(srbija)\n\nKartiranje poligona i centroida\n\nplot(\n  st_geometry(srbija), \n  border = \"grey\"\n)\nplot(\n  st_geometry(srbija_centroids), \n  col = \"red\", pch = 3, \n  add = TRUE\n)"
+  },
+  {
+    "objectID": "03_sf/sf.html#primer-st_centroid-kod-plotovanja",
+    "href": "03_sf/sf.html#primer-st_centroid-kod-plotovanja",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Primer: st_centroid() kod plotovanja",
+    "text": "Primer: st_centroid() kod plotovanja\n\n# Prikaz svih geometrija u jednom panelu\nsrbija_int = st_intersects(srbija, srbija[1,], sparse = FALSE)\n# Podešavanje panela za plot u 3 dela gde je grafik podeljen na 1 red i 3 kolone\npar(mfrow = c(1,3))  # Podešavanje panela 1x3\nplot(srbija$geometry  , main = \"srbija\", col = c(\"red\",\"green\",\"blue\") )\n# Dodavanje oznaka na centroidima\ncentroidi &lt;- st_centroid(srbija$geometry)  # Izračunavanje centroida\nkoordinate &lt;- st_coordinates(centroidi)  # Koordinate centroida\n# Dodavanje oznaka na centroidima\ntext(koordinate, \n     labels = 1:3,  # Oznake (npr. brojevi 1, 2, 3)\n     col = \"black\",  # Boja teksta\n     font = 2,       # Bold tekst\n     cex = 3)      # Veličina teksta\nplot(srbija[1,]$geometry, main = \"srbija[1,]\", col = c(\"red\"))\nplot(srbija[srbija_int,]$geometry, main = \"st_intersects(srbija, srbija[1,])\", col=\"lightgray\")"
+  },
+  {
+    "objectID": "03_sf/sf.html#druge-geometrijske-operacije-u-sf-paketu",
+    "href": "03_sf/sf.html#druge-geometrijske-operacije-u-sf-paketu",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Druge geometrijske operacije u sf paketu",
+    "text": "Druge geometrijske operacije u sf paketu\nPaket sf omogućava izvođenje geometrijskih operacija koje kombinuju ili modifikuju više geometrijskih objekata.\nOve funkcije su ključne za prostorne analize, GIS operacije i modeliranje prostornih podataka.\n\n\n\n\n\n\nFunkcija\nOpis\n\n\n\nst_intersection()\nVraća zajedničku oblast između geometrija x i y\n\n\n\nst_difference()\nVraća oblast iz x koja ne pripada y\n\n\n\nst_sym_difference()\nVraća delove x i y koji nisu u preseku\n\n\n\nst_union()\nSpaja dve ili više geometrija u jednu"
+  },
+  {
+    "objectID": "03_sf/sf.html#druge-geometrijske-operacije-u-sf-slikovito",
+    "href": "03_sf/sf.html#druge-geometrijske-operacije-u-sf-slikovito",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Druge geometrijske operacije u sf slikovito",
+    "text": "Druge geometrijske operacije u sf slikovito"
+  },
+  {
+    "objectID": "03_sf/sf.html#primer-st_centroid-za-kantone-švajcarske",
+    "href": "03_sf/sf.html#primer-st_centroid-za-kantone-švajcarske",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Primer: st_centroid() za kantone Švajcarske",
+    "text": "Primer: st_centroid() za kantone Švajcarske"
+  },
+  {
+    "objectID": "03_sf/sf.html#primer-st_centroid-za-kantone-švajcarske-kod",
+    "href": "03_sf/sf.html#primer-st_centroid-za-kantone-švajcarske-kod",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Primer: st_centroid() za kantone Švajcarske kod",
+    "text": "Primer: st_centroid() za kantone Švajcarske kod\n\nlibrary(rnaturalearth)\n\n# Učitavanje država sveta i filtriranje samo Švajcarsku\nworld &lt;- ne_countries(scale = \"medium\", returnclass = \"sf\")\nswitzerland &lt;- world[world$name == \"Switzerland\", ]\n# Učitavanje administrativnih regiona (kantona) Švajcarske\nch_regions &lt;- ne_states(country = \"Switzerland\", returnclass = \"sf\")\n# Računanje centroida kantona\nch_centroids &lt;- st_centroid(ch_regions)\n\n# Prikaz karte sa toponimima\nggplot() +\n  geom_sf(data = ch_regions, fill = \"lightgreen\", color = \"gray40\") +\n  geom_sf(data = ch_centroids, color = \"red\", size = 2) +\n  geom_sf_text(data = ch_centroids, aes(label = name), size = 3, nudge_y = 0.02) +\n  labs(\n    title = \"Švajcarski kantoni i njihovi centroidi\",\n    caption = \"Podaci: Natural Earth via rnaturalearth\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "03_sf/sf.html#kreiranje-zone-oko-građevinskog-fakulteta-i-preuzimanje-prikaz-biblioteka-iz-osm",
+    "href": "03_sf/sf.html#kreiranje-zone-oko-građevinskog-fakulteta-i-preuzimanje-prikaz-biblioteka-iz-osm",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Kreiranje zone oko Građevinskog fakulteta i preuzimanje prikaz biblioteka iz OSM",
+    "text": "Kreiranje zone oko Građevinskog fakulteta i preuzimanje prikaz biblioteka iz OSM"
+  },
+  {
+    "objectID": "03_sf/sf.html#kreiranje-zone-oko-građevinskog-fakulteta-i-preuzimanje-prikaz-biblioteka-iz-osm-kod",
+    "href": "03_sf/sf.html#kreiranje-zone-oko-građevinskog-fakulteta-i-preuzimanje-prikaz-biblioteka-iz-osm-kod",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Kreiranje zone oko Građevinskog fakulteta i preuzimanje prikaz biblioteka iz OSM kod",
+    "text": "Kreiranje zone oko Građevinskog fakulteta i preuzimanje prikaz biblioteka iz OSM kod\n\nlibrary(osmdata)\nlibrary(mapview)\n# Kreiraj sf tačku za Građevinski fakultet\ngrf &lt;- st_sf(name = \"Građevinski fakultet\",\n             geometry = st_sfc(st_point(c(20.4761, 44.8058)), crs = 4326))\n# Projekcija u metarski CRS (npr. UTM zona 34N)\ngrf_proj &lt;- st_transform(grf, 32634)\n# Napravi buffer od 5 km\nbuffer_proj &lt;- st_buffer(grf_proj, dist = 5000)\n# Vrati nazad u WGS84 za prikaz\nbuffer &lt;- st_transform(buffer_proj, 4326)\n# Preuzmi OSM podatke o bibliotekama u bounding box-u zone\nquery &lt;- opq(bbox = st_bbox(buffer)) %&gt;%\n  add_osm_feature(key = \"amenity\", value = \"library\")\nosm_libs &lt;- osmdata_sf(query)$osm_points\n# Filtriraj biblioteke unutar buffera\nlibs_in_buffer &lt;- osm_libs[st_within(osm_libs, buffer, sparse = FALSE), ]\n\n# Topo podloga\nmapviewOptions(basemaps = \"Esri.WorldTopoMap\")\n# Prikaz: buffer (plava zona), GRF (crna tačka), biblioteke (crvene tačke)\nmapview(buffer, col.regions = \"lightblue\", alpha.regions = 0.3, layer.name = \"Zona 5 km\") +\n  mapview(grf, col.regions = \"black\", layer.name = \"GRF\") +\n  mapview(libs_in_buffer, col.regions = \"red\", layer.name = \"Biblioteke\", label = libs_in_buffer$name)"
+  },
+  {
+    "objectID": "03_sf/sf.html#prostorne-geometrijske-operacije",
+    "href": "03_sf/sf.html#prostorne-geometrijske-operacije",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Prostorne geometrijske operacije",
+    "text": "Prostorne geometrijske operacije\n\nProstorne operacije u sf paketu"
+  },
+  {
+    "objectID": "03_sf/sf.html#prostorne-geometrijske-operacije-2",
+    "href": "03_sf/sf.html#prostorne-geometrijske-operacije-2",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Prostorne geometrijske operacije 2",
+    "text": "Prostorne geometrijske operacije 2\n\nProstorne operacije u sf paketu"
+  },
+  {
+    "objectID": "03_sf/sf.html#mini-projekat-prostorna-analiza-promena-šumskog-pokrivača-2012-2018",
+    "href": "03_sf/sf.html#mini-projekat-prostorna-analiza-promena-šumskog-pokrivača-2012-2018",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Mini-projekat: “Prostorna analiza promena šumskog pokrivača 2012-2018”",
+    "text": "Mini-projekat: “Prostorna analiza promena šumskog pokrivača 2012-2018”\n\nPriprema i transformacija podataka: Učitavanje CLC slojeva za 2012 i 2018, izdvajanje šumskih klasa.\nAnaliza na lokalnom nivou: Novi Sad i okolina i Bor i okolina.\nAnaliza promena kroz vreme: Detekcija krčenja u opštini Bujanovac."
+  },
+  {
+    "objectID": "03_sf/sf.html#clc-iz-gis-fajla-za-2018-i-2012",
+    "href": "03_sf/sf.html#clc-iz-gis-fajla-za-2018-i-2012",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "CLC iz GIS fajla za 2018 i 2012",
+    "text": "CLC iz GIS fajla za 2018 i 2012\nU ovom slajdu učitavamo CLC (Corine Land Cover) podatke iz GIS fajlova za 2018. i 2012. godinu, koristeći sf::st_read(). Ovi slojevi omogućavaju analizu promene zemljišnog pokrova kroz vreme.\n\nclc18 &lt;- sf::st_read(\"data/CLC18_RS.shp\")\n\nReading layer `CLC18_RS' from data source \n  `C:\\Users\\user\\Documents\\GitHub\\AnalizaProstornoVremenskihPodataka\\03_sf\\data\\CLC18_RS.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 34794 features and 6 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 331043.4 ymin: 4674468 xmax: 663570 ymax: 5117030\nProjected CRS: ETRS89 / UTM zone 34N\n\nclc12 &lt;- sf::st_read(\"data/CLC12_RS.shp\")\n\nReading layer `CLC12_RS' from data source \n  `C:\\Users\\user\\Documents\\GitHub\\AnalizaProstornoVremenskihPodataka\\03_sf\\data\\CLC12_RS.shp' \n  using driver `ESRI Shapefile'\nSimple feature collection with 34841 features and 6 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 331043.4 ymin: 4674468 xmax: 663570 ymax: 5117030\nProjected CRS: ETRS89 / UTM zone 34N\n\nnames(clc18)\n\n[1] \"ID\"         \"CODE_18\"    \"Area_Ha\"    \"Remark\"     \"SHAPE_Leng\"\n[6] \"SHAPE_Area\" \"geometry\""
+  },
+  {
+    "objectID": "03_sf/sf.html#clc-karta-sa-podrazumevanim-bojama",
+    "href": "03_sf/sf.html#clc-karta-sa-podrazumevanim-bojama",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "CLC karta sa podrazumevanim bojama",
+    "text": "CLC karta sa podrazumevanim bojama\n\nplot(clc18[\"CODE_18\"], main = \"CLC Klasifikacija loša vizalizacija\")"
+  },
+  {
+    "objectID": "03_sf/sf.html#clc-legenda",
+    "href": "03_sf/sf.html#clc-legenda",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "CLC legenda",
+    "text": "CLC legenda\n\n\nclc_legend &lt;- read_csv(\"data/clc_legend.csv\")\nhead(clc_legend)\n\n# A tibble: 6 × 6\n  GRID_CODE CLC_CODE LABEL1              LABEL2                     LABEL3 RGB  \n      &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;               &lt;chr&gt;                      &lt;chr&gt;  &lt;chr&gt;\n1         1      111 Artificial surfaces Urban fabric               Conti… 230-…\n2         2      112 Artificial surfaces Urban fabric               Disco… 255-…\n3         3      121 Artificial surfaces Industrial, commercial an… Indus… 204-…\n4         4      122 Artificial surfaces Industrial, commercial an… Road … 204-…\n5         5      123 Artificial surfaces Industrial, commercial an… Port … 230-…\n6         6      124 Artificial surfaces Industrial, commercial an… Airpo… 230-…"
+  },
+  {
+    "objectID": "03_sf/sf.html#clc-legenda-i-boje-iz-rgb-u-hex-zapis-za-svaku-kategoriju",
+    "href": "03_sf/sf.html#clc-legenda-i-boje-iz-rgb-u-hex-zapis-za-svaku-kategoriju",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "CLC legenda i boje iz RGB u HEX zapis za svaku kategoriju",
+    "text": "CLC legenda i boje iz RGB u HEX zapis za svaku kategoriju\n\n\nCLC_CODE\n…\nRGB\n\nColor\n\n\n111\n…\n255-0-0\n=&gt;\n#FF0000\n\n\n\nclc_legend &lt;- clc_legend |&gt; \n  mutate(Color = sapply( RGB, function(rgb_str) {\n    # Korak 1: Razdvajanje RGB stringa na komponente\n      rgb_vals &lt;- strsplit(rgb_str, \"-\") |&gt; unlist() |&gt; as.numeric()\n    \n    # Korak 2: Konverzija u hex kod (0-255 → 0-1)\n    rgb(rgb_vals[1]/255, rgb_vals[2]/255, rgb_vals[3]/255, maxColorValue = 1)\n           } # kraj funkcije unutar sapply petlje\n    )# zatvaramo sapply\n    )# zatcaramo mutate\n\n# Prikaz prvih redova rezultata\nhead(clc_legend[, c(\"CLC_CODE\", \"RGB\", \"Color\")])\n\n# A tibble: 6 × 3\n  CLC_CODE RGB         Color  \n     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;  \n1      111 230-000-077 #E6004D\n2      112 255-000-000 #FF0000\n3      121 204-077-242 #CC4DF2\n4      122 204-000-000 #CC0000\n5      123 230-204-204 #E6CCCC\n6      124 230-204-230 #E6CCE6"
+  },
+  {
+    "objectID": "03_sf/sf.html#karta-sa-preporčenim-bojama-left_join-lookup-tabele-i-prostornih-podataka",
+    "href": "03_sf/sf.html#karta-sa-preporčenim-bojama-left_join-lookup-tabele-i-prostornih-podataka",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Karta sa preporčenim bojama left_join lookup tabele i prostornih podataka",
+    "text": "Karta sa preporčenim bojama left_join lookup tabele i prostornih podataka\nNa ovom slajdu spajamo clc18 sloj sa lookup tabelom clc_legend pomoću left_join(), kako bismo dodali preporučene boje za vizualizaciju. Prvo proveravamo i usklađujemo tipove podataka između CODE_18 i CLC_CODE, a zatim spajamo prostorne i atributne podatke.\n\n# tip atributa u sf objektu\nstr(clc18$CODE_18)\n\n chr [1:34794] \"111\" \"111\" \"111\" \"111\" \"112\" \"112\" \"112\" \"112\" \"112\" \"112\" ...\n\n# tip atributa u tabeli clc_legend\nstr(clc_legend$CLC_CODE)\n\n num [1:44] 111 112 121 122 123 124 131 132 133 141 ...\n\n# Treba ih svesti na isti tip\nclc_legend$CLC_CODE &lt;- as.character(clc_legend$CLC_CODE)\n# Spajanje `sf_obj` sa lookup tabelom na osnovu CODE_18 i CLC_CODE\nclc18 &lt;- left_join(clc18, clc_legend, by = c(\"CODE_18\" = \"CLC_CODE\"))\n# Spajanje `sf_obj` sa lookup tabelom na osnovu CODE_12 i CLC_CODE\nclc12 &lt;- left_join(clc12, clc_legend, by = c(\"CODE_12\" = \"CLC_CODE\"))\n\nclc18[1,]\n\nSimple feature collection with 1 feature and 12 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 573174.2 ymin: 4795865 xmax: 574936.5 ymax: 4796781\nProjected CRS: ETRS89 / UTM zone 34N\n    ID CODE_18  Area_Ha Remark SHAPE_Leng SHAPE_Area GRID_CODE\n1 RS_1     111 57.65009   &lt;NA&gt;   6456.549   576500.9         1\n               LABEL1       LABEL2                  LABEL3         RGB   Color\n1 Artificial surfaces Urban fabric Continuous urban fabric 230-000-077 #E6004D\n                        geometry\n1 POLYGON ((574615.8 4796652,..."
+  },
+  {
+    "objectID": "03_sf/sf.html#karta-sa-preporčenim-bojama",
+    "href": "03_sf/sf.html#karta-sa-preporčenim-bojama",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Karta sa preporčenim bojama",
+    "text": "Karta sa preporčenim bojama\n\n#  Klasični `plot()` sa bojama iz lookup tabele\nplot(clc18[\"CODE_18\"], col = clc18$Color, border = NA, main = \"CLC Klasifikacija 2018\")"
+  },
+  {
+    "objectID": "03_sf/sf.html#izdvojimo-samo-šume-za-srbiju",
+    "href": "03_sf/sf.html#izdvojimo-samo-šume-za-srbiju",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Izdvojimo samo šume za Srbiju",
+    "text": "Izdvojimo samo šume za Srbiju\nNa ovom slajdu izdvajamo samo šumske površine iz CLC slojeva za 2018. i 2012. godinu. Koristimo filter(str_starts(CODE_18, \"31\")) kako bismo selektovali klase 311, 312 i 313, koje predstavljaju šumske površine u Corine Land Cover klasifikaciji.\n\n# 311   Forest and semi natural areas   Forests\n# 312   Forest and semi natural areas   Forests\n# 313   Forest and semi natural areas   Forests\n# Filtriranje samo šuma (CODE_18 počinje sa \"31\")\nsume18 &lt;- clc18 |&gt; filter(str_starts(CODE_18, \"31\"))\nsume12 &lt;- clc12 |&gt; filter(str_starts(CODE_12, \"31\"))"
+  },
+  {
+    "objectID": "03_sf/sf.html#kod-za-uporedni-prikaz-šuma-2018-vs-2012",
+    "href": "03_sf/sf.html#kod-za-uporedni-prikaz-šuma-2018-vs-2012",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Kod za uporedni prikaz šuma 2018 vs 2012",
+    "text": "Kod za uporedni prikaz šuma 2018 vs 2012\n\n# Podešavanje rasporeda za dva panela (jedan pored drugog)\npar(mfrow = c(1, 2))  # Postavlja raspored grafikona u 1 red i 2 kolone\n# Prikaz šuma za 2018. godinu\nplot(sume18[\"CODE_18\"], col = sume18$Color, border = NA, \n     main = \"Šumske površine - 2018\", key.pos = NULL, reset = FALSE)\n# Prikaz šuma za 2012. godinu\nplot(sume12[\"CODE_12\"], col = sume12$Color, border = NA, \n     main = \"Šumske površine - 2012\", key.pos = NULL, reset = FALSE)\n\n# Resetovanje podešavanja za grafikon\npar(mfrow = c(1, 1))  # Vraća raspored grafikona na podrazumevano stanje (jedan grafik po stranici)"
+  },
+  {
+    "objectID": "03_sf/sf.html#površine-šumskih-klasa-u-srbiji-clc-2012-vs-2018",
+    "href": "03_sf/sf.html#površine-šumskih-klasa-u-srbiji-clc-2012-vs-2018",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "🌲 Površine šumskih klasa u Srbiji (CLC 2012 vs 2018)",
+    "text": "🌲 Površine šumskih klasa u Srbiji (CLC 2012 vs 2018)\n\n# Površina svih šuma 2018. u km2\nsum_km2_2018 &lt;- sum(units::set_units(st_area(sume18), \"km2\"))\n\n# Udeo šuma u ukupnoj površini (2018)\nproc_2018 &lt;- sum(st_area(sume18)) / sum(st_area(clc18)) * 100\n\n# Površina svih šuma 2012. u km2\nsum_km2_2012 &lt;- sum(units::set_units(st_area(sume12), \"km2\"))\n\n# Udeo šuma u ukupnoj površini (2012)\nproc_2012 &lt;- sum(st_area(sume12)) / sum(st_area(clc12)) * 100\n\n\n\nGodina\nPovršina šuma (km²)\nUdeo u ukupnoj površini (%)\n\n\n\n2012\n23839\n30.02\n\n\n2018\n23809.2\n29.99\n\n\n\nPrema CLC podacima, Srbija je između 2012. i 2018. godine izgubila oko 30 km² šumskih površina."
+  },
+  {
+    "objectID": "03_sf/sf.html#učitajmo-granice-opština-u-srbiji",
+    "href": "03_sf/sf.html#učitajmo-granice-opština-u-srbiji",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Učitajmo granice opština u Srbiji",
+    "text": "Učitajmo granice opština u Srbiji\n\nopst &lt;- sf::st_read(\"data/Municipalities.gpkg\")\n\nReading layer `Municipalities' from data source \n  `C:\\Users\\user\\Documents\\GitHub\\AnalizaProstornoVremenskihPodataka\\03_sf\\data\\Municipalities.gpkg' \n  using driver `GPKG'\nSimple feature collection with 161 features and 3 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 18.80852 ymin: 42.22762 xmax: 22.97898 ymax: 46.1894\nGeodetic CRS:  WGS 84\n\nopst\n\nSimple feature collection with 161 features and 3 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 18.80852 ymin: 42.22762 xmax: 22.97898 ymax: 46.1894\nGeodetic CRS:  WGS 84\nFirst 10 features:\n              Name ind       Area                           geom\n1              Bor   0  860008220 MULTIPOLYGON (((21.77246 43...\n2          Kladovo   0  674110467 MULTIPOLYGON (((22.64921 44...\n3        Majdanpek   0  986712895 MULTIPOLYGON (((22.30399 44...\n4          Negotin   0 1149447369 MULTIPOLYGON (((22.46989 44...\n5          Golubac   0  465009532 MULTIPOLYGON (((21.49457 44...\n6           Kučevo   0  716607581 MULTIPOLYGON (((21.62833 44...\n7      Malo Crniće   0  269537722 MULTIPOLYGON (((21.50073 44...\n8         Petrovac   0  656111944 MULTIPOLYGON (((21.62833 44...\n9        Požarevac   1  494419204 MULTIPOLYGON (((21.2233 44....\n10 Veliko Gradište   0  408951048 MULTIPOLYGON (((21.49457 44...\n\nplot(opst$geom)"
+  },
+  {
+    "objectID": "03_sf/sf.html#karta-granica-opština-u-srbiji",
+    "href": "03_sf/sf.html#karta-granica-opština-u-srbiji",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Karta granica opština u Srbiji",
+    "text": "Karta granica opština u Srbiji\n\nplot(opst$geom, main=\"Opštine u Srbiji u WGS84\")"
+  },
+  {
+    "objectID": "03_sf/sf.html#karta-clc-klasifikacije-za-novi-sad",
+    "href": "03_sf/sf.html#karta-clc-klasifikacije-za-novi-sad",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Karta CLC klasifikacije za Novi Sad",
+    "text": "Karta CLC klasifikacije za Novi Sad\nOvaj slajd prikazuje CLC klasifikaciju za Novi Sad koristeći sf i plot() funkciju.\nPrvo se transformišu podaci u isti CRS, zatim se izdvaja Novi Sad prostornim presekom (st_intersection()),\na konačno se prikazuje karta sa bojama iz lookup tabele (col = ns$Color).\n\n# transformacija podataka u isti CRS\nopst &lt;- st_transform(opst, st_crs(clc18) )\n# izdvajanje samo NS\nns = st_intersection(opst[opst$Name==\"Novi Sad\", ], clc18)\n#  Klasični `plot()` sa bojama iz lookup tabele\nplot(ns[\"CODE_18\"], col = ns$Color, border = NA, main = \"CLC Klasifikacija 2018 - NS\")"
+  },
+  {
+    "objectID": "03_sf/sf.html#izdvojmo-samo-šume-u-ns",
+    "href": "03_sf/sf.html#izdvojmo-samo-šume-u-ns",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Izdvojmo samo šume u NS",
+    "text": "Izdvojmo samo šume u NS\n\n# 311   Forest and semi natural areas   Forests\n# 312   Forest and semi natural areas   Forests\n# 313   Forest and semi natural areas   Forests\n# Filtriranje samo šuma (CODE_18 počinje sa \"31\")\nns_sume &lt;- ns |&gt; filter(str_starts(CODE_18, \"31\"))\n\nhead(ns_sume)\n\nSimple feature collection with 6 features and 15 fields\nGeometry type: GEOMETRY\nDimension:     XY\nBounding box:  xmin: 388129.4 ymin: 4999791 xmax: 426347.9 ymax: 5008757\nProjected CRS: ETRS89 / UTM zone 34N\n           Name ind      Area       ID CODE_18     Area_Ha Remark SHAPE_Leng\n41.180 Novi Sad   1 728042658 RS_24862     311   366.64847   &lt;NA&gt;  15929.301\n41.181 Novi Sad   1 728042658 RS_24879     311    31.47722   &lt;NA&gt;   3442.257\n41.182 Novi Sad   1 728042658 RS_24884     311    29.15111   &lt;NA&gt;   4432.015\n41.183 Novi Sad   1 728042658 RS_24891     311 20103.19785   &lt;NA&gt; 279850.152\n41.184 Novi Sad   1 728042658 RS_24892     311    30.62091   &lt;NA&gt;   3703.281\n41.185 Novi Sad   1 728042658 RS_24896     311   145.25431   &lt;NA&gt;   8837.930\n        SHAPE_Area GRID_CODE                        LABEL1  LABEL2\n41.180   3666484.7        23 Forest and semi natural areas Forests\n41.181    314772.2        23 Forest and semi natural areas Forests\n41.182    291511.1        23 Forest and semi natural areas Forests\n41.183 201031978.5        23 Forest and semi natural areas Forests\n41.184    306209.1        23 Forest and semi natural areas Forests\n41.185   1452543.1        23 Forest and semi natural areas Forests\n                    LABEL3         RGB   Color                           geom\n41.180 Broad-leaved forest 128-255-000 #80FF00 POLYGON ((422570.4 5001616,...\n41.181 Broad-leaved forest 128-255-000 #80FF00 POLYGON ((405410.4 5005063,...\n41.182 Broad-leaved forest 128-255-000 #80FF00 POLYGON ((405560.3 5005525,...\n41.183 Broad-leaved forest 128-255-000 #80FF00 MULTIPOLYGON (((413039.9 50...\n41.184 Broad-leaved forest 128-255-000 #80FF00 POLYGON ((388410.4 5007823,...\n41.185 Broad-leaved forest 128-255-000 #80FF00 POLYGON ((401448.5 5008690,..."
+  },
+  {
+    "objectID": "03_sf/sf.html#karta-samo-šumskih-klasa-u-ns",
+    "href": "03_sf/sf.html#karta-samo-šumskih-klasa-u-ns",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Karta samo šumskih klasa u NS",
+    "text": "Karta samo šumskih klasa u NS\n\n# interaktivna karta mapview\nmapview::mapview(ns_sume, zcol = \"CODE_18\", col.regions = ns_sume$Color, legend = TRUE)"
+  },
+  {
+    "objectID": "03_sf/sf.html#površine-šumskih-klasa-u-ns",
+    "href": "03_sf/sf.html#površine-šumskih-klasa-u-ns",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Površine šumskih klasa u NS",
+    "text": "Površine šumskih klasa u NS\n\n# Površina svih šuma u opštini NS \nsum( st_area (ns_sume ) )\n\n76198812 [m^2]\n\n# Površina u km2 \nsum( units::set_units(st_area (ns_sume ), \"km2\" ) )\n\n76.19881 [km^2]\n\n# procenenat od ukupne površine\nsum( st_area (ns_sume ) ) / sum( st_area (ns ) ) *100\n\n10.47235 [1]"
+  },
+  {
+    "objectID": "03_sf/sf.html#površine-šumskih-klasa-po-svim-opštinama",
+    "href": "03_sf/sf.html#površine-šumskih-klasa-po-svim-opštinama",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Površine šumskih klasa po svim opštinama",
+    "text": "Površine šumskih klasa po svim opštinama\n\n# Površine svih opština\nopst$Povrsina_km2 &lt;- set_units(st_area(opst$geom), \"km2\")\n# Prostorni presek - izdvajanje CLC 18 sloja unutar svake opštine\nopst_sume18 &lt;- st_intersection( opst, sume18)\n# Prostorni presek - izdvajanje CLC 12 sloja unutar svake opštine\nopst_sume12 &lt;- st_intersection( opst, sume12)\n# plot\nplot(opst_sume18$geom)"
+  },
+  {
+    "objectID": "03_sf/sf.html#poređenje-površina-šuma-u-jednoj-opštini-bor-za-2018.-i-2012",
+    "href": "03_sf/sf.html#poređenje-površina-šuma-u-jednoj-opštini-bor-za-2018.-i-2012",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Poređenje površina šuma u jednoj opštini (Bor) za 2018. i 2012",
+    "text": "Poređenje površina šuma u jednoj opštini (Bor) za 2018. i 2012\n\n# Površine za jednu opštinu\nbp = opst[opst$Name==\"Bor\",]$Povrsina_km2\n# Za 2018\nbps18= sum(set_units(st_area(opst_sume18[opst_sume18$Name==\"Bor\",]$geom), \"km2\") )\nbpp18=bps18/bp # Procenat šuma u ukupnoj površini\n# Za 2012\nbps12= sum(set_units(st_area(opst_sume12[opst_sume12$Name==\"Bor\",]$geom), \"km2\") )\nbpp12=bps12/bp # Procenat šuma u ukupnoj površini\n\npaste(\"Površina Bor:\", round(bp), \"km²\",\n      \"Šume 2018:\", round(bps18), \"km²\", \"(\", round(bpp18,1), \"%)\",\n      \"Šume 2012:\", round(bps12), \"km²\", \"(\", round(bpp12,1), \"%)\")\n\n[1] \"Površina Bor: 859 km² Šume 2018: 312 km² ( 0.4 %) Šume 2012: 313 km² ( 0.4 %)\""
+  },
+  {
+    "objectID": "03_sf/sf.html#poređenje-površina-šuma-u-jednoj-opštini-bor-za-2018.-i-2012-1",
+    "href": "03_sf/sf.html#poređenje-površina-šuma-u-jednoj-opštini-bor-za-2018.-i-2012-1",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Poređenje površina šuma u jednoj opštini (Bor) za 2018. i 2012",
+    "text": "Poređenje površina šuma u jednoj opštini (Bor) za 2018. i 2012\n\nbor18 = opst_sume18[opst_sume18$Name==\"Bor\",]\nbor12 = opst_sume12[opst_sume12$Name==\"Bor\",]\n# Pronalazak nestalih šuma (bile prisutne 2012, ali ih nema 2018)\nsume_nestale = st_difference(bor12$geom,st_union(bor18$geom))\n# Pronalazak novih šuma (bile prisutne 2018, ali ih nije bilo 2012)\nsume_nove &lt;- st_difference(bor18$geom, st_union(bor12$geom) )\npar(mfrow = c(1,2))\n#  Prikaz izgubljenih šuma (2012 - 2018)\nplot(sume_nestale, col = \"red\", main = \"Nestale šume (2012 - 2018)\"  ,key.pos = NULL, reset = FALSE)\n# Prikaz novih šuma (2012 - 2018)\nplot(sume_nove, col = \"green\", main = \"Nove šume (2012 - 2018)\"  , key.pos = NULL, reset = FALSE) \n\n# Resetovanje podešavanja za grafikon\npar(mfrow = c(1,1))"
+  },
+  {
+    "objectID": "03_sf/sf.html#nestale-šume-u-bujanovcu-od-2012-do-2018",
+    "href": "03_sf/sf.html#nestale-šume-u-bujanovcu-od-2012-do-2018",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Nestale šume u Bujanovcu od 2012 do 2018",
+    "text": "Nestale šume u Bujanovcu od 2012 do 2018\n\nbj18 = opst_sume18[opst_sume18$Name==\"Bujanovac\",]\nbj12 = opst_sume12[opst_sume12$Name==\"Bujanovac\",]\n# Pronalazak nestalih šuma (bile prisutne 2012, ali ih nema 2018)\nsume_nestale = st_difference(bj12,st_union(bj18$geom))\n\nmapview::mapview(sume_nestale)"
+  },
+  {
+    "objectID": "03_sf/sf.html#površine-šumskih-klasa-po-svim-opštinama-prvi-način",
+    "href": "03_sf/sf.html#površine-šumskih-klasa-po-svim-opštinama-prvi-način",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Površine šumskih klasa po svim opštinama prvi način",
+    "text": "Površine šumskih klasa po svim opštinama prvi način\n\nopst$s18 = 0 ; opst$s12 = 0 ; opst$p18 = 0 ; opst$p12 = 0\n\nfor (i in 1:nrow(opst)) {\n  p = opst[i, ]$Povrsina_km2  # Ukupna površina opštine\n  # Provera da li ima šume u opštini 2018, Vračar nema npr\n  match_18 = opst_sume18[opst_sume18$Name == opst[i, ]$Name, ]\n  if (nrow(match_18) &gt; 0) {  # Ako ima šume\n    s18 = sum(set_units(st_area(match_18$geom), \"km2\"))  # Površina šuma 2018\n    p18 = as.numeric(s18 / p)*100  # Procenat šuma 2018\n    opst$s18[i] = s18\n    opst$p18[i] = p18\n  } \n  # Provera da li ima šume u opštini 2012, Vračar nema npr\n  match_12 = opst_sume12[opst_sume12$Name == opst[i, ]$Name, ]\n  if (nrow(match_12) &gt; 0) {  # Ako ima šume\n    s12 = sum(set_units(st_area(match_12$geom), \"km2\"))  # Površina šuma 2012\n    p12 = as.numeric(s12 / p)*100  # Procenat šuma 2012\n    opst$s12[i] = s12\n    opst$p12[i] = p12\n  } \n}\n\nopst$razlika_18_12 = opst$p18 - opst$p12"
+  },
+  {
+    "objectID": "03_sf/sf.html#karte-razlika-po-opština",
+    "href": "03_sf/sf.html#karte-razlika-po-opština",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Karte razlika po opština",
+    "text": "Karte razlika po opština\n\nplot(opst[\"razlika_18_12\"], ,main = \"Razlika u procentima po opštini 2018-2012\")"
+  },
+  {
+    "objectID": "03_sf/sf.html#površine-šumskih-klasa-po-svim-opštinama-tidyverse",
+    "href": "03_sf/sf.html#površine-šumskih-klasa-po-svim-opštinama-tidyverse",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Površine šumskih klasa po svim opštinama tidyverse\n",
+    "text": "Površine šumskih klasa po svim opštinama tidyverse\n\n\n# Računanje ukupne površine šuma po opština\npovrsine_sume &lt;- opst_sume18 |&gt;\n  group_by(Name) |&gt;\n  summarise(Povrsina_Suma_km2 = sum(set_units(st_area(geom), \"km2\"))) # ... itd\n# obratiti pažnju da su opštine bez šuma izbrisane i iz objekata povrsine sume\npovrsine_sume\n\nSimple feature collection with 154 features and 2 fields\nGeometry type: GEOMETRY\nDimension:     XY\nBounding box:  xmin: 332131.6 ymin: 4676620 xmax: 660837.7 ymax: 5115967\nProjected CRS: ETRS89 / UTM zone 34N\n# A tibble: 154 × 3\n   Name          Povrsina_Suma_km2                                          geom\n   &lt;chr&gt;                    [km^2]                            &lt;MULTIPOLYGON [m]&gt;\n 1 Ada                       0.930 (((433686 5069929, 433685.6 5069944, 433684.…\n 2 Aleksandrovac           159.    (((482088.3 4804013, 481998.4 4804008, 48194…\n 3 Aleksinac               253.    (((544943.9 4799164, 544851.3 4799204, 54476…\n 4 Alibunar                 38.3   (((498928.5 4977394, 498908.6 4977493, 49877…\n 5 Apatin                   37.2   (((338950.8 5048186, 338954.2 5048185, 33905…\n 6 Aranđelovac             133.    (((455615 4893072, 455661.4 4893009, 455839.…\n 7 Arilje                  195.    (((415733.9 4822842, 415481.8 4822807, 41516…\n 8 Babušnica               299.    (((609147.2 4758497, 609032 4758591, 608833.…\n 9 Bajina Bašta            352.    (((368410.3 4856571, 368437 4856573, 368503.…\n10 Barajevo                 33.9   (((446794.2 4927603, 446809.7 4927650, 44680…\n# ℹ 144 more rows"
+  },
+  {
+    "objectID": "03_sf/sf.html#prikaz-po-opštinama",
+    "href": "03_sf/sf.html#prikaz-po-opštinama",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Prikaz po opštinama",
+    "text": "Prikaz po opštinama\n\n# Sortiraj po procentu opadajuće i prikaži rezultate\nopst |&gt; arrange(desc(p18)) |&gt; select(c(\"Name\",\"p18\" ))  |&gt; head(15)\n\nSimple feature collection with 15 features and 2 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 348815.1 ymin: 4683879 xmax: 628037.3 ymax: 4951645\nProjected CRS: ETRS89 / UTM zone 34N\nFirst 10 features:\n             Name      p18                           geom\n1      Crna Trava 80.05610 MULTIPOLYGON (((597840.3 47...\n2       Majdanpek 70.06978 MULTIPOLYGON (((603738.3 49...\n3         Medveđa 69.39836 MULTIPOLYGON (((557095.5 47...\n4  Vrnjačka Banja 66.74528 MULTIPOLYGON (((480624.1 48...\n5        Ivanjica 62.96057 MULTIPOLYGON (((440576.5 47...\n6      Kuršumlija 62.41871 MULTIPOLYGON (((524494.1 47...\n7       Surdulica 60.76054 MULTIPOLYGON (((616452.4 47...\n8          Kučevo 60.33986 MULTIPOLYGON (((550095.5 49...\n9      Vlasotince 58.96796 MULTIPOLYGON (((599729 4747...\n10        Golubac 58.95888 MULTIPOLYGON (((539278.6 49..."
+  },
+  {
+    "objectID": "03_sf/sf.html#horizontalni-bar-grafikon-opštine-sa-najviše-šume-2018",
+    "href": "03_sf/sf.html#horizontalni-bar-grafikon-opštine-sa-najviše-šume-2018",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Horizontalni bar grafikon opštine sa najviše šume 2018",
+    "text": "Horizontalni bar grafikon opštine sa najviše šume 2018\n\nopst |&gt;\n  slice_max(p18, n = 15) |&gt; # Sortiranje opština po procentu šuma\n  ggplot(aes(y = reorder(Name, p18), x = p18)) +  # Horizontalna os\n  geom_col(fill = \"forestgreen\") +  # Boja stubaca\n  labs(\n    title = \"Procenat šuma po opštinama u Srbiji\",\n    x = \"Procenat šuma (%)\",\n    y = \"Opštine\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "03_sf/sf.html#horizontalni-bar-grafikon-opštine-sa-najmanje-šume-2018",
+    "href": "03_sf/sf.html#horizontalni-bar-grafikon-opštine-sa-najmanje-šume-2018",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Horizontalni bar grafikon opštine sa najmanje šume 2018",
+    "text": "Horizontalni bar grafikon opštine sa najmanje šume 2018\n\nopst |&gt;\n  slice_min(p18, n = 15) |&gt; # Sortiranje opština po procentu šuma\n  ggplot(aes(y = reorder(Name, p18), x = p18)) +  # Horizontalna os\n  geom_col(fill = \"forestgreen\") +  # Boja stubaca\n  labs(\n    title = \"Procenat šuma po opštinama u Srbiji\",\n    x = \"Procenat šuma (%)\",\n    y = \"Opštine\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "03_sf/sf.html#horizontalni-bar-grafikon-opštine-sa-najviše-novih-šuma-2018-2012",
+    "href": "03_sf/sf.html#horizontalni-bar-grafikon-opštine-sa-najviše-novih-šuma-2018-2012",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Horizontalni bar grafikon opštine sa najviše novih šuma 2018-2012",
+    "text": "Horizontalni bar grafikon opštine sa najviše novih šuma 2018-2012\n\nopst |&gt;\n  slice_max(razlika_18_12, n = 15) |&gt; # Sortiranje opština po procentu šuma\n  ggplot(aes(y = reorder(Name, razlika_18_12), x = razlika_18_12)) +  # Horizontalna os\n  geom_col(fill = \"forestgreen\") +  # Boja stubaca\n  labs(\n    title = \"Procenat šuma po opštinama u Srbiji\",\n    x = \"Procenat novih šuma (%) 2018-2012\",\n    y = \"Opštine\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "03_sf/sf.html#horizontalni-bar-grafikon-opštine-sa-najviše-posečenih-šuma-2018-2012",
+    "href": "03_sf/sf.html#horizontalni-bar-grafikon-opštine-sa-najviše-posečenih-šuma-2018-2012",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Horizontalni bar grafikon opštine sa najviše posečenih šuma 2018-2012",
+    "text": "Horizontalni bar grafikon opštine sa najviše posečenih šuma 2018-2012\n\nopst |&gt;\n  slice_min(razlika_18_12, n = 15) |&gt; # Sortiranje opština po procentu šuma\n  ggplot(aes(y = reorder(Name, razlika_18_12), x = razlika_18_12)) +  # Horizontalna os\n  geom_col(fill = \"forestgreen\") +  # Boja stubaca\n  labs(\n    title = \"Procenat šuma po opštinama u Srbiji\",\n    x = \"Procenat posečenih šuma (%) 2018-2012\",\n    y = \"Opštine\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "03_sf/sf.html#podaci-dostupni-iz-web-servisa",
+    "href": "03_sf/sf.html#podaci-dostupni-iz-web-servisa",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Podaci dostupni iz Web servisa",
+    "text": "Podaci dostupni iz Web servisa\n\nTipični veb servisi za prostorne podatke generišu podatke u realnom vremenu i omogućavaju pristup putem API-ja.\nNa primer, podaci iz OpenStreetMap-a mogu se preuzeti u celosti i koristiti lokalno, na primer pomoću GDAL vektorskog drajvera.\nMeđutim, korisnici obično žele da dobiju manji podskup podataka ili da ih koriste za određene upite."
+  },
+  {
+    "objectID": "03_sf/sf.html#r-paketi-za-upite-openstreetmap-podataka",
+    "href": "03_sf/sf.html#r-paketi-za-upite-openstreetmap-podataka",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "R paketi za upite OpenStreetMap podataka",
+    "text": "R paketi za upite OpenStreetMap podataka\nPaket OpenStreetMap\n\n\nAutori: Fellows i JMapViewer biblioteka (Jan Peter Stotz, 2019)\nPreuzima podatke u obliku rasterskih tajlova\nObično se koristi kao pozadinska-osnovna karta za vizuelizaciju drugih prostornih elemenata\n\nPaket osmdata\n\n\nAutori: Mark Padgham i saradnici (2017)\nPreuzima vektorske podatke kao tačke, linije ili poligone\nPodaci su u sf ili sp formatu\n\nPaket osmar\n\nDostupan iz CRAN arhive\nVraća vektorske podatke uz dodatne informacije o mrežnoj topologiji\nKoristi igraph objekat za predstavljanje povezanosti puteva\nSadrži funkcije za izračunavanje najkraće rute"
+  },
+  {
+    "objectID": "03_sf/sf.html#direktno-preuzimanje-podataka-iz-openstreetmap-bez-posredničkih-paketa",
+    "href": "03_sf/sf.html#direktno-preuzimanje-podataka-iz-openstreetmap-bez-posredničkih-paketa",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Direktno preuzimanje podataka iz OpenStreetMap bez posredničkih paketa",
+    "text": "Direktno preuzimanje podataka iz OpenStreetMap bez posredničkih paketa\n\n# Definiši bbox oko GRF (44.805620, 20.475745)\nbbox &lt;- paste0(\"bbox=\", 20.470, \",\", 44.803, \",\", 20.481, \",\", 44.808)\n\n# Formiraj URL za preuzimanje podataka sa OpenStreetMap API-ja\nosm_url &lt;- paste0(\"https://www.openstreetmap.org/api/0.6/map?\", bbox)\n\n# Preuzmi OSM podatke i sačuvaj ih kao fajl\ndownload.file(osm_url, \"data/beograd.osm\", method = \"auto\")\n\n# Provera preuzetog fajla\nfile.exists(\"data/beograd.osm\")\n\n[1] TRUE"
+  },
+  {
+    "objectID": "03_sf/sf.html#konverzija-osm-podataka-u-sf-objekat-i-plot",
+    "href": "03_sf/sf.html#konverzija-osm-podataka-u-sf-objekat-i-plot",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Konverzija OSM podataka u sf objekat i plot",
+    "text": "Konverzija OSM podataka u sf objekat i plot\n\n# Učitaj linijske (putevi) i poligonalne (zgrade) podatke iz preuzetog OSM fajla\no &lt;- read_sf(\"data/beograd.osm\", layer = \"lines\")\np &lt;- read_sf(\"data/beograd.osm\", layer = \"multipolygons\")\n# Definiši bbox za oblast oko Beograda\nbbox &lt;- st_bbox(c(xmin = 20.470, ymin = 44.803, \n                  xmax = 20.481, ymax = 44.808), crs = 'OGC:CRS84') |&gt; \n        st_as_sfc()\n# Iscrtavanje bbox-a\nplot(bbox, axes = TRUE, lwd = 2, lty = 2, cex.axis = 0.5)\n# Dodavanje linijskih objekata (putevi)\nplot(o[,1], lwd = 2, add = TRUE)\n# Dodavanje poligona objekata (zgrade)\nplot(st_geometry(p), border = NA, col = '#88888888', add = TRUE) # objekti sivo"
+  },
+  {
+    "objectID": "03_sf/sf.html#dobijena-kartografska-vizualizacija-osm-podataka",
+    "href": "03_sf/sf.html#dobijena-kartografska-vizualizacija-osm-podataka",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Dobijena kartografska vizualizacija OSM podataka",
+    "text": "Dobijena kartografska vizualizacija OSM podataka"
+  },
+  {
+    "objectID": "03_sf/sf.html#geoparquet-i-geoarrow",
+    "href": "03_sf/sf.html#geoparquet-i-geoarrow",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "GeoParquet i GeoArrow",
+    "text": "GeoParquet i GeoArrow\nDva formata namenjena cloud-native analizi dolaze iz Apache projekata Parquet i Arrow. Obe tehnologije omogućavaju skladištenje podataka po kolonoma, što omogućava brzo čitanje pojedinačnih polja za veliki broj zapisa.\nOsobine\n\n\nSkladištenje geometrije:\n\nU binarnoj ili tekstualnoj formi\nEfikasnija struktura sa indeksiranjem podgeometrija\n\n\n\nSkladištenje CRS-a: Čuva informacije o koordinatnom referentnom sistemu (CRS)\n\nPodrška u GDAL-u: Dostupno od verzije 3.5\n\nPodrška za kompresiju podataka\n\nRazlike između formata\n\n\nFormat\nGlavna svrha\n\n\n\nGeoParquet\nTrajno skladištenje\n\n\nGeoArrow\nBrzi pristup i analiza\n\n\n\nGeoArrow može biti korišćen i kao memorijski i kao diskovni format. Pokazao se efikasan za analize ogromene količine podataka"
+  },
+  {
+    "objectID": "03_sf/sf.html#sp---sf-poređenje",
+    "href": "03_sf/sf.html#sp---sf-poređenje",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "\nsp - sf poređenje",
+    "text": "sp - sf poređenje\n\n\nhow to..\nfor sp objects\nfor sf objects\n\n\n\njoin attributes\nsp::merge()\n\ndplyr::*_join() (also sf::merge())\n\n\nreproject\nspTransform()\nst_transform()\n\n\nretrieve (or assign) CRS\nproj4string()\nst_crs()\n\n\ncount points in polygons\nover()\n\nst_within and aggregate()\n\n\n\nbuffer\n\nrgeos::gBuffer() (separate package)\nst_buffer()\n\n\nselect by location\n\ng* functions from rgeos\n\n\nst_* geos functions in sf"
+  },
+  {
+    "objectID": "03_sf/sf.html#literatura",
+    "href": "03_sf/sf.html#literatura",
+    "title": "Vektorski podaci: R paket sf",
+    "section": "Literatura",
+    "text": "Literatura\n\nPebesma, E., Bivand, R., 2021. Spatial Data Science. CRC Press. https://r-spatial.org/book/\nBivand, R., Pebesma, E., Gomez-Rubio, V., 2013. Applied Spatial Data Analysis with R. Springer. https://asdar-book.org/\nLovelace, R., Nowosad, J., & Muenchow, J. (2019). Geocomputation with R. Chapman and Hall/CRC. https://geocompr.robinlovelace.net/\nPebesma, E., 2018. Simple Features for R: Standardized Support for Spatial Vector Data. The R Journal, 10(1), pp.439-446. https://doi.org/10.32614/RJ-2018-009"
+  }
+]
