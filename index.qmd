@@ -56,6 +56,20 @@ Uvodna prezentacija za Tidyverse. U ovoj prezentaciji su predstavljeni ključni 
 :::
 :::
 
+
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm .p-3}
+
+### ️Uvod u sf paket 
+
+Ovaj izvor predstavlja sveobuhvatan vodič za korišćenje sf paketa u programskom jeziku R, koji je dizajniran za efikasan rad sa prostornim vektorskim podacima. Prezentacija pokriva ključne funkcionalnosti sf paketa, uključujući kreiranje, manipulaciju i analizu prostornih objekata, kao i integraciju sa drugim R paketima za prostornu analizu.
+
+<br>
+[Otvori prezentaciju](03_sf/sf.html){.btn .btn-primary role="button"}
+
+:::
+:::
+
 :::
 
 ---

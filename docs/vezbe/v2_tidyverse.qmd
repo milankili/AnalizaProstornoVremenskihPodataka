@@ -1,0 +1,158 @@
+---
+title: "Vežbe sa podacima meuse (atributni podaci)"
+author: "Milan Kilibarda"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    code-fold: show
+    code-tools: true
+    embed-resources: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Vežbe sa atributnim podacima iz `meuse` skupa podataka
+
+Cilj vežbi je da studenti koriste `tidyverse` alate (posebno `dplyr` i `ggplot2`) za rad sa atributnim podacima iz skupa `meuse`. Nećemo koristiti prostorne objekte (`sf`, `sp`) u ovoj vežbi, osim kod poslednjeg zadatka.
+
+Istraživanje je sprovedeno u dolini reke Meuse, u južnom Limburgu (Holandija), s ciljem procene prostorne rasprostranjenosti i intenziteta zagađenja zemljišta teškim metalima (cink, olovo, bakar, kadmijum) na poplavnim površinama. Područje obuhvata oko $5$ km^2^ i često je izloženo poplavama koje donose i talože kontaminirani mulj. Zagađenje potiče uglavnom iz industrijskih centara oko Liègea, gde su se tokom industrijske revolucije u reku ispuštali otpad i rudarski nusprodukti.
+
+Metodološki, istraživanje je uključivalo detaljno kartiranje nadmorskih visina, geomorfologije i namene zemljišta, kao i uzorkovanje zemljišta na 164 lokacije, s većom učestalošću u zonama sa čestim poplavama. U laboratoriji su određivani sadržaji vlage, organske materije i koncentracije metala pomoću apsorpcione spektroskopije. Cilj je bio razviti efikasan i ekonomičan metod za kartiranje zagađenih područja i procenu potencijalnog zdravstvenog rizika za stanovništvo koje koristi poljoprivredne proizvode iz tih zona.
+
+------------------------------------------------------------------------
+
+1. **Prikaži prvih 10 redova iz `meuse_tbl`.**
+
+```{r , echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(sp)
+data(meuse)
+# Učitavanje i konverzija u tibble
+meuse_tbl <- as_tibble(meuse)
+head(meuse_tbl, 10)
+```
+
+------------------------------------------------------------------------
+
+2. **Koje promenljive postoje u skupu? Koje su numeričke, a koje kategoričke? Koristeći help funkciju `?meuse` saznaj više o skupu podataka, kratko opiši svaki atribut.**
+
+------------------------------------------------------------------------
+
+3. **Izračunaj srednju vrednost, medijanu i standardnu devijaciju za `zinc`.** Potom za sve ostale promenljive
+
+------------------------------------------------------------------------
+
+4. **Kolika je minimalna i maksimalna vrednost `lead`?**
+
+------------------------------------------------------------------------
+
+5. **Izdvoji sve redove gde je `copper` veći od 50.**
+
+------------------------------------------------------------------------
+
+6. **Izdvoji redove gde je `soil == 1` i `lead > 200`.**
+
+------------------------------------------------------------------------
+
+7. **Prikaži samo kolone `zinc`, `lead`, i `copper`.**
+
+------------------------------------------------------------------------
+
+8. **Dodaj kolonu `log10_zinc` kao logaritm sa osnovom 10 od `zinc`.**
+
+------------------------------------------------------------------------
+
+9. **Dodaj novu logičku kolonu `high_lead` gde je `TRUE` ako je `lead > 400`.**
+
+------------------------------------------------------------------------
+
+10 **Grupiši po `soil` i izračunaj prosečne vrednosti `zinc`.**
+
+------------------------------------------------------------------------
+
+11. **Koliko uzoraka ima u svakoj kategoriji `ffreq`?**
+
+------------------------------------------------------------------------
+
+12. **Nacrtaj histogram za `zinc` uz pomoć `ggplot2`.**
+
+------------------------------------------------------------------------
+
+13. **Nacrtaj boxplot za `lead` po grupama `soil`.**
+
+------------------------------------------------------------------------
+
+14. **Napravi scatter dijagram `zinc` naspram `lead`.**
+
+------------------------------------------------------------------------
+
+15. **Prikaz scatter plota `copper` naspram `zinc`, boji po `soil`.**
+
+------------------------------------------------------------------------
+
+16. **Koristi `facet_wrap()` za prikaz `zinc` vs `lead` po `soil` grupama.**
+
+------------------------------------------------------------------------
+
+17. **Izračunaj korelaciju između `zinc` i `Cu`.**
+
+------------------------------------------------------------------------
+
+18. **Prikaži 5 lokacija sa najvećom vrednošću `zinc`.**
+
+------------------------------------------------------------------------
+
+19. **Sortiraj dataset opadajuće po `lead`, pa zatim po `copper`.**
+
+------------------------------------------------------------------------
+
+20. **Napravi scatter plot `lead` vs `zinc` i dodaj regresionu liniju (`geom_smooth(method = "lm")`).**
+
+------------------------------------------------------------------------
+
+21. **Prikaži scatter plot odnosa između log-transformisanih vrednosti `zinc` i `copper`.**
+
+------------------------------------------------------------------------
+
+22.  **Da li dve promenljive deluju povezano? Opiši odnos i da li ima tačaka koje odstupaju od opšteg obrasca. Šta može biti razlog odstupanja?** 
+
+------------------------------------------------------------------------
+
+23. **Modeluj koncentraciju `log10(zinc)` kao linearnu funkciju `log10(copper)`.**
+
+------------------------------------------------------------------------
+
+24. **Prikaži rezime dobijenog linearnog modela. Koje tačke odstupaju od obrazca? Izdvojih posle analize grafika tačke koje odstupaju.**
+
+------------------------------------------------------------------------
+
+25. **Ispitaj da li su reziduali modela približno normalno raspoređeni.**
+
+------------------------------------------------------------------------
+
+26. **Na kom opažanju je `log10(zinc)` najviše podcenjen (najveći negativni rezidual)? Da li ta tačka ima visoku vrednost `zinc` — može li to biti indikator zagađenja?**
+
+------------------------------------------------------------------------
+
+27. **Modeluj koncentraciju `log10(zinc)` u odnosu na učestalost poplava (`ffreq`). Prikaži i grupisani boxplot `log10(zinc)` za svaku kategoriju `ffreq` koristeći `boxplot()` funkciju. U drugom delu napravi regresionu analizu**
+
+------------------------------------------------------------------------
+
+28. **Ispitaj odnos između udaljenosti od reke (`dist`) i koncentracije cinka (`zinc`). Prikaži scatter plot i komentariši da li postoji obrazac ili trend. Da li veća udaljenost od reke znači nižu koncentraciju?**
+
+------------------------------------------------------------------------
+
+29. **Modeluj višestruku linearnu regresiju sa `log10(zinc)` kao zavisnom promenljivom, a `dist` (udaljenost od reke) i `ffreq` (učestalost poplava) kao prediktorima. Prikaži sažetak modela i protumači rezultate — koji prediktor je značajniji i da li zajedno bolje objašnjavaju koncentraciju cinka?**
+
+------------------------------------------------------------------------
+
+30. **Prikaži kartu lokacija uzorkovanja sa linijom reke Meuse. Na grafikonu koristi jednu estetsku osobinu (npr. veličinu, boju) da predstaviš udaljenost od reke (`dist`), a drugu da predstaviš koncentraciju cinka (`zinc`).**
+
+*Napomena: Za ovaj zadatak možeš koristiti `geom_point()` i `aes()` za estetsko kodiranje, uz `x` i `y` koordinate uzorka.*
+
+*Koristi `data(meuse.riv, package="sp")` za lokaciju reke.*
+
+*Napraviti `sf` podatke i od uzoraka i `meuse.riv`objekta pre pravljenja ggplota.*

@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Milan Kilibarda">
+
+<title>Vežba 3: Analiza urbanih područja u Srbiji (CLC 2012–2018)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="v3_sf_saResenjima_files/libs/clipboard/clipboard.min.js"></script>
+<script src="v3_sf_saResenjima_files/libs/quarto-html/quarto.js"></script>
+<script src="v3_sf_saResenjima_files/libs/quarto-html/popper.min.js"></script>
+<script src="v3_sf_saResenjima_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="v3_sf_saResenjima_files/libs/quarto-html/anchor.min.js"></script>
+<link href="v3_sf_saResenjima_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="v3_sf_saResenjima_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="v3_sf_saResenjima_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="v3_sf_saResenjima_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="v3_sf_saResenjima_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header">
+<div class="quarto-title-block"><div><h1 class="title">Vežba 3: Analiza urbanih područja u Srbiji (CLC 2012–2018)</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<p class="author">Milan Kilibarda</p>
+
+</header>
+
+<section id="vežba-urbana-područja-i-promene-kroz-vreme" class="level1">
+<h1>🏙️ Vežba: Urbana područja i promene kroz vreme</h1>
+<p>U ovoj vežbi koristićemo prostorne podatke iz baze CORINE Land Cover (CLC) za 2012. i 2018. godinu, koji pružaju klasifikaciju korišćenja zemljišta na osnovu satelitskih snimaka i vizuelne interpretacije. CLC podaci omogućavaju uvid u prostornu raspodelu različitih kategorija zemljišta, kao što su šumske površine, obradiva zemlja, vodene površine i – u ovom slučaju najvažnije – urbana područja.</p>
+<p>Fokus ove analize biće na klasama koje pripadaju grupi veštačkih površina (urbanih područja), odnosno CLC klasa koje počinju cifrom 1 (npr. <code>111 – kontinuirano urbano``područje``, 112 – diskontinuirano urbano područje</code>`, itd.). Podaci će biti analizirani na nivou administrativnih jedinica – opština u Srbiji.</p>
+<p>Cilj vežbe je da se:</p>
+<ul>
+<li><p>identifikuju i izdvoje prostori urbanih površina u obe posmatrane godine,</p></li>
+<li><p>kvantifikuje njihova površina u okviru svake opštine,</p></li>
+<li><p>izračuna apsolutna i relativna promena između 2012. i 2018. godine,</p></li>
+<li><p>i da se rezultati prikažu kartografski.</p></li>
+</ul>
+<p>Na taj način studenti će steći praktično iskustvo u radu sa prostornim (vektorskim) podacima, u filtriranju, agregiranju, prostornim operacijama preseka i spajanja, kao i u interpretaciji rezultata promena u urbanizaciji kroz vreme.</p>
+<hr>
+<section id="priprema-i-biblioteke" class="level2">
+<h2 class="anchored" data-anchor-id="priprema-i-biblioteke">📦 Priprema i biblioteke</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Učitaj potrebne biblioteke: <code>sf</code>, <code>dplyr</code>, <code>ggplot2</code>, <code>units</code>, <code>readr</code>.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitaj potrebne biblioteke</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)        <span class="co"># Rad sa prostornim podacima (Simple Features)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)     <span class="co"># Manipulacija podacima   # Vizualizacija (grafici i karte)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(units)     <span class="co"># Rukovanje mernim jedinicama (npr. km²)    </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Učitaj CLC podatke iz 2012. i 2018. u odgovarajuće promenljive <code>clc12</code> i <code>clc18</code>.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitavanje CLC podataka iz 2012.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>clc12 <span class="ot">&lt;-</span><span class="fu">st_read</span>(<span class="st">"C:/Users/user/Dropbox/AnalizaProstornoVremenskihPodataka/03_sf/data/Vektor/clc/CLC12_RS.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `CLC12_RS' from data source 
+  `C:\Users\user\Dropbox\AnalizaProstornoVremenskihPodataka\03_sf\data\Vektor\clc\CLC12_RS.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 34841 features and 6 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 331043.4 ymin: 4674468 xmax: 663570 ymax: 5117030
+Projected CRS: ETRS89 / UTM zone 34N</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitavanje CLC podataka iz 2018. godine</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"C:/Users/user/Dropbox/AnalizaProstornoVremenskihPodataka/03_sf/data/Vektor/clc/CLC18_RS.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `CLC18_RS' from data source 
+  `C:\Users\user\Dropbox\AnalizaProstornoVremenskihPodataka\03_sf\data\Vektor\clc\CLC18_RS.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 34794 features and 6 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 331043.4 ymin: 4674468 xmax: 663570 ymax: 5117030
+Projected CRS: ETRS89 / UTM zone 34N</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Učitaj granice opština Srbije kao <code>opstine</code>. Podaci treba da budu u <code>sf</code> formatu.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitavanje granica opština Srbije</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>opstine <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"C:/Users/user/Dropbox/AnalizaProstornoVremenskihPodataka/03_sf/data/Vektor/Municipalities.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `Municipalities' from data source 
+  `C:\Users\user\Dropbox\AnalizaProstornoVremenskihPodataka\03_sf\data\Vektor\Municipalities.gpkg' 
+  using driver `GPKG'
+Simple feature collection with 161 features and 3 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 18.80852 ymin: 42.22762 xmax: 22.97898 ymax: 46.1894
+Geodetic CRS:  WGS 84</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Proveri CRS (koordinatne sisteme-projekcije) svih slojeva. Ako nisu isti, preklopi ih u jedinstven CRS, UTM za Srbiju.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Provera CRS-ova</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(clc12)<span class="sc">$</span>proj4string   <span class="co"># EPSG:25834</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "+proj=utm +zone=34 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(clc18)<span class="sc">$</span>proj4string   <span class="co"># EPSG:25834</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "+proj=utm +zone=34 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(opstine)<span class="sc">$</span>proj4string   <span class="co"># EPSG:4326</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "+proj=longlat +datum=WGS84 +no_defs"</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ako CRS opštine nije isti, transformiši ga u isti CRS kao CLC slojevi:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>opstine <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(opstine, <span class="at">crs =</span> <span class="fu">st_crs</span>(clc12))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Provera ponovo</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(opstine)<span class="sc">$</span>proj4string   <span class="co"># EPSG:25834</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "+proj=utm +zone=34 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Napravi kartu CLC sloja (npr. sa <code>plot() i gglot</code>), koristi boje iz <code>clc_legend.csv</code> podatka. Rešiti kao što je bilo objašnjeno u na predavanjima.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitavanje legende</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>clc_legend <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"C:/Users/user/Dropbox/AnalizaProstornoVremenskihPodataka/03_sf/data/clc_legend.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 44 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (4): LABEL1, LABEL2, LABEL3, RGB
+dbl (2): GRID_CODE, CLC_CODE
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretvori kod u karakter radi lakšeg spajanja</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> clc18 <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CODE_18 =</span> <span class="fu">as.character</span>(CODE_18))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>clc_legend <span class="ot">&lt;-</span> clc_legend <span class="sc">|&gt;</span> </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Color =</span> <span class="fu">sapply</span>( RGB, <span class="cf">function</span>(rgb_str) {</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Korak 1: Razdvajanje RGB stringa na komponente</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>      rgb_vals <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(rgb_str, <span class="st">"-"</span>) <span class="sc">|&gt;</span> <span class="fu">unlist</span>() <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Korak 2: Konverzija u hex kod (0-255 → 0-1)</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rgb</span>(rgb_vals[<span class="dv">1</span>]<span class="sc">/</span><span class="dv">255</span>, rgb_vals[<span class="dv">2</span>]<span class="sc">/</span><span class="dv">255</span>, rgb_vals[<span class="dv">3</span>]<span class="sc">/</span><span class="dv">255</span>, <span class="at">maxColorValue =</span> <span class="dv">1</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>           } <span class="co"># kraj funkcije unutar sapply petlje</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    )<span class="co"># zatvaramo sapply</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    )<span class="co"># zatcaramo mutate</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Spajanje CLC podataka sa legendom</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Treba ih svesti na isti tip</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>clc_legend<span class="sc">$</span>CLC_CODE <span class="ot">&lt;-</span> <span class="fu">as.character</span>(clc_legend<span class="sc">$</span>CLC_CODE)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Spajanje `sf_obj` sa lookup tabelom na osnovu CODE_18 i CLC_CODE</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(clc18, clc_legend, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"CODE_18"</span> <span class="ot">=</span> <span class="st">"CLC_CODE"</span>))</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Spajanje `sf_obj` sa lookup tabelom na osnovu CODE_12 i CLC_CODE</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>clc12 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(clc12, clc_legend, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"CODE_12"</span> <span class="ot">=</span> <span class="st">"CLC_CODE"</span>))</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="co">#  Klasični `plot()` sa bojama iz lookup tabele</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(clc18[<span class="st">"CODE_18"</span>], <span class="at">col =</span> clc18<span class="sc">$</span>Color, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">main =</span> <span class="st">"CLC Klasifikacija 2018"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="v3_sf_saResenjima_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Napravi kartu</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clc18) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> CODE_18), <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">setNames</span>(clc_legend<span class="sc">$</span>Color, clc_legend<span class="sc">$</span>CLC_CODE),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"CLC klasa"</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"CLC 2018 – prikaz svih klasa"</span>,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Prema legendi CLC iz fajla"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Izvor: CORINE Land Cover 2018, EEA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="v3_sf_saResenjima_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Dodatna obrada legende</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(clc18) +</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_sf(aes(fill = LABEL3), color = NA) +</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   scale_fill_manual(</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#     values = setNames(clc_legend$Color, clc_legend$LABEL3),</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     name = "CLC klasa"</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   ) +</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme_minimal() +</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   labs(title = "CLC 2018 – prikaz svih klasa",</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#        subtitle = "Prema legendi CLC iz fajla",</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#        caption = "Izvor: CORINE Land Cover 2018, EEA")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prikaži prvi pregled CLC sloja (npr. sa <code>plot() i gglot</code>), ali tako da budu prikazani samo prvi nivoi klasifikacije (npr. 1, 2, 3…), koristi boje iz <code>clc_legend.csv</code> podatka. Koristi<code>clc18</code> objekat.</p>
+<table class="table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 47%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kod</th>
+<th>Naziv kategorije (srpski)</th>
+<th>Naziv kategorije (engleski)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Veštačke površine</td>
+<td>Artificial surfaces</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Poljoprivredno zemljište</td>
+<td>Agricultural areas</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Šumsko i poluprirodno zemljište</td>
+<td>Forest and semi-natural areas</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Mokra zemljišta</td>
+<td>Wetlands</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Vodene površine</td>
+<td>Water bodies</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prva boja po LABEL1 (nivo 1 klasifikacije)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>nivoi1 <span class="ot">&lt;-</span> clc_legend <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(LABEL1) <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">level1 =</span> <span class="fu">str_sub</span>(CLC_CODE, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">Color1 =</span> Color) <span class="sc">|&gt;</span> </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(level1, LABEL1, Color1) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">order</span>(level1))</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>nivoi1<span class="sc">$</span>naziv <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Veštačke površine"</span>, <span class="st">"Poljoprivredno zemljište"</span>, <span class="st">"Šumsko i poluprirodno zemljište"</span>, <span class="st">"Mokra zemljišta"</span>, <span class="st">"Vodene površine"</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodaj level1 kolonu u CLC sloj</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> clc18 <span class="sc">|&gt;</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">level1 =</span> <span class="fu">str_sub</span>(CODE_18, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Pridruži i postavi nivoe faktora</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> clc18 <span class="sc">|&gt;</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(nivoi1[, <span class="fu">c</span>(<span class="st">"level1"</span>, <span class="st">"naziv"</span>, <span class="st">"Color1"</span>)], <span class="at">by =</span> <span class="st">"level1"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">naziv =</span> <span class="fu">factor</span>(naziv, <span class="at">levels =</span> nivoi1<span class="sc">$</span>naziv))</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Karta sa LABEL1 kao legendom i bojama iz prve pojave</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clc18) <span class="sc">+</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> naziv), <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">setNames</span>(nivoi1<span class="sc">$</span>Color1, nivoi1<span class="sc">$</span>naziv),</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"CLC nivo 1"</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"CLC 2018 – prikaz prvog nivoa klasifikacije"</span>,</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Boje su preuzete kao prve u okviru svake kategorije"</span>,</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Izvor: CORINE Land Cover 2018, EEA"</span></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="v3_sf_saResenjima_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="izdvajanje-urbanih-površina" class="level2">
+<h2 class="anchored" data-anchor-id="izdvajanje-urbanih-površina">🏗️ Izdvajanje urbanih površina</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 7">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 7
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Filtriraj iz <code>clc12</code> samo klase koje počinju sa <code>1</code> (urbane površine). Sačuvaj kao <code>urb2012</code>.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>urb12 <span class="ot">&lt;-</span> clc12 <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CODE_12=</span> <span class="fu">as.character</span>(CODE_12)) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_starts</span>(CODE_12, <span class="st">"1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 8">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Filtriraj iz <code>clc18</code> na isti način i sačuvaj kao <code>urb18</code>.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>urb18 <span class="ot">&lt;-</span> clc18 <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CODE_18 =</span> <span class="fu">as.character</span>(CODE_18)) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_starts</span>(CODE_18, <span class="st">"1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 9">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 9
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Koliko poligona ima u <code>urb12</code>, a koliko u <code>urb18</code>?</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">godina =</span> <span class="fu">c</span>(<span class="dv">2012</span>, <span class="dv">2018</span>),</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">broj_poligona =</span> <span class="fu">c</span>(<span class="fu">nrow</span>(urb12), <span class="fu">nrow</span>(urb18))</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  godina broj_poligona
+   &lt;dbl&gt;         &lt;int&gt;
+1   2012          2505
+2   2018          2526</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 10">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prati promene u <strong>urbanim površinama</strong> na teritoriji Srbije između 2012. i 2018. godine korišćenjem prostornih GIS operacija (<code>sf</code> paket).</p>
+<p>Korišćenjem funkcije <code>st_difference()</code>:</p>
+<ul>
+<li>izdvoji <strong>nove urbane površine</strong> koje su se pojavile u 2018. godini (nalaze se u <code>urb18</code>, ali ne u <code>urb12</code>)</li>
+<li>izdvoji <strong>nestale urbane površine</strong> koje su postojale 2012. godine, ali ih više nema u 2018. (nalaze se u <code>urb12</code>, ali ne i u <code>urb18</code>)</li>
+<li>prikaži obe kategorije na dve odvojene karte:
+<ul>
+<li><strong>nove urbane površine</strong> (obojene zeleno)</li>
+<li><strong>nestale urbane površine</strong> (obojene crveno)</li>
+</ul></li>
+</ul>
+<p>Komentariši prostorne obrasce dobijenih promena.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prostorna razlika: nove urbane površine (2018 koje nisu postojale 2012)</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>urb_nove <span class="ot">&lt;-</span> <span class="fu">st_difference</span>(<span class="fu">st_union</span>(urb18), <span class="fu">st_union</span>(urb12))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Prostorna razlika: nestale urbane površine (2012 koje ne postoje 2018)</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>urb_nestale <span class="ot">&lt;-</span> <span class="fu">st_difference</span>(<span class="fu">st_union</span>(urb12), <span class="fu">st_union</span>(urb18))</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Prikaz rezultata</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(urb_nestale, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">main =</span> <span class="st">"Nestale urbane površine (2012–2018)"</span>, <span class="at">key.pos =</span> <span class="cn">NULL</span>, <span class="at">reset =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(urb_nove, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">main =</span> <span class="st">"Nove urbane površine (2012–2018)"</span>, <span class="at">key.pos =</span> <span class="cn">NULL</span>, <span class="at">reset =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="v3_sf_saResenjima_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))  <span class="co"># Vraćanje na standardni prikaz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<hr>
+</section>
+<section id="površine-urbanih-površina" class="level2">
+<h2 class="anchored" data-anchor-id="površine-urbanih-površina">📏 Površine urbanih površina</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 11">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dodaj novu kolonu <code>povrsina_km2</code> u <code>urb12</code> koristeći <code>st_area()</code> i pretvori jedinicu u km².</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>urb12 <span class="ot">&lt;-</span> urb12 <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">povrsina_km2 =</span> <span class="fu">set_units</span>(<span class="fu">st_area</span>(geometry), <span class="st">"km^2"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_units</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 12">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 12
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Isto uradi i za <code>urb18</code>.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>urb18 <span class="ot">&lt;-</span> urb18 <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">povrsina_km2 =</span> <span class="fu">set_units</span>(<span class="fu">st_area</span>(geometry), <span class="st">"km^2"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_units</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 13">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 13
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Izračunaj ukupnu površinu urbanih površina u 2012. i 2018. za celu Srbiju.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ukupna urbana površina u 2012.</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>ukupno_2012 <span class="ot">&lt;-</span> <span class="fu">sum</span>(urb12<span class="sc">$</span>povrsina_km2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ukupna urbana površina u 2018.</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>ukupno_2018 <span class="ot">&lt;-</span> <span class="fu">sum</span>(urb18<span class="sc">$</span>povrsina_km2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Prikaz rezultata</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">godina =</span> <span class="fu">c</span>(<span class="dv">2012</span>, <span class="dv">2018</span>),</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">ukupna_urbana_povrsina_km2 =</span> <span class="fu">c</span>(ukupno_2012, ukupno_2018)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  godina ukupna_urbana_povrsina_km2
+   &lt;dbl&gt;                      &lt;dbl&gt;
+1   2012                      2927.
+2   2018                      2944.</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 14">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 14
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Izračunaj i prikaži tabelu sa brojem urbanih poligona i ukupnom površinom urbanih područja u 2012. i 2018. godini.</p>
+<p>Na osnovu toga, izračunaj <strong>prosečnu površinu jednog urbanog poligona</strong> u obe godine.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">godina =</span> <span class="fu">c</span>(<span class="dv">2012</span>, <span class="dv">2018</span>),</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">broj_poligona =</span> <span class="fu">c</span>(<span class="fu">nrow</span>(urb12), <span class="fu">nrow</span>(urb18)),</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ukupna_povrsina_km2 =</span> <span class="fu">c</span>(<span class="fu">sum</span>(urb12<span class="sc">$</span>povrsina_km2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">sum</span>(urb18<span class="sc">$</span>povrsina_km2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prosecna_povrsina_km2 =</span> ukupna_povrsina_km2 <span class="sc">/</span> broj_poligona)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  godina broj_poligona ukupna_povrsina_km2 prosecna_povrsina_km2
+   &lt;dbl&gt;         &lt;int&gt;               &lt;dbl&gt;                 &lt;dbl&gt;
+1   2012          2505               2927.                  1.17
+2   2018          2526               2944.                  1.17</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="prostorno-spajanje-sa-opštinama" class="level2">
+<h2 class="anchored" data-anchor-id="prostorno-spajanje-sa-opštinama">🧩 Prostorno spajanje sa opštinama</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 15">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 15
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Spoji <code>urb12</code> sa opštinama pomoću <code>st_intersection()</code> i sačuvaj rezultat kao <code>u12_int</code>.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>u12_int <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(urb12, opstine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: attribute variables are assumed to be spatially constant throughout
+all geometries</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 16">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 16
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Agregiraj podatke po opštini: za svaku opštinu saberi površine urbanih klasa iz 2012. Na osnovu agregiranih podataka o urbanim površinama iz 2012. godine (<code>urb_po_opstini_2012</code>), prikaži <strong>10 opština sa najvećom ukupnom površinom urbanih područja</strong> (suma svih urbanih poligona u km²).</p>
+<ul>
+<li>Prikaži rezultate na <strong>kolone/stupce na grafikonu tako da su stupci horizontalni</strong>.</li>
+<li>Koje opštine se ističu po ukupnoj urbanoj površini?</li>
+<li>Da li su to očekivane opštine (npr. veliki gradovi)?</li>
+<li>Kako bi opisao prostorni obrazac koncentracije urbanih zona u Srbiji 2012. godine?</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodaj kolonu sa površinom u km²</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>u12_int <span class="ot">&lt;-</span> u12_int <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">povrsina_km2 =</span> <span class="fu">set_units</span>(<span class="fu">st_area</span>(geometry), <span class="st">"km^2"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_units</span>())</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregacija po opštini</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>urb_po_opstini_2012 <span class="ot">&lt;-</span> u12_int <span class="sc">|&gt;</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name) <span class="sc">|&gt;</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ukupna_urbana_2012 =</span> <span class="fu">sum</span>(povrsina_km2), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 opština sa najvećom urbanom površinom</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>top10_urb_2012 <span class="ot">&lt;-</span> urb_po_opstini_2012 <span class="sc">|&gt;</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(ukupna_urbana_2012)) <span class="sc">|&gt;</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar grafikon</span></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top10_urb_2012, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Name, ukupna_urbana_2012), <span class="at">y =</span> ukupna_urbana_2012)) <span class="sc">+</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#447099"</span>) <span class="sc">+</span></span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 10 opština po ukupnoj urbanoj površini (2012)"</span>,</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Opština"</span>,</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Površina urbanih površina (km²)"</span></span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="v3_sf_saResenjima_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 17">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 17
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ponovi isti postupak za 2018. sloj. Sačuvaj kao <code>urb_po_opstini_2018</code>.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prostorni presek urbanih površina 2018. sa opštinama</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>u18_int <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(urb18, opstine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: attribute variables are assumed to be spatially constant throughout
+all geometries</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodavanje kolone sa površinom u km²</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>u18_int <span class="ot">&lt;-</span> u18_int <span class="sc">|&gt;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">povrsina_km2 =</span> <span class="fu">set_units</span>(<span class="fu">st_area</span>(geometry), <span class="st">"km^2"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_units</span>())</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregacija po opštini</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>urb_po_opstini_2018 <span class="ot">&lt;-</span> u18_int <span class="sc">|&gt;</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name) <span class="sc">|&gt;</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ukupna_urbana_2018 =</span> <span class="fu">sum</span>(povrsina_km2), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 opština u 2018. po urbanoj površini</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>top10_urb_2018 <span class="ot">&lt;-</span> urb_po_opstini_2018 <span class="sc">|&gt;</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(ukupna_urbana_2018)) <span class="sc">|&gt;</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar grafikon</span></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top10_urb_2018, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Name, ukupna_urbana_2018), <span class="at">y =</span> ukupna_urbana_2018)) <span class="sc">+</span></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#EE6331"</span>) <span class="sc">+</span></span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 10 opština po ukupnoj urbanoj površini (2018)"</span>,</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Opština"</span>,</span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Površina urbanih površina (km²)"</span></span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="v3_sf_saResenjima_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 18">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 18
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Napravi jedan objekat koji sadrži podatke o urbanim područijima za obe godine (<code>urb_po_opstini_2012</code> i <code>urb_po_opstini_2018</code>), tako da se može lako uporediti promena u urbanim površinama po opštinama. Koristi <code>left_join()</code> ili <code>full_join()</code> da spojiš podatke, ili neki drugi način. Izrazi i promene u procentima i apsolutnim vrednostima. Napravi grafičke prikaze promena u urbanim površinama po opštinama.</p>
+</div>
+</div>
+</section>
+<section id="zaključak" class="level2">
+<h2 class="anchored" data-anchor-id="zaključak">📝 Zaključak</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Zadatak 19">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Zadatak 19
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Kratko opiši koje promene si uočio u urbanim područjima u Srbiji na osnovu dobijenih karata i analiza.</p>
+</div>
+</div>
+<!-- -->
+
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb40" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Vežba 3: Analiza urbanih područja u Srbiji (CLC 2012–2018)"</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Milan Kilibarda"</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-summary: "Kod"</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="co">    echo: true</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co">    include: true</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co">    eval: true</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="co">    title-block-style: none</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># 🏙️ Vežba: Urbana područja i promene kroz vreme</span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>U ovoj vežbi koristićemo prostorne podatke iz baze CORINE Land Cover (CLC) za 2012. i 2018. godinu, koji pružaju klasifikaciju korišćenja zemljišta na osnovu satelitskih snimaka i vizuelne interpretacije. CLC podaci omogućavaju uvid u prostornu raspodelu različitih kategorija zemljišta, kao što su šumske površine, obradiva zemlja, vodene površine i – u ovom slučaju najvažnije – urbana područja.</span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>Fokus ove analize biće na klasama koje pripadaju grupi veštačkih površina (urbanih područja), odnosno CLC klasa koje počinju cifrom 1 (npr. ``` 111 – kontinuirano urbano``područje``, 112 – diskontinuirano urbano područje ``<span class="in">`\`</span>, itd.). Podaci će biti analizirani na nivou administrativnih jedinica – opština u Srbiji.</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>Cilj vežbe je da se:</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>identifikuju i izdvoje prostori urbanih površina u obe posmatrane godine,</span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>kvantifikuje njihova površina u okviru svake opštine,</span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>izračuna apsolutna i relativna promena između 2012. i 2018. godine,</span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>i da se rezultati prikažu kartografski.</span>
+<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a>Na taj način studenti će steći praktično iskustvo u radu sa prostornim (vektorskim) podacima, u filtriranju, agregiranju, prostornim operacijama preseka i spajanja, kao i u interpretaciji rezultata promena u urbanizaciji kroz vreme.</span>
+<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb40-35"><a href="#cb40-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-36"><a href="#cb40-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📦 Priprema i biblioteke</span></span>
+<span id="cb40-37"><a href="#cb40-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-38"><a href="#cb40-38" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 1"}</span>
+<span id="cb40-39"><a href="#cb40-39" aria-hidden="true" tabindex="-1"></a>Učitaj potrebne biblioteke: <span class="in">`sf`</span>, <span class="in">`dplyr`</span>, <span class="in">`ggplot2`</span>, <span class="in">`units`</span>, <span class="in">`readr`</span>.</span>
+<span id="cb40-40"><a href="#cb40-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-41"><a href="#cb40-41" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-42"><a href="#cb40-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-45"><a href="#cb40-45" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-46"><a href="#cb40-46" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: zad1</span></span>
+<span id="cb40-47"><a href="#cb40-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb40-48"><a href="#cb40-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false   # Скрива упозорења</span></span>
+<span id="cb40-49"><a href="#cb40-49" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false   # Скрива поруке</span></span>
+<span id="cb40-50"><a href="#cb40-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitaj potrebne biblioteke</span></span>
+<span id="cb40-51"><a href="#cb40-51" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)        <span class="co"># Rad sa prostornim podacima (Simple Features)</span></span>
+<span id="cb40-52"><a href="#cb40-52" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)     <span class="co"># Manipulacija podacima   # Vizualizacija (grafici i karte)</span></span>
+<span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(units)     <span class="co"># Rukovanje mernim jedinicama (npr. km²)    </span></span>
+<span id="cb40-54"><a href="#cb40-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-55"><a href="#cb40-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-56"><a href="#cb40-56" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 2"}</span>
+<span id="cb40-57"><a href="#cb40-57" aria-hidden="true" tabindex="-1"></a>Učitaj CLC podatke iz 2012. i 2018. u odgovarajuće promenljive <span class="in">`clc12`</span> i <span class="in">`clc18`</span>.</span>
+<span id="cb40-58"><a href="#cb40-58" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-59"><a href="#cb40-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-60"><a href="#cb40-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-63"><a href="#cb40-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-64"><a href="#cb40-64" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: zad2</span></span>
+<span id="cb40-65"><a href="#cb40-65" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb40-66"><a href="#cb40-66" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false   # Скрива упозорења</span></span>
+<span id="cb40-67"><a href="#cb40-67" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false   # Скрива поруке</span></span>
+<span id="cb40-68"><a href="#cb40-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-69"><a href="#cb40-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitavanje CLC podataka iz 2012.</span></span>
+<span id="cb40-70"><a href="#cb40-70" aria-hidden="true" tabindex="-1"></a>clc12 <span class="ot">&lt;-</span><span class="fu">st_read</span>(<span class="st">"C:/Users/user/Dropbox/AnalizaProstornoVremenskihPodataka/03_sf/data/Vektor/clc/CLC12_RS.shp"</span>)</span>
+<span id="cb40-71"><a href="#cb40-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-72"><a href="#cb40-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitavanje CLC podataka iz 2018. godine</span></span>
+<span id="cb40-73"><a href="#cb40-73" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"C:/Users/user/Dropbox/AnalizaProstornoVremenskihPodataka/03_sf/data/Vektor/clc/CLC18_RS.shp"</span>)</span>
+<span id="cb40-74"><a href="#cb40-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-75"><a href="#cb40-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-76"><a href="#cb40-76" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 3"}</span>
+<span id="cb40-77"><a href="#cb40-77" aria-hidden="true" tabindex="-1"></a>Učitaj granice opština Srbije kao <span class="in">`opstine`</span>. Podaci treba da budu u <span class="in">`sf`</span> formatu.</span>
+<span id="cb40-78"><a href="#cb40-78" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-79"><a href="#cb40-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-82"><a href="#cb40-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-83"><a href="#cb40-83" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: zad3</span></span>
+<span id="cb40-84"><a href="#cb40-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb40-85"><a href="#cb40-85" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false   # Скрива упозорења</span></span>
+<span id="cb40-86"><a href="#cb40-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-87"><a href="#cb40-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitavanje granica opština Srbije</span></span>
+<span id="cb40-88"><a href="#cb40-88" aria-hidden="true" tabindex="-1"></a>opstine <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"C:/Users/user/Dropbox/AnalizaProstornoVremenskihPodataka/03_sf/data/Vektor/Municipalities.gpkg"</span>)</span>
+<span id="cb40-89"><a href="#cb40-89" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-90"><a href="#cb40-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-91"><a href="#cb40-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-92"><a href="#cb40-92" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 4"}</span>
+<span id="cb40-93"><a href="#cb40-93" aria-hidden="true" tabindex="-1"></a>Proveri CRS (koordinatne sisteme-projekcije) svih slojeva. Ako nisu isti, preklopi ih u jedinstven CRS, UTM za Srbiju.</span>
+<span id="cb40-94"><a href="#cb40-94" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-95"><a href="#cb40-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-98"><a href="#cb40-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-99"><a href="#cb40-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Provera CRS-ova</span></span>
+<span id="cb40-100"><a href="#cb40-100" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(clc12)<span class="sc">$</span>proj4string   <span class="co"># EPSG:25834</span></span>
+<span id="cb40-101"><a href="#cb40-101" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(clc18)<span class="sc">$</span>proj4string   <span class="co"># EPSG:25834</span></span>
+<span id="cb40-102"><a href="#cb40-102" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(opstine)<span class="sc">$</span>proj4string   <span class="co"># EPSG:4326</span></span>
+<span id="cb40-103"><a href="#cb40-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-104"><a href="#cb40-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Ako CRS opštine nije isti, transformiši ga u isti CRS kao CLC slojevi:</span></span>
+<span id="cb40-105"><a href="#cb40-105" aria-hidden="true" tabindex="-1"></a>opstine <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(opstine, <span class="at">crs =</span> <span class="fu">st_crs</span>(clc12))</span>
+<span id="cb40-106"><a href="#cb40-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Provera ponovo</span></span>
+<span id="cb40-107"><a href="#cb40-107" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(opstine)<span class="sc">$</span>proj4string   <span class="co"># EPSG:25834</span></span>
+<span id="cb40-108"><a href="#cb40-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-109"><a href="#cb40-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-110"><a href="#cb40-110" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 5"}</span>
+<span id="cb40-111"><a href="#cb40-111" aria-hidden="true" tabindex="-1"></a>Napravi kartu CLC sloja (npr. sa <span class="in">`plot() i gglot`</span>), koristi boje iz <span class="in">`clc_legend.csv`</span> podatka. Rešiti kao što je bilo objašnjeno u na predavanjima.</span>
+<span id="cb40-112"><a href="#cb40-112" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-113"><a href="#cb40-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-116"><a href="#cb40-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-117"><a href="#cb40-117" aria-hidden="true" tabindex="-1"></a><span class="co"># Učitavanje legende</span></span>
+<span id="cb40-118"><a href="#cb40-118" aria-hidden="true" tabindex="-1"></a>clc_legend <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"C:/Users/user/Dropbox/AnalizaProstornoVremenskihPodataka/03_sf/data/clc_legend.csv"</span>)</span>
+<span id="cb40-119"><a href="#cb40-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-120"><a href="#cb40-120" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretvori kod u karakter radi lakšeg spajanja</span></span>
+<span id="cb40-121"><a href="#cb40-121" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> clc18 <span class="sc">|&gt;</span> </span>
+<span id="cb40-122"><a href="#cb40-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CODE_18 =</span> <span class="fu">as.character</span>(CODE_18))</span>
+<span id="cb40-123"><a href="#cb40-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-124"><a href="#cb40-124" aria-hidden="true" tabindex="-1"></a>clc_legend <span class="ot">&lt;-</span> clc_legend <span class="sc">|&gt;</span> </span>
+<span id="cb40-125"><a href="#cb40-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Color =</span> <span class="fu">sapply</span>( RGB, <span class="cf">function</span>(rgb_str) {</span>
+<span id="cb40-126"><a href="#cb40-126" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Korak 1: Razdvajanje RGB stringa na komponente</span></span>
+<span id="cb40-127"><a href="#cb40-127" aria-hidden="true" tabindex="-1"></a>      rgb_vals <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(rgb_str, <span class="st">"-"</span>) <span class="sc">|&gt;</span> <span class="fu">unlist</span>() <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb40-128"><a href="#cb40-128" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb40-129"><a href="#cb40-129" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Korak 2: Konverzija u hex kod (0-255 → 0-1)</span></span>
+<span id="cb40-130"><a href="#cb40-130" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rgb</span>(rgb_vals[<span class="dv">1</span>]<span class="sc">/</span><span class="dv">255</span>, rgb_vals[<span class="dv">2</span>]<span class="sc">/</span><span class="dv">255</span>, rgb_vals[<span class="dv">3</span>]<span class="sc">/</span><span class="dv">255</span>, <span class="at">maxColorValue =</span> <span class="dv">1</span>)</span>
+<span id="cb40-131"><a href="#cb40-131" aria-hidden="true" tabindex="-1"></a>           } <span class="co"># kraj funkcije unutar sapply petlje</span></span>
+<span id="cb40-132"><a href="#cb40-132" aria-hidden="true" tabindex="-1"></a>    )<span class="co"># zatvaramo sapply</span></span>
+<span id="cb40-133"><a href="#cb40-133" aria-hidden="true" tabindex="-1"></a>    )<span class="co"># zatcaramo mutate</span></span>
+<span id="cb40-134"><a href="#cb40-134" aria-hidden="true" tabindex="-1"></a><span class="co"># Spajanje CLC podataka sa legendom</span></span>
+<span id="cb40-135"><a href="#cb40-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-136"><a href="#cb40-136" aria-hidden="true" tabindex="-1"></a><span class="co"># Treba ih svesti na isti tip</span></span>
+<span id="cb40-137"><a href="#cb40-137" aria-hidden="true" tabindex="-1"></a>clc_legend<span class="sc">$</span>CLC_CODE <span class="ot">&lt;-</span> <span class="fu">as.character</span>(clc_legend<span class="sc">$</span>CLC_CODE)</span>
+<span id="cb40-138"><a href="#cb40-138" aria-hidden="true" tabindex="-1"></a><span class="co"># Spajanje `sf_obj` sa lookup tabelom na osnovu CODE_18 i CLC_CODE</span></span>
+<span id="cb40-139"><a href="#cb40-139" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(clc18, clc_legend, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"CODE_18"</span> <span class="ot">=</span> <span class="st">"CLC_CODE"</span>))</span>
+<span id="cb40-140"><a href="#cb40-140" aria-hidden="true" tabindex="-1"></a><span class="co"># Spajanje `sf_obj` sa lookup tabelom na osnovu CODE_12 i CLC_CODE</span></span>
+<span id="cb40-141"><a href="#cb40-141" aria-hidden="true" tabindex="-1"></a>clc12 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(clc12, clc_legend, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"CODE_12"</span> <span class="ot">=</span> <span class="st">"CLC_CODE"</span>))</span>
+<span id="cb40-142"><a href="#cb40-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-143"><a href="#cb40-143" aria-hidden="true" tabindex="-1"></a><span class="co">#  Klasični `plot()` sa bojama iz lookup tabele</span></span>
+<span id="cb40-144"><a href="#cb40-144" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(clc18[<span class="st">"CODE_18"</span>], <span class="at">col =</span> clc18<span class="sc">$</span>Color, <span class="at">border =</span> <span class="cn">NA</span>, <span class="at">main =</span> <span class="st">"CLC Klasifikacija 2018"</span>)</span>
+<span id="cb40-145"><a href="#cb40-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-146"><a href="#cb40-146" aria-hidden="true" tabindex="-1"></a><span class="co"># Napravi kartu</span></span>
+<span id="cb40-147"><a href="#cb40-147" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clc18) <span class="sc">+</span></span>
+<span id="cb40-148"><a href="#cb40-148" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> CODE_18), <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb40-149"><a href="#cb40-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb40-150"><a href="#cb40-150" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">setNames</span>(clc_legend<span class="sc">$</span>Color, clc_legend<span class="sc">$</span>CLC_CODE),</span>
+<span id="cb40-151"><a href="#cb40-151" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"CLC klasa"</span></span>
+<span id="cb40-152"><a href="#cb40-152" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb40-153"><a href="#cb40-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb40-154"><a href="#cb40-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"CLC 2018 – prikaz svih klasa"</span>,</span>
+<span id="cb40-155"><a href="#cb40-155" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Prema legendi CLC iz fajla"</span>,</span>
+<span id="cb40-156"><a href="#cb40-156" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Izvor: CORINE Land Cover 2018, EEA"</span>)</span>
+<span id="cb40-157"><a href="#cb40-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-158"><a href="#cb40-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-159"><a href="#cb40-159" aria-hidden="true" tabindex="-1"></a><span class="co"># # Dodatna obrada legende</span></span>
+<span id="cb40-160"><a href="#cb40-160" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb40-161"><a href="#cb40-161" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(clc18) +</span></span>
+<span id="cb40-162"><a href="#cb40-162" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_sf(aes(fill = LABEL3), color = NA) +</span></span>
+<span id="cb40-163"><a href="#cb40-163" aria-hidden="true" tabindex="-1"></a><span class="co">#   scale_fill_manual(</span></span>
+<span id="cb40-164"><a href="#cb40-164" aria-hidden="true" tabindex="-1"></a><span class="co">#     values = setNames(clc_legend$Color, clc_legend$LABEL3),</span></span>
+<span id="cb40-165"><a href="#cb40-165" aria-hidden="true" tabindex="-1"></a><span class="co">#     name = "CLC klasa"</span></span>
+<span id="cb40-166"><a href="#cb40-166" aria-hidden="true" tabindex="-1"></a><span class="co">#   ) +</span></span>
+<span id="cb40-167"><a href="#cb40-167" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme_minimal() +</span></span>
+<span id="cb40-168"><a href="#cb40-168" aria-hidden="true" tabindex="-1"></a><span class="co">#   labs(title = "CLC 2018 – prikaz svih klasa",</span></span>
+<span id="cb40-169"><a href="#cb40-169" aria-hidden="true" tabindex="-1"></a><span class="co">#        subtitle = "Prema legendi CLC iz fajla",</span></span>
+<span id="cb40-170"><a href="#cb40-170" aria-hidden="true" tabindex="-1"></a><span class="co">#        caption = "Izvor: CORINE Land Cover 2018, EEA")</span></span>
+<span id="cb40-171"><a href="#cb40-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-172"><a href="#cb40-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-173"><a href="#cb40-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-174"><a href="#cb40-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-175"><a href="#cb40-175" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 6"}</span>
+<span id="cb40-176"><a href="#cb40-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-177"><a href="#cb40-177" aria-hidden="true" tabindex="-1"></a>Prikaži prvi pregled CLC sloja (npr. sa <span class="in">`plot() i gglot`</span>), ali tako da budu prikazani samo prvi nivoi klasifikacije (npr. 1, 2, 3...), koristi boje iz <span class="in">`clc_legend.csv`</span> podatka. Koristi<span class="in">`clc18`</span> objekat.</span>
+<span id="cb40-178"><a href="#cb40-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-179"><a href="#cb40-179" aria-hidden="true" tabindex="-1"></a>| Kod | Naziv kategorije (srpski)       | Naziv kategorije (engleski)   |</span>
+<span id="cb40-180"><a href="#cb40-180" aria-hidden="true" tabindex="-1"></a>|-----|---------------------------------|-------------------------------|</span>
+<span id="cb40-181"><a href="#cb40-181" aria-hidden="true" tabindex="-1"></a>| 1   | Veštačke površine               | Artificial surfaces           |</span>
+<span id="cb40-182"><a href="#cb40-182" aria-hidden="true" tabindex="-1"></a>| 2   | Poljoprivredno zemljište        | Agricultural areas            |</span>
+<span id="cb40-183"><a href="#cb40-183" aria-hidden="true" tabindex="-1"></a>| 3   | Šumsko i poluprirodno zemljište | Forest and semi-natural areas |</span>
+<span id="cb40-184"><a href="#cb40-184" aria-hidden="true" tabindex="-1"></a>| 4   | Mokra zemljišta                 | Wetlands                      |</span>
+<span id="cb40-185"><a href="#cb40-185" aria-hidden="true" tabindex="-1"></a>| 5   | Vodene površine                 | Water bodies                  |</span>
+<span id="cb40-186"><a href="#cb40-186" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-187"><a href="#cb40-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-190"><a href="#cb40-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-191"><a href="#cb40-191" aria-hidden="true" tabindex="-1"></a><span class="co"># Prva boja po LABEL1 (nivo 1 klasifikacije)</span></span>
+<span id="cb40-192"><a href="#cb40-192" aria-hidden="true" tabindex="-1"></a>nivoi1 <span class="ot">&lt;-</span> clc_legend <span class="sc">|&gt;</span></span>
+<span id="cb40-193"><a href="#cb40-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(LABEL1) <span class="sc">|&gt;</span></span>
+<span id="cb40-194"><a href="#cb40-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-195"><a href="#cb40-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb40-196"><a href="#cb40-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb40-197"><a href="#cb40-197" aria-hidden="true" tabindex="-1"></a>    <span class="at">level1 =</span> <span class="fu">str_sub</span>(CLC_CODE, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb40-198"><a href="#cb40-198" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">Color1 =</span> Color) <span class="sc">|&gt;</span> </span>
+<span id="cb40-199"><a href="#cb40-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(level1, LABEL1, Color1) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">order</span>(level1))</span>
+<span id="cb40-200"><a href="#cb40-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-201"><a href="#cb40-201" aria-hidden="true" tabindex="-1"></a>nivoi1<span class="sc">$</span>naziv <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Veštačke površine"</span>, <span class="st">"Poljoprivredno zemljište"</span>, <span class="st">"Šumsko i poluprirodno zemljište"</span>, <span class="st">"Mokra zemljišta"</span>, <span class="st">"Vodene površine"</span>)</span>
+<span id="cb40-202"><a href="#cb40-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-203"><a href="#cb40-203" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodaj level1 kolonu u CLC sloj</span></span>
+<span id="cb40-204"><a href="#cb40-204" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> clc18 <span class="sc">|&gt;</span></span>
+<span id="cb40-205"><a href="#cb40-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">level1 =</span> <span class="fu">str_sub</span>(CODE_18, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb40-206"><a href="#cb40-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-207"><a href="#cb40-207" aria-hidden="true" tabindex="-1"></a><span class="co"># Pridruži i postavi nivoe faktora</span></span>
+<span id="cb40-208"><a href="#cb40-208" aria-hidden="true" tabindex="-1"></a>clc18 <span class="ot">&lt;-</span> clc18 <span class="sc">|&gt;</span></span>
+<span id="cb40-209"><a href="#cb40-209" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(nivoi1[, <span class="fu">c</span>(<span class="st">"level1"</span>, <span class="st">"naziv"</span>, <span class="st">"Color1"</span>)], <span class="at">by =</span> <span class="st">"level1"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-210"><a href="#cb40-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">naziv =</span> <span class="fu">factor</span>(naziv, <span class="at">levels =</span> nivoi1<span class="sc">$</span>naziv))</span>
+<span id="cb40-211"><a href="#cb40-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-212"><a href="#cb40-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-213"><a href="#cb40-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-214"><a href="#cb40-214" aria-hidden="true" tabindex="-1"></a><span class="co"># Karta sa LABEL1 kao legendom i bojama iz prve pojave</span></span>
+<span id="cb40-215"><a href="#cb40-215" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clc18) <span class="sc">+</span></span>
+<span id="cb40-216"><a href="#cb40-216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> naziv), <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb40-217"><a href="#cb40-217" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb40-218"><a href="#cb40-218" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">setNames</span>(nivoi1<span class="sc">$</span>Color1, nivoi1<span class="sc">$</span>naziv),</span>
+<span id="cb40-219"><a href="#cb40-219" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"CLC nivo 1"</span></span>
+<span id="cb40-220"><a href="#cb40-220" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb40-221"><a href="#cb40-221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb40-222"><a href="#cb40-222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb40-223"><a href="#cb40-223" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"CLC 2018 – prikaz prvog nivoa klasifikacije"</span>,</span>
+<span id="cb40-224"><a href="#cb40-224" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Boje su preuzete kao prve u okviru svake kategorije"</span>,</span>
+<span id="cb40-225"><a href="#cb40-225" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Izvor: CORINE Land Cover 2018, EEA"</span></span>
+<span id="cb40-226"><a href="#cb40-226" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-227"><a href="#cb40-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-228"><a href="#cb40-228" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-229"><a href="#cb40-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-230"><a href="#cb40-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-231"><a href="#cb40-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-232"><a href="#cb40-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-233"><a href="#cb40-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-234"><a href="#cb40-234" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb40-235"><a href="#cb40-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-236"><a href="#cb40-236" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🏗️ Izdvajanje urbanih površina</span></span>
+<span id="cb40-237"><a href="#cb40-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-238"><a href="#cb40-238" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 7"}</span>
+<span id="cb40-239"><a href="#cb40-239" aria-hidden="true" tabindex="-1"></a>Filtriraj iz <span class="in">`clc12`</span> samo klase koje počinju sa <span class="in">`1`</span> (urbane površine). Sačuvaj kao <span class="in">`urb2012`</span>.</span>
+<span id="cb40-240"><a href="#cb40-240" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-241"><a href="#cb40-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-244"><a href="#cb40-244" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-245"><a href="#cb40-245" aria-hidden="true" tabindex="-1"></a>urb12 <span class="ot">&lt;-</span> clc12 <span class="sc">|&gt;</span></span>
+<span id="cb40-246"><a href="#cb40-246" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CODE_12=</span> <span class="fu">as.character</span>(CODE_12)) <span class="sc">|&gt;</span></span>
+<span id="cb40-247"><a href="#cb40-247" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_starts</span>(CODE_12, <span class="st">"1"</span>))</span>
+<span id="cb40-248"><a href="#cb40-248" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-249"><a href="#cb40-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-250"><a href="#cb40-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-251"><a href="#cb40-251" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 8"}</span>
+<span id="cb40-252"><a href="#cb40-252" aria-hidden="true" tabindex="-1"></a>Filtriraj iz <span class="in">`clc18`</span> na isti način i sačuvaj kao <span class="in">`urb18`</span>.</span>
+<span id="cb40-253"><a href="#cb40-253" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-254"><a href="#cb40-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-257"><a href="#cb40-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-258"><a href="#cb40-258" aria-hidden="true" tabindex="-1"></a>urb18 <span class="ot">&lt;-</span> clc18 <span class="sc">|&gt;</span></span>
+<span id="cb40-259"><a href="#cb40-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CODE_18 =</span> <span class="fu">as.character</span>(CODE_18)) <span class="sc">|&gt;</span></span>
+<span id="cb40-260"><a href="#cb40-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_starts</span>(CODE_18, <span class="st">"1"</span>))</span>
+<span id="cb40-261"><a href="#cb40-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-262"><a href="#cb40-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-263"><a href="#cb40-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-264"><a href="#cb40-264" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 9"}</span>
+<span id="cb40-265"><a href="#cb40-265" aria-hidden="true" tabindex="-1"></a>Koliko poligona ima u <span class="in">`urb12`</span>, a koliko u <span class="in">`urb18`</span>?</span>
+<span id="cb40-266"><a href="#cb40-266" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-267"><a href="#cb40-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-270"><a href="#cb40-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-271"><a href="#cb40-271" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb40-272"><a href="#cb40-272" aria-hidden="true" tabindex="-1"></a>  <span class="at">godina =</span> <span class="fu">c</span>(<span class="dv">2012</span>, <span class="dv">2018</span>),</span>
+<span id="cb40-273"><a href="#cb40-273" aria-hidden="true" tabindex="-1"></a>  <span class="at">broj_poligona =</span> <span class="fu">c</span>(<span class="fu">nrow</span>(urb12), <span class="fu">nrow</span>(urb18))</span>
+<span id="cb40-274"><a href="#cb40-274" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-275"><a href="#cb40-275" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-276"><a href="#cb40-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-277"><a href="#cb40-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-278"><a href="#cb40-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-279"><a href="#cb40-279" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 10"}</span>
+<span id="cb40-280"><a href="#cb40-280" aria-hidden="true" tabindex="-1"></a>Prati promene u **urbanim površinama** na teritoriji Srbije između 2012. i 2018. godine korišćenjem prostornih GIS operacija (<span class="in">`sf`</span> paket).</span>
+<span id="cb40-281"><a href="#cb40-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-282"><a href="#cb40-282" aria-hidden="true" tabindex="-1"></a>Korišćenjem funkcije <span class="in">`st_difference()`</span>:</span>
+<span id="cb40-283"><a href="#cb40-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-284"><a href="#cb40-284" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>izdvoji **nove urbane površine** koje su se pojavile u 2018. godini (nalaze se u <span class="in">`urb18`</span>, ali ne u <span class="in">`urb12`</span>)</span>
+<span id="cb40-285"><a href="#cb40-285" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>izdvoji **nestale urbane površine** koje su postojale 2012. godine, ali ih više nema u 2018. (nalaze se u <span class="in">`urb12`</span>, ali ne i u <span class="in">`urb18`</span>)</span>
+<span id="cb40-286"><a href="#cb40-286" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>prikaži obe kategorije na dve odvojene karte:</span>
+<span id="cb40-287"><a href="#cb40-287" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**nove urbane površine** (obojene zeleno)</span>
+<span id="cb40-288"><a href="#cb40-288" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>**nestale urbane površine** (obojene crveno)</span>
+<span id="cb40-289"><a href="#cb40-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-290"><a href="#cb40-290" aria-hidden="true" tabindex="-1"></a>Komentariši prostorne obrasce dobijenih promena.</span>
+<span id="cb40-291"><a href="#cb40-291" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-292"><a href="#cb40-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-293"><a href="#cb40-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-296"><a href="#cb40-296" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-297"><a href="#cb40-297" aria-hidden="true" tabindex="-1"></a><span class="co"># Prostorna razlika: nove urbane površine (2018 koje nisu postojale 2012)</span></span>
+<span id="cb40-298"><a href="#cb40-298" aria-hidden="true" tabindex="-1"></a>urb_nove <span class="ot">&lt;-</span> <span class="fu">st_difference</span>(<span class="fu">st_union</span>(urb18), <span class="fu">st_union</span>(urb12))</span>
+<span id="cb40-299"><a href="#cb40-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-300"><a href="#cb40-300" aria-hidden="true" tabindex="-1"></a><span class="co"># Prostorna razlika: nestale urbane površine (2012 koje ne postoje 2018)</span></span>
+<span id="cb40-301"><a href="#cb40-301" aria-hidden="true" tabindex="-1"></a>urb_nestale <span class="ot">&lt;-</span> <span class="fu">st_difference</span>(<span class="fu">st_union</span>(urb12), <span class="fu">st_union</span>(urb18))</span>
+<span id="cb40-302"><a href="#cb40-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-303"><a href="#cb40-303" aria-hidden="true" tabindex="-1"></a><span class="co"># Prikaz rezultata</span></span>
+<span id="cb40-304"><a href="#cb40-304" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb40-305"><a href="#cb40-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-306"><a href="#cb40-306" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(urb_nestale, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">main =</span> <span class="st">"Nestale urbane površine (2012–2018)"</span>, <span class="at">key.pos =</span> <span class="cn">NULL</span>, <span class="at">reset =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb40-307"><a href="#cb40-307" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(urb_nove, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">main =</span> <span class="st">"Nove urbane površine (2012–2018)"</span>, <span class="at">key.pos =</span> <span class="cn">NULL</span>, <span class="at">reset =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb40-308"><a href="#cb40-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-309"><a href="#cb40-309" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))  <span class="co"># Vraćanje na standardni prikaz</span></span>
+<span id="cb40-310"><a href="#cb40-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-311"><a href="#cb40-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-312"><a href="#cb40-312" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb40-313"><a href="#cb40-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-314"><a href="#cb40-314" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📏 Površine urbanih površina</span></span>
+<span id="cb40-315"><a href="#cb40-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-316"><a href="#cb40-316" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 11"}</span>
+<span id="cb40-317"><a href="#cb40-317" aria-hidden="true" tabindex="-1"></a>Dodaj novu kolonu <span class="in">`povrsina_km2`</span> u <span class="in">`urb12`</span> koristeći <span class="in">`st_area()`</span> i pretvori jedinicu u km².</span>
+<span id="cb40-318"><a href="#cb40-318" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-319"><a href="#cb40-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-322"><a href="#cb40-322" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-323"><a href="#cb40-323" aria-hidden="true" tabindex="-1"></a>urb12 <span class="ot">&lt;-</span> urb12 <span class="sc">|&gt;</span></span>
+<span id="cb40-324"><a href="#cb40-324" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">povrsina_km2 =</span> <span class="fu">set_units</span>(<span class="fu">st_area</span>(geometry), <span class="st">"km^2"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_units</span>())</span>
+<span id="cb40-325"><a href="#cb40-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-326"><a href="#cb40-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-327"><a href="#cb40-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-328"><a href="#cb40-328" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 12"}</span>
+<span id="cb40-329"><a href="#cb40-329" aria-hidden="true" tabindex="-1"></a>Isto uradi i za <span class="in">`urb18`</span>.</span>
+<span id="cb40-330"><a href="#cb40-330" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-331"><a href="#cb40-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-334"><a href="#cb40-334" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-335"><a href="#cb40-335" aria-hidden="true" tabindex="-1"></a>urb18 <span class="ot">&lt;-</span> urb18 <span class="sc">|&gt;</span></span>
+<span id="cb40-336"><a href="#cb40-336" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">povrsina_km2 =</span> <span class="fu">set_units</span>(<span class="fu">st_area</span>(geometry), <span class="st">"km^2"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_units</span>())</span>
+<span id="cb40-337"><a href="#cb40-337" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-338"><a href="#cb40-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-339"><a href="#cb40-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-340"><a href="#cb40-340" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 13"}</span>
+<span id="cb40-341"><a href="#cb40-341" aria-hidden="true" tabindex="-1"></a>Izračunaj ukupnu površinu urbanih površina u 2012. i 2018. za celu Srbiju.</span>
+<span id="cb40-342"><a href="#cb40-342" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-343"><a href="#cb40-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-346"><a href="#cb40-346" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-347"><a href="#cb40-347" aria-hidden="true" tabindex="-1"></a><span class="co"># Ukupna urbana površina u 2012.</span></span>
+<span id="cb40-348"><a href="#cb40-348" aria-hidden="true" tabindex="-1"></a>ukupno_2012 <span class="ot">&lt;-</span> <span class="fu">sum</span>(urb12<span class="sc">$</span>povrsina_km2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-349"><a href="#cb40-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-350"><a href="#cb40-350" aria-hidden="true" tabindex="-1"></a><span class="co"># Ukupna urbana površina u 2018.</span></span>
+<span id="cb40-351"><a href="#cb40-351" aria-hidden="true" tabindex="-1"></a>ukupno_2018 <span class="ot">&lt;-</span> <span class="fu">sum</span>(urb18<span class="sc">$</span>povrsina_km2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-352"><a href="#cb40-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-353"><a href="#cb40-353" aria-hidden="true" tabindex="-1"></a><span class="co"># Prikaz rezultata</span></span>
+<span id="cb40-354"><a href="#cb40-354" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb40-355"><a href="#cb40-355" aria-hidden="true" tabindex="-1"></a>  <span class="at">godina =</span> <span class="fu">c</span>(<span class="dv">2012</span>, <span class="dv">2018</span>),</span>
+<span id="cb40-356"><a href="#cb40-356" aria-hidden="true" tabindex="-1"></a>  <span class="at">ukupna_urbana_povrsina_km2 =</span> <span class="fu">c</span>(ukupno_2012, ukupno_2018)</span>
+<span id="cb40-357"><a href="#cb40-357" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-358"><a href="#cb40-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-359"><a href="#cb40-359" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-360"><a href="#cb40-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-361"><a href="#cb40-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-362"><a href="#cb40-362" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 14"}</span>
+<span id="cb40-363"><a href="#cb40-363" aria-hidden="true" tabindex="-1"></a>Izračunaj i prikaži tabelu sa brojem urbanih poligona i ukupnom površinom urbanih područja u 2012. i 2018. godini.  </span>
+<span id="cb40-364"><a href="#cb40-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-365"><a href="#cb40-365" aria-hidden="true" tabindex="-1"></a>Na osnovu toga, izračunaj **prosečnu površinu jednog urbanog poligona** u obe godine.  </span>
+<span id="cb40-366"><a href="#cb40-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-367"><a href="#cb40-367" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-368"><a href="#cb40-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-371"><a href="#cb40-371" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-372"><a href="#cb40-372" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb40-373"><a href="#cb40-373" aria-hidden="true" tabindex="-1"></a>  <span class="at">godina =</span> <span class="fu">c</span>(<span class="dv">2012</span>, <span class="dv">2018</span>),</span>
+<span id="cb40-374"><a href="#cb40-374" aria-hidden="true" tabindex="-1"></a>  <span class="at">broj_poligona =</span> <span class="fu">c</span>(<span class="fu">nrow</span>(urb12), <span class="fu">nrow</span>(urb18)),</span>
+<span id="cb40-375"><a href="#cb40-375" aria-hidden="true" tabindex="-1"></a>  <span class="at">ukupna_povrsina_km2 =</span> <span class="fu">c</span>(<span class="fu">sum</span>(urb12<span class="sc">$</span>povrsina_km2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb40-376"><a href="#cb40-376" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">sum</span>(urb18<span class="sc">$</span>povrsina_km2, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb40-377"><a href="#cb40-377" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb40-378"><a href="#cb40-378" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prosecna_povrsina_km2 =</span> ukupna_povrsina_km2 <span class="sc">/</span> broj_poligona)</span>
+<span id="cb40-379"><a href="#cb40-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-380"><a href="#cb40-380" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-381"><a href="#cb40-381" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-382"><a href="#cb40-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-383"><a href="#cb40-383" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb40-384"><a href="#cb40-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-385"><a href="#cb40-385" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧩 Prostorno spajanje sa opštinama</span></span>
+<span id="cb40-386"><a href="#cb40-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-387"><a href="#cb40-387" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 15"}</span>
+<span id="cb40-388"><a href="#cb40-388" aria-hidden="true" tabindex="-1"></a>Spoji <span class="in">`urb12`</span> sa opštinama pomoću <span class="in">`st_intersection()`</span> i sačuvaj rezultat kao <span class="in">`u12_int`</span>.</span>
+<span id="cb40-389"><a href="#cb40-389" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-390"><a href="#cb40-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-391"><a href="#cb40-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-394"><a href="#cb40-394" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-395"><a href="#cb40-395" aria-hidden="true" tabindex="-1"></a>u12_int <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(urb12, opstine)</span>
+<span id="cb40-396"><a href="#cb40-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-397"><a href="#cb40-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-398"><a href="#cb40-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-399"><a href="#cb40-399" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 16"}</span>
+<span id="cb40-400"><a href="#cb40-400" aria-hidden="true" tabindex="-1"></a>Agregiraj podatke po opštini: za svaku opštinu saberi površine urbanih klasa iz 2012.</span>
+<span id="cb40-401"><a href="#cb40-401" aria-hidden="true" tabindex="-1"></a>Na osnovu agregiranih podataka o urbanim površinama iz 2012. godine (<span class="in">`urb_po_opstini_2012`</span>), prikaži **10 opština sa najvećom ukupnom površinom urbanih područja** (suma svih urbanih poligona u km²).</span>
+<span id="cb40-402"><a href="#cb40-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-403"><a href="#cb40-403" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Prikaži rezultate na **kolone/stupce na grafikonu tako da su stupci horizontalni**.</span>
+<span id="cb40-404"><a href="#cb40-404" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Koje opštine se ističu po ukupnoj urbanoj površini?</span>
+<span id="cb40-405"><a href="#cb40-405" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Da li su to očekivane opštine (npr. veliki gradovi)?</span>
+<span id="cb40-406"><a href="#cb40-406" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Kako bi opisao prostorni obrazac koncentracije urbanih zona u Srbiji 2012. godine?</span>
+<span id="cb40-407"><a href="#cb40-407" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-408"><a href="#cb40-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-411"><a href="#cb40-411" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-412"><a href="#cb40-412" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodaj kolonu sa površinom u km²</span></span>
+<span id="cb40-413"><a href="#cb40-413" aria-hidden="true" tabindex="-1"></a>u12_int <span class="ot">&lt;-</span> u12_int <span class="sc">|&gt;</span></span>
+<span id="cb40-414"><a href="#cb40-414" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">povrsina_km2 =</span> <span class="fu">set_units</span>(<span class="fu">st_area</span>(geometry), <span class="st">"km^2"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_units</span>())</span>
+<span id="cb40-415"><a href="#cb40-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-416"><a href="#cb40-416" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregacija po opštini</span></span>
+<span id="cb40-417"><a href="#cb40-417" aria-hidden="true" tabindex="-1"></a>urb_po_opstini_2012 <span class="ot">&lt;-</span> u12_int <span class="sc">|&gt;</span></span>
+<span id="cb40-418"><a href="#cb40-418" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name) <span class="sc">|&gt;</span></span>
+<span id="cb40-419"><a href="#cb40-419" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ukupna_urbana_2012 =</span> <span class="fu">sum</span>(povrsina_km2), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb40-420"><a href="#cb40-420" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-421"><a href="#cb40-421" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 opština sa najvećom urbanom površinom</span></span>
+<span id="cb40-422"><a href="#cb40-422" aria-hidden="true" tabindex="-1"></a>top10_urb_2012 <span class="ot">&lt;-</span> urb_po_opstini_2012 <span class="sc">|&gt;</span></span>
+<span id="cb40-423"><a href="#cb40-423" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(ukupna_urbana_2012)) <span class="sc">|&gt;</span></span>
+<span id="cb40-424"><a href="#cb40-424" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb40-425"><a href="#cb40-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-426"><a href="#cb40-426" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar grafikon</span></span>
+<span id="cb40-427"><a href="#cb40-427" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top10_urb_2012, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Name, ukupna_urbana_2012), <span class="at">y =</span> ukupna_urbana_2012)) <span class="sc">+</span></span>
+<span id="cb40-428"><a href="#cb40-428" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#447099"</span>) <span class="sc">+</span></span>
+<span id="cb40-429"><a href="#cb40-429" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb40-430"><a href="#cb40-430" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb40-431"><a href="#cb40-431" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb40-432"><a href="#cb40-432" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 10 opština po ukupnoj urbanoj površini (2012)"</span>,</span>
+<span id="cb40-433"><a href="#cb40-433" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Opština"</span>,</span>
+<span id="cb40-434"><a href="#cb40-434" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Površina urbanih površina (km²)"</span></span>
+<span id="cb40-435"><a href="#cb40-435" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-436"><a href="#cb40-436" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-437"><a href="#cb40-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-438"><a href="#cb40-438" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-439"><a href="#cb40-439" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 17"}</span>
+<span id="cb40-440"><a href="#cb40-440" aria-hidden="true" tabindex="-1"></a>Ponovi isti postupak za 2018. sloj. Sačuvaj kao <span class="in">`urb_po_opstini_2018`</span>.</span>
+<span id="cb40-441"><a href="#cb40-441" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-442"><a href="#cb40-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-445"><a href="#cb40-445" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb40-446"><a href="#cb40-446" aria-hidden="true" tabindex="-1"></a><span class="co"># Prostorni presek urbanih površina 2018. sa opštinama</span></span>
+<span id="cb40-447"><a href="#cb40-447" aria-hidden="true" tabindex="-1"></a>u18_int <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(urb18, opstine)</span>
+<span id="cb40-448"><a href="#cb40-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-449"><a href="#cb40-449" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodavanje kolone sa površinom u km²</span></span>
+<span id="cb40-450"><a href="#cb40-450" aria-hidden="true" tabindex="-1"></a>u18_int <span class="ot">&lt;-</span> u18_int <span class="sc">|&gt;</span></span>
+<span id="cb40-451"><a href="#cb40-451" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">povrsina_km2 =</span> <span class="fu">set_units</span>(<span class="fu">st_area</span>(geometry), <span class="st">"km^2"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_units</span>())</span>
+<span id="cb40-452"><a href="#cb40-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-453"><a href="#cb40-453" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregacija po opštini</span></span>
+<span id="cb40-454"><a href="#cb40-454" aria-hidden="true" tabindex="-1"></a>urb_po_opstini_2018 <span class="ot">&lt;-</span> u18_int <span class="sc">|&gt;</span></span>
+<span id="cb40-455"><a href="#cb40-455" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Name) <span class="sc">|&gt;</span></span>
+<span id="cb40-456"><a href="#cb40-456" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ukupna_urbana_2018 =</span> <span class="fu">sum</span>(povrsina_km2), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb40-457"><a href="#cb40-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-458"><a href="#cb40-458" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-459"><a href="#cb40-459" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 opština u 2018. po urbanoj površini</span></span>
+<span id="cb40-460"><a href="#cb40-460" aria-hidden="true" tabindex="-1"></a>top10_urb_2018 <span class="ot">&lt;-</span> urb_po_opstini_2018 <span class="sc">|&gt;</span></span>
+<span id="cb40-461"><a href="#cb40-461" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(ukupna_urbana_2018)) <span class="sc">|&gt;</span></span>
+<span id="cb40-462"><a href="#cb40-462" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb40-463"><a href="#cb40-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-464"><a href="#cb40-464" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar grafikon</span></span>
+<span id="cb40-465"><a href="#cb40-465" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top10_urb_2018, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Name, ukupna_urbana_2018), <span class="at">y =</span> ukupna_urbana_2018)) <span class="sc">+</span></span>
+<span id="cb40-466"><a href="#cb40-466" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#EE6331"</span>) <span class="sc">+</span></span>
+<span id="cb40-467"><a href="#cb40-467" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb40-468"><a href="#cb40-468" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb40-469"><a href="#cb40-469" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb40-470"><a href="#cb40-470" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Top 10 opština po ukupnoj urbanoj površini (2018)"</span>,</span>
+<span id="cb40-471"><a href="#cb40-471" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Opština"</span>,</span>
+<span id="cb40-472"><a href="#cb40-472" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Površina urbanih površina (km²)"</span></span>
+<span id="cb40-473"><a href="#cb40-473" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb40-474"><a href="#cb40-474" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-475"><a href="#cb40-475" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-476"><a href="#cb40-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-477"><a href="#cb40-477" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 18"}</span>
+<span id="cb40-478"><a href="#cb40-478" aria-hidden="true" tabindex="-1"></a>Napravi jedan objekat koji sadrži podatke o urbanim područijima za obe godine (<span class="in">`urb_po_opstini_2012`</span> i <span class="in">`urb_po_opstini_2018`</span>), tako da se može lako uporediti promena u urbanim površinama po opštinama. Koristi <span class="in">`left_join()`</span> ili <span class="in">`full_join()`</span> da spojiš podatke, ili neki drugi način. Izrazi i promene u procentima i apsolutnim vrednostima. Napravi grafičke prikaze promena u urbanim površinama po opštinama.</span>
+<span id="cb40-479"><a href="#cb40-479" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb40-480"><a href="#cb40-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-481"><a href="#cb40-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-482"><a href="#cb40-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-483"><a href="#cb40-483" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📝 Zaključak</span></span>
+<span id="cb40-484"><a href="#cb40-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-485"><a href="#cb40-485" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="Zadatak 19"}</span>
+<span id="cb40-486"><a href="#cb40-486" aria-hidden="true" tabindex="-1"></a>Kratko opiši koje promene si uočio u urbanim područjima u Srbiji na osnovu dobijenih karata i analiza.</span>
+<span id="cb40-487"><a href="#cb40-487" aria-hidden="true" tabindex="-1"></a>:::</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

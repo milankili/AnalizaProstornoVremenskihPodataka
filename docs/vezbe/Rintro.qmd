@@ -32,11 +32,14 @@ x1
 
 2. **Izdvoji elemente iz vektora.**
 
-Iz `x <- c(10, 20, 30, 40, 50)`: - Izdvoji 2. i 4. element. - Izdvoji
-sve osim 3. elementa.
+Iz `x <- c(10, 20, 30, 40, 50)`: 
+
+- Izdvoji 2. i 4. element. 
+- Izdvoji sve osim 3. elementa.
 
 ```{r}
-2+2
+# ovde rešavam zadatak
+
 ```
 
 Ovde nešto pojašnjavam. Da bi nam bilo **jasno**. Jer je bitno
@@ -59,8 +62,11 @@ brojeve postavi na 0.
 
 5. **Izračunaj osnovne statistike.**
 
-Za `x <- c(3, 7, 2, 9, 5)` izračunaj: - Sumu, - Srednju vrednost, -
-Minimum i maksimum.
+Za `x <- c(3, 7, 2, 9, 5)` izračunaj: 
+
+- Sumu, 
+- Srednju vrednost, 
+- Minimum i maksimum.
 
 ------------------------------------------------------------------------
 
@@ -78,15 +84,19 @@ Sortiraj `x <- c(5, 2, 8, 1, 9)`: - Rastuće, - Opadajuće.
 
 8. **Ukloni NA vrednosti.**
 
-U `x <- c(1, NA, 3, NA, 5)`: - Prebroj koliko ima `NA`, - Napravi novi
-vektor bez `NA` vrednosti.
+U `x <- c(1, NA, 3, NA, 5)`:
+
+- Prebroj koliko ima `NA`, 
+- Napravi novi vektor bez `NA` vrednosti.
 
 ------------------------------------------------------------------------
 
 9. **Koristi funkciju which().**
 
-Za `x <- c(5, 10, 15, 20, 25)`: - Pronađi indekse elemenata većih od
-15, - Pronađi poziciju maksimalnog elementa.
+Za `x <- c(5, 10, 15, 20, 25)`: 
+
+- Pronađi indekse elemenata većih od 15, 
+- Pronađi poziciju maksimalnog elementa.
 
 ------------------------------------------------------------------------
 
@@ -102,14 +112,26 @@ rezultat.
 1. **Kreiraj listu sa najmanje 4 elementa različitih tipova.**
 
 Na primer: numerički vektor, tekstualni vektor, logički vektor, i
-matrica.
+matrica, imenujte svaki element liste.
+
+```{r}
+moja_lista <- list(
+  brojevi = c(1, 2, 3),
+  tekst = c("a", "b", "c"),
+  logika = c(TRUE, FALSE, TRUE),
+  matrica = matrix(1:4, nrow=2)
+)
+```
+
 
 ------------------------------------------------------------------------
 
 2. **Pristupi elementu liste pomoću `$` i `[[ ]]`.**
 
-Iz prethodno kreirane liste izdvoji: - Tekstualni vektor pomoću `$`, -
-Matricu pomoću `[[ ]]`.
+Iz prethodno kreirane liste izdvoji:
+
+- Tekstualni vektor pomoću `$`, 
+- Matricu pomoću `[[ ]]`.
 
 ------------------------------------------------------------------------
 
@@ -127,8 +149,11 @@ Promeni prvi element liste tako da sadrži vrednosti `100, 200, 300`.
 
 5. **Proveri strukturu liste.**
 
-Koristi `str()` i `length()` da pregledaš strukturu i broj elemenata u
+Koristi `str()` i `length()` da pregledaš broj elemenata u
 listi.
+
+
+
 
 ------------------------------------------------------------------------
 
@@ -215,7 +240,8 @@ Sortiraj data frame prema koloni `Godine` opadajuće.
 
 ------------------------------------------------------------------------
 
-8. **Grupisanje i agregacija.**\
+8. **Grupisanje i agregacija.**
+
 Koristi `aggregate()` da izračunaš prosečne `Godine` po vrednosti u
 koloni `Student`.
 
@@ -307,3 +333,5 @@ Napiši funkciju koja prima broj i vraća:
 - „Pozitivan“ ako je broj \> 0.
 
 ------------------------------------------------------------------------
+
+
