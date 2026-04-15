@@ -480,7 +480,7 @@
     "href": "00_R/Uvod_u_R.html#funkcije-u-r-u---simulacija-bacanja-kocke",
     "title": "Uvod u R",
     "section": "📊 Funkcije u R-u - simulacija bacanja kocke",
-    "text": "📊 Funkcije u R-u - simulacija bacanja kocke\n\n🎲 Simulacija bacanja kockice: Funkcija sample omogućava nasumično biranje elemenata.\n\n\ndie &lt;- 1:6                     # Definisanje vektora (kockica sa 6 strana)\nsample(x = die, size = 1)      # Nasumično biranje jednog broja\n\n[1] 3\n\n\n💡 Napomena:\n\n\nsample() služi za uzorkovanje iz vektora."
+    "text": "📊 Funkcije u R-u - simulacija bacanja kocke\n\n🎲 Simulacija bacanja kockice: Funkcija sample omogućava nasumično biranje elemenata.\n\n\ndie &lt;- 1:6                     # Definisanje vektora (kockica sa 6 strana)\nsample(x = die, size = 1)      # Nasumično biranje jednog broja\n\n[1] 2\n\n\n💡 Napomena:\n\n\nsample() služi za uzorkovanje iz vektora."
   },
   {
     "objectID": "00_R/Uvod_u_R.html#help",
@@ -585,7 +585,7 @@
     "href": "00_R/Uvod_u_R.html#atributi-dates-i-times",
     "title": "Uvod u R",
     "section": "Atributi (Dates i times)",
-    "text": "Atributi (Dates i times)\n\nPostojanje atributa class omogućava predstavljanje dodatnih tipova podataka, koji su različiti od osnovnih tipova kao što su double, integer, character itd.\nKarakterističan primer je skladištenje informacija o vremenu koristeći POSIXct klasu, koja predstavlja datum i vreme kao broj sekundi koje su protekle od 1. januara 1970. godine.\n\n\nvreme.sad &lt;- Sys.time()\nvreme.sad\n\n[1] \"2026-04-14 17:04:59 CEST\"\n\ntypeof(vreme.sad)\n\n[1] \"double\"\n\nclass(vreme.sad)\n\n[1] \"POSIXct\" \"POSIXt\""
+    "text": "Atributi (Dates i times)\n\nPostojanje atributa class omogućava predstavljanje dodatnih tipova podataka, koji su različiti od osnovnih tipova kao što su double, integer, character itd.\nKarakterističan primer je skladištenje informacija o vremenu koristeći POSIXct klasu, koja predstavlja datum i vreme kao broj sekundi koje su protekle od 1. januara 1970. godine.\n\n\nvreme.sad &lt;- Sys.time()\nvreme.sad\n\n[1] \"2026-04-15 09:47:54 CEST\"\n\ntypeof(vreme.sad)\n\n[1] \"double\"\n\nclass(vreme.sad)\n\n[1] \"POSIXct\" \"POSIXt\""
   },
   {
     "objectID": "00_R/Uvod_u_R.html#faktorski-podaci-u-r-u",
@@ -753,7 +753,7 @@
     "href": "00_R/Uvod_u_R.html#kontrola-toka",
     "title": "Uvod u R",
     "section": "🔀 Kontrola toka",
-    "text": "🔀 Kontrola toka\nKontrola toka u R-u omogućava uslovno izvršavanje koda pomoću if, else if i else blokova.\n\n\nKontrola toka if-else\n\n\nif (logicki uslov) {\n  # Deo koda za slucaj TRUE\n} else {\n  # Deo koda za skucaj FALSE\n}\n\n\nPrimer\n\n# y vece od 10?\ny = sample(1:20, size = 1)\nif (y &gt; 10) {\n  print(\"Vece od 10\")\n} else {\n  print(\"Manje od 10\")\n}\n\n[1] \"Vece od 10\""
+    "text": "🔀 Kontrola toka\nKontrola toka u R-u omogućava uslovno izvršavanje koda pomoću if, else if i else blokova.\n\n\nKontrola toka if-else\n\n\nif (logicki uslov) {\n  # Deo koda za slucaj TRUE\n} else {\n  # Deo koda za skucaj FALSE\n}\n\n\nPrimer\n\n# y vece od 10?\ny = sample(1:20, size = 1)\nif (y &gt; 10) {\n  print(\"Vece od 10\")\n} else {\n  print(\"Manje od 10\")\n}\n\n[1] \"Manje od 10\""
   },
   {
     "objectID": "00_R/Uvod_u_R.html#kontrola-toka-else-if",
@@ -872,7 +872,7 @@
     "href": "03_sf/sf.html#hijerarhija-sf-objekta",
     "title": "Vektorski podaci: R paket sf",
     "section": "🧭 Hijerarhija sf objekta",
-    "text": "🧭 Hijerarhija sf objekta\n\n\n\n\n\nflowchart TB\n    %% Glavni čvor\n    A[\"📦 &lt;b&gt; sf objekat &lt;/b&gt; &lt;br/&gt; ( data.frame + sfc geometrija )\"]\n    \n    %% Prvi nivo\n    A --&gt; B[\"📊 &lt;b&gt; Atributi &lt;/b&gt; &lt;br/&gt; ( kolone kao u data.frame )\"]\n    A --&gt; C[\"🗺️ &lt;b&gt; Geometrija &lt;/b&gt; &lt;br/&gt; ( sfc - Simple Feature Column )\"]\n\n    %% Drugi nivo (geometrije)\n    C --&gt; D1[\"📍 POINT &lt;br/&gt; &lt;i&gt; ( tačka ) &lt;/i&gt;\"]\n    C --&gt; D2[\"➖ LINESTRING &lt;br/&gt; &lt;i&gt; ( linija ) &lt;/i&gt;\"]\n    C --&gt; D3[\"⬛ POLYGON &lt;br/&gt; &lt;i&gt; ( poligon ) &lt;/i&gt;\"]\n    C --&gt; D4[\"🧩 MULTI* &lt;br/&gt; &lt;i&gt; ( višestruke geometrije ) &lt;/i&gt;\"]\n\n    %% Stilovi\n    style A fill:#e3f2fd,stroke:#0d47a1,stroke-width:3px,color:#0d47a1\n    style B fill:#e1f5fe,stroke:#0288d1,stroke-width:2px\n    style C fill:#e1f5fe,stroke:#0288d1,stroke-width:2px\n\n    style D1 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px\n    style D2 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px\n    style D3 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px\n    style D4 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px"
+    "text": "🧭 Hijerarhija sf objekta"
   },
   {
     "objectID": "03_sf/sf.html#tipovi-sfg-geometrija-i-struktura",
