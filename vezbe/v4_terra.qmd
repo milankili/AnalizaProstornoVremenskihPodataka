@@ -1,0 +1,209 @@
+---
+title: "Vežba 4: Rasterske analize"
+author: "Milan Kilibarda"
+format:
+  html:
+    code-fold: true
+    code-tools: true
+    code-summary: "Kod"
+    echo: true
+    include: true
+    eval: true
+    code-overflow: wrap
+    title-block-style: none
+---
+
+#  Vežba: Rasterske analize 
+
+Vežbe se sastoje od 11 zadataka podeljenih u sledeće tematske celine:
+
+- Osnovne operacije sa rasterima (učitavanje, prikaz, statistike)
+- Raster kalkulacije (nagib, ekspozicija, NDVI, kombinovanje slojeva)
+- Ekstrakcija vrednosti i analiza po zonama
+- Reprojekcija, maskiranje i kropovanje
+- Rad sa višekanalnim satelitskim snimcima (Landsat / Sentinel)
+- Raster transformacije, interpolacija i vizualizacija
+- Rad sa globalnim slojevima pokrivenosti zemljišta (ESA WorldCover)
+- Rad sa STAC katalogom i Sentinel-2 podacima
+
+------------------------------------------------------------------------
+
+## Priprema i biblioteke
+
+::: {.callout-tip title="Zadatak 1"}
+Učitaj raster DEM za Crnu Goru iz paketa `geodata`.
+
+- Prikaži osnovne informacije o rasteru
+- Napravi histogram vrednosti
+- Koja je rezolucija DEM-a (u stepenima)?
+- Kolika je približna rezolucija u metrima?
+
+:::
+
+```{r}
+#| label: zad1
+#| code-fold: true
+#| warning: false   
+#| message: false 
+# Učitaj potrebne biblioteke
+
+library(terra)
+library(geodata)
+library(sf)
+library(mapview)
+library(tidyverse)
+
+# Učitaj DEM za Crnu Goru
+demMNE = elevation_30s('MNE', path=tempdir() )
+
+
+# Prikaz osnovnih informacija
+demMNE
+
+# Histogram vrednosti
+hist(demMNE)   
+```
+
+::: {.callout-tip title="Zadatak 2"}
+Prikaži kartu elevacije za Crnu Goru.
+
+- Iskoristi osnovni plot()
+- Dodaj naslov i legendu
+- Prikaži granicu države preko rastera
+
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 3"}
+Iseci (crop) raster DEM tako da ostane samo teritorija opštine Nikšić nazovi objekat `dem_niksic`.
+
+- Preuzmi granice opština (gadm, nivo 1)
+- Izdvoji Nikšić
+- Iskropuj i maskiraj DEM
+- Uporedi dimenzije pre i posle
+
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 4"}
+Izračunaj nagib terena (slope) za teritoriju opštine Nikšić.
+
+- Koristi funkciju `terrain()` iz `terra` sa opcijom `v = "slope"`
+- Prikaži rezultat kao kartu
+- U kom rasponu se kreću vrednosti nagiba?
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 5"}
+Izračunaj ekspoziciju terena (aspect) za teritoriju opštine Nikšić.
+
+- Koristi funkciju `terrain()` iz `terra` sa parametrom `v = "aspect"`
+- Prikaži rezultat kao kartu
+- Koje vrednosti označavaju sever, jug, istok i zapad?
+- Napravi mapview kartu, ali pretvori raster u poligone da bi se bolje prikazale boje i podesi transparentnost na 30 % (alpha). Analiziraj rezultat sa različitim podlogama.
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 6"}
+Klasifikuj ekspoziciju terena u opštini Nikšić u četiri osnovna pravca:
+
+- Sever (315–45°)
+- Istok (45–135°)
+- Jug (135–225°)
+- Zapad (225–315°)
+
+Zatim:
+- Pretvori klasifikovani raster u poligone
+- Konvertuj poligone u `sf` objekat
+- Prikaži rezultat pomoću `ggplot2::geom_sf()` uz boje po pravcima
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 7"}
+Preuzmi globalni sloj pokrivenosti zemljišta (ESA WorldCover) za teritoriju opštine Nikšić.
+
+- Koristi funkciju `landcover()` iz paketa `geodata` (prvi način)
+- Izdvoji područja pod šumama (`var ="trees"`) (prvi način)
+- Direktno učitaj sloj kao `SpatRaster` koristeći `terra::rast()` i `/vsicurl/` URL (drugi način)
+```
+# VSICURL URL (mora početi sa /vsicurl/)
+tc_url <- "/vsicurl/https://geodata.ucdavis.edu/geodata/landuse/WorldCover_trees_30s.tif"
+
+# Učitaj raster kao SpatRaster
+tc_rast <- rast(tc_url, win =ext(dem_niksic))
+```
+- Kombinuj sa digitalnim modelom terena (DEM)
+- Izračunaj ukupnu površinu pod šumama koje se nalaze iznad 800 m elipsoidne visine
+:::
+
+```{r}
+
+```
+::: {.callout-tip title="Zadatak 9"}
+Uzorkuj nasumične tačke unutar teritorije opštine Nikšić i izvuci informacije iz više rastera:
+
+- Uzorkuj 100 tačaka unutar opštine Nikšić
+- Za svaku tačku izdvoj vrednost:
+  - elipsoidne visine (DEM)
+  - nagiba (slope)
+  - ekspozicije (aspect)
+  - pokrivenosti šumama (WorldCover trees)
+- Priključi te vrednosti kao atribute
+- Vizuelizuj odnose između visine, nagiba i verovatnoće da je područje pod šumom
+
+
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 10"}
+Pronađi i prikaži Sentinel-2 satelitski snimak (RGB) za područje Nikšića.
+
+- Koristi https://planetarycomputer.microsoft.com/api/stac/v1 stac katalog
+- Prikaži snimak koristeći `terra::plotRGB()` od deset snimaka u periodu od `"2024-08-10/2024-09-10"` nađi onaj sa najmanje oblaka
+- Iseci scenu na granice opštine.
+- Diskutuj koje površine su jasno prepoznatljive na osnovu boja (npr. naselja, šume, voda)
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 11"}
+Pronađi Sentinel-2 snimke za oblast Nikšića sa udelom oblaka manjim od 20% i izračunaj NDVI.
+
+Koristi STAC katalog: https://planetarycomputer.microsoft.com/api/stac/v1
+
+Period: `"2024-08-10/2024-09-10"`
+
+Filtriraj scene sa `"eo:cloud_cover" < 20`
+
+Izračunaj NDVI koristeći `B08 (NIR) i B04 (Red)`
+
+Prikaži kartu NDVI vrednosti za isečenu oblast Nikšića.
+
+:::
+
+```{r}
+
+```
+
+
+

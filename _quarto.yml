@@ -9,6 +9,10 @@ project:
   resources:
     - vezbe/
     - 01_tidyverse/
+    
+  execute:
+    freeze: auto
+    cache: true
 
 website:
   title: "Analiza prostorno-vremenskih podataka"
