@@ -10,10 +10,6 @@ project:
     - vezbe/
     - 01_tidyverse/
     
-  execute:
-    freeze: auto
-    cache: true
-
 website:
   title: "Analiza prostorno-vremenskih podataka"
   navbar:
@@ -23,7 +19,11 @@ website:
     right:
       - icon: github
         href: https://github.com/milankili/AnalizaProstornoVremenskihPodataka
-
+        
+execute:
+    freeze: auto
+    cache: true
+    
 format:
   html:
     theme: cosmo
