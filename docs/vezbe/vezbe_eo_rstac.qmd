@@ -1,0 +1,227 @@
+---
+title: "Vežbe: EO vremenske serije sa **rstac** (+terra)"
+author: "Milan Kilibarda"
+format:
+  html:
+    self-contained: true
+    code-fold: true
+    code-tools: true
+    code-summary: "Kod"
+    echo: true
+    include: true
+    eval: true
+    code-overflow: wrap
+    title-block-style: none
+---
+
+## 0) Priprema okruženja
+
+- Definišemo **AOI** (za insitu podatke korišćene i na predavanjima, UTM zona 34N).
+- Povezujemo se na **STAC** (npr. Microsoft Planetary Computer) i formulišemo upit za **Sentinel-2 L2A**:
+  - vremenski opseg,
+  - **eo:cloud_cover < 10%**,
+  - ograničenje na **EPSG:32634** (UTM 34N).
+- Odabir potrebnih **asset-a**: **B04** i **B08**.
+- Učitavanje rasterskih slojeva direktno preko **/vsicurl** (bez lokalnog downloada).
+- Proračun **NDVI = (B08 − B04) / (B08 + B04)** za zadate centroide parcela.
+- Vizuelizacija: izrada vremesnkih serija **NDVI** za više parcela.
+- Analiza kroz vreme: poređenje više datuma ili agregacija po AOI, popunjavanje nedostajućih vrednosti, ...
+- Analitičko određivanje datuma žetve.
+
+```{r setup, eval=TRUE}
+# Potrebni paketi
+suppressPackageStartupMessages({
+  library(rstac)
+  library(terra)
+  library(sf)
+  library(tidyverse)
+  library(xts)  # za vremenske serije
+  library(zoo)  # za interpolaciju vremenskih serija
+})
+
+# Stabilniji GDAL/curl sloj (možeš povećati vrednosti po potrebi)
+Sys.setenv(
+  GDAL_HTTP_TIMEOUT = "600",      # 10 min po zahtevu
+  GDAL_HTTP_MAX_RETRY = "8",
+  GDAL_HTTP_RETRY_DELAY = "3",
+  CPL_VSIL_CURL_USE_HEAD = "NO",
+  GDAL_CACHEMAX = "1024"         # MB cache
+)
+
+# Helper: PC /vsicurl auto-signing URL
+make_pc_vsicurl <- function(href, collection = "sentinel-2-l2a") {
+  paste0("/vsicurl?pc_url_signing=yes&pc_collection=", collection, "&url=", href)}
+
+# Helper: izvuci datum iz STAC Item (ISO8601) → Date
+item_date <- function(it) as.Date(substring(it$properties$datetime, 1, 10))
+
+# Helper: “**datum → mozaik**” funkcija; ulaz je lista SpatRaster-a istog banda
+mosaic_by_date <- function(r_list, dates) {
+  stopifnot(length(r_list) == length(dates))
+  groups <- split(seq_along(r_list), dates)
+  mos_list <- lapply(names(groups), function(d) {
+    idx <- groups[[d]]
+    mos <- mosaic(sprc(r_list[idx]))
+    names(mos) <- d
+    mos
+  })
+  rast(mos_list)[[order(names(rast(mos_list)))]]
+}
+```
+
+------------------------------------------------------------------------
+
+::: {.callout-tip title="Zadatak 1"}
+STAC pretraga (Planetary Computer). Učitaj `usevi.gpkg`, izvuci BBOX, zatim:
+
+-   napravi STAC pretragu za Sentinel-2 L2A u periodu 2020-05-01 — 2020-09-30 koristeći POST + items_fetch() (preuzmi sve stranice),
+
+-   proveri broj nađenih stavki i nazive asseta u prvoj stavci.
+:::
+
+```{r, eval=TRUE}
+
+```
+
+::: {.callout-tip title="Zadatak 2"}
+Filtriraj scene, `items$features` zadrži scene sa **`eo:cloud_cover < 20`** i **`proj:epsg == 32634`**.
+
+Koliko ima scena koje ispunjavaju ovaj uslov?
+:::
+
+```{r, eval=TRUE}
+
+```
+
+::: {.callout-tip title="Zadatak 3"}
+Iteriraj kroz već filtrirane STAC stavke (`filtered_items`) i za svaku scenu preuzmi **B04 (RED)** i **B08 (NIR)** kao `SpatRaster` preko **Planetary Computer** `/vsicurl` (sa auto-potpisivanjem). Sačuvaj rezultate u dve liste (`b4`, `b8`) istog reda, uz kratku pauzu između zahteva.
+:::
+
+```{r, eval=TRUE}
+
+```
+
+::: {.callout-tip title="Zadatak 4"}
+Iz **usevi** sloja izdvoj parcelu čiji atribut `crop` označava *kukuruz* (**meize** ), formiraj **tačku** (centroid), uskladi CRS sa rasterima i iz **lista** `b4` i `b8` izvuci **vremenske serije** reflektansi po datumima.\
+Napravi dve tabele: `b4_ts` i `b8_ts` sa kolonama `date`, `B04`, i `B08`.\
+:::
+
+```{r, eval=TRUE}
+
+```
+
+::: {.callout-tip title="Zadatak 5"}
+Ako za isti datum postoji više tilova → zadrži prvu ne-NA vrednost. Nule tretiraj kao NA.
+Imenuj objekte kao `b4_clean` i `b8_clean`.\
+Napravi i prikaz vremenskih serija (plot) za oba banda podesi natpise `title = "Vremenska serija B04 (RED)", x = "Datum", y = "Reflektansa"`.
+:::
+
+```{r, eval=TRUE}
+
+```
+
+::: {.callout-tip title="Zadatak 6"}
+
+Iz konvergovanih serija `B04 i B08 (b4_clean, b8_clean)` napravi NDVI vremensku seriju `ndvi_ts` za izabranu parcelu.
+Spoji `b4_clean` i `b8_clean` u jednu tabelu, dodaj kolonu `NDVI = (B08 - B04) / (B08 + B04)`, sortiraj po datumu.\
+Prikaži vremensku seriju NDVI kao **point plot** sa naslovom `title = "NDVI serija za parcelu kukuruz", x = "Datum", y = "NDVI"`.
+
+:::
+
+```{r}
+
+```
+
+
+::: {.callout-tip title="Zadatak 7"}
+
+Kreiraj `xts` vremensku seriju `ndvi_xts` iz `ndvi_ts`, popuni NA vrednosti interpolacijom (koristi `na.spline()` iz paketa `zoo`), i prikaži vremensku seriju NDVI sa naslovom `title = "NDVI serija za parcelu  kukuruz", x = "Datum", y = "NDVI"`.
+::: 
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 8"}
+
+Ekstrakcija NDVI serije za 10 parcela kukuruza.\
+Pronađi sve parcele kukuruza u `usevi_utm`, napravi centroide, i za svaku parcelu izvuci NDVI seriju koristeći prethodno definisane `b4` i `b8` liste.\
+Spoji rezultate u `ndvi_all` tabelu sa kolonama `ID`, `date`, `B04`, `B08`, i `NDVI`. Sortiraj po `ID` i `date`.
+
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 9"}
+
+Prikaži NDVI vremenske serije za sve parcele kukuruza u `ndvi_all` koristeći `facet_wrap()`.
+
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 10"}
+
+Prikaži NDVI vremenske serije za sve parcele kukuruza u `ndvi_all` koristeći `geom_line()` i `geom_point()`, sa globalnim LOESS trendom (crna linija) i intervalom poverenja (grey80).\
+Prilagodi natpise i temu.
+:::
+
+```{r}
+
+```
+
+::: {.callout-tip title="Zadatak 11"}
+
+Na osnovu NDVI vremenskih serija za kukuruz (po parcelama) proceniti **datum žetve** intuitivnom metodom:
+
+(1) izgladiti NDVI krivu, (2) naći **pik** (maksimum), (3) odrediti **prvi datum posle pika** kada NDVI padne ispod zadatog **praga**.
+
+**Ulaz.** Tabela `ndvi_all` sa kolonama:  
+`ID` (oznaka parcele), `date` (datum), `NDVI` (u intervalu [0,1]); sadrži samo parcele sa `crop ∈ {maize}`.
+
+**Ideja metode.**
+- Iz serije tačaka po parceli napraviti **glatku krivu** (LOESS (LOcal regrESSion) — lokalno težinska regresija za glatko približavanje podacima ili sličan „smooth”).  
+- **Pik (peak)** je najveća vrednost glatke krive; beleži se i datum pika.  
+- Definiše se **prag** opadanja: `threshold = max(thr_abs, thr_rel × peak_ndvi)`, gde su tipične vrednosti `thr_abs = 0.40` i `thr_rel = 0.75`.  
+- **Datum žetve** je **prvi datum posle pika** kada glatki NDVI **padne na prag ili ispod praga**.  
+- Da se izbegnu rani lažni „dipovi“, ignorišu se datumi pre **DOY ≥ 180** (≈ kraj juna); vrednost je podesiva.
+
+**Parametri koji se podešavaju:**
+- **Zaglađivanje** (*span*): 0.35–0.50 (veće = glađa kriva, manje = osetljivija).  
+- **Apsolutni prag** `thr_abs`: preporuka 0.40 (NDVI ispod kog vegetacija praktično opada).  
+- **Relativni prag** `thr_rel`: 0.70–0.80 (npr. 0.75 = 75% od pika).  
+- **Minimalni dan godine** `min_doy`: npr. 180 (ignorisati datume pre toga).
+
+**Zadatak — preporuke za rešavanje.**
+1. Za svaku parcelu sortirati NDVI po datumu i proveriti da li su vrednosti u [0,1].  
+2. Na seriji nacrtati glatku krivu (LOESS) i **vizuelno** identifikovati pik.  
+3. Izračunati prag opadanja koristeći izabrane `thr_abs` i `thr_rel`.  
+4. Naći **prvi datum posle pika** (i sa DOY ≥ `min_doy`) kada glatka kriva pada na prag ili ispod praga — to je **procena datuma žetve**.  
+5. Ponoviti za sve parcele.  
+6. Na faceted grafikonu prikazati tačke NDVI, glatku krivu i **vertikalnu liniju** u tački procenjene žetve (po parceli).  
+7. U tabeli **sažeti rezultate**: `ID`, `peak_ndvi`, `threshold`, `harvest_date`.
+
+**Šta predati.**
+- **Tabela** `harvest_tbl` sa kolonama: `ID`, `harvest_date`, `peak_ndvi`, `threshold`.  
+- **Grafikon** (facet) gde se za svaku parcelu vide tačke NDVI, glatka kriva i vertikalna linija žetve.  
+- **Kratko objašnjenje (3–5 rečenica):** koje parametre ste izabrali (`span`, `thr_abs`, `thr_rel`, `min_doy`) i zašto; da li su rezultati vizuelno u skladu sa očekivanim tokom vegetacije.
+
+**Saveti i podešavanje.**
+- Ako je linija žetve **prekasna**, smanjiti `thr_rel` (npr. 0.70) ili `thr_abs` (npr. 0.35).  
+- Ako je **preuranjena**, povećati `thr_rel` (npr. 0.80) ili `min_doy` (npr. 190).  
+- Ako kriva „talasa“ zbog šuma, povećati *span* na 0.50; ako je previše troma, smanjiti na 0.35.
+
+**Kriterijum uspeha.**
+- Linija žetve dolazi **posle pika** i u zoni **opadanja** krive.  
+- Većina parcela daje **razumne datume** (u realnom prozoru žetve) uz dosledne parametre.
+
+:::
+
+```{r}
+
+```
+

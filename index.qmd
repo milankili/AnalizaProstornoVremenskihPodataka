@@ -85,6 +85,21 @@ Upoznajemo se sa paketom terra u programskom jeziku R, modernim i optimizovanim 
 :::
 
 
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm .p-3}
+
+### Vremenske serije u R-u (karatak uvod) 
+
+Ovo predavanje obuhvata celokupan radni tok za analizu prostorno-vremenskih podataka u R-u, počevši od osnovne manipulacije datumima i kreiranja naprednih vremenskih serija pomoću paketa `lubridate`, `xts` i `zoo`. Pored statističkih operacija i analitičke dekompozicije serija, studenti će savladati i rad sa modernim geoinformatičkim tehnologijama, uključujući programsku pretragu satelitskih arhiva kroz STAC standard (`rstac`) i modelovanje složenih višedimenzionalnih struktura preko `gdalcubes` paketa.
+
+<br>
+[Otvori prezentaciju](05_time/time.html){.btn .btn-primary role="button"}
+
+:::
+:::
+
+
+
 
 :::
 ---
