@@ -46,28 +46,28 @@
     "href": "04_terra/terra.html#uvod-u-rasterske-podatke",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "🌍 Uvod u rasterske podatke",
-    "text": "🌍 Uvod u rasterske podatke\n\n\nRasterski podaci predstavljaju prostorne podatke organizovane u mrežu ćelija (piksela).\nSvaka ćelija sadrži numeričku vrednost koja može predstavljati:\n\nVisinu (Digitalni model terena - DEM),\nKlimatske podatke (temperatura, padavine),\nSatelitske snimke i njihove derivate (NDVI, RGB, multispektralni podaci).\n\n\n\nRasterski podaci su ključni u analizi prostorno vremenskih podataka, jer omogućavaju modeliranje, analizu i vizualizaciju različitih fenomena."
+    "text": "🌍 Uvod u rasterske podatke\n\nRasterski podaci predstavljaju prostorne podatke organizovane u mrežu ćelija (piksela).\nSvaka ćelija sadrži numeričku vrednost koja može predstavljati:\n\nVisinu (Digitalni model terena - DEM),\nKlimatske podatke (temperatura, padavine),\nSatelitske snimke i njihove derivate (NDVI, RGB, multispektralni podaci).\n\nRasterski podaci su ključni u analizi prostorno vremenskih podataka, jer omogućavaju modeliranje, analizu i vizualizaciju različitih fenomena."
   },
   {
     "objectID": "04_terra/terra.html#struktura-rasterskih-podataka",
     "href": "04_terra/terra.html#struktura-rasterskih-podataka",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "Struktura rasterskih podataka",
-    "text": "Struktura rasterskih podataka\n\n\nRaster je matrica ćelija (piksela) organizovanih u redove i kolone.\nSvaka ćelija sadrži numeričku, faktorsku ili logičku vrednost koja predstavlja određenu informaciju, npr.:\n\n🌡 Temperatura\n\n🏔 Nadmorska visina\n\n🌿 Vegetacioni indeks (NDVI)\n\n🌲🏡🌾🏜 Klasa zemljišta (šuma, voda, gradsko zemljište)"
+    "text": "Struktura rasterskih podataka\n\nRaster je matrica ćelija (piksela) organizovanih u redove i kolone.\nSvaka ćelija sadrži numeričku, faktorsku ili logičku vrednost koja predstavlja određenu informaciju, npr.:\n\n🌡 Temperatura\n\n🏔 Nadmorska visina\n\n🌿 Vegetacioni indeks (NDVI)\n🌲🏡🌾🏜 Klasa zemljišta (šuma, voda, gradsko zemljište)"
   },
   {
     "objectID": "04_terra/terra.html#kako-se-određuje-lokacija-piksela",
     "href": "04_terra/terra.html#kako-se-određuje-lokacija-piksela",
     "title": "Rasterski podaci: terra paket u R-u",
-    "section": "📍 Kako se određuje lokacija piksela?\n",
-    "text": "📍 Kako se određuje lokacija piksela?\n\n\nLokacija svakog piksela je indirektno definisana u odnosu na prvi piksel u rasteru.\n\nRedovi i kolone određuju udaljenost piksela u mreži.\n\nRezolucija rastera definiše razmak između piksela u metrima, stepenima ili drugim jedinicama.\n\nSamo prvi piksel ima eksplicitno definisane koordinate, dok se ostali izračunavaju u odnosu na njega."
+    "section": "📍 Kako se određuje lokacija piksela?",
+    "text": "📍 Kako se određuje lokacija piksela?\n\nLokacija svakog piksela je indirektno definisana u odnosu na prvi piksel u rasteru.\nRedovi i kolone određuju udaljenost piksela u mreži.\nRezolucija rastera definiše razmak između piksela u metrima, stepenima ili drugim jedinicama.\nSamo prvi piksel ima eksplicitno definisane koordinate, dok se ostali izračunavaju u odnosu na njega."
   },
   {
     "objectID": "04_terra/terra.html#kako-se-određuje-lokacija-piksela-1",
     "href": "04_terra/terra.html#kako-se-određuje-lokacija-piksela-1",
     "title": "Rasterski podaci: terra paket u R-u",
-    "section": "📍 Kako se određuje lokacija piksela?\n",
-    "text": "📍 Kako se određuje lokacija piksela?\n\n\nlibrary(terra) # biblioteka za rad sa rasterima\n# Kreiranje rastera od 5x5 ćelija\nr &lt;- rast(nrows=5, ncols=5, xmin=0, xmax=10, ymin=0, ymax=10)\nvalues(r) &lt;- matrix(1:25, nrow = 5, byrow = TRUE)  # Dodela vrednosti pikselima\n# Prikaz rastera sa numerisanim ćelijama\nplot(r, main = \"Struktura rastera: Redovi i kolone\")\ntext(r, labels = values(r), cex = 1.2, col = \"red\")"
+    "section": "📍 Kako se određuje lokacija piksela?",
+    "text": "📍 Kako se određuje lokacija piksela?\n\nlibrary(terra) # biblioteka za rad sa rasterima\n# Kreiranje rastera od 5x5 ćelija\nr &lt;- rast(nrows=5, ncols=5, xmin=0, xmax=10, ymin=0, ymax=10)\nvalues(r) &lt;- matrix(1:25, nrow = 5, byrow = TRUE)  # Dodela vrednosti pikselima\n# Prikaz rastera sa numerisanim ćelijama\nplot(r, main = \"Struktura rastera: Redovi i kolone\")\ntext(r, labels = values(r), cex = 1.2, col = \"red\")"
   },
   {
     "objectID": "04_terra/terra.html#struktura-rastera-u-terra-paketu",
@@ -81,7 +81,7 @@
     "href": "04_terra/terra.html#zašto-koristiti-terra",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "📦 Zašto koristiti terra?",
-    "text": "📦 Zašto koristiti terra?\n\n\nterra je naslednik raster paketa, optimizovan za bržu i efikasniju obradu rasterskih podataka.\n\nPrednosti terra paketa:\n\nBrža obrada velikih rastera,\nEfikasno upravljanje memorijom,\nLakša integracija sa vektoriskim podacima.\n\n\n\n\n# Instalacija i učitavanje terra paketa\n# install.packages(\"terra\")  # Pokrenuti samo jednom\nlibrary(terra)"
+    "text": "📦 Zašto koristiti terra?\n\nterra je naslednik raster paketa, optimizovan za bržu i efikasniju obradu rasterskih podataka.\nPrednosti terra paketa:\n\nBrža obrada velikih rastera,\nEfikasno upravljanje memorijom,\nLakša integracija sa vektoriskim podacima.\n\n\n\n# Instalacija i učitavanje terra paketa\n# install.packages(\"terra\")  # Pokrenuti samo jednom\nlibrary(terra)"
   },
   {
     "objectID": "04_terra/terra.html#osnovne-klase-u-terra-paketu",
@@ -115,8 +115,8 @@
     "objectID": "04_terra/terra.html#perspektivni-prikaz-rastera-starim-paketom-raster-i-rgl",
     "href": "04_terra/terra.html#perspektivni-prikaz-rastera-starim-paketom-raster-i-rgl",
     "title": "Rasterski podaci: terra paket u R-u",
-    "section": "Perspektivni prikaz rastera starim paketom raster i rgl\n",
-    "text": "Perspektivni prikaz rastera starim paketom raster i rgl\n\n\nlibrary(rgl)\nlibrary(raster)\nlibrary(rasterVis)\n# Koristimo plot3D funkciju za 3D prikaz i  raster tip iz pkg raster, kao tip podataka\nplot3D(raster(bor_dmt), drape=NULL, zfac=0.5, col=terrain.colors(255) )"
+    "section": "Perspektivni prikaz rastera starim paketom raster i rgl",
+    "text": "Perspektivni prikaz rastera starim paketom raster i rgl\n\nlibrary(rgl)\nlibrary(raster)\nlibrary(rasterVis)\n# Koristimo plot3D funkciju za 3D prikaz i  raster tip iz pkg raster, kao tip podataka\nplot3D(raster(bor_dmt), drape=NULL, zfac=0.5, col=terrain.colors(255) )"
   },
   {
     "objectID": "04_terra/terra.html#perspektivni-prikaz-plotly",
@@ -158,7 +158,7 @@
     "href": "04_terra/terra.html#indeksiranje-i-izdvajanje-vrednosti-piksela-1",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "Indeksiranje i izdvajanje vrednosti piksela",
-    "text": "Indeksiranje i izdvajanje vrednosti piksela\n\n\nIndeksiranje omogućava pristup pojedinačnim ili grupnim vrednostima piksela unutar rastera.\n\nFunkcija values() se koristi za izdvajanje svih vrednosti rastera u obliku vektora.\n\nIzdvojene vrednosti se mogu koristiti za analizu, vizualizaciju i dalju obradu podataka.\n\n\n# Izdvajanje vrednosti piksela za određene redove i kolone\npixel_value_1 &lt;- bor_dmt[10, 15]  # Vrednost piksela u 10. redu i 15. koloni\npixel_value_2 &lt;- bor_dmt[25, 30]  # Vrednost piksela u 25. redu i 30. koloni\n\n# Prikaz rezultata\ncat(\"Vrednost piksela (10,15):\", pixel_value_1$dmt, \"\\n\")\n\nVrednost piksela (10,15): 744.2025 \n\ncat(\"Vrednost piksela (25,30):\", pixel_value_2$dmt, \"\\n\")\n\nVrednost piksela (25,30): 709.6879"
+    "text": "Indeksiranje i izdvajanje vrednosti piksela\n\nIndeksiranje omogućava pristup pojedinačnim ili grupnim vrednostima piksela unutar rastera.\nFunkcija values() se koristi za izdvajanje svih vrednosti rastera u obliku vektora.\nIzdvojene vrednosti se mogu koristiti za analizu, vizualizaciju i dalju obradu podataka.\n\n\n# Izdvajanje vrednosti piksela za određene redove i kolone\npixel_value_1 &lt;- bor_dmt[10, 15]  # Vrednost piksela u 10. redu i 15. koloni\npixel_value_2 &lt;- bor_dmt[25, 30]  # Vrednost piksela u 25. redu i 30. koloni\n\n# Prikaz rezultata\ncat(\"Vrednost piksela (10,15):\", pixel_value_1$dmt, \"\\n\")\n\nVrednost piksela (10,15): 744.2025 \n\ncat(\"Vrednost piksela (25,30):\", pixel_value_2$dmt, \"\\n\")\n\nVrednost piksela (25,30): 709.6879"
   },
   {
     "objectID": "04_terra/terra.html#indeksiranje-i-izdvajanje-vrednosti-piksela-2",
@@ -186,14 +186,14 @@
     "href": "04_terra/terra.html#histogram-vrednosti-piksela",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "📊 Histogram vrednosti piksela",
-    "text": "📊 Histogram vrednosti piksela\n\n\nHistogram prikazuje distribuciju vrednosti piksela unutar rastera.\n\nFunkcija hist() se koristi za prikaz histograma vrednosti piksela.\n\n\n# Prikaz histograma vrednosti piksela\nhist(bor_dmt, main = \"Histogram vrednosti piksela\", xlab = \"Visina (m)\", ylab = \"Broj piksela\")"
+    "text": "📊 Histogram vrednosti piksela\n\nHistogram prikazuje distribuciju vrednosti piksela unutar rastera.\nFunkcija hist() se koristi za prikaz histograma vrednosti piksela.\n\n\n# Prikaz histograma vrednosti piksela\nhist(bor_dmt, main = \"Histogram vrednosti piksela\", xlab = \"Visina (m)\", ylab = \"Broj piksela\")"
   },
   {
     "objectID": "04_terra/terra.html#raster-klasifikacije-zemljišta-clc",
     "href": "04_terra/terra.html#raster-klasifikacije-zemljišta-clc",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "Raster klasifikacije zemljišta CLC",
-    "text": "Raster klasifikacije zemljišta CLC\n\n\nCORINE Land Cover (CLC) je evropski program za klasifikaciju zemljišta.\nRanije smo ga koristili u vektorskom obliku, ali često nam je potreban i rasterskom obliku i kao takav je najčešće dostupan.\n\n\nbor_clc &lt;- rast(\"data/clc_bor_rast.tif\")\nbor_clc\n\nclass       : SpatRaster \nsize        : 250, 130, 1  (nrow, ncol, nlyr)\nresolution  : 100, 100  (x, y)\nextent      : 7572048, 7585048, 4875030, 4900030  (xmin, xmax, ymin, ymax)\ncoord. ref. : +proj=tmerc +lat_0=0 +lon_0=21 +k=0.9999 +x_0=7500000 +y_0=0 +ellps=bessel +units=m +no_defs \nsource      : clc_bor_rast.tif \ncategories  : CODE_18 \nname        : CODE_18 \nmin value   :     112 \nmax value   :     512 \n\nlevels(bor_clc)\n\n[[1]]\n   value CODE_18\n1      0     112\n2      1     131\n3      2     142\n4      3     231\n5      4     242\n6      5     243\n7      6     311\n8      7     313\n9      8     321\n10     9     324\n11    10     333\n12    11     334\n13    12     512"
+    "text": "Raster klasifikacije zemljišta CLC\n\nCORINE Land Cover (CLC) je evropski program za klasifikaciju zemljišta.\nRanije smo ga koristili u vektorskom obliku, ali često nam je potreban i rasterskom obliku i kao takav je najčešće dostupan.\n\n\nbor_clc &lt;- rast(\"data/clc_bor_rast.tif\")\nbor_clc\n\nclass       : SpatRaster \nsize        : 250, 130, 1  (nrow, ncol, nlyr)\nresolution  : 100, 100  (x, y)\nextent      : 7572048, 7585048, 4875030, 4900030  (xmin, xmax, ymin, ymax)\ncoord. ref. : +proj=tmerc +lat_0=0 +lon_0=21 +k=0.9999 +x_0=7500000 +y_0=0 +ellps=bessel +units=m +no_defs \nsource      : clc_bor_rast.tif \ncategories  : CODE_18 \nname        : CODE_18 \nmin value   :     112 \nmax value   :     512 \n\nlevels(bor_clc)\n\n[[1]]\n   value CODE_18\n1      0     112\n2      1     131\n3      2     142\n4      3     231\n5      4     242\n6      5     243\n7      6     311\n8      7     313\n9      8     321\n10     9     324\n11    10     333\n12    11     334\n13    12     512"
   },
   {
     "objectID": "04_terra/terra.html#vizuelizacija-clc-podataka",
@@ -242,7 +242,7 @@
     "href": "04_terra/terra.html#šta-znači-reclass_matrix",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "Šta znači reclass_matrix?",
-    "text": "Šta znači reclass_matrix?\n\nreclass_matrix &lt;- cbind(c(6, 7), c(1, 2))\n# Reklasifikacija rastera (zadržavanje samo klasa 311 i 313, ostalo NA)\nsume &lt;- classify(bor_clc, reclass_matrix, others = NA)\n\n\n\ncbind() pravi matricu sa dve kolone:\n\n\n\nStara vrednost\nNova vrednost\n\n\n\n311 vrednost 6\n1 (listopadna)\n\n\n312 vrednost 7\n2 (mešovita)\n\n\n\n\nRaster sada zadržava samo piksele sa vrednostima 311 i 312, dok sve ostale vrednosti postaju NA."
+    "text": "Šta znači reclass_matrix?\n\nreclass_matrix &lt;- cbind(c(6, 7), c(1, 2))\n# Reklasifikacija rastera (zadržavanje samo klasa 311 i 313, ostalo NA)\nsume &lt;- classify(bor_clc, reclass_matrix, others = NA)\n\n\ncbind() pravi matricu sa dve kolone:\n\n\n\n\nStara vrednost\nNova vrednost\n\n\n\n\n311 vrednost 6\n1 (listopadna)\n\n\n312 vrednost 7\n2 (mešovita)\n\n\n\n\nRaster sada zadržava samo piksele sa vrednostima 311 i 312, dok sve ostale vrednosti postaju NA."
   },
   {
     "objectID": "04_terra/terra.html#karta-nastala-koristeći-classify-funkciju",
@@ -262,8 +262,8 @@
     "objectID": "04_terra/terra.html#učitavanje-i-pregled-višeslojnog-rastera-u-terra",
     "href": "04_terra/terra.html#učitavanje-i-pregled-višeslojnog-rastera-u-terra",
     "title": "Rasterski podaci: terra paket u R-u",
-    "section": "🛠 Učitavanje i pregled višeslojnog rastera u terra\n",
-    "text": "🛠 Učitavanje i pregled višeslojnog rastera u terra\n\nNa sledećem primeru učitavamo Sentinel-2 snimak za područje Opštine Ruma, gde su svi kanali resamplovani na 10 m rezoluciju.\n\ns2a_path &lt;- \"data/S2A_fields.tiff\"\n\ns2a_fields &lt;- rast(s2a_path)\n\nnames(s2a_fields)&lt;- c('B02','B03','B04','B05','B06', 'B07', 'B08', 'B08A', 'B11', 'B12')\n\ns2a_fields\n\nclass       : SpatRaster \nsize        : 300, 300, 10  (nrow, ncol, nlyr)\nresolution  : 10, 10  (x, y)\nextent      : 441400, 444400, 4990000, 4993000  (xmin, xmax, ymin, ymax)\ncoord. ref. : WGS 84 / UTM zone 34N (EPSG:32634) \nsource      : S2A_fields.tiff \nnames       : B02, B03, B04, B05, B06, B07, ... \n\ndim(s2a_fields)\n\n[1] 300 300  10"
+    "section": "🛠 Učitavanje i pregled višeslojnog rastera u terra",
+    "text": "🛠 Učitavanje i pregled višeslojnog rastera u terra\nNa sledećem primeru učitavamo Sentinel-2 snimak za područje Opštine Ruma, gde su svi kanali resamplovani na 10 m rezoluciju.\n\ns2a_path &lt;- \"data/S2A_fields.tiff\"\n\ns2a_fields &lt;- rast(s2a_path)\n\nnames(s2a_fields)&lt;- c('B02','B03','B04','B05','B06', 'B07', 'B08', 'B08A', 'B11', 'B12')\n\ns2a_fields\n\nclass       : SpatRaster \nsize        : 300, 300, 10  (nrow, ncol, nlyr)\nresolution  : 10, 10  (x, y)\nextent      : 441400, 444400, 4990000, 4993000  (xmin, xmax, ymin, ymax)\ncoord. ref. : WGS 84 / UTM zone 34N (EPSG:32634) \nsource      : S2A_fields.tiff \nnames       : B02, B03, B04, B05, B06, B07, ... \n\ndim(s2a_fields)\n\n[1] 300 300  10"
   },
   {
     "objectID": "04_terra/terra.html#plot-multispektralnog-rastera-rgb",
@@ -276,8 +276,8 @@
     "objectID": "04_terra/terra.html#plot-multispektralnog-rastera-false-composite",
     "href": "04_terra/terra.html#plot-multispektralnog-rastera-false-composite",
     "title": "Rasterski podaci: terra paket u R-u",
-    "section": "Plot multispektralnog rastera false composite\n",
-    "text": "Plot multispektralnog rastera false composite\n\n\n# False Color kompozit – Vegetacija (7-B8 = NIR,3- B4 = crvena, 2- B3 = zelena)\nplotRGB(s2a_fields, r = 7, g = 3, b = 2, stretch = \"lin\", main = \"Sentinel-2 False Color kompozit (vegetacija)\")"
+    "section": "Plot multispektralnog rastera false composite",
+    "text": "Plot multispektralnog rastera false composite\n\n# False Color kompozit – Vegetacija (7-B8 = NIR,3- B4 = crvena, 2- B3 = zelena)\nplotRGB(s2a_fields, r = 7, g = 3, b = 2, stretch = \"lin\", main = \"Sentinel-2 False Color kompozit (vegetacija)\")"
   },
   {
     "objectID": "04_terra/terra.html#plot-samo-jednog-kanala",
@@ -291,14 +291,14 @@
     "href": "04_terra/terra.html#rasterska-algebra-aritmetičke-operacije",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "➗📊 Rasterska algebra – Aritmetičke operacije",
-    "text": "➗📊 Rasterska algebra – Aritmetičke operacije\n\nRaster kalkulator omogućava izračunavanje novih vrednosti piksela na osnovu postojećih vrednosti.\n\nterra omogućava aritmetičke operacije nad rasterima koristeći standardne operatore:\n\n➕ Sabiranje (+)\n➖ Oduzimanje (-)\n✖ Množenje (*)\n➗ Deljenje (/)\n〽 Stepenovanje (^)\n🔢 Modul (%%)\n🔪 Celobrojno deljenje (%/%)\n\n\n\n🎯 Zašto koristiti rastersku algebru?\n✔ Matematičke analize nad prostornim podacima.\n✔ Normalizacija i transformacija vrednosti rastera.\n✔ Kombinovanje više rastera za modeliranje i simulacije."
+    "text": "➗📊 Rasterska algebra – Aritmetičke operacije\n\nRaster kalkulator omogućava izračunavanje novih vrednosti piksela na osnovu postojećih vrednosti.\nterra omogućava aritmetičke operacije nad rasterima koristeći standardne operatore:\n\n➕ Sabiranje (+)\n➖ Oduzimanje (-)\n✖ Množenje (*)\n➗ Deljenje (/)\n〽 Stepenovanje (^)\n🔢 Modul (%%)\n🔪 Celobrojno deljenje (%/%)\n\n\n🎯 Zašto koristiti rastersku algebru?\n✔ Matematičke analize nad prostornim podacima.\n✔ Normalizacija i transformacija vrednosti rastera.\n✔ Kombinovanje više rastera za modeliranje i simulacije."
   },
   {
     "objectID": "04_terra/terra.html#operacije-nad-rasterskim-podacima",
     "href": "04_terra/terra.html#operacije-nad-rasterskim-podacima",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "🔍 Operacije nad rasterskim podacima",
-    "text": "🔍 Operacije nad rasterskim podacima\n\n📌 1. Lokalne operacije – Nad svakom ćelijom pojedinačno (NDVI, normalizacija).\n📌 2. Globalne operacije – Nad celim rasterom (prosečna vrednost, standardna devijacija celog rastera).\n\n📌 3. Fokalne operacije – Analiza kroz okolne ćelije (3x3 prozor)\n✔ Primer: Prosečna vrednost piksela, nagib terena, osvetljenost,…\n\n\n📌 4. Zonalne operacije – Statistika po zonama (po klasama)\n✔ Primer: Proseč na visina rastera u listopadnim šumama, ili po svim klasama zemljišta."
+    "text": "🔍 Operacije nad rasterskim podacima\n\n📌 1. Lokalne operacije – Nad svakom ćelijom pojedinačno (NDVI, normalizacija).\n📌 2. Globalne operacije – Nad celim rasterom (prosečna vrednost, standardna devijacija celog rastera).\n📌 3. Fokalne operacije – Analiza kroz okolne ćelije (3x3 prozor)\n✔ Primer: Prosečna vrednost piksela, nagib terena, osvetljenost,…\n📌 4. Zonalne operacije – Statistika po zonama (po klasama)\n✔ Primer: Proseč na visina rastera u listopadnim šumama, ili po svim klasama zemljišta."
   },
   {
     "objectID": "04_terra/terra.html#raster-kalkulator---ndvi-indeks",
@@ -333,21 +333,21 @@
     "href": "04_terra/terra.html#fokalne-operacije---računanje-nagiba-terena",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "⛰️ Fokalne operacije - Računanje nagiba terena",
-    "text": "⛰️ Fokalne operacije - Računanje nagiba terena\n\n\nNagib terena se izračunava na osnovu visinskih podataka (DEM - Digitalni model terena).\n\nFunkcija terrain() u terra paketu omogućava izračunavanje nagiba rastera.\n\nNagib pokazuje prosečnu ili max. brzinu promene visine između centralnog piksela i njegovih susednih ćelija.\n\nVrednosti nagiba se izražavaju u stepenima (°) ili uglovnim jedinicama (0° = ravan teren, 90° = vertikalni nagib).\n\nPrimena: hidrološke analize, planiranje puteva, urbanistički projekti.\n\n\n# Računanje nagiba terena\nbor_dmt_slope &lt;- terrain(bor_dmt, v=\"slope\", unit = \"degrees\")"
+    "text": "⛰️ Fokalne operacije - Računanje nagiba terena\n\nNagib terena se izračunava na osnovu visinskih podataka (DEM - Digitalni model terena).\nFunkcija terrain() u terra paketu omogućava izračunavanje nagiba rastera.\nNagib pokazuje prosečnu ili max. brzinu promene visine između centralnog piksela i njegovih susednih ćelija.\nVrednosti nagiba se izražavaju u stepenima (°) ili uglovnim jedinicama (0° = ravan teren, 90° = vertikalni nagib).\nPrimena: hidrološke analize, planiranje puteva, urbanistički projekti.\n\n\n# Računanje nagiba terena\nbor_dmt_slope &lt;- terrain(bor_dmt, v=\"slope\", unit = \"degrees\")"
   },
   {
     "objectID": "04_terra/terra.html#fokalne-operacije---računanje-ekspozicije-terena",
     "href": "04_terra/terra.html#fokalne-operacije---računanje-ekspozicije-terena",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "🧭 Fokalne operacije - Računanje ekspozicije terena",
-    "text": "🧭 Fokalne operacije - Računanje ekspozicije terena\n\n\nEkspozicija/Orjentacija terena (aspect, orjentacija padina) pokazuje pravac u kojem je nagnuta površina terena.\n\nFunkcija terrain() u terra paketu omogućava izračunavanje orjentacije rastera.\n\nVrednosti orjentacije se izražavaju u stepenima (°) (0° = sever, 90° = istok, 180° = jug, 270° = zapad).\n\nOrjentacija terena se koristi u hidrologiji, ekologiji i analizi osunčanosti.\n\n\n# Računanje nagiba terena\nbor_dmt_aspect &lt;- terrain(bor_dmt, v=\"aspect\", unit = \"degrees\")"
+    "text": "🧭 Fokalne operacije - Računanje ekspozicije terena\n\nEkspozicija/Orjentacija terena (aspect, orjentacija padina) pokazuje pravac u kojem je nagnuta površina terena.\nFunkcija terrain() u terra paketu omogućava izračunavanje orjentacije rastera.\nVrednosti orjentacije se izražavaju u stepenima (°) (0° = sever, 90° = istok, 180° = jug, 270° = zapad).\nOrjentacija terena se koristi u hidrologiji, ekologiji i analizi osunčanosti.\n\n\n# Računanje nagiba terena\nbor_dmt_aspect &lt;- terrain(bor_dmt, v=\"aspect\", unit = \"degrees\")"
   },
   {
     "objectID": "04_terra/terra.html#analiza-osvetljenosti-terena---hillshade",
     "href": "04_terra/terra.html#analiza-osvetljenosti-terena---hillshade",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "🌄 Analiza osvetljenosti terena - Hillshade",
-    "text": "🌄 Analiza osvetljenosti terena - Hillshade\n\n\nHillshade predstavlja osvetljenost terena pod određenim uglom Sunca.\nKoristi se za poboljšanje vizuelne interpretacije terena u GIS analizama.\n\nFunkcija shade() u terra paketu koristi nagib (slope) i orijentaciju (aspect) za simulaciju senčenja terena.\n\nParametri osvetljenja:\n\n\nangle = 40 → Visina Sunca u stepenima (niže vrednosti = duže senke)\n\ndirection = 330 → Pravac iz kojeg dolazi svetlost (330° = severozapad)\n\n\n\n\nbor_dmt_hillsh &lt;- shade(bor_dmt_slope/180*pi, bor_dmt_aspect/180*pi, angle=40, direction=330)"
+    "text": "🌄 Analiza osvetljenosti terena - Hillshade\n\nHillshade predstavlja osvetljenost terena pod određenim uglom Sunca.\nKoristi se za poboljšanje vizuelne interpretacije terena u GIS analizama.\nFunkcija shade() u terra paketu koristi nagib (slope) i orijentaciju (aspect) za simulaciju senčenja terena.\nParametri osvetljenja:\n\nangle = 40 → Visina Sunca u stepenima (niže vrednosti = duže senke)\ndirection = 330 → Pravac iz kojeg dolazi svetlost (330° = severozapad)\n\n\n\nbor_dmt_hillsh &lt;- shade(bor_dmt_slope/180*pi, bor_dmt_aspect/180*pi, angle=40, direction=330)"
   },
   {
     "objectID": "04_terra/terra.html#karta-terenskih-fokalnih-operacija",
@@ -396,7 +396,7 @@
     "href": "04_terra/terra.html#interakcija-vektora-i-rastera",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "Interakcija vektora i rastera",
-    "text": "Interakcija vektora i rastera\n\nNajčešće nam je potrebno da vektorima dodamo informacije iz rastera.\n\nFunkcija extract() u terra paketu omogućava izdvajanje vrednosti piksela za tačke, linije i poligone.\n\n\n# Izdvajanje vrednosti piksela za uzorke\nelev_ex &lt;- terra::extract(bor_dmt, uzorci) |&gt;  select(-ID)\nslope_ex &lt;- terra::extract(bor_dmt_slope, uzorci) |&gt;  select(-ID)\naspect_ex &lt;- terra::extract(bor_dmt_aspect, uzorci) |&gt;  select(-ID)\nclc_ex &lt;- terra::extract(bor_clc, uzorci) |&gt;  rename(clc = CODE_18) |&gt; select(-ID)\nlibrary(sf)\nuzorci &lt;- bind_cols(st_as_sf(uzorci), elev_ex, slope_ex,aspect_ex, clc_ex)\n# Simple feature collection with 100 features and 5 fields\n#    FID      dmt     slope    aspect clc                geometry\n# 1    0 662.2527 10.392584 218.43787 243 POINT (7573565 4891422)\n# 2    1 763.5966  9.107361  84.36924 311 POINT (7574005 4889561)\n# 3    2 464.7175  5.573145  66.68580 243 POINT (7581255 4882388)\n# 4    3 630.2746 13.690162 104.27694 311 POINT (7579981 4898268)\n# 5    4 567.3284 12.230350  82.90503 311 POINT (7577330 4899480)\n# 6    5 377.9383  5.882698  94.82392 242 POINT (7583429 4876198)\n# 7    6 713.8652 19.244814 340.19571 311 POINT (7581706 4889825)\n# 8    7 720.2300 10.642361 348.17624 311 POINT (7575094 4896662)\n# 9    8 598.8131 10.370576 106.96270 311 POINT (7579325 4894216)\n# 10   9 700.6161 18.657551  56.13752 243 POINT (7583450 4893612)"
+    "text": "Interakcija vektora i rastera\n\nNajčešće nam je potrebno da vektorima dodamo informacije iz rastera.\nFunkcija extract() u terra paketu omogućava izdvajanje vrednosti piksela za tačke, linije i poligone.\n\n\n# Izdvajanje vrednosti piksela za uzorke\nelev_ex &lt;- terra::extract(bor_dmt, uzorci) |&gt;  select(-ID)\nslope_ex &lt;- terra::extract(bor_dmt_slope, uzorci) |&gt;  select(-ID)\naspect_ex &lt;- terra::extract(bor_dmt_aspect, uzorci) |&gt;  select(-ID)\nclc_ex &lt;- terra::extract(bor_clc, uzorci) |&gt;  rename(clc = CODE_18) |&gt; select(-ID)\nlibrary(sf)\nuzorci &lt;- bind_cols(st_as_sf(uzorci), elev_ex, slope_ex,aspect_ex, clc_ex)\n# Simple feature collection with 100 features and 5 fields\n#    FID      dmt     slope    aspect clc                geometry\n# 1    0 662.2527 10.392584 218.43787 243 POINT (7573565 4891422)\n# 2    1 763.5966  9.107361  84.36924 311 POINT (7574005 4889561)\n# 3    2 464.7175  5.573145  66.68580 243 POINT (7581255 4882388)\n# 4    3 630.2746 13.690162 104.27694 311 POINT (7579981 4898268)\n# 5    4 567.3284 12.230350  82.90503 311 POINT (7577330 4899480)\n# 6    5 377.9383  5.882698  94.82392 242 POINT (7583429 4876198)\n# 7    6 713.8652 19.244814 340.19571 311 POINT (7581706 4889825)\n# 8    7 720.2300 10.642361 348.17624 311 POINT (7575094 4896662)\n# 9    8 598.8131 10.370576 106.96270 311 POINT (7579325 4894216)\n# 10   9 700.6161 18.657551  56.13752 243 POINT (7583450 4893612)"
   },
   {
     "objectID": "04_terra/terra.html#raster-i-poligon-ekstrakcija",
@@ -430,22 +430,22 @@
     "objectID": "04_terra/terra.html#sečenje-rastera-pomoću-mask-i-crop",
     "href": "04_terra/terra.html#sečenje-rastera-pomoću-mask-i-crop",
     "title": "Rasterski podaci: terra paket u R-u",
-    "section": "✂️ Sečenje rastera pomoću mask() i crop()\n",
-    "text": "✂️ Sečenje rastera pomoću mask() i crop()\n\n\ncrop() – Seče raster prema prostornom obuhvatu (extent) poligona.\nmask() – Zadržava samo piksele unutar poligona, ostali postaju NA.\nKombinacijom ovih funkcija dobijamo raster ograničen samo na područje definisano poligonom."
+    "section": "✂️ Sečenje rastera pomoću mask() i crop()",
+    "text": "✂️ Sečenje rastera pomoću mask() i crop()\n\ncrop() – Seče raster prema prostornom obuhvatu (extent) poligona.\nmask() – Zadržava samo piksele unutar poligona, ostali postaju NA.\nKombinacijom ovih funkcija dobijamo raster ograničen samo na područje definisano poligonom."
   },
   {
     "objectID": "04_terra/terra.html#sečenje-rastera-pomoću-mask-i-crop-1",
     "href": "04_terra/terra.html#sečenje-rastera-pomoću-mask-i-crop-1",
     "title": "Rasterski podaci: terra paket u R-u",
-    "section": "✂️ Sečenje rastera pomoću mask() i crop()\n",
-    "text": "✂️ Sečenje rastera pomoću mask() i crop()\n\n\n# Sečenje rastera prema prostornom obuhvatu poligona\nBor_dtm_crop &lt;- crop(bor_dmt, pedologija)\n# Maskiranje rastera – zadržava samo piksele unutar poligona\nBor_dtm_mask &lt;- mask(bor_dmt, pedologija)\n\n# Prikaz rezultata\npar(mfrow = c(1,2))\nplot(Bor_dtm_crop, main = \"Crop rastera prema ext\", col = terrain.colors(255))\nplot(Bor_dtm_mask, main = \"Maskirani raster-samo poligon\", col = terrain.colors(255))\n\npar(mfrow = c(1,1))"
+    "section": "✂️ Sečenje rastera pomoću mask() i crop()",
+    "text": "✂️ Sečenje rastera pomoću mask() i crop()\n\n# Sečenje rastera prema prostornom obuhvatu poligona\nBor_dtm_crop &lt;- crop(bor_dmt, pedologija)\n# Maskiranje rastera – zadržava samo piksele unutar poligona\nBor_dtm_mask &lt;- mask(bor_dmt, pedologija)\n\n# Prikaz rezultata\npar(mfrow = c(1,2))\nplot(Bor_dtm_crop, main = \"Crop rastera prema ext\", col = terrain.colors(255))\nplot(Bor_dtm_mask, main = \"Maskirani raster-samo poligon\", col = terrain.colors(255))\n\npar(mfrow = c(1,1))"
   },
   {
     "objectID": "04_terra/terra.html#reprojekcija-rastera",
     "href": "04_terra/terra.html#reprojekcija-rastera",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "🔄 Reprojekcija rastera",
-    "text": "🔄 Reprojekcija rastera\n\nReprojekcija je neophodna kada raster treba prilagoditi drugom CRS-u (npr. za analizu sa vektorskim podacima).\nproject() u terra paketu omogućava transformaciju rastera u željeni CRS.\n\nArgumenti:\n\n\nres – Rezolucija rastera u novom CRS-u.\n\nmethod – Metoda interpolacije (npr. “bilinear”, “nearest”, “cubic”).\n\n\nVidi detaljno na MATEMATIČKA KARTOGRAFIJA."
+    "text": "🔄 Reprojekcija rastera\n\nReprojekcija je neophodna kada raster treba prilagoditi drugom CRS-u (npr. za analizu sa vektorskim podacima).\nproject() u terra paketu omogućava transformaciju rastera u željeni CRS.\nArgumenti:\n\nres – Rezolucija rastera u novom CRS-u.\nmethod – Metoda interpolacije (npr. “bilinear”, “nearest”, “cubic”).\n\nVidi detaljno na MATEMATIČKA KARTOGRAFIJA."
   },
   {
     "objectID": "04_terra/terra.html#reprojekcija-rastera-1",
@@ -459,21 +459,21 @@
     "href": "04_terra/terra.html#čuvanje-rastera-u-terra-paketu",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "💾 Čuvanje rastera u terra paketu",
-    "text": "💾 Čuvanje rastera u terra paketu\n\n\nwriteRaster() funkcija omogućava čuvanje rastera u različitim formatima (GeoTIFF, ESRI ASCII, R RDS).\n\nArgumenti:\n\n\nfilename – Putanja i ime fajla.\n\nformat – Format u kojem se čuva raster (npr. “GTiff”, “ascii”, “rds”).\n\noverwrite – Da li prebrisati postojeći fajl (TRUE/FALSE).\n\n\nPodrazumevani format u GIS aplikacijama je GeoTIFF (.tif).\n\n🎯 Ključne opcije za writeRaster()\n\nwriteRaster(bor_dtm, filename = \"dmt.tif\", format = \"GTiff\", overwrite = TRUE)\n\n✔ format = \"GTiff\" – Definiše izlazni format (GeoTIFF).\n✔ overwrite = TRUE – Dozvoljava prepisivanje postojećeg fajla.\n✔ datatype = \"FLT4S\" – Podešava tip podataka (INT1U, INT2U, FLT4S itd.).\n✔ gdal = c(\"COMPRESS=LZW\") – Dodaje kompresiju za smanjenje veličine fajla."
+    "text": "💾 Čuvanje rastera u terra paketu\n\nwriteRaster() funkcija omogućava čuvanje rastera u različitim formatima (GeoTIFF, ESRI ASCII, R RDS).\nArgumenti:\n\nfilename – Putanja i ime fajla.\nformat – Format u kojem se čuva raster (npr. “GTiff”, “ascii”, “rds”).\noverwrite – Da li prebrisati postojeći fajl (TRUE/FALSE).\n\nPodrazumevani format u GIS aplikacijama je GeoTIFF (.tif).\n\n🎯 Ključne opcije za writeRaster()\n\nwriteRaster(bor_dtm, filename = \"dmt.tif\", format = \"GTiff\", overwrite = TRUE)\n\n✔ format = \"GTiff\" – Definiše izlazni format (GeoTIFF).\n✔ overwrite = TRUE – Dozvoljava prepisivanje postojećeg fajla.\n✔ datatype = \"FLT4S\" – Podešava tip podataka (INT1U, INT2U, FLT4S itd.).\n✔ gdal = c(\"COMPRESS=LZW\") – Dodaje kompresiju za smanjenje veličine fajla."
   },
   {
     "objectID": "04_terra/terra.html#formati-dostupni-za-writeraster-funkciju",
     "href": "04_terra/terra.html#formati-dostupni-za-writeraster-funkciju",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "💾 Formati dostupni za writeRaster() funkciju",
-    "text": "💾 Formati dostupni za writeRaster() funkciju\n\n\n\n\n\n\n\n\nTip fajla\nPuni naziv\nEkstenzija\nVišekanalni raster\n\n\n\n🛰 GTiff\n\nGeoTIFF\n.tif\n✅ Da\n\n\n📄 ascii\n\nESRI ASCII raster format\n.asc\n❌ Ne\n\n\n🌍 SAGA\n\nSAGA GIS raster format\n.sdat\n❌ Ne\n\n\n📊 IDRISI\n\nIDRISI raster format\n.rst\n❌ Ne\n\n\n🌡 CDF\n\nnetCDF (vidi i writeCDF )\n.nc\n✅ Da\n\n\n🗺 ENVI\n\nENVI .hdr Labelled format\n.envi\n✅ Da\n\n\n🌍 EHdr\n\nESRI .hdr Labelled format\n.bil\n✅ Da\n\n\n🖼 HFA\n\nErdas Imagine format\n.img\n✅ Da"
+    "text": "💾 Formati dostupni za writeRaster() funkciju\n\n\n\n\n\n\n\n\n\nTip fajla\nPuni naziv\nEkstenzija\nVišekanalni raster\n\n\n\n\n🛰 GTiff\nGeoTIFF\n.tif\n✅ Da\n\n\n📄 ascii\nESRI ASCII raster format\n.asc\n❌ Ne\n\n\n🌍 SAGA\nSAGA GIS raster format\n.sdat\n❌ Ne\n\n\n📊 IDRISI\nIDRISI raster format\n.rst\n❌ Ne\n\n\n🌡 CDF\nnetCDF (vidi i writeCDF )\n.nc\n✅ Da\n\n\n🗺 ENVI\nENVI .hdr Labelled format\n.envi\n✅ Da\n\n\n🌍 EHdr\nESRI .hdr Labelled format\n.bil\n✅ Da\n\n\n🖼 HFA\nErdas Imagine format\n.img\n✅ Da"
   },
   {
     "objectID": "04_terra/terra.html#literatura",
     "href": "04_terra/terra.html#literatura",
     "title": "Rasterski podaci: terra paket u R-u",
     "section": "Literatura",
-    "text": "Literatura\n\nterra: Spatial Data Analysis\nterra: Introduction to terra\nKilibarda M., Matematička kartografija, https://osgl.grf.bg.ac.rs/books/mk/\n\nhttps://geocompr.robinlovelace.net/"
+    "text": "Literatura\n\nterra: Spatial Data Analysis\nterra: Introduction to terra\nKilibarda M., Matematička kartografija, https://osgl.grf.bg.ac.rs/books/mk/\nhttps://geocompr.robinlovelace.net/"
   },
   {
     "objectID": "02_introSpatial/p1.html#info-grafik",
