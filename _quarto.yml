@@ -22,7 +22,7 @@ website:
         
 execute:
     freeze: auto
-    cache: true
+    cache: false
     
 format:
   html:
