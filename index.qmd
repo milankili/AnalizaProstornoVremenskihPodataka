@@ -99,6 +99,20 @@ Ovo predavanje obuhvata celokupan radni tok za analizu prostorno-vremenskih poda
 :::
 
 
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm .p-3}
+
+### Prostorno-vremenski podaci u R stars paketu 
+
+Ova prezentacija pruža sveobuhvatan uvod u rad sa prostorno-vremenskim podacima koristeći R paket `stars`. Pokriva ključne funkcionalnosti `stars` paketa, uključujući kreiranje, manipulaciju i analizu višedimenzionalnih prostornih objekata, kao i integraciju sa drugim R paketima za prostornu analizu.
+
+<br>
+[Otvori prezentaciju](06_stars/stars.html){.btn .btn-primary role="button"}
+
+:::
+:::
+
+
 
 
 :::

@@ -1,0 +1,227 @@
+---
+title: "Domaći zadatak: Predikcioni model sa prostorno‑vremenskom kockom (RF + stars)"
+author: "Student: __________________  |  Broj indeksa: ____________"
+date: today
+format:
+  docx:
+    toc: false
+    number-sections: false
+  html:
+    code-fold: true
+    code-tools: true
+    df-print: kable
+execute:
+  eval: true
+  echo: true
+  warning: false
+  message: false
+editor: source
+fontsize: 11pt
+---
+
+# Cilj zadatka
+
+Proveriti razumevanje rada sa **prostorno‑vremenskim kockama** u R-u koristeći paket **{stars}** i izgraditi **predikcioni model** zasnovan na **Random Forest** metodi ({ranger}). Fokus je na: (1) formiranju kocke iz više Sentinel-2 snimaka (dimenzije *x, y, band, time*), (2) maskiranju oblaka putem SCL sloja, (3) računanju NDVI i dodavanju kao novog „benda“, (4) pripremi trening podataka, (5) treniranju RF modela i (6) prostornoj predikciji korišćenjem `predict()` nad stars objektom.
+
+**Klasafikacija zemljišta treba da bude (`cls`) jedna kolona** sa 4 kategorije (zavisna promenljiva):
+
+-   **Poljoprivreda** (`polj`)
+
+-   **Šuma** (`suma`)
+
+-   **Voda** (`voda`)
+
+-   **Urbano** (`urb`)
+
+**Grad:** izaberite **Niš** ili drugi grad u Srbiji po izboru (npr. Novi Sad, Kragujevac, Subotica), podaci S2 za 2024. godinu. 
+
+> **Šta predajete:** ovaj QMD fajl (popunjen i izvršen), generisani DOCX (opciono i HTML) izveštaj, sve karte i kratak zaključak (5–10 rečenica).
+
+
+# Priprema okruženja
+
+```{r}
+# Paketi
+library(stars)
+library(sf)
+library(dplyr)
+library(tibble)
+library(ggplot2)
+library(lubridate)
+library(ranger)
+# Po potrebi: download ili rad sa folderom lokalnih .tif fajlova
+# library(rstac)
+# library(gdalcubes)
+```
+
+
+
+# **Zadatak 1 (5 poena):** Priprema S2 podataka za `stars` kocku. Definišite AOI (Niš podrazumevano), difoltu je odabran Niš (UTM **EPSG:32634**). 
+
+```{r}
+# Kod ...
+# Definišite Niš kao AOI (UTM 34N)
+```
+
+
+Putanja do podataka i opcije učitavanja
+
+Imate dve opcije. Izaberite **A** ili **B**.
+
+**A)Lokalni fajlovi (.tif) po datumima i bendovima.**  
+Struktura imena fajlova (primer): `SENTINEL-2_MSI_34TDQ_B02_2022-07-03.tif`, ..., uključujući i `CLOUD` (SCL) sloj.
+
+```{r}
+# TODO: postavite ispravnu putanju do foldera sa .tif fajlovima
+folder_path <- "data/lokalCube"   # promenite po potrebi
+files <- list.files(folder_path, pattern = "\\.tif$", full.names = TRUE)
+length(files); head(files)
+```
+
+**B) Preuzimanje preko STAC/gdalcubes (napredno, opciono)**  
+Možete formirati kocku direktno iz STAC kataloga za AOI i opseg datuma. (Ostavite kod, ali postavite `eval: false` dok ne budete spremni.)
+
+```{r, eval=FALSE}
+# Primer skeleton (prilagodite):
+# stac <- stac("https://earth-search.aws.element84.com/v1")
+# ... filtrirajte po kolekciji, AOI (nis_utm -> st_transform 4326), datumima i oblacnosti
+# ... preuzmite B02,B03,B04,B08,B11,B12 i SCL (CLOUD)
+# ... kreirajte gdalcubes image collection i view, pa kompjuzujte u kocku
+```
+
+
+
+# **Zadatak 2 (5 poena):** Navedite koje ste bendove učitali i zašto su baš oni neophodni za NDVI i RF klasifikaciju.
+
+Formiranje prostorno‑vremenske kocke (x, y, band, time)
+
+Ekstrakcija meta‑podataka iz imena fajlova (A‑opcija)
+
+```{r}
+# Kod ...
+```
+
+Učitavanje i homogenizacija rezolucije/projekcije
+
+```{r}
+# Referentni raster ...
+```
+
+Grupisanje po datumu i spajanje u kocku
+
+```{r}
+#  Kod ...
+```
+
+
+
+# **Zadatak 3 (5 poena):** Prikažite dimenzije kocke (`st_dimensions`) i u jednoj rečenici objasnite šta predstavlja svaka dimenzija. Priložite `plot()` jednog datuma (po izboru) sa 3 kanala (RGB = B04,B03,B02).
+
+
+
+Maskiranje oblaka (SCL)
+
+```{r}
+# Kreirajte masku čistih piksela ...
+```
+
+
+
+
+# **Zadatak 4 (5 poena):** Napravite tabelu/linijski grafikon „udeo čistih piksela po datumu“ i **izaberite 4–6 najčistijih datuma** koje ćete koristiti u nastavku. Obrazložite izbor (1–2 rečenice).
+
+```{r}
+# Filtrirajte kocku na odabrane datume (ručno unesite indekse ili datume)
+
+```
+
+
+NDVI kao novi „band“
+
+```{r}
+# Izdvojite RED i NIR ...
+
+```
+
+
+
+# **Zadatak 5 (5 poena):** Komentarišite promene srednjeg NDVI kroz vreme (2–3 rečenice). Da li se vidi uticaj oblaka nakon filtriranja? Kreirajte trening podatke za RF model.
+
+Dodavanje NDVI u kocku
+
+```{r}
+# Redimenzionisanje NDVI -> (x,y,band,time) ...
+```
+
+
+Priprema trening podataka
+
+Kreirajte trening skup sa klasama (`cls`) i odgovarajućim vrednostima u Google Earth aplikaciji i učitajte podatke u radno okruženje.
+
+```{r}
+
+```
+
+
+
+
+# **Zadatak 6 (10 poena):** Prikažite broj uzoraka po klasi i ukratko opišite potencijalnu **pristrasnost uzorkovanja** (2–3 rečenice). Napravite model i kratko prokomentarišite rezultate modela (2–3 rečenice).
+
+Analiza trening podataka 
+
+```{r}
+# Kod
+```
+
+Random Forest model (ranger)
+
+```{r}
+# Kod
+```
+
+
+
+# **Zadatak 7 (10 poena):** Zapišite **OOB grešku** i izdvojte **važnost varijabli**. Koji bendovi najviše doprinose razdvajanju klasa?
+
+
+Prostorna predikcija sa `predict()` nad stars kockom
+
+Predikujte klase i izradite kartu.
+
+```{r}
+# 
+```
+
+
+
+# **Zadatak 8 (10 poena):** Napravite validaciju rezultata RF modela manuelno. Prikažite rezultate predikcije na karti GE i uporedite sa stvarnim klasama. Kako se model ponaša u urbanim, poljoprivrednim i šumskim područjima?
+Napravite ocenu modela koristeći pristup sa trening podacima i test skupom. Test skup može biti deo trening podataka koji niste koristili za treniranje modela (npr. 30% podataka iz svake klase) ili napravite nezavistan test skup.
+
+
+```{r}
+# 
+```
+
+
+# **Zadatak 9 (10 poena):** Prikažite konfuzionu matricu i prokomentarišite rezultate (2–3 rečenice). Šta biste uradili da poboljšate performanse?
+
+
+Analiza osetljivosti i `mtry`
+
+1) **Bez NDVI**: trenirajte model bez NDVI kolone i uporedite OOB grešku.  
+2) **Promena `mtry`**: varirajte `mtry` (1, 2, 3, …) i grafički prikažite OOB grešku.
+
+```{r}
+##
+```
+
+
+
+# **Zadatak 10 (10 poena):** Da li NDVI značajno doprinosi? Koja vrednost `mtry` vam daje najbolji kompromis između tačnosti i stabilnosti?
+
+
+
+# Zaključak
+
+**Napišite 5–10 rečenica** o kvalitetu kocke, ulozi maskiranja oblaka, doprinosu NDVI, stabilnosti modela i ograničenjima (npr. automatsko etiketiranje na osnovu praga NDVI ...).
+
