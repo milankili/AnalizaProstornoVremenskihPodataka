@@ -3140,7 +3140,7 @@
     "href": "06_stars/stars.html#provera-oblačnog-datuma",
     "title": "Prostorno vremenski podaci: R paket stars",
     "section": "Provera oblačnog datuma",
-    "text": "Provera oblačnog datuma\n\nrgb_oblak &lt;- st_rgb(slice(sentinel_cube[,,,3:1, ], along = \"time\", index = 3))\nplot(rgb_oblak, main = \"RGB Kompozit (samo čisti pikseli)\")"
+    "text": "Provera oblačnog datuma\n\nrgb_oblak &lt;- st_rgb(slice(sentinel_cube[,,,3:1, ], along = \"time\", index = 3))\nplot(rgb_oblak, main = \"RGB Kompozit (oblaci i senke)\" )"
   },
   {
     "objectID": "06_stars/stars.html#oblačni-pikseli-senka-ili-tamni-su-uklonjeni-i-npravljen-rgb-plot-za-drugi-datum",
@@ -3399,14 +3399,14 @@
     "href": "06_stars/stars.html#vizualizacija-vektorskog-stars-objekta",
     "title": "Prostorno vremenski podaci: R paket stars",
     "section": "Vizualizacija vektorskog stars objekta",
-    "text": "Vizualizacija vektorskog stars objekta\nMožemo videti da su vremenske serije prilično duge, ali takođe sadrže velike praznine u podacima. Takođe je prikazana prostorna raspodela mernih stanica zajedno sa srednjim vrednostima PM.\n\n# Broj NA vrednosti po stanici\nna_count &lt;- st_apply(aq, 1, function(x) sum(is.na(x)) )\n# Konverzija u sf objekat i plotovanje\nna_count &lt;- st_as_sf(na_count)\nnames(na_count)[1] &lt;- \"brna\"\n# Konverzija u sf objekat i plotovanje\nplot(na_count , pch = 16, main = \"Broj NA vrednosti po stanici\")"
+    "text": "Vizualizacija vektorskog stars objekta\nMožemo videti da su vremenske serije prilično duge, ali takođe sadrže velike praznine u podacima.\nTakođe je prikazana prostorna raspodela mernih stanica zajedno sa brojem nedostajućih opažanja po stanici.\n\n# Broj NA vrednosti po stanici\nna_count &lt;- st_apply(aq, 1, function(x) sum(is.na(x)) )\n# Konverzija u sf objekat i plotovanje\nna_count &lt;- st_as_sf(na_count)\nnames(na_count)[1] &lt;- \"brna\"\n# Konverzija u sf objekat i plotovanje\nplot(na_count , pch = 16, main = \"Broj NA vrednosti po stanici\")"
   },
   {
     "objectID": "06_stars/stars.html#procenat-nedostajućih-vrednosti-po-stanici",
     "href": "06_stars/stars.html#procenat-nedostajućih-vrednosti-po-stanici",
     "title": "Prostorno vremenski podaci: R paket stars",
     "section": "Procenat nedostajućih vrednosti po stanici",
-    "text": "Procenat nedostajućih vrednosti po stanici\n\nna_count$na_pr &lt;- na_count$brna / dim(aq)[2]  * 100\n# Konverzija u sf objekat i plotovanje\nplot( na_count[,\"na_pr\"], pch = 16, main = \"Broj NA vrednosti po stanici\")"
+    "text": "Procenat nedostajućih vrednosti po stanici\n\nna_count$na_pr &lt;- na_count$brna / dim(aq)[2]  * 100\n# Konverzija u sf objekat i plotovanje\nplot( na_count[,\"na_pr\"], pch = 16, main = \"Procenat NA vrednosti po stanici\")"
   },
   {
     "objectID": "06_stars/stars.html#image-plot-vrednosti",
@@ -3416,11 +3416,11 @@
     "text": "Image plot vrednosti\n\nlog(aq) → Primeniće logaritamsku transformaciju na sve vrednosti unutar stars objekta aq. (poboljšava kontrast i smanjuje uticaj ekstremnih vrednosti)\naperm() označava “array permutation”, odnosno promenu redosleda dimenzija.\naperm(log(aq), 2:1) zameni prvu i drugu dimenziju objekta aq\n\n\npar(mar = c(5.1, 4.1, 0.3, 0.1))\nimage(aperm(log(aq), 2:1), main = NULL)"
   },
   {
-    "objectID": "06_stars/stars.html#image-plot-vrednosti-1",
-    "href": "06_stars/stars.html#image-plot-vrednosti-1",
+    "objectID": "06_stars/stars.html#image-plot-vrednosti-na-po-stanicama-u-vremenu",
+    "href": "06_stars/stars.html#image-plot-vrednosti-na-po-stanicama-u-vremenu",
     "title": "Prostorno vremenski podaci: R paket stars",
-    "section": "Image plot vrednosti",
-    "text": "Image plot vrednosti"
+    "section": "Image plot vrednosti NA po stanicama u vremenu",
+    "text": "Image plot vrednosti NA po stanicama u vremenu"
   },
   {
     "objectID": "06_stars/stars.html#prosečna-vrednost-pm10-po-stanici-za-celu-vremensku-seriju",
@@ -3461,8 +3461,8 @@
     "objectID": "06_stars/stars.html#plot-vremenske-serije-pm10-za-stanicu-broj-4-za-2008-godinu",
     "href": "06_stars/stars.html#plot-vremenske-serije-pm10-za-stanicu-broj-4-za-2008-godinu",
     "title": "Prostorno vremenski podaci: R paket stars",
-    "section": "Plot Vremenske serije PM10 za stanicu broj 4 za 2008 godinu",
-    "text": "Plot Vremenske serije PM10 za stanicu broj 4 za 2008 godinu\n\n# Vremenska serija PM10 za stanicu broj 4\nlibrary(xts) \nplot(as.xts(a)[,4], main = de_nuts1$NAME_1[4])"
+    "section": "Plot vremenske serije PM10 za stanicu broj 4 za 2008 godinu",
+    "text": "Plot vremenske serije PM10 za stanicu broj 4 za 2008 godinu\n\n# Vremenska serija PM10 za stanicu broj 4\nlibrary(xts) \nplot(as.xts(a)[,4], main = de_nuts1$NAME_1[4])"
   },
   {
     "objectID": "06_stars/stars.html#memorijske-optimizacije",
