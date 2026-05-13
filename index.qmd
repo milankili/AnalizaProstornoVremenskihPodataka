@@ -113,6 +113,20 @@ Ova prezentacija pruža sveobuhvatan uvod u rad sa prostorno-vremenskim podacima
 :::
 
 
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm .p-3}
+
+### Metode prostorne i prostorno vremenske interpolacije
+
+Ova prezentacija pruža sveobuhvatan pregled prostornih i prostornovremenskih interpolacija.
+
+<br>
+[Otvori prezentaciju](07_interpolacije/interpolacije.html){.btn .btn-primary role="button"}
+
+:::
+:::
+
+
 
 
 :::

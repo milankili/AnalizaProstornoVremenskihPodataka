@@ -1,0 +1,164 @@
+---
+title: "Interpolacija mesečnih temperatura (Srbija)"
+author: "Student: __________________  |  Broj indeksa: ____________"
+date: "`r format(Sys.Date(), '%d.%m.%Y')`"
+format:
+  docx:
+    toc: true
+    number-sections: true
+execute:
+  echo: true
+  warning: false
+  message: false
+  eval: false  
+editor: source
+fontsize: 11pt
+---
+
+# Cilj i zadatak
+
+Na osnovu **realnih podataka o mesečnim srednjim temperaturama vazduha** sa meteoroloških stanica u Srbiji (NOAA GSOD baza preko R paketa **GSODR**), potrebno je:
+
+1. Preuzeti i pripremiti podatke za **jednu odabranu godinu** (npr. 2022) i odabrani **mesec** (npr. jul).
+2. Izvršiti **prostornu interpolaciju** za teritoriju Srbije koristeći više metoda:
+   - Metod inverznih distanci (**IDW**)
+   - Običan kriging (**OK**)
+   - Splajn metodu, Thin Plate Spline (**TPS**)
+   - Najbliži sused (**NN**)
+3. Uraditi **kros validaciju** (npr. *leave‑one‑out*) i uporediti metode pomoću metrika: **RMSE, MAE, R²**.
+4. Vizuelizovati rezultate (karte) i napisati **kratku diskusiju** (1/2–1 strana) o tome koja metoda daje najbolje rezultate i zašto.
+
+
+
+# Paketi i postavke
+
+```{r}
+#| label: setup
+#| include: true
+# Osnovni paketi
+library(tidyverse)
+library(sf)
+library(stars)
+library(gstat)
+library(fields)    # za TPS
+library(nngeo)     # za NN
+library(Metrics)   # za RMSE, MAE, R2
+
+# Podaci (NOAA GSOD)
+library(GSODR)           # preuzimanje dnevnih meteo podataka
+library(rnaturalearth)   # granica Srbije
+library(rnaturalearthdata)
+
+# Reproducibilnost
+set.seed(42)
+
+# Parametri koje student treba postaviti
+YEAR  <- 2022         # godina analize
+MONTH <- 7            # mesec (1-12)
+
+# ISO kod države (Srbija)
+ISO_CTRY <- "RS"
+
+# Projekcija za rad UTM 34N (ETRS89 / UTM zone 34N)
+target_crs <- 32634  
+
+# Rezolucija mreže (u metrima)
+res_km <- 10          # 10 km grid
+```
+
+# Granica Srbije i radni grid
+
+```{r}
+#| label: granica-grid
+# Dohvati granicu Srbije (scale = 10 je najdetaljnije u rnaturalearth)
+rs <- rnaturalearth::ne_states(iso_a2 = "RS", 
+                                  returnclass = "sf") |> 
+  st_transform(target_crs)
+
+# Kreiraj pravougaonu mrežu koja pokriva Srbiju, pa je izreži na poligon Srbije
+grid_rs <- st_make_grid(rs, cellsize = res_km * 1000, what = "centers") |> 
+  st_as_sf() |> 
+  st_intersection(rs |> dplyr::select(geometry))
+
+# Pregled
+nrow(grid_rs)
+plot(st_geometry(grid_rs), col = "lightgray", main = "Granica Srbije bez KiM, radni grid")
+```
+
+# Preuzimanje realnih merenja (GSODR / NOAA GSOD)
+
+```{r}
+#| label: gsod-download
+# 1) (Opcionalno) pregled inventara stanica u Srbiji
+# inv <- get_inventory()
+# stations_rs <- filter(inv, CTRY == ISO_CTRY)
+
+# 2) Preuzmi dnevne podatke za zadatu godinu i zemlju
+rs_daily <- GSODR::get_GSOD(years = YEAR, country = ISO_CTRY)
+
+# 3) Agregacija na mesečne srednje temperature
+# rs_monthly <- rs_daily |>  ...
+
+```
+
+
+
+# Metoda 1: inverznih distanci (IDW)
+
+```{r}
+#| label: idw
+
+```
+
+
+# Metoda 2: Ordinary Kriging (OK)
+
+```{r}
+#| label: ok
+# Empirijski variogram
+
+```
+
+# Metoda 3: Thin Plate Spline (TPS)
+
+```{r}
+#| label: tps
+
+```
+
+# Metoda 4: Najbliži sused (NN)
+
+```{r}
+#| label: nn
+
+```
+
+# Cross‑validacija i metrike
+
+```{r}
+#| label: cv-metrics
+
+
+```
+
+# Karte rezultata 
+
+```{r}
+#
+```
+
+# (Opciono) Regression Kriging
+
+```{r}
+#| label: rk
+
+```
+
+# Predaja i šta dostaviti
+
+- **Karte** interpolacije (min. 4 metode) za odabrani mesec/godinu.
+- **Tabela** performansi (RMSE, MAE, R²) sa kratkim komentarom.
+- **Diskusija** (1/2–1 strana): koja metoda daje najbolje rezultate i zašto; uticaj gustine mreže stanica, topografije i izbora projekcije.
+- U uvodu jasno navesti: **YEAR**, **MONTH**, broj i raspored stanica (n), te rezoluciju grida.
+
+> Savet: isprobajte različite vrednosti IDW parametra `idp`, više modela variograma za OK (Sph/Exp/Gau) i diskutujte promene u metrikama.
