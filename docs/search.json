@@ -3563,708 +3563,708 @@
     "text": "Literatura:\n\nR Cookbook, 2nd edition, by JD Long and Paul Teetor https://rc2e.com/timeseriesanalysis\nWoodward, W. A., Sadler, B. P., & Robertson, S. (2022). Time Series for Data Science: Analysis and Forecasting (1st ed.). Chapman and Hall/CRC.\nhttps://gdalcubes.github.io/source/tutorials\nhttps://brazil-data-cube.github.io/rstac/\nhttps://planetarycomputer.microsoft.com/docs/concepts"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#info-grafik",
-    "href": "07_intepolacije/Interpolacije.html#info-grafik",
+    "objectID": "07_interpolacije/interpolacije.html#info-grafik",
+    "href": "07_interpolacije/interpolacije.html#info-grafik",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Info grafik",
     "text": "Info grafik"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#video-pregled",
-    "href": "07_intepolacije/Interpolacije.html#video-pregled",
+    "objectID": "07_interpolacije/interpolacije.html#video-pregled",
+    "href": "07_interpolacije/interpolacije.html#video-pregled",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Video pregled",
     "text": "Video pregled"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#podaci-o-uzorkovanju-zemljišta-na-155-lokacija-diskretni-podaci",
-    "href": "07_intepolacije/Interpolacije.html#podaci-o-uzorkovanju-zemljišta-na-155-lokacija-diskretni-podaci",
+    "objectID": "07_interpolacije/interpolacije.html#podaci-o-uzorkovanju-zemljišta-na-155-lokacija-diskretni-podaci",
+    "href": "07_interpolacije/interpolacije.html#podaci-o-uzorkovanju-zemljišta-na-155-lokacija-diskretni-podaci",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Podaci o uzorkovanju zemljišta na 155 lokacija diskretni podaci",
     "text": "Podaci o uzorkovanju zemljišta na 155 lokacija diskretni podaci"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#neophodno-nam-je-da-sračunamo-kontinualne-podatke-u-rezoluciji-40x40-m",
-    "href": "07_intepolacije/Interpolacije.html#neophodno-nam-je-da-sračunamo-kontinualne-podatke-u-rezoluciji-40x40-m",
+    "objectID": "07_interpolacije/interpolacije.html#neophodno-nam-je-da-sračunamo-kontinualne-podatke-u-rezoluciji-40x40-m",
+    "href": "07_interpolacije/interpolacije.html#neophodno-nam-je-da-sračunamo-kontinualne-podatke-u-rezoluciji-40x40-m",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Neophodno nam je da sračunamo kontinualne podatke u rezoluciji 40x40 m",
     "text": "Neophodno nam je da sračunamo kontinualne podatke u rezoluciji 40x40 m"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kako-sračunati-vrednost-sadržaja-cinka-ili-olova-u-ćeliji-u-kojoj-nije-bilo-uzorkovanja",
-    "href": "07_intepolacije/Interpolacije.html#kako-sračunati-vrednost-sadržaja-cinka-ili-olova-u-ćeliji-u-kojoj-nije-bilo-uzorkovanja",
+    "objectID": "07_interpolacije/interpolacije.html#kako-sračunati-vrednost-sadržaja-cinka-ili-olova-u-ćeliji-u-kojoj-nije-bilo-uzorkovanja",
+    "href": "07_interpolacije/interpolacije.html#kako-sračunati-vrednost-sadržaja-cinka-ili-olova-u-ćeliji-u-kojoj-nije-bilo-uzorkovanja",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kako sračunati vrednost sadržaja cinka ili olova u ćeliji u kojoj nije bilo uzorkovanja",
     "text": "Kako sračunati vrednost sadržaja cinka ili olova u ćeliji u kojoj nije bilo uzorkovanja"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#toblerov-zakon",
-    "href": "07_intepolacije/Interpolacije.html#toblerov-zakon",
+    "objectID": "07_interpolacije/interpolacije.html#toblerov-zakon",
+    "href": "07_interpolacije/interpolacije.html#toblerov-zakon",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Toblerov zakon",
     "text": "Toblerov zakon\n\nSve pojave u geografskom prostoru su međusobno povezane, ali one koje su prostorno bliže su međusobno sličnije od onih koje su međusobno udaljenije.\nProračun na lokaciji koja nije merena može biti linearna ili ne-linearna kombinacija susednih opažanja.\nKako uzeti blizinu u obzir?"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metod-inverznih-distanci",
-    "href": "07_intepolacije/Interpolacije.html#metod-inverznih-distanci",
+    "objectID": "07_interpolacije/interpolacije.html#metod-inverznih-distanci",
+    "href": "07_interpolacije/interpolacije.html#metod-inverznih-distanci",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metod inverznih distanci",
     "text": "Metod inverznih distanci\n\nU ovoj metodi se vrednost na nepoznatoj lokaciji računa kao ponderisana suma vrednosti sa poznatih lokacija, pri čemu je težina svakog uzorka obrnuto proporcionalna njegovoj udaljenosti od nepoznate lokacije.\n\n\\[\nz(x, y)=\\frac{\\sum_{i=1}^n\\left[\\frac{z}{d_i^p}\\right]}{\\sum_{i=1}^n\\left[\\frac{1}{d_i^p}\\right]} \\text { ili } \\quad z(x, y)=\\sum \\lambda_i \\times z_i \\xrightarrow{\\text { with }} \\sum \\lambda_i=1\n\\]"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metod-inverznih-distanci-1",
-    "href": "07_intepolacije/Interpolacije.html#metod-inverznih-distanci-1",
+    "objectID": "07_interpolacije/interpolacije.html#metod-inverznih-distanci-1",
+    "href": "07_interpolacije/interpolacije.html#metod-inverznih-distanci-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metod inverznih distanci",
     "text": "Metod inverznih distanci"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metod-inverznih-distanci-2",
-    "href": "07_intepolacije/Interpolacije.html#metod-inverznih-distanci-2",
+    "objectID": "07_interpolacije/interpolacije.html#metod-inverznih-distanci-2",
+    "href": "07_interpolacije/interpolacije.html#metod-inverznih-distanci-2",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metod inverznih distanci",
     "text": "Metod inverznih distanci"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metod-inverznih-distanci-3",
-    "href": "07_intepolacije/Interpolacije.html#metod-inverznih-distanci-3",
+    "objectID": "07_interpolacije/interpolacije.html#metod-inverznih-distanci-3",
+    "href": "07_interpolacije/interpolacije.html#metod-inverznih-distanci-3",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metod inverznih distanci",
     "text": "Metod inverznih distanci"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#prethodna-analiza-podataka-geovizuelizacija",
-    "href": "07_intepolacije/Interpolacije.html#prethodna-analiza-podataka-geovizuelizacija",
+    "objectID": "07_interpolacije/interpolacije.html#prethodna-analiza-podataka-geovizuelizacija",
+    "href": "07_interpolacije/interpolacije.html#prethodna-analiza-podataka-geovizuelizacija",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Prethodna analiza podataka – geovizuelizacija",
     "text": "Prethodna analiza podataka – geovizuelizacija"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#predhodna-analiza-podataka-sadržaj-cinka-u-zemljištu-i-rastojanje-od-reke",
-    "href": "07_intepolacije/Interpolacije.html#predhodna-analiza-podataka-sadržaj-cinka-u-zemljištu-i-rastojanje-od-reke",
+    "objectID": "07_interpolacije/interpolacije.html#predhodna-analiza-podataka-sadržaj-cinka-u-zemljištu-i-rastojanje-od-reke",
+    "href": "07_interpolacije/interpolacije.html#predhodna-analiza-podataka-sadržaj-cinka-u-zemljištu-i-rastojanje-od-reke",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Predhodna analiza podataka – Sadržaj cinka u zemljištu i rastojanje od reke",
     "text": "Predhodna analiza podataka – Sadržaj cinka u zemljištu i rastojanje od reke"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#predhodna-analiza-podataka-sadržaj-cinka-u-zemljištu-i-rastojanje-od-reke-1",
-    "href": "07_intepolacije/Interpolacije.html#predhodna-analiza-podataka-sadržaj-cinka-u-zemljištu-i-rastojanje-od-reke-1",
+    "objectID": "07_interpolacije/interpolacije.html#predhodna-analiza-podataka-sadržaj-cinka-u-zemljištu-i-rastojanje-od-reke-1",
+    "href": "07_interpolacije/interpolacije.html#predhodna-analiza-podataka-sadržaj-cinka-u-zemljištu-i-rastojanje-od-reke-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Predhodna analiza podataka – Sadržaj cinka u zemljištu i rastojanje od reke",
     "text": "Predhodna analiza podataka – Sadržaj cinka u zemljištu i rastojanje od reke"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#idw-i-rk",
-    "href": "07_intepolacije/Interpolacije.html#idw-i-rk",
+    "objectID": "07_interpolacije/interpolacije.html#idw-i-rk",
+    "href": "07_interpolacije/interpolacije.html#idw-i-rk",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "IDW i RK",
     "text": "IDW i RK"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#idw-i-rk-1",
-    "href": "07_intepolacije/Interpolacije.html#idw-i-rk-1",
+    "objectID": "07_interpolacije/interpolacije.html#idw-i-rk-1",
+    "href": "07_interpolacije/interpolacije.html#idw-i-rk-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "IDW i RK",
     "text": "IDW i RK"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#regresioni-kriging-sa-više-prediktora",
-    "href": "07_intepolacije/Interpolacije.html#regresioni-kriging-sa-više-prediktora",
+    "objectID": "07_interpolacije/interpolacije.html#regresioni-kriging-sa-više-prediktora",
+    "href": "07_interpolacije/interpolacije.html#regresioni-kriging-sa-više-prediktora",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Regresioni kriging sa više prediktora",
     "text": "Regresioni kriging sa više prediktora"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metode-za-prostornu-interpolaciju-bez-prediktora",
-    "href": "07_intepolacije/Interpolacije.html#metode-za-prostornu-interpolaciju-bez-prediktora",
+    "objectID": "07_interpolacije/interpolacije.html#metode-za-prostornu-interpolaciju-bez-prediktora",
+    "href": "07_interpolacije/interpolacije.html#metode-za-prostornu-interpolaciju-bez-prediktora",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metode za prostornu interpolaciju bez prediktora",
     "text": "Metode za prostornu interpolaciju bez prediktora\n\nIDW (Inverse Distance Weighting)\nNajbliži sused (Nearest Neighbour)\nPlate spline / spline funkcije\nTriangulacija sa linearnom interpolacijom\nLokalni polinomi (Local polynomial)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metode-za-prostornu-interpolaciju-bez-prediktora-1",
-    "href": "07_intepolacije/Interpolacije.html#metode-za-prostornu-interpolaciju-bez-prediktora-1",
+    "objectID": "07_interpolacije/interpolacije.html#metode-za-prostornu-interpolaciju-bez-prediktora-1",
+    "href": "07_interpolacije/interpolacije.html#metode-za-prostornu-interpolaciju-bez-prediktora-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metode za prostornu interpolaciju bez prediktora",
     "text": "Metode za prostornu interpolaciju bez prediktora"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#idw",
-    "href": "07_intepolacije/Interpolacije.html#idw",
+    "objectID": "07_interpolacije/interpolacije.html#idw",
+    "href": "07_interpolacije/interpolacije.html#idw",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "IDW",
     "text": "IDW"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#nearest-neighbournajbliži-sused",
-    "href": "07_intepolacije/Interpolacije.html#nearest-neighbournajbliži-sused",
+    "objectID": "07_interpolacije/interpolacije.html#nearest-neighbournajbliži-sused",
+    "href": "07_interpolacije/interpolacije.html#nearest-neighbournajbliži-sused",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Nearest neighbour/najbliži sused",
     "text": "Nearest neighbour/najbliži sused\n\nOva metoda se koristi kada je potrebno interpolirati vrednosti na tačkama koje su najbliže poznatim tačkama. U ovoj metodi se vrednost na nepoznatoj lokaciji računa kao vrednost najbližeg uzorka. Često se koristi kod kategoričkih podataka."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#plate-splinespline-funkcija",
-    "href": "07_intepolacije/Interpolacije.html#plate-splinespline-funkcija",
+    "objectID": "07_interpolacije/interpolacije.html#plate-splinespline-funkcija",
+    "href": "07_interpolacije/interpolacije.html#plate-splinespline-funkcija",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Plate spline/spline funkcija",
     "text": "Plate spline/spline funkcija\n\nOva metoda koristi spline funkcije za interpolaciju vrednosti između poznatih tačaka. Spline funkcije su polinomi koji su povezani u tačkama koje se nazivaju čvorovi. Ova metoda je pogodna za podatke koji imaju glatke promene."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#triangulacija-sa-linearnom-interpolacijom",
-    "href": "07_intepolacije/Interpolacije.html#triangulacija-sa-linearnom-interpolacijom",
+    "objectID": "07_interpolacije/interpolacije.html#triangulacija-sa-linearnom-interpolacijom",
+    "href": "07_interpolacije/interpolacije.html#triangulacija-sa-linearnom-interpolacijom",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Triangulacija sa linearnom interpolacijom",
     "text": "Triangulacija sa linearnom interpolacijom\n\nOva metoda koristi triangulaciju da bi se stvorila mreža trouglova između poznatih tačaka. Vrednosti se zatim interpoliraju unutar svakog trougla koristeći linearnu interpolaciju. Ova metoda je pogodna za podatke koji imaju oštre promene."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#lokalni-polinomi",
-    "href": "07_intepolacije/Interpolacije.html#lokalni-polinomi",
+    "objectID": "07_interpolacije/interpolacije.html#lokalni-polinomi",
+    "href": "07_interpolacije/interpolacije.html#lokalni-polinomi",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Lokalni polinomi",
     "text": "Lokalni polinomi\n\nOva metoda koristi lokalne polinome za interpolaciju vrednosti između poznatih tačaka. Lokalni polinomi su polinomi koji se koriste samo u malom okruženju oko tačke koja se interpolira. Ova metoda je pogodna za podatke koji imaju lokalne promene."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kriging",
-    "href": "07_intepolacije/Interpolacije.html#kriging",
+    "objectID": "07_interpolacije/interpolacije.html#kriging",
+    "href": "07_interpolacije/interpolacije.html#kriging",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kriging",
     "text": "Kriging\n\nKriging je metoda koja koristi prostornu autokorelaciju da bi se procenile vrednosti na nepoznatim lokacijama. Ova metoda koristi poluvariogram za određivanje optimalnih težina za svaku poznatu tačku, kako bi znali uticaj svake tačke na vrednost na nepoznatoj lokaciji, na osnovu udaljenosti od poznatih tačaka.\nPoluvariogram meri koliko se vrednosti razlikuju zavisno od njihove međusobne udaljenosti. Bliže tačke imaju sličnije vrednosti (manju poluvarijansu), dok daleke tačke pokazuju veću različitost (veću poluvarijansu), kod pojava koje su prostorno zavisne.\nKriging predikcija je optimalna linearna kombinacija poznatih vrednosti, gde se optimalne težine dobijaju na osnovu poluvarigrama."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rezime-kada-koristiti-koju-metodu",
-    "href": "07_intepolacije/Interpolacije.html#rezime-kada-koristiti-koju-metodu",
+    "objectID": "07_interpolacije/interpolacije.html#rezime-kada-koristiti-koju-metodu",
+    "href": "07_interpolacije/interpolacije.html#rezime-kada-koristiti-koju-metodu",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Rezime: Kada koristiti koju metodu?",
     "text": "Rezime: Kada koristiti koju metodu?\nOdabir prave metode interpolacije zavisi od prirode samih podataka i fenomena koji se modelira. U tabeli ispod dat je kratak pregled preporučenih metoda bez prediktora:\n\n\nTip podataka / Zahtev analize\nPreporučena metoda\n\n\n\nKategorički podaci / zona uticaja\nNajbliži sused / Voronoi\n\n\n\nVrlo glatki prelazi (npr. temperature)\nSpline / Kriging\n\n\n\nBrza i osnovna procena bez izlaska iz opsega merenja\nIDW"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metode-za-prostornu-interpolaciju-sa-prediktorima-bez-prostorne-autokorelacije-1",
-    "href": "07_intepolacije/Interpolacije.html#metode-za-prostornu-interpolaciju-sa-prediktorima-bez-prostorne-autokorelacije-1",
+    "objectID": "07_interpolacije/interpolacije.html#metode-za-prostornu-interpolaciju-sa-prediktorima-bez-prostorne-autokorelacije-1",
+    "href": "07_interpolacije/interpolacije.html#metode-za-prostornu-interpolaciju-sa-prediktorima-bez-prostorne-autokorelacije-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metode za prostornu interpolaciju sa prediktorima bez prostorne autokorelacije",
     "text": "Metode za prostornu interpolaciju sa prediktorima bez prostorne autokorelacije\n\nLinearna regresija (MLR, GWR, GAM)\nRandom Forest (RF)\nSupport Vector Machines (SVM)\nArtificial Neural Networks (ANN)\nGradient Boosting Machines (GBM)\nCubist, …"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metode-za-prostornu-interpolaciju-sa-prediktorima",
-    "href": "07_intepolacije/Interpolacije.html#metode-za-prostornu-interpolaciju-sa-prediktorima",
+    "objectID": "07_interpolacije/interpolacije.html#metode-za-prostornu-interpolaciju-sa-prediktorima",
+    "href": "07_interpolacije/interpolacije.html#metode-za-prostornu-interpolaciju-sa-prediktorima",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metode za prostornu interpolaciju sa prediktorima",
     "text": "Metode za prostornu interpolaciju sa prediktorima\n\nPredikcija vrednosti na nepoznatoj lokaciji \\(s_0\\) se vrši kao linearna ili nelineran kombinacija vrednosti prediktora koji su poznati na celom području interpolacije."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#prostorna-interpolacija-bazirane-na-prediktorima",
-    "href": "07_intepolacije/Interpolacije.html#prostorna-interpolacija-bazirane-na-prediktorima",
+    "objectID": "07_interpolacije/interpolacije.html#prostorna-interpolacija-bazirane-na-prediktorima",
+    "href": "07_interpolacije/interpolacije.html#prostorna-interpolacija-bazirane-na-prediktorima",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Prostorna interpolacija – bazirane na prediktorima",
     "text": "Prostorna interpolacija – bazirane na prediktorima\nModeli interpolacije (\\(\\mathbf{q}\\) je matrica dizajna (design matrix). Ona sadrži vrednosti prediktora za sve uzorke):\n\n\nOpšta linearna regresija:\n\\[\n\\hat{z}(s_0) = \\sum_{k=0}^{n_c} \\beta_k z_k(s_0)\n\\] Parametri modela:\n\nKlasična OLS procena:\n\n\\[\n\\hat{\\beta}_{OLS} = (\\mathbf{q}^T \\mathbf{q})^{-1} \\mathbf{q}^T \\mathbf{z}\n\\]\n\nPonderisana LS procena:\n\n\\[\n\\hat{\\beta}_{WLS}(s_0) = (\\mathbf{q}^T \\mathbf{W}(s_0) \\mathbf{q})^{-1} \\mathbf{q}^T \\mathbf{W}(s_0) \\mathbf{z}\n\\]\n\nGeneralizovana aditivna regresija (GAM):\n\\[\n\\hat{z}(s_0) = \\beta_0 + \\sum_{k=0}^{n_c} f_k(s_0)\n\\] \\(f_k(s_0)\\) — glatke funkcije prediktora \\(k\\) na lokaciji \\(s_0\\)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metode-mašinskog-učenja-rf-svm-ann-gbm-cubist",
-    "href": "07_intepolacije/Interpolacije.html#metode-mašinskog-učenja-rf-svm-ann-gbm-cubist",
+    "objectID": "07_interpolacije/interpolacije.html#metode-mašinskog-učenja-rf-svm-ann-gbm-cubist",
+    "href": "07_interpolacije/interpolacije.html#metode-mašinskog-učenja-rf-svm-ann-gbm-cubist",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metode mašinskog učenja (RF, SVM, ANN, GBM, Cubist)",
     "text": "Metode mašinskog učenja (RF, SVM, ANN, GBM, Cubist)\n\nRandom Forest uči odnos između ciljne promenljive i prediktora na poznatim uzorcima i zatim koristi taj model da predviđa vrednosti na bilo kojoj lokaciji na osnovu dostupnih prediktora. (Kod ovog pristupa nema direktne primene prostorne autokorelacije, šta je bliže to je sličnije, ona je indirektno sadržana u prostiranju prediktora)\nRF prvo pronalazi vezu između poznatih vrednosti ciljne promenljive (npr. koncentracije cinka) i odgovarajućih vrednosti prediktora (npr. nadmorska visina, udaljenost od reke, tip zemljišta). RF model.\nRF model onda koristi poznate vrednosti prediktora dostupne za svaku tačku na području interpolacije da izvrši predikciju ciljne promenljive na nepoznatim lokacijama."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kombinovane-metode-regresioni-kriging-opažanja-prediktori-trend-i-autokorelacija-1",
-    "href": "07_intepolacije/Interpolacije.html#kombinovane-metode-regresioni-kriging-opažanja-prediktori-trend-i-autokorelacija-1",
+    "objectID": "07_interpolacije/interpolacije.html#kombinovane-metode-regresioni-kriging-opažanja-prediktori-trend-i-autokorelacija-1",
+    "href": "07_interpolacije/interpolacije.html#kombinovane-metode-regresioni-kriging-opažanja-prediktori-trend-i-autokorelacija-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kombinovane metode: Regresioni kriging (opažanja + prediktori, trend i autokorelacija)",
     "text": "Kombinovane metode: Regresioni kriging (opažanja + prediktori, trend i autokorelacija)\n\nTrend se modelira regresijom, a rezidual se interpolira krigingom.\nRezidual je razlika između stvarne vrednosti i vrednosti dobijene regresijom."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kombinovane-metode-regresioni-kriging-opažanja-prediktori",
-    "href": "07_intepolacije/Interpolacije.html#kombinovane-metode-regresioni-kriging-opažanja-prediktori",
+    "objectID": "07_interpolacije/interpolacije.html#kombinovane-metode-regresioni-kriging-opažanja-prediktori",
+    "href": "07_interpolacije/interpolacije.html#kombinovane-metode-regresioni-kriging-opažanja-prediktori",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kombinovane metode: Regresioni kriging (opažanja + prediktori)",
     "text": "Kombinovane metode: Regresioni kriging (opažanja + prediktori)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#metode-za-prostornu-vremensku-interpolaciju-koncept",
-    "href": "07_intepolacije/Interpolacije.html#metode-za-prostornu-vremensku-interpolaciju-koncept",
+    "objectID": "07_interpolacije/interpolacije.html#metode-za-prostornu-vremensku-interpolaciju-koncept",
+    "href": "07_interpolacije/interpolacije.html#metode-za-prostornu-vremensku-interpolaciju-koncept",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Metode za prostornu vremensku interpolaciju koncept",
     "text": "Metode za prostornu vremensku interpolaciju koncept\n\nProstorna vremenska interpolacija se koristi za procenu vrednosti na nepoznatim lokacijama i vremenima na osnovu poznatih vrednosti na drugim lokacijama i vremenima."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#statistički-model-prostorno-vremenskog-procesa-npr-prostorno-vremenski-regresioni-kriging",
-    "href": "07_intepolacije/Interpolacije.html#statistički-model-prostorno-vremenskog-procesa-npr-prostorno-vremenski-regresioni-kriging",
+    "objectID": "07_interpolacije/interpolacije.html#statistički-model-prostorno-vremenskog-procesa-npr-prostorno-vremenski-regresioni-kriging",
+    "href": "07_interpolacije/interpolacije.html#statistički-model-prostorno-vremenskog-procesa-npr-prostorno-vremenski-regresioni-kriging",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Statistički model prostorno-vremenskog procesa, npr prostorno vremenski regresioni kriging",
     "text": "Statistički model prostorno-vremenskog procesa, npr prostorno vremenski regresioni kriging\n\nProstorno-vremenski proces je slučajni proces koji zavisi od prostora i vremena. U ovom slučaju, prostorno-vremenski proces se može modelirati kao funkcija koja zavisi od prostora i vremena.\nMože biti sa ili bez prediktora. U ovom slučaju sa prediktorima."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#prostorno-vremenski-regresioni-kriging",
-    "href": "07_intepolacije/Interpolacije.html#prostorno-vremenski-regresioni-kriging",
+    "objectID": "07_interpolacije/interpolacije.html#prostorno-vremenski-regresioni-kriging",
+    "href": "07_interpolacije/interpolacije.html#prostorno-vremenski-regresioni-kriging",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Prostorno-vremenski regresioni kriging",
     "text": "Prostorno-vremenski regresioni kriging\nStatistički model prostorno-vremenskog procesa:\n\\[\nZ(s, t) = m(s, t) + \\varepsilon'(s, t) + \\varepsilon''(s, t)\n\\]\n\\(m(s, t)\\) – Trend komponenta\n\nDeterministički deo modela (prostorno-vremenska regresija)\nZavisi od poznatih prediktora: npr. nadmorska visina, NDVI, dan u godini\nObjašnjava sistematske promene u prostoru i vremenu\n\n\\(\\varepsilon'(s, t)\\) – Prostorno-vremenski rezidual\n\nPreostala varijabilnost koja je prostorno i vremenski zavisna\nModeluje se prostorno-vremenskim krigingom, prostorno vremenski variogramom.\nSadrži glatke, strukturisane obrasce\n\n\\(\\varepsilon''(s, t)\\) – Slučajna komponenta reziduala\n\nNestrukturisan šum (nema prostornu ni vremensku zavisnost)\nObuhvata merne greške i mikroskopske varijacije"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#predikcija-u-prostorno-vremenskom-regresionom-krigingu",
-    "href": "07_intepolacije/Interpolacije.html#predikcija-u-prostorno-vremenskom-regresionom-krigingu",
+    "objectID": "07_interpolacije/interpolacije.html#predikcija-u-prostorno-vremenskom-regresionom-krigingu",
+    "href": "07_interpolacije/interpolacije.html#predikcija-u-prostorno-vremenskom-regresionom-krigingu",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Predikcija u prostorno-vremenskom regresionom krigingu",
     "text": "Predikcija u prostorno-vremenskom regresionom krigingu\nModel koji smo izgradili može da predvidi vrednosti u bilo kojoj tački prostora i vremena – čak i tamo gde nismo imali merenja.\n🔍 Kako to funkcioniše?\n\nPrvo koristi poznate prostorne i vremenske podatke (npr. nadmorska visina, NDVI koji varira u vremenu, dan u godini…)\n\nZatim procenjuje trend i prostorne šablone na osnovu uzoraka i prediktora koji variraju u prostoru ili u prostoru i vremenu koje imamo\n\nNa kraju, u bilo kojoj novoj tački u domenu prostorno vremske kocke (čak i ekstrapolacija ako su poznati prediktori), model:\n\nkoristi poznate vrednosti prediktora u toj tački\nprimenjuje prostorno-vremensku interpolaciju reziduala\ni kombinuje sve u konačnu procenu vrednosti\n\n\n\n\n\n✅ Rezultat: možemo doći do kontinuirane karte prostora i vremena."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#strk-primer-interpolacija-dnevnih-temperatura",
-    "href": "07_intepolacije/Interpolacije.html#strk-primer-interpolacija-dnevnih-temperatura",
+    "objectID": "07_interpolacije/interpolacije.html#strk-primer-interpolacija-dnevnih-temperatura",
+    "href": "07_interpolacije/interpolacije.html#strk-primer-interpolacija-dnevnih-temperatura",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "STRK primer interpolacija dnevnih temperatura",
     "text": "STRK primer interpolacija dnevnih temperatura\n\nU modelu za prostorno-vremenski kriging korišćeni su prediktori koji obuhvataju i prostorne karakteristike i prostorno vremenske serije."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kombinovane-metode-sa-mašinskim-učenjem-1",
-    "href": "07_intepolacije/Interpolacije.html#kombinovane-metode-sa-mašinskim-učenjem-1",
+    "objectID": "07_interpolacije/interpolacije.html#kombinovane-metode-sa-mašinskim-učenjem-1",
+    "href": "07_interpolacije/interpolacije.html#kombinovane-metode-sa-mašinskim-učenjem-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kombinovane metode sa mašinskim učenjem",
     "text": "Kombinovane metode sa mašinskim učenjem\nRandom Forest sa prostornim prediktorima, npr RFsp\nKombinovane metode spajaju klasične prediktore (npr. NDVI, nadmorska visina) i prostorne informacije (npr. rastojanja od uzoraka) kako bi model “naučio” i prostornu strukturu:\n🔍 Kako funkcioniše:\n\n✅ Mašinski algoritam (npr. Random Forest) uči odnose između poznatih vrednosti i prediktora.\n✅ Dodatni slojevi kao što su buffer distance maps (jedan raster po uzorku) unose prostornu informaciju u model.\n✅ Model koristi sve slojeve da generiše kontinuiranu prostornu kartu."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#primer-rfsp-regresione-matrice",
-    "href": "07_intepolacije/Interpolacije.html#primer-rfsp-regresione-matrice",
+    "objectID": "07_interpolacije/interpolacije.html#primer-rfsp-regresione-matrice",
+    "href": "07_interpolacije/interpolacije.html#primer-rfsp-regresione-matrice",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "📋 Primer RFsp regresione matrice",
     "text": "📋 Primer RFsp regresione matrice\n\n\nY\nA\nB\nC\nD_buf1\nD_buf2\nD_buf3\n\n\n\ny1\na1\nb1\nc1\n0.25\n0.74\n0.63\n\n\ny2\na2\nb2\nc2\n0.10\n0.65\n0.90\n\n\ny3\na3\nb3\nc3\n0.18\n0.60\n0.70\n\n\n\n🧭 Objašnjenje:\n\n\nY – zavisna promenljiva\n\nA, B, C – klasični prediktori (npr. nadmorska visina, tip zemljišta, rastojanje od reke)\n\nD_buf1, D_buf2, D_buf3 – vrednosti iz buffer distance karata:\n\nsvaka kolona predstavlja rastojanje od jednog uzorka na rasteru\none unose prostornu informaciju u model\n\n\n\n\n✅ Ova matrica omogućava Random Forest modelu da “nauči” i prostornu strukturu pomoću prostorno eksplicitnih prediktora."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsp",
-    "href": "07_intepolacije/Interpolacije.html#rfsp",
+    "objectID": "07_interpolacije/interpolacije.html#rfsp",
+    "href": "07_interpolacije/interpolacije.html#rfsp",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFsp",
     "text": "RFsp"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#random-forest-spatial-interpolation-rfsi",
-    "href": "07_intepolacije/Interpolacije.html#random-forest-spatial-interpolation-rfsi",
+    "objectID": "07_interpolacije/interpolacije.html#random-forest-spatial-interpolation-rfsi",
+    "href": "07_interpolacije/interpolacije.html#random-forest-spatial-interpolation-rfsi",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "🌍 Random Forest Spatial Interpolation – RFSI",
     "text": "🌍 Random Forest Spatial Interpolation – RFSI\nŠta je RFSI?\nRFSI je metoda koja kombinuje:\n\n🧠 Mašinsko učenje (Random Forest)\n📍 Informacije o n najbližih tačaka i njihovim vrednostima\n➕ Dodatne kovariate (NDVI, nadmorska visina…)\n\n🔧 Kako funkcioniše?\n\nZa svaku tačku za predikciju:\n\npronalazi se n najbližih uzoraka\n\nkoristi se njihova vrednost i udaljenost kao prediktori\n\n\nTrening i predikcija se rade koristeći prostorne kontekste"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsi",
-    "href": "07_intepolacije/Interpolacije.html#rfsi",
+    "objectID": "07_interpolacije/interpolacije.html#rfsi",
+    "href": "07_interpolacije/interpolacije.html#rfsi",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFSI",
     "text": "RFSI\n\\[\n\\hat{z}\\left(s_0\\right)=f\\left(x_1\\left(s_0\\right), \\ldots, x_m\\left(s_0\\right), z\\left(s_1\\right), d_1, z\\left(s_2\\right), d_2, z\\left(s_3\\right), d_3, \\ldots, z\\left(s_n\\right), d_n\\right)\n\\]"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsi-regresiona-matrica",
-    "href": "07_intepolacije/Interpolacije.html#rfsi-regresiona-matrica",
+    "objectID": "07_interpolacije/interpolacije.html#rfsi-regresiona-matrica",
+    "href": "07_interpolacije/interpolacije.html#rfsi-regresiona-matrica",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "📊 RFSI regresiona matrica",
     "text": "📊 RFSI regresiona matrica\nRandom Forest Spatial Interpolation koristi regresionu matricu u kojoj su, pored klasičnih prediktora, uključeni i:\n\n🧩 Vrednosti najbližih suseda (Q1, Q2, …)\n📏 Udaljenosti do tih suseda (D1, D2, …)\n\n🔍 Struktura matrice:\n\n\nY – zavisna promenljiva (npr. koncentracija cinka)\n\nA, B, C – klasični prediktori (npr. nadmorska visina, tip zemljišta, rastojanje od reke)\n\nQ1, Q2 – vrednosti Y kod najbližih tačaka\n\nD1, D2 – udaljenosti do tih najbližih tačaka"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#primer-rfsi-regresione-matrice",
-    "href": "07_intepolacije/Interpolacije.html#primer-rfsi-regresione-matrice",
+    "objectID": "07_interpolacije/interpolacije.html#primer-rfsi-regresione-matrice",
+    "href": "07_interpolacije/interpolacije.html#primer-rfsi-regresione-matrice",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "📋 Primer RFSI regresione matrice",
     "text": "📋 Primer RFSI regresione matrice\n\n\nY\nA\nB\nC\nQ1\nQ2\nD1\nD2\n\n\n\ny1\na1\nb1\nc1\ny2\ny3\nd12\nd13\n\n\ny2\na2\nb2\nc2\ny1\ny8\nd21\nd28\n\n\ny3\na3\nb3\nc3\ny4\ny6\nd34\nd36\n\n\ny4\na4\nb4\nc4\ny3\ny6\nd43\nd46\n\n\n\n🧩 Objašnjenje kolona:\n\n\nY – zavisna promenljiva (ciljna vrednost za učenje)\n\nA, B, C – klasični prediktori (npr. DEM…)\n\nQ1, Q2 – vrednosti zavisne promenljive kod najbližih tačaka\n\nD1, D2 – udaljenosti do tih najbližih tačaka\n\nTokom treninga, algoritam ‘sakriva’ vrednost ciljne tačke i primorava Random Forest model da nauči kako da proceni njenu vrednost isključivo na osnovu suseda (Q1, Q2) i udaljenosti do njih (D1, D2)."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#primer-idw-interpolacije-meuse-podaci",
-    "href": "07_intepolacije/Interpolacije.html#primer-idw-interpolacije-meuse-podaci",
+    "objectID": "07_interpolacije/interpolacije.html#primer-idw-interpolacije-meuse-podaci",
+    "href": "07_interpolacije/interpolacije.html#primer-idw-interpolacije-meuse-podaci",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "⚙️ Primer IDW interpolacije – meuse podaci",
     "text": "⚙️ Primer IDW interpolacije – meuse podaci\n\nPodaci: meuse, koncentracija cinka (zinc)\nKoordinate: x, y\n\nInterpolacioni prostor, domen interpolacije: meuse.grid\n\nParametar: idp = 2 (težina opada sa kvadratom udaljenosti)\n\n\n# Učitaj pakete\nlibrary(sp)\nlibrary(gstat)\nlibrary(raster)\n\n# Učitaj podatke (kao sp)\ndata(meuse)\ncoordinates(meuse) &lt;- ~x + y\n\ndata(meuse.grid)\ngridded(meuse.grid) &lt;- ~x + y\n\n# IDW interpolacija\nidw_result &lt;- idw(formula = zinc ~ 1, locations = meuse, newdata = meuse.grid, idp = 2.0)\n# Pretvori u raster za vizualizaciju\nidw_raster &lt;- raster(idw_result)\n# Prikaži kartu\nplot(idw_raster, main = \"IDW interpolacija koncentracije cinka (meuse)\")\npoints(meuse, pch = 20, col = \"black\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#primer-idw-interpolacije-meuse-podaci-1",
-    "href": "07_intepolacije/Interpolacije.html#primer-idw-interpolacije-meuse-podaci-1",
+    "objectID": "07_interpolacije/interpolacije.html#primer-idw-interpolacije-meuse-podaci-1",
+    "href": "07_interpolacije/interpolacije.html#primer-idw-interpolacije-meuse-podaci-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "⚙️ Primer IDW interpolacije – meuse podaci",
     "text": "⚙️ Primer IDW interpolacije – meuse podaci\n\n\n[inverse distance weighted interpolation]"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#primer-nn-interpolacije-meuse-podaci",
-    "href": "07_intepolacije/Interpolacije.html#primer-nn-interpolacije-meuse-podaci",
+    "objectID": "07_interpolacije/interpolacije.html#primer-nn-interpolacije-meuse-podaci",
+    "href": "07_interpolacije/interpolacije.html#primer-nn-interpolacije-meuse-podaci",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "⚙️ Primer NN interpolacije – meuse podaci",
     "text": "⚙️ Primer NN interpolacije – meuse podaci\nNearest Neighbor (IDW sa idp = 0 i nmax=1) koristi najbližu poznatu tačku kao osnovu za predikciju vrednosti (restrikcija komšiluka (nmax = 1) zapravo ono što definiše ovu metodu).\n\nSvaka ćelija rastera dobija vrednost najbližeg uzorka\nOva metoda je jednostavna, ali često daje diskontinualanu površinu\n\n\n# NN interpolacija (IDW sa idp = 0)\nnn_result &lt;- idw(zinc ~ 1, meuse, meuse.grid, nmax = 1,idp = 0)\n\n[inverse distance weighted interpolation]\n\nnn_result &lt;- raster(nn_result)\n# Prikaz rezultata\nplot(nn_result, main = \"NN interpolacija koncentracije cinka (idp = 0))\")\npoints(meuse, pch = '+', col = \"black\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#krosvalidacija",
-    "href": "07_intepolacije/Interpolacije.html#krosvalidacija",
+    "objectID": "07_interpolacije/interpolacije.html#krosvalidacija",
+    "href": "07_interpolacije/interpolacije.html#krosvalidacija",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Krosvalidacija",
     "text": "Krosvalidacija\n\nKrosvalidacija je tehnika koja se koristi za procenu performansi modela interpolacije.\nU ovoj analizi, podaci su podeljeni na dva dela: trening i test skup.\nModel se trenira na trening skupu, a zatim se testira na test skupu.\nPrvo, delimo podatke na K delova.\nZa svaki od tih delova, koristimo preostalih K−1 delova kao trening skup za podešavanje modela, dok se taj jedan deo koristi kao test skup za predikciju.\nNa kraju, izračunavamo prosečnu grešku između stvarnih i predviđenih vrednosti, npr RMSE - srednju kvadratnu grešku.\n\n\\[\nRMSE = \\left(\\frac{1}{n_{test}} \\sum_{i=1}^{n_{test}} (y_i^{test} - \\widehat{y_i^{test}})^2 \\right)^{1/2},\n\\]\n\n\n\\(n_{test}\\): broj posmatranja u test skupu\n\n\\(y_i^{test}\\): stvarna vrednost u test skupu za i-tu tačku\n\n\\(\\widehat{y_i^{test}}\\): predikovana vrednost modela za istu tačku"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#krosvalidacija-1",
-    "href": "07_intepolacije/Interpolacije.html#krosvalidacija-1",
+    "objectID": "07_interpolacije/interpolacije.html#krosvalidacija-1",
+    "href": "07_interpolacije/interpolacije.html#krosvalidacija-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Krosvalidacija",
     "text": "Krosvalidacija"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#idw-krosvalidacija-generički-pristup",
-    "href": "07_intepolacije/Interpolacije.html#idw-krosvalidacija-generički-pristup",
+    "objectID": "07_interpolacije/interpolacije.html#idw-krosvalidacija-generički-pristup",
+    "href": "07_interpolacije/interpolacije.html#idw-krosvalidacija-generički-pristup",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "IDW krosvalidacija generički pristup",
     "text": "IDW krosvalidacija generički pristup\n\nset.seed(123)\nlibrary(dismo)\n# Function to calculate the RMSE\nRMSE &lt;- function(observed, predicted) {sqrt(mean((observed - predicted)^2))}\n\n# Split data in 5 sets\nkf &lt;- dismo::kfold(nrow(meuse), k = 5) # K-fold partitioning\n# Vektor za smeštanje rezultata\nrmse &lt;- rep(NA, 5) # IDW\n\nfor(k in 1:5) {\n# Split data in test and train\ntest &lt;- meuse[kf == k, ]\ntrain &lt;- meuse[kf != k, ]\n# IDW\ngs &lt;- gstat(formula = zinc ~ 1, locations = train,\n            nmax = nrow(train), set = list(idp = 2))\np2 &lt;- predict(gs, test)$var1.pred\nrmse[k] &lt;- RMSE(test$zinc, p2)\n}\n\n[inverse distance weighted interpolation]\n[inverse distance weighted interpolation]\n[inverse distance weighted interpolation]\n[inverse distance weighted interpolation]\n[inverse distance weighted interpolation]\n\nrmse\n\n[1] 253.9304 249.1851 371.0162 259.6547 285.9440\n\nmean(rmse)\n\n[1] 283.9461"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#idw-krosvalidacija-gstat-metod",
-    "href": "07_intepolacije/Interpolacije.html#idw-krosvalidacija-gstat-metod",
+    "objectID": "07_interpolacije/interpolacije.html#idw-krosvalidacija-gstat-metod",
+    "href": "07_interpolacije/interpolacije.html#idw-krosvalidacija-gstat-metod",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "IDW krosvalidacija gstat metod",
     "text": "IDW krosvalidacija gstat metod\n\n# 5-fold IDW krosvalidacija (idp = 2)\ncv_5fold_idw &lt;- krige.cv(\n  formula = zinc ~ 1,\n  locations = meuse,\n  nfold = 5,\n  set = list(idp = 2)\n)\n\n#  Rezultati\nhead(cv_5fold_idw)\n\nSimple feature collection with 6 features and 6 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 181025 ymin: 333260 xmax: 181390 ymax: 333611\nCRS:           NA\n  var1.pred var1.var observed   residual zscore fold              geometry\n1  832.1153       NA     1022  189.88467     NA    3 POINT (181072 333611)\n2  771.4615       NA     1141  369.53852     NA    5 POINT (181025 333558)\n3  625.6020       NA      640   14.39801     NA    2 POINT (181165 333537)\n4  441.0647       NA      257 -184.06469     NA    3 POINT (181298 333484)\n5  352.3820       NA      269  -83.38201     NA    2 POINT (181307 333330)\n6  330.5054       NA      281  -49.50541     NA    5 POINT (181390 333260)\n\nsummary(cv_5fold_idw$residual)\n\n    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \n-465.319 -173.052  -84.580   -1.393  111.574 1211.688 \n\n#  RMSE za 5-fold\nrmse_5fold &lt;- sqrt(mean(cv_5fold_idw$residual^2))\ncat(\"5-fold IDW RMSE:\", round(rmse_5fold, 2), \"\\n\")\n\n5-fold IDW RMSE: 272.4"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#idw-krosvalidacija-gstat-metod-1",
-    "href": "07_intepolacije/Interpolacije.html#idw-krosvalidacija-gstat-metod-1",
+    "objectID": "07_interpolacije/interpolacije.html#idw-krosvalidacija-gstat-metod-1",
+    "href": "07_interpolacije/interpolacije.html#idw-krosvalidacija-gstat-metod-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "IDW krosvalidacija gstat metod",
     "text": "IDW krosvalidacija gstat metod\n\ncv_5fold_idw\n\nSimple feature collection with 155 features and 6 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 178605 ymin: 329714 xmax: 181390 ymax: 333611\nCRS:           NA\nFirst 10 features:\n   var1.pred var1.var observed   residual zscore fold              geometry\n1   832.1153       NA     1022  189.88467     NA    3 POINT (181072 333611)\n2   771.4615       NA     1141  369.53852     NA    5 POINT (181025 333558)\n3   625.6020       NA      640   14.39801     NA    2 POINT (181165 333537)\n4   441.0647       NA      257 -184.06469     NA    3 POINT (181298 333484)\n5   352.3820       NA      269  -83.38201     NA    2 POINT (181307 333330)\n6   330.5054       NA      281  -49.50541     NA    5 POINT (181390 333260)\n7   430.5802       NA      346  -84.58023     NA    5 POINT (181165 333370)\n8   463.2516       NA      406  -57.25156     NA    3 POINT (181027 333363)\n9   403.4253       NA      347  -56.42533     NA    4 POINT (181060 333231)\n10  384.0188       NA      183 -201.01877     NA    4 POINT (181232 333168)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#idw-krosvalidacija-gstat-metod-karta-reziduala",
-    "href": "07_intepolacije/Interpolacije.html#idw-krosvalidacija-gstat-metod-karta-reziduala",
+    "objectID": "07_interpolacije/interpolacije.html#idw-krosvalidacija-gstat-metod-karta-reziduala",
+    "href": "07_interpolacije/interpolacije.html#idw-krosvalidacija-gstat-metod-karta-reziduala",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "IDW krosvalidacija gstat metod karta reziduala",
     "text": "IDW krosvalidacija gstat metod karta reziduala\n\nggplot(cv_5fold_idw) +\n  geom_sf(aes(color = residual), size = 2) +\n  scale_color_gradient2(\n   low = \"#2166AC\", mid = \"grey90\", high = \"#B2182B\", midpoint = 0\n  ) +\n  labs(\n    title = \"Reziduali 5-fold IDW krosvalidacije\",\n    color = \"Rezidual\"\n  ) +\n  theme_minimal()"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#krosvalidacija-metrike",
-    "href": "07_intepolacije/Interpolacije.html#krosvalidacija-metrike",
+    "objectID": "07_interpolacije/interpolacije.html#krosvalidacija-metrike",
+    "href": "07_interpolacije/interpolacije.html#krosvalidacija-metrike",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Krosvalidacija metrike",
     "text": "Krosvalidacija metrike\n\nres &lt;- cv_5fold_idw$residual\npred &lt;- cv_5fold_idw$var1.pred\nobs  &lt;- cv_5fold_idw$observed\n\n# Metrike\nrmse   &lt;- sqrt(mean(res^2))  # Root Mean Squared Error\nmae    &lt;- mean(abs(res))     # Mean Absolute Error\nme     &lt;- mean(res)          # Mean Error (bias)\nr2     &lt;- cor(pred, obs)^2   # R-squared\nmape   &lt;- mean(abs(res) / obs) * 100  # Mean Absolute Percentage Error\nmedae  &lt;- median(abs(res))   # Median Absolute Error\niqrres &lt;- IQR(res)           # Interquartile range of residuals\nmaxres &lt;- max(abs(res))      # Maksimalna greška\nnrmse  &lt;- rmse / (max(obs) - min(obs))  # Normalized RMSE"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#krosvalidacija-metrike-1",
-    "href": "07_intepolacije/Interpolacije.html#krosvalidacija-metrike-1",
+    "objectID": "07_interpolacije/interpolacije.html#krosvalidacija-metrike-1",
+    "href": "07_interpolacije/interpolacije.html#krosvalidacija-metrike-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Krosvalidacija metrike",
     "text": "Krosvalidacija metrike\n\n# Tabela rezultata\nmetrics &lt;- data.frame(\n  RMSE  = rmse,\n  MAE   = mae,\n  ME    = me,\n  R2    = r2,\n  MAPE  = mape,\n  MedAE = medae,\n  IQR   = iqrres,\n  MaxAbsError = maxres,\n  NRMSE = nrmse\n)\n\n# Zaokruži za pregled\nround(metrics, 3)\n\n     RMSE     MAE     ME    R2   MAPE   MedAE     IQR MaxAbsError NRMSE\n1 272.396 203.271 -1.393 0.523 61.048 158.388 284.625    1211.688 0.158"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#primer-voronoi-interpolacije-meuse-podaci",
-    "href": "07_intepolacije/Interpolacije.html#primer-voronoi-interpolacije-meuse-podaci",
+    "objectID": "07_interpolacije/interpolacije.html#primer-voronoi-interpolacije-meuse-podaci",
+    "href": "07_interpolacije/interpolacije.html#primer-voronoi-interpolacije-meuse-podaci",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "🧱 Primer Voronoi interpolacije – meuse podaci",
     "text": "🧱 Primer Voronoi interpolacije – meuse podaci\n\nProstor se deli na Voronoi poligone\n\nZa svaku tačku izračunamo granicu sa njenim susedima – to su prave koje se nalaze na sredini između dve tačke.\nKombinovanjem tih granica nastaje zatvoren poligon oko svake tačke.\nCeo prostor biva podeljen u nepreklapajuće regije – Voronoi dijagram.\nNema učenja iz odnosa sa drugim tačkama\n\n\nlibrary(terra)\nlibrary(sf)\n# Voronoi\nv &lt;- terra::voronoi(x = terra::vect(meuse), bnd = rast(meuse.grid))\nmeuse  &lt;- st_as_sf(meuse) \nplot(v[\"zinc\"],  main = \"Voronoi interpolacija\")\npoints(st_geometry(meuse), cex = 0.5)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#primer-spline-interpolacije-meuse-podaci",
-    "href": "07_intepolacije/Interpolacije.html#primer-spline-interpolacije-meuse-podaci",
+    "objectID": "07_interpolacije/interpolacije.html#primer-spline-interpolacije-meuse-podaci",
+    "href": "07_interpolacije/interpolacije.html#primer-spline-interpolacije-meuse-podaci",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "⚙️ Primer Spline interpolacije – meuse podaci",
     "text": "⚙️ Primer Spline interpolacije – meuse podaci\n\nSpline interpolacija koristi glatke funkcije (obično polinome) da napravi kontinuiranu površinu kroz poznate vrednosti.\nZa razliku od IDW i Voronoi metoda, Spline interpolacija daje glatke prelaze i pokušava da minimizuje zakrivljenost površine.\nKoristi se za podatke koji imaju glatke promene i gde je važno očuvati kontinuitet.\n\n\n# install.packages(\"fields\")\nlibrary(fields)\n\n# 2. Ekstrahuj koordinate i vrednosti\nx &lt;- st_coordinates(meuse)[,1]\ny &lt;- st_coordinates(meuse)[,2]\nzinc &lt;- meuse$zinc\n# 3. Fituj Thin Plate Spline model\ntps_model &lt;- Tps(cbind(x, y), zinc)\n# 4. Napravi grid za predikciju\ncoords &lt;- coordinates(meuse.grid)\n# 5. Predikcija\npred &lt;- predict(tps_model, coords)\n# 6. Rasterizuj rezultat za prikaz\nlibrary(raster)\nzinc_raster &lt;- rasterFromXYZ(cbind(coords, pred))\n# 7. Prikaz\nplot(zinc_raster, main = \"Spline interpolacija (Thin Plate Spline)\")\npoints(x, y, pch = 20, col = \"black\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#primer-spline-interpolacije-meuse-podaci-1",
-    "href": "07_intepolacije/Interpolacije.html#primer-spline-interpolacije-meuse-podaci-1",
+    "objectID": "07_interpolacije/interpolacije.html#primer-spline-interpolacije-meuse-podaci-1",
+    "href": "07_interpolacije/interpolacije.html#primer-spline-interpolacije-meuse-podaci-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "⚙️ Primer Spline interpolacije – meuse podaci",
     "text": "⚙️ Primer Spline interpolacije – meuse podaci"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-variogram",
-    "href": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-variogram",
+    "objectID": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-variogram",
+    "href": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-variogram",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kriging (Ordinary Kriging) meuse variogram",
     "text": "Kriging (Ordinary Kriging) meuse variogram\n\nZanemarićemo činjenicu da je bolje transoformisati podatke pre kriginga, da bi raspodela bila što bliže normalnoj (u ovom slučaju bila bi dobra log transformacija koncentracije cinka).\nKoristimo originalne vrednosti.\n\n\n# 1. Učitaj podatke\ndata(meuse)\ncoordinates(meuse) &lt;- ~x + y\n# 2. Izračunaj eksperimentalni variogram\nv &lt;- variogram(zinc ~ 1, meuse)\n# 3. Fituj model (sferični variogram)\nv.fit &lt;- fit.variogram(v, model = vgm(\"Sph\"))\n# 4. Prikaz\nplot(v, v.fit, main = \"Eksperimentalni i fitovani variogram (Spherical model)\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse",
-    "href": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse",
+    "objectID": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse",
+    "href": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kriging (Ordinary Kriging) meuse",
     "text": "Kriging (Ordinary Kriging) meuse\n\nok_result &lt;- krige(zinc ~ 1, meuse, meuse.grid, model = v.fit)\n\n[using ordinary kriging]\n\nspplot(ok_result[\"var1.pred\"], main = \"Ordinary Kriging – predikcija cinka\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-karta-varijansi",
-    "href": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-karta-varijansi",
+    "objectID": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-karta-varijansi",
+    "href": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-karta-varijansi",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kriging (Ordinary Kriging) meuse karta varijansi",
     "text": "Kriging (Ordinary Kriging) meuse karta varijansi\n\nspplot(ok_result[\"var1.var\"], main = \"Ordinary Kriging – varijansa predikcije\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-standardna-greška",
-    "href": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-standardna-greška",
+    "objectID": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-standardna-greška",
+    "href": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-standardna-greška",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kriging (Ordinary Kriging) meuse standardna greška",
     "text": "Kriging (Ordinary Kriging) meuse standardna greška\n\nok_result$kriging_se &lt;- sqrt(ok_result$var1.var)\n# Prikaz karte standardne greške\nspplot(ok_result[\"kriging_se\"], main = \"Standardna greška – Ordinary Kriging\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-krosvalidacija-loo",
-    "href": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-krosvalidacija-loo",
+    "objectID": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-krosvalidacija-loo",
+    "href": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-krosvalidacija-loo",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kriging (Ordinary Kriging) meuse krosvalidacija LOO",
     "text": "Kriging (Ordinary Kriging) meuse krosvalidacija LOO\n\ncv_ok &lt;- krige.cv(zinc ~ 1, meuse, model = v.fit, nfold = nrow(meuse))\n\n# RMSE i ostale metrike\nres &lt;- cv_ok$residual\nobs &lt;- cv_ok$observed\npred &lt;- cv_ok$var1.pred\n\nrmse &lt;- sqrt(mean(res^2))\nmae &lt;- mean(abs(res))\nr2 &lt;- cor(obs, pred)^2\n\ncat(\"Ordinary Kriging - Krosvalidacija:\\n\")\n\nOrdinary Kriging - Krosvalidacija:\n\ncat(\"RMSE:\", round(rmse, 2), \"\\n\")\n\nRMSE: 224.79 \n\ncat(\"MAE :\", round(mae, 2), \"\\n\")\n\nMAE : 151.81 \n\ncat(\"R²  :\", round(r2, 3), \"\\n\")\n\nR²  : 0.625"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-reziduali-iz-krosvalidacije-loo",
-    "href": "07_intepolacije/Interpolacije.html#kriging-ordinary-kriging-meuse-reziduali-iz-krosvalidacije-loo",
+    "objectID": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-reziduali-iz-krosvalidacije-loo",
+    "href": "07_interpolacije/interpolacije.html#kriging-ordinary-kriging-meuse-reziduali-iz-krosvalidacije-loo",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Kriging (Ordinary Kriging) meuse reziduali iz krosvalidacije LOO",
     "text": "Kriging (Ordinary Kriging) meuse reziduali iz krosvalidacije LOO\n\nspplot(cv_ok, \"residual\", main = \"Reziduali – Kriging krosvalidacija (LOO)\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#regresioni-model-meuse",
-    "href": "07_intepolacije/Interpolacije.html#regresioni-model-meuse",
+    "objectID": "07_interpolacije/interpolacije.html#regresioni-model-meuse",
+    "href": "07_interpolacije/interpolacije.html#regresioni-model-meuse",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Regresioni model meuse",
     "text": "Regresioni model meuse\n\nlm_model &lt;- lm(zinc ~ dist + soil + ffreq, data = meuse)\nsummary(lm_model)\n\n\nCall:\nlm(formula = zinc ~ dist + soil + ffreq, data = meuse)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-420.64 -168.26  -45.07  112.33  989.87 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)   853.46      35.23  24.222  &lt; 2e-16 ***\ndist         -797.02     146.00  -5.459 1.95e-07 ***\nsoil2        -223.58      55.93  -3.998   0.0001 ***\nsoil3          44.44      96.33   0.461   0.6453    \nffreq2       -275.99      51.17  -5.394 2.65e-07 ***\nffreq3       -296.98      62.98  -4.715 5.50e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 250.9 on 149 degrees of freedom\nMultiple R-squared:  0.5481,    Adjusted R-squared:  0.533 \nF-statistic: 36.15 on 5 and 149 DF,  p-value: &lt; 2.2e-16\n\n# Predikcija regresionog modela na gridu\nmeuse.grid$lm_pred &lt;- predict(lm_model, newdata = meuse.grid)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#regresioni-model-meuse-1",
-    "href": "07_intepolacije/Interpolacije.html#regresioni-model-meuse-1",
+    "objectID": "07_interpolacije/interpolacije.html#regresioni-model-meuse-1",
+    "href": "07_interpolacije/interpolacije.html#regresioni-model-meuse-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Regresioni model meuse",
     "text": "Regresioni model meuse\n\n# Prikaz kao karta (spplot)\nspplot(meuse.grid[\"lm_pred\"], main = \"Predikcija regresionog modela (zinc ~ dist + soil + ffreq)\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#regresioni-kriging",
-    "href": "07_intepolacije/Interpolacije.html#regresioni-kriging",
+    "objectID": "07_interpolacije/interpolacije.html#regresioni-kriging",
+    "href": "07_interpolacije/interpolacije.html#regresioni-kriging",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Regresioni kriging",
     "text": "Regresioni kriging\n\nmeuse$residuals &lt;- residuals(lm_model)\n\n#  Kriging reziduala\nvg &lt;- variogram(residuals ~ 1, data = meuse)\nvg_fit &lt;- fit.variogram(vg, model = vgm(\"Sph\"))\n\nrk_krige &lt;- krige(residuals ~ 1, meuse, meuse.grid, model = vg_fit)\n\n[using ordinary kriging]\n\n# Predikcija regresijom na gridu\ngrid_df &lt;- as.data.frame(meuse.grid)\ngrid_df$lm_pred &lt;- predict(lm_model, newdata = grid_df)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#regresioni-kriging-predikcija-trend-reziduali",
-    "href": "07_intepolacije/Interpolacije.html#regresioni-kriging-predikcija-trend-reziduali",
+    "objectID": "07_interpolacije/interpolacije.html#regresioni-kriging-predikcija-trend-reziduali",
+    "href": "07_interpolacije/interpolacije.html#regresioni-kriging-predikcija-trend-reziduali",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Regresioni kriging predikcija trend + reziduali",
     "text": "Regresioni kriging predikcija trend + reziduali\n\n# Kombinovanje regresije + kriging reziduala\nrk_result &lt;- grid_df$lm_pred + rk_krige$var1.pred\nmeuse.grid$rk_pred &lt;- rk_result\n# Prikaz rezultata\nspplot(meuse.grid[\"rk_pred\"], main = \"Regression Kriging – koncentracija cinka\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rf-interpolacija",
-    "href": "07_intepolacije/Interpolacije.html#rf-interpolacija",
+    "objectID": "07_interpolacije/interpolacije.html#rf-interpolacija",
+    "href": "07_interpolacije/interpolacije.html#rf-interpolacija",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RF interpolacija",
     "text": "RF interpolacija\n\nlibrary(ranger)\n# Random Forest model\nrf_model &lt;- ranger(zinc ~ dist + soil + ffreq, data = as.data.frame(meuse), num.trees = 100)\nrf_model\n\nRanger result\n\nCall:\n ranger(zinc ~ dist + soil + ffreq, data = as.data.frame(meuse),      num.trees = 100) \n\nType:                             Regression \nNumber of trees:                  100 \nSample size:                      155 \nNumber of independent variables:  3 \nMtry:                             1 \nTarget node size:                 5 \nVariable importance mode:         none \nSplitrule:                        variance \nOOB prediction error (MSE):       51145.82 \nR squared (OOB):                  0.6204199"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rf-predikcija-na-gridu",
-    "href": "07_intepolacije/Interpolacije.html#rf-predikcija-na-gridu",
+    "objectID": "07_interpolacije/interpolacije.html#rf-predikcija-na-gridu",
+    "href": "07_interpolacije/interpolacije.html#rf-predikcija-na-gridu",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RF predikcija na gridu",
     "text": "RF predikcija na gridu\n\n# Predikcija na gridu\nrf_pred &lt;- predict(rf_model, data = as.data.frame(meuse.grid))$predictions\n# Dodaj predikciju u meuse.grid\nmeuse.grid$rf_pred &lt;- rf_pred\n# Prikaz rezultata\nspplot(meuse.grid[\"rf_pred\"], main = \"Random Forest – koncentracija cinka\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rf-primer-prostorne-krosvalidacije",
-    "href": "07_intepolacije/Interpolacije.html#rf-primer-prostorne-krosvalidacije",
+    "objectID": "07_interpolacije/interpolacije.html#rf-primer-prostorne-krosvalidacije",
+    "href": "07_interpolacije/interpolacije.html#rf-primer-prostorne-krosvalidacije",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RF primer prostorne krosvalidacije",
     "text": "RF primer prostorne krosvalidacije\n\n# Koristimo kmeans clustering na koordinatama za stvaranje prostornih foldova\ncoords &lt;- meuse@coords\nn_folds &lt;- 5\nfolds &lt;- kmeans(coords, centers = n_folds)$cluster\n# 2. Inicijalizacija vektora za pohranu predikcija\nmeuse$rf_cv_pred &lt;- NA\n# 3. Sprovedi prostornu krosvalidaciju\nfor (i in 1:n_folds) {\n  # Podeli podatke na train i test\n  train_data &lt;- meuse[folds != i, ]\n  test_data &lt;- meuse[folds == i, ]\n  # Treniraj model na train dijelu\n  rf_model &lt;- ranger(zinc ~ dist + soil + ffreq, \n                     data = as.data.frame(train_data), \n                     num.trees = 100)\n  # Predikcija na test dijelu\n  meuse$rf_cv_pred[folds == i] &lt;- predict(rf_model, data = as.data.frame(test_data))$predictions\n}\n# 4. Izračunaj metrike performansi\n# RMSE\nrmse &lt;- sqrt(mean((meuse$zinc - meuse$rf_cv_pred)^2))\n# R-squared\nrsq &lt;- cor(meuse$zinc, meuse$rf_cv_pred)^2\n# 5. Prikaz rezultata\ncat(paste0(\"Prostorna krosvalidacija - RMSE: \", round(rmse, 2), \n           \", R-squared: \", round(rsq, 2), \"\\n\"))\n\nProstorna krosvalidacija - RMSE: 237.72, R-squared: 0.59"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rf-primer-prostorne-krosvalidacije-prikaz-foldova",
-    "href": "07_intepolacije/Interpolacije.html#rf-primer-prostorne-krosvalidacije-prikaz-foldova",
+    "objectID": "07_interpolacije/interpolacije.html#rf-primer-prostorne-krosvalidacije-prikaz-foldova",
+    "href": "07_interpolacije/interpolacije.html#rf-primer-prostorne-krosvalidacije-prikaz-foldova",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RF primer prostorne krosvalidacije prikaz foldova",
     "text": "RF primer prostorne krosvalidacije prikaz foldova\n\nmeuse$fold &lt;- as.factor(folds)\nspplot(meuse, \"fold\", main = \"Prostorni foldovi za krosvalidaciju\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rf-primer-prostorne-krosvalidacije-reziduali",
-    "href": "07_intepolacije/Interpolacije.html#rf-primer-prostorne-krosvalidacije-reziduali",
+    "objectID": "07_interpolacije/interpolacije.html#rf-primer-prostorne-krosvalidacije-reziduali",
+    "href": "07_interpolacije/interpolacije.html#rf-primer-prostorne-krosvalidacije-reziduali",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RF primer prostorne krosvalidacije reziduali",
     "text": "RF primer prostorne krosvalidacije reziduali\n\n# Prikaz stvarnih vs predviđenih vrijednosti\nggplot(as.data.frame(meuse), aes(x = zinc, y = rf_cv_pred)) +\n  geom_point() +\n  geom_abline(intercept = 0, slope = 1, color = \"red\") +\n  labs(title = \"Stvarne vs predviđene vrijednosti (prostorna CV)\",\n       x = \"Stvarna koncentracija cinka\", \n       y = \"Predviđena koncentracija cinka\") +\n  annotate(\"text\", x = min(meuse$zinc), y = max(meuse$rf_cv_pred),\n           label = paste0(\"RMSE = \", round(rmse, 2), \"\\nR² = \", round(rsq, 2)),\n           hjust = 0, vjust = 1)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#distribucija-grešaka-po-foldovima",
-    "href": "07_intepolacije/Interpolacije.html#distribucija-grešaka-po-foldovima",
+    "objectID": "07_interpolacije/interpolacije.html#distribucija-grešaka-po-foldovima",
+    "href": "07_interpolacije/interpolacije.html#distribucija-grešaka-po-foldovima",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Distribucija grešaka po foldovima",
     "text": "Distribucija grešaka po foldovima\n\n# Dodatno: Prikaz distribucije grešaka po foldovima\nmeuse$residual &lt;- meuse$zinc - meuse$rf_cv_pred\nggplot(as.data.frame(meuse), aes(x = as.factor(fold), y = residual)) +\n  geom_boxplot() +\n  labs(title = \"Distribucija grešaka po foldovima\",\n       x = \"Fold\", y = \"Residual (stvarno - predviđeno)\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rf-nasumična-krosvalidacija",
-    "href": "07_intepolacije/Interpolacije.html#rf-nasumična-krosvalidacija",
+    "objectID": "07_interpolacije/interpolacije.html#rf-nasumična-krosvalidacija",
+    "href": "07_interpolacije/interpolacije.html#rf-nasumična-krosvalidacija",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RF nasumična krosvalidacija",
     "text": "RF nasumična krosvalidacija\n\n# Postavi seed za reproduktivnost\nset.seed(123)\n# 1. Definisanje foldova (5-fold CV)\nn_folds &lt;- 5\nmeuse$fold &lt;- sample(1:n_folds, nrow(meuse), replace = TRUE)\n# 2. Inicijalizacija vektora za pohranu predikcija\nmeuse$rf_cv_pred &lt;- NA\n# 3. Provedi krosvalidaciju\nfor (i in 1:n_folds) {\n  # Podeli podatke na train i test\n  train_data &lt;- meuse[meuse$fold != i, ]\n  test_data &lt;- meuse[meuse$fold == i, ]\n  # Treniraj model na train delu\n  rf_model &lt;- ranger(zinc ~ dist + soil + ffreq, \n                     data = as.data.frame(train_data), \n                     num.trees = 100)\n  # Predikcija na test delu\n  meuse$rf_cv_pred[meuse$fold == i] &lt;- predict(rf_model, data = as.data.frame(test_data))$predictions\n}\n# 4. Izračunaj metrike performansi\nrmse &lt;- sqrt(mean((meuse$zinc - meuse$rf_cv_pred)^2, na.rm = TRUE))\nrsq &lt;- cor(meuse$zinc, meuse$rf_cv_pred, use = \"complete.obs\")^2\ncat(paste0(\"Nasumična krosvalidacija - RMSE: \", round(rmse, 2), \n           \", R-squared: \", round(rsq, 2), \"\\n\"))\n\nNasumična krosvalidacija - RMSE: 230.92, R-squared: 0.63"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rf-primer-nasumične-krosvalidacije-prikaz-foldova",
-    "href": "07_intepolacije/Interpolacije.html#rf-primer-nasumične-krosvalidacije-prikaz-foldova",
+    "objectID": "07_interpolacije/interpolacije.html#rf-primer-nasumične-krosvalidacije-prikaz-foldova",
+    "href": "07_interpolacije/interpolacije.html#rf-primer-nasumične-krosvalidacije-prikaz-foldova",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RF primer nasumične krosvalidacije prikaz foldova",
     "text": "RF primer nasumične krosvalidacije prikaz foldova\n\nmeuse$fold &lt;- as.factor(meuse$fold)\nspplot(meuse, \"fold\", main = \"Nasumični foldovi za krosvalidaciju\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rf-primer-nasumične-krosvalidacije-reziduali",
-    "href": "07_intepolacije/Interpolacije.html#rf-primer-nasumične-krosvalidacije-reziduali",
+    "objectID": "07_interpolacije/interpolacije.html#rf-primer-nasumične-krosvalidacije-reziduali",
+    "href": "07_interpolacije/interpolacije.html#rf-primer-nasumične-krosvalidacije-reziduali",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RF primer nasumične krosvalidacije reziduali",
     "text": "RF primer nasumične krosvalidacije reziduali\n\n# Prikaz stvarnih vs predviđenih vrijednosti\nggplot(as.data.frame(meuse), aes(x = zinc, y = rf_cv_pred)) +\n  geom_point() +\n  geom_abline(intercept = 0, slope = 1, color = \"red\") +\n  labs(title = \"Stvarne vs predviđene vrijednosti (nasumična CV)\",\n       x = \"Stvarna koncentracija cinka\", \n       y = \"Predviđena koncentracija cinka\") +\n  annotate(\"text\", x = min(meuse$zinc), y = max(meuse$rf_cv_pred),\n           label = paste0(\"RMSE = \", round(rmse, 2), \"\\nR² = \", round(rsq, 2)),\n           hjust = 0, vjust = 1)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsp-buffer-distance-maps",
-    "href": "07_intepolacije/Interpolacije.html#rfsp-buffer-distance-maps",
+    "objectID": "07_interpolacije/interpolacije.html#rfsp-buffer-distance-maps",
+    "href": "07_interpolacije/interpolacije.html#rfsp-buffer-distance-maps",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFsp Buffer distance maps",
     "text": "RFsp Buffer distance maps\nBuffer distance slojevi predstavljaju rastere u kojima svaka ćelija sadrži udaljenost do jedne poznate uzorkovane tačke.\n\nZa n uzoraka pravi se n rastera, po jedan za svaku tačku.\nSvaki sloj koristi se kao dodatni prostorni prediktor u Random Forest modelu.\nOvi slojevi omogućavaju modelu da “nauči” prostornu strukturu bez klasičnog variograma."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsp-buffer-distance-maps-1",
-    "href": "07_intepolacije/Interpolacije.html#rfsp-buffer-distance-maps-1",
+    "objectID": "07_interpolacije/interpolacije.html#rfsp-buffer-distance-maps-1",
+    "href": "07_interpolacije/interpolacije.html#rfsp-buffer-distance-maps-1",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFsp Buffer distance maps",
     "text": "RFsp Buffer distance maps\n\nlibrary(terra)\nlibrary(sf)\n\n# Konverzija meuse u sf\ndata(meuse)\nmeuse_sf &lt;- st_as_sf(meuse, coords = c(\"x\", \"y\"), crs = 28992)\n# Raster mreža (grid)\ndata(meuse.grid)\ngrid_df &lt;- meuse.grid\ncoordinates(grid_df) &lt;- ~x + y\ngridded(grid_df) &lt;- TRUE\nproj4string(grid_df) &lt;- CRS(\"+init=epsg:28992\")\ngrid_ras &lt;- rast(grid_df)\nmeuse_ras &lt;- grid_ras[[\"dist\"]]\n\n# Buffer distance rasteri\nbuffer_rasters &lt;- lapply(1:nrow(meuse_sf), function(i) {\n  p &lt;- vect(meuse_sf[i, ])\n  dist_ras &lt;- distance(meuse_ras, y = p)\n  names(dist_ras) &lt;- paste0(\"dist_\", i)\n  dist_ras\n})\n# Kombinuj u jedan SpatRaster\nbuffer_stack &lt;- do.call(c, buffer_rasters)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsp-buffer-distance-maps-prikaz-nekoliko-slojeva",
-    "href": "07_intepolacije/Interpolacije.html#rfsp-buffer-distance-maps-prikaz-nekoliko-slojeva",
+    "objectID": "07_interpolacije/interpolacije.html#rfsp-buffer-distance-maps-prikaz-nekoliko-slojeva",
+    "href": "07_interpolacije/interpolacije.html#rfsp-buffer-distance-maps-prikaz-nekoliko-slojeva",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFsp Buffer distance maps prikaz nekoliko slojeva",
     "text": "RFsp Buffer distance maps prikaz nekoliko slojeva\n\nplot(buffer_stack[[1:4]], main = \"Buffer distance rasteri\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsp-buffer-distance-maps-rasteri-i-ostali-prediktori",
-    "href": "07_intepolacije/Interpolacije.html#rfsp-buffer-distance-maps-rasteri-i-ostali-prediktori",
+    "objectID": "07_interpolacije/interpolacije.html#rfsp-buffer-distance-maps-rasteri-i-ostali-prediktori",
+    "href": "07_interpolacije/interpolacije.html#rfsp-buffer-distance-maps-rasteri-i-ostali-prediktori",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFsp Buffer distance maps rasteri i ostali prediktori",
     "text": "RFsp Buffer distance maps rasteri i ostali prediktori\n\nlibrary(terra)\n# Kombinuj: klasični + buffer rasteri\npredictor_stack &lt;- c(buffer_stack, grid_ras[[\"dist\"]], grid_ras[[\"soil\"]], grid_ras[[\"ffreq\"]])\nnames(predictor_stack)\n\n  [1] \"dist_1\"   \"dist_2\"   \"dist_3\"   \"dist_4\"   \"dist_5\"   \"dist_6\"  \n  [7] \"dist_7\"   \"dist_8\"   \"dist_9\"   \"dist_10\"  \"dist_11\"  \"dist_12\" \n [13] \"dist_13\"  \"dist_14\"  \"dist_15\"  \"dist_16\"  \"dist_17\"  \"dist_18\" \n [19] \"dist_19\"  \"dist_20\"  \"dist_21\"  \"dist_22\"  \"dist_23\"  \"dist_24\" \n [25] \"dist_25\"  \"dist_26\"  \"dist_27\"  \"dist_28\"  \"dist_29\"  \"dist_30\" \n [31] \"dist_31\"  \"dist_32\"  \"dist_33\"  \"dist_34\"  \"dist_35\"  \"dist_36\" \n [37] \"dist_37\"  \"dist_38\"  \"dist_39\"  \"dist_40\"  \"dist_41\"  \"dist_42\" \n [43] \"dist_43\"  \"dist_44\"  \"dist_45\"  \"dist_46\"  \"dist_47\"  \"dist_48\" \n [49] \"dist_49\"  \"dist_50\"  \"dist_51\"  \"dist_52\"  \"dist_53\"  \"dist_54\" \n [55] \"dist_55\"  \"dist_56\"  \"dist_57\"  \"dist_58\"  \"dist_59\"  \"dist_60\" \n [61] \"dist_61\"  \"dist_62\"  \"dist_63\"  \"dist_64\"  \"dist_65\"  \"dist_66\" \n [67] \"dist_67\"  \"dist_68\"  \"dist_69\"  \"dist_70\"  \"dist_71\"  \"dist_72\" \n [73] \"dist_73\"  \"dist_74\"  \"dist_75\"  \"dist_76\"  \"dist_77\"  \"dist_78\" \n [79] \"dist_79\"  \"dist_80\"  \"dist_81\"  \"dist_82\"  \"dist_83\"  \"dist_84\" \n [85] \"dist_85\"  \"dist_86\"  \"dist_87\"  \"dist_88\"  \"dist_89\"  \"dist_90\" \n [91] \"dist_91\"  \"dist_92\"  \"dist_93\"  \"dist_94\"  \"dist_95\"  \"dist_96\" \n [97] \"dist_97\"  \"dist_98\"  \"dist_99\"  \"dist_100\" \"dist_101\" \"dist_102\"\n[103] \"dist_103\" \"dist_104\" \"dist_105\" \"dist_106\" \"dist_107\" \"dist_108\"\n[109] \"dist_109\" \"dist_110\" \"dist_111\" \"dist_112\" \"dist_113\" \"dist_114\"\n[115] \"dist_115\" \"dist_116\" \"dist_117\" \"dist_118\" \"dist_119\" \"dist_120\"\n[121] \"dist_121\" \"dist_122\" \"dist_123\" \"dist_124\" \"dist_125\" \"dist_126\"\n[127] \"dist_127\" \"dist_128\" \"dist_129\" \"dist_130\" \"dist_131\" \"dist_132\"\n[133] \"dist_133\" \"dist_134\" \"dist_135\" \"dist_136\" \"dist_137\" \"dist_138\"\n[139] \"dist_139\" \"dist_140\" \"dist_141\" \"dist_142\" \"dist_143\" \"dist_144\"\n[145] \"dist_145\" \"dist_146\" \"dist_147\" \"dist_148\" \"dist_149\" \"dist_150\"\n[151] \"dist_151\" \"dist_152\" \"dist_153\" \"dist_154\" \"dist_155\" \"dist\"    \n[157] \"soil\"     \"ffreq\""
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#prostorni-overlay-sa-prediktorima",
-    "href": "07_intepolacije/Interpolacije.html#prostorni-overlay-sa-prediktorima",
+    "objectID": "07_interpolacije/interpolacije.html#prostorni-overlay-sa-prediktorima",
+    "href": "07_interpolacije/interpolacije.html#prostorni-overlay-sa-prediktorima",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Prostorni overlay sa prediktorima",
     "text": "Prostorni overlay sa prediktorima\n\nbuffer_vals &lt;- extract(predictor_stack, vect(meuse_sf))\ntrain_df &lt;- cbind(zinc=meuse$zinc, buffer_vals[,-1])  # -1 Ukloni ID kolonu\nnames(train_df )\n\n  [1] \"zinc\"     \"dist_1\"   \"dist_2\"   \"dist_3\"   \"dist_4\"   \"dist_5\"  \n  [7] \"dist_6\"   \"dist_7\"   \"dist_8\"   \"dist_9\"   \"dist_10\"  \"dist_11\" \n [13] \"dist_12\"  \"dist_13\"  \"dist_14\"  \"dist_15\"  \"dist_16\"  \"dist_17\" \n [19] \"dist_18\"  \"dist_19\"  \"dist_20\"  \"dist_21\"  \"dist_22\"  \"dist_23\" \n [25] \"dist_24\"  \"dist_25\"  \"dist_26\"  \"dist_27\"  \"dist_28\"  \"dist_29\" \n [31] \"dist_30\"  \"dist_31\"  \"dist_32\"  \"dist_33\"  \"dist_34\"  \"dist_35\" \n [37] \"dist_36\"  \"dist_37\"  \"dist_38\"  \"dist_39\"  \"dist_40\"  \"dist_41\" \n [43] \"dist_42\"  \"dist_43\"  \"dist_44\"  \"dist_45\"  \"dist_46\"  \"dist_47\" \n [49] \"dist_48\"  \"dist_49\"  \"dist_50\"  \"dist_51\"  \"dist_52\"  \"dist_53\" \n [55] \"dist_54\"  \"dist_55\"  \"dist_56\"  \"dist_57\"  \"dist_58\"  \"dist_59\" \n [61] \"dist_60\"  \"dist_61\"  \"dist_62\"  \"dist_63\"  \"dist_64\"  \"dist_65\" \n [67] \"dist_66\"  \"dist_67\"  \"dist_68\"  \"dist_69\"  \"dist_70\"  \"dist_71\" \n [73] \"dist_72\"  \"dist_73\"  \"dist_74\"  \"dist_75\"  \"dist_76\"  \"dist_77\" \n [79] \"dist_78\"  \"dist_79\"  \"dist_80\"  \"dist_81\"  \"dist_82\"  \"dist_83\" \n [85] \"dist_84\"  \"dist_85\"  \"dist_86\"  \"dist_87\"  \"dist_88\"  \"dist_89\" \n [91] \"dist_90\"  \"dist_91\"  \"dist_92\"  \"dist_93\"  \"dist_94\"  \"dist_95\" \n [97] \"dist_96\"  \"dist_97\"  \"dist_98\"  \"dist_99\"  \"dist_100\" \"dist_101\"\n[103] \"dist_102\" \"dist_103\" \"dist_104\" \"dist_105\" \"dist_106\" \"dist_107\"\n[109] \"dist_108\" \"dist_109\" \"dist_110\" \"dist_111\" \"dist_112\" \"dist_113\"\n[115] \"dist_114\" \"dist_115\" \"dist_116\" \"dist_117\" \"dist_118\" \"dist_119\"\n[121] \"dist_120\" \"dist_121\" \"dist_122\" \"dist_123\" \"dist_124\" \"dist_125\"\n[127] \"dist_126\" \"dist_127\" \"dist_128\" \"dist_129\" \"dist_130\" \"dist_131\"\n[133] \"dist_132\" \"dist_133\" \"dist_134\" \"dist_135\" \"dist_136\" \"dist_137\"\n[139] \"dist_138\" \"dist_139\" \"dist_140\" \"dist_141\" \"dist_142\" \"dist_143\"\n[145] \"dist_144\" \"dist_145\" \"dist_146\" \"dist_147\" \"dist_148\" \"dist_149\"\n[151] \"dist_150\" \"dist_151\" \"dist_152\" \"dist_153\" \"dist_154\" \"dist_155\"\n[157] \"dist\"     \"soil\"     \"ffreq\""
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsp-random-forest-model",
-    "href": "07_intepolacije/Interpolacije.html#rfsp-random-forest-model",
+    "objectID": "07_interpolacije/interpolacije.html#rfsp-random-forest-model",
+    "href": "07_interpolacije/interpolacije.html#rfsp-random-forest-model",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFsp Random Forest model",
     "text": "RFsp Random Forest model\n\n# Random Forest model\nrfsp_model &lt;- ranger(zinc ~ ., data = train_df, num.trees = 100, importance = \"impurity\")\nrfsp_model\n\nRanger result\n\nCall:\n ranger(zinc ~ ., data = train_df, num.trees = 100, importance = \"impurity\") \n\nType:                             Regression \nNumber of trees:                  100 \nSample size:                      155 \nNumber of independent variables:  158 \nMtry:                             12 \nTarget node size:                 5 \nVariable importance mode:         impurity \nSplitrule:                        variance \nOOB prediction error (MSE):       53748.75 \nR squared (OOB):                  0.6011022"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsp-predikcija-na-gridu",
-    "href": "07_intepolacije/Interpolacije.html#rfsp-predikcija-na-gridu",
+    "objectID": "07_interpolacije/interpolacije.html#rfsp-predikcija-na-gridu",
+    "href": "07_interpolacije/interpolacije.html#rfsp-predikcija-na-gridu",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFsp predikcija na gridu",
     "text": "RFsp predikcija na gridu\n\n# Konvertuj u data.frame\npredict_df &lt;- as.data.frame(predictor_stack, xy = TRUE, na.rm = TRUE)\n# Predikcija\nrfsp_pred &lt;- predict(rfsp_model, data = predict_df)\npredict_df$zinc_rfsp &lt;- rfsp_pred$predictions\n\n# Pretvori u raster\nzinc_rfsp_ras &lt;- rast(cbind(predict_df[, c(\"x\", \"y\")], predict_df$zinc_rfsp), type = \"xyz\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsp-prikaz-rezultata",
-    "href": "07_intepolacije/Interpolacije.html#rfsp-prikaz-rezultata",
+    "objectID": "07_interpolacije/interpolacije.html#rfsp-prikaz-rezultata",
+    "href": "07_interpolacije/interpolacije.html#rfsp-prikaz-rezultata",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFsp prikaz rezultata",
     "text": "RFsp prikaz rezultata\n\nplot(zinc_rfsp_ras, main = \"RFsp – predikcija koncentracije cinka\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsi-inetepolacija",
-    "href": "07_intepolacije/Interpolacije.html#rfsi-inetepolacija",
+    "objectID": "07_interpolacije/interpolacije.html#rfsi-inetepolacija",
+    "href": "07_interpolacije/interpolacije.html#rfsi-inetepolacija",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFSI inetepolacija",
     "text": "RFSI inetepolacija\n\n# library(devtools)\n# install_github(\"https://github.com/AleksandarSekulic/Rmeteo\")\nlibrary(meteo)\n# prepare data\ndemo(meuse, echo=FALSE)\nmeuse &lt;- meuse[complete.cases(meuse@data),]\ndata = st_as_sf(meuse, coords = c(\"x\", \"y\"), crs = 28992, agr = \"constant\")\n#################### rfsi ####################\nfm.RFSI &lt;- as.formula(\"zinc ~ dist + soil + ffreq\")\n# fit the RFSI model\nrfsi_model &lt;- rfsi(formula = fm.RFSI,\n                   data = data, # meuse.df (use data.staid.x.y.z)\n                   zero.tol = 0,\n                   n.obs = 5, # number of nearest observations\n                   cpus = detectCores()-1,\n                   progress = TRUE,\n                   importance = \"impurity\",\n                   seed = 42,\n                   num.trees = 250,\n                   mtry = 5,\n                   splitrule = \"variance\",\n                   min.node.size = 5,\n                   sample.fraction = 0.95,\n                   quantreg = FALSE)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsi-model-summary",
-    "href": "07_intepolacije/Interpolacije.html#rfsi-model-summary",
+    "objectID": "07_interpolacije/interpolacije.html#rfsi-model-summary",
+    "href": "07_interpolacije/interpolacije.html#rfsi-model-summary",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFSI model summary",
     "text": "RFSI model summary\n\nrfsi_model\n\nRanger result\n\nCall:\n ranger(formula, data = data.df, ...) \n\nType:                             Regression \nNumber of trees:                  250 \nSample size:                      152 \nNumber of independent variables:  13 \nMtry:                             5 \nTarget node size:                 5 \nVariable importance mode:         impurity \nSplitrule:                        variance \nOOB prediction error (MSE):       47758.14 \nR squared (OOB):                  0.6435869"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsi-predikcija",
-    "href": "07_intepolacije/Interpolacije.html#rfsi-predikcija",
+    "objectID": "07_interpolacije/interpolacije.html#rfsi-predikcija",
+    "href": "07_interpolacije/interpolacije.html#rfsi-predikcija",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFSI predikcija",
     "text": "RFSI predikcija\n\nnewdata &lt;- terra::rast(meuse.grid)\nclass(newdata)\n\n[1] \"SpatRaster\"\nattr(,\"package\")\n[1] \"terra\"\n\n# prediction\nrfsi_prediction &lt;- pred.rfsi(model = rfsi_model,\n                             data = data, # meuse.df (use data.staid.x.y.z)\n                             obs.col = \"zinc\",\n                             newdata = newdata, # meuse.grid.df (use newdata.staid.x.y.z)\n                             output.format = \"SpatRaster\", # \"sf\", # \"SpatVector\", \n                             zero.tol = 0,\n                             cpus = 1, # detectCores()-1,\n                             progress = TRUE)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsi-predikcija-plot",
-    "href": "07_intepolacije/Interpolacije.html#rfsi-predikcija-plot",
+    "objectID": "07_interpolacije/interpolacije.html#rfsi-predikcija-plot",
+    "href": "07_interpolacije/interpolacije.html#rfsi-predikcija-plot",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFSI predikcija plot",
     "text": "RFSI predikcija plot\n\nplot(rfsi_prediction, main = \"RFSI predikcija koncentracije cinka\")"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#rfsi-podešavanje-modela-i-krosvalidacija",
-    "href": "07_intepolacije/Interpolacije.html#rfsi-podešavanje-modela-i-krosvalidacija",
+    "objectID": "07_interpolacije/interpolacije.html#rfsi-podešavanje-modela-i-krosvalidacija",
+    "href": "07_interpolacije/interpolacije.html#rfsi-podešavanje-modela-i-krosvalidacija",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "RFSI podešavanje modela i krosvalidacija",
     "text": "RFSI podešavanje modela i krosvalidacija\n\nDetalji dostupni na linku: https://github.com/AleksandarSekulic/Rmeteo/blob/master/demo/RFSI.R\n\nRad https://doi.org/10.3390/rs12101687"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#prostorno-vremenski-kriging",
-    "href": "07_intepolacije/Interpolacije.html#prostorno-vremenski-kriging",
+    "objectID": "07_interpolacije/interpolacije.html#prostorno-vremenski-kriging",
+    "href": "07_interpolacije/interpolacije.html#prostorno-vremenski-kriging",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Prostorno vremenski kriging",
     "text": "Prostorno vremenski kriging\nProstorno-vremenski kriging omogućava modelovanje podataka koji imaju izraženu prostorno vremensku varijabilnost.\n\nVariogram generalizovan na prostornu i vremensku dimenziju\nKriging se primenjuje kroz prostor i vreme\nPovećava tačnost interpolacije kada su podaci gusti u vremenu"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#priprema-prostornih-podataka-i-vremenska-serija-podatka",
-    "href": "07_intepolacije/Interpolacije.html#priprema-prostornih-podataka-i-vremenska-serija-podatka",
+    "objectID": "07_interpolacije/interpolacije.html#priprema-prostornih-podataka-i-vremenska-serija-podatka",
+    "href": "07_interpolacije/interpolacije.html#priprema-prostornih-podataka-i-vremenska-serija-podatka",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Priprema prostornih podataka i vremenska serija podatka",
     "text": "Priprema prostornih podataka i vremenska serija podatka\n\nlibrary(stars)\nlibrary(xts)\n# https://github.com/edzer/sdsr_exercises/tree/main/data/ch13.RData\n# 'aqsel' xts matrica (8760xN) sa NO2 podacima, \n# a 'no2_sf' sf objekat stanica (sa kolonama station_european_code, geometry, itd).\nload(\"data/aqsel.rda\")\n\nurl = \"https://raw.githubusercontent.com/r-spatial/gstat/master/inst/external/no2.csv\"\nno2.sf = read.csv(url) |&gt; \n    st_as_sf(coords = c(\"station_longitude_deg\", \"station_latitude_deg\"),\n             crs = st_crs(4326))\nplot(no2.sf[\"NO2\"], pch = 16)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#priprema-stars-objekta",
-    "href": "07_intepolacije/Interpolacije.html#priprema-stars-objekta",
+    "objectID": "07_interpolacije/interpolacije.html#priprema-stars-objekta",
+    "href": "07_interpolacije/interpolacije.html#priprema-stars-objekta",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Priprema stars objekta",
     "text": "Priprema stars objekta\n\nno2.sf &lt;- st_transform(no2.sf, crs=32632)\n# Kreiranje stars objekta od matrice\nno2.st &lt;- st_as_stars(list(NO2 = as.matrix(aqsel))) |&gt;\n  st_set_dimensions(names = c(\"time\", \"station\")) |&gt;          # Imenovanje dimenzija\n  st_set_dimensions(\"time\", values = index(aqsel)) |&gt;         # Postavljanje vremenskih indeksa (POSIXct)\n  st_set_dimensions(\"station\", values = st_geometry(no2.sf))  # Prostorne koordinate stanica\nno2.st\n\nstars object with 2 dimensions and 1 attribute\nattribute(s):\n       Min. 1st Qu.   Median     Mean 3rd Qu.     Max.  NA's\nNO2  -8.102    3.02 5.663825 8.391057   10.39 196.7888 16134\ndimension(s):\n        from   to                  offset   delta                refsys point\ntime       1 8760 2017-01-01 01:00:00 CET 1 hours               POSIXct    NA\nstation    1   74                      NA      NA WGS 84 / UTM zone 32N  TRUE\n                                                       values\ntime                                                     NULL\nstation POINT (545413.7 5930802),...,POINT (835251.7 5630738)\n\n\nOvim smo dobili prostorno-vremenski data cube: dimenzija time (vremenske oznake) i dimenzija station (prostorne lokacije mernih stanica). Svaka instanca sadrži vrednost \\(NO_2\\) koncentracije za datu stanicu u datom satu."
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#izračunavanje-prostorno-vremenskog-varijagrama",
-    "href": "07_intepolacije/Interpolacije.html#izračunavanje-prostorno-vremenskog-varijagrama",
+    "objectID": "07_interpolacije/interpolacije.html#izračunavanje-prostorno-vremenskog-varijagrama",
+    "href": "07_interpolacije/interpolacije.html#izračunavanje-prostorno-vremenskog-varijagrama",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Izračunavanje prostorno-vremenskog varijagrama",
     "text": "Izračunavanje prostorno-vremenskog varijagrama\nEmpirijski prostorno-vremenski variogram kvantifikuje varijaciju podataka u zavisnosti od:\n\nProstorne udaljenosti\nVremenskog razmaka\nZbog velike količine podataka, često je praktično računati variogram na podskupu (npr. prvih mesec dana)\n\n\nlibrary(gstat)\n# Računanje spatio-temporal variograma za NO2; tlags = 0 do 48 sati (2 dana)\nv.st &lt;- variogramST(NO2~1, data = no2.st[, 1:(24*31)], tlags = 0:48,  cores = getOption(\"mc.cores\", 6))"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#prikaz-prostorno-vremenskog-eksperimentalnog-varijograma",
-    "href": "07_intepolacije/Interpolacije.html#prikaz-prostorno-vremenskog-eksperimentalnog-varijograma",
+    "objectID": "07_interpolacije/interpolacije.html#prikaz-prostorno-vremenskog-eksperimentalnog-varijograma",
+    "href": "07_interpolacije/interpolacije.html#prikaz-prostorno-vremenskog-eksperimentalnog-varijograma",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Prikaz prostorno-vremenskog eksperimentalnog varijograma",
     "text": "Prikaz prostorno-vremenskog eksperimentalnog varijograma\n\nLevi panel prikazuje semivariance (gamma) u funkciji prostorne udaljenosti (osa x) i vremenskog pomaka (osa y predstavlja time lag u satima), sa bojama koje predstavljaju veličinu gamma.\nDesni panel prikazuje isto to kroz skup krivih – svaka kriva je variogram za određeni vremenski lag, pri čemu je boja krive (od plave ka žutoj) proporcionalna rastu vremenskog laga.\n\n\nv1 &lt;- plot(v.st)\nv2 &lt;- plot(v.st, map = FALSE, legend = list())\nprint(v1, split = c(1,1,2,1), more = TRUE)\nprint(v2, split = c(2,1,2,1), more = FALSE)"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#fitovanje-variograma",
-    "href": "07_intepolacije/Interpolacije.html#fitovanje-variograma",
+    "objectID": "07_interpolacije/interpolacije.html#fitovanje-variograma",
+    "href": "07_interpolacije/interpolacije.html#fitovanje-variograma",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Fitovanje variograma",
     "text": "Fitovanje variograma\nDefiniše početni model prostorno-vremenskog variograma korišćenjem product-sum pristupa:\n\n\nspace = vgm(...): eksponencijalni model za prostornu komponentu\n\n\nSill = 150, range = 200,000 m, nugget = 0\n\n\n\ntime = vgm(...): sferni model za vremensku komponentu\n\n\nSill = 20, range = 6 časova, nugget = 0\n\n\nk = 2: skalirajući faktor koji kombinuje prostor i vreme\nstAni: prostorno-vremenska anizotropija (proporcija između prostorne i vremenske varijacije)\n\n\n# product-sum\nprodSumModel &lt;- vgmST(\"productSum\",\n    space = vgm(150, \"Exp\", 200000, 0),\n    time = vgm(20, \"Sph\", 6, 0),\n    k = 2)\n#v.st$dist = v.st$dist / 1000\nStAni &lt;- estiStAni(v.st, c(0,200000))\n(fitProdSumModel &lt;- fit.StVariogram(v.st, prodSumModel,\n    fit.method = 7, stAni = StAni, method = \"L-BFGS-B\",\n    control = list(parscale = c(1,100000,1,1,0.1,1,10)),\n    lower = rep(0.0001, 7)))\n\nspace component: \n  model    psill range\n1   Nug   0.0001 0e+00\n2   Exp 150.0005 2e+05\ntime component: \n  model    psill    range\n1   Nug  0.00010  0.00000\n2   Sph 20.00359 14.89479\nk: 0.0203398868049184"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#prikaz-fitovanog-variograma",
-    "href": "07_intepolacije/Interpolacije.html#prikaz-fitovanog-variograma",
+    "objectID": "07_interpolacije/interpolacije.html#prikaz-fitovanog-variograma",
+    "href": "07_interpolacije/interpolacije.html#prikaz-fitovanog-variograma",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Prikaz fitovanog variograma",
     "text": "Prikaz fitovanog variograma\n\nplot(v.st, model = fitProdSumModel, wireframe = TRUE, all = TRUE, \n     scales = list(arrows = FALSE), zlim = c(0, 185))"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#pripremimo-dve-nasumične-tačke-za-predikciju",
-    "href": "07_intepolacije/Interpolacije.html#pripremimo-dve-nasumične-tačke-za-predikciju",
+    "objectID": "07_interpolacije/interpolacije.html#pripremimo-dve-nasumične-tačke-za-predikciju",
+    "href": "07_interpolacije/interpolacije.html#pripremimo-dve-nasumične-tačke-za-predikciju",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Pripremimo dve nasumične tačke za predikciju",
     "text": "Pripremimo dve nasumične tačke za predikciju\n\nPredikcija vremenske serije na novim tačkama. Pretpostavimo da želimo da predvidimo \\(NO_2\\) koncentraciju na dve nove lokacije (koje nisu u skupu stanica) tokom cele godine 2017.\nPrvo izaberemo dve prostorne tačke (nasumično ili određeno) u okviru posmatrane oblasti i pripremimo stars objekat koji ima sve vremenske instance za te tačke (dimenzije: time × 2 new points)\n\n\nset.seed(1331)\npt &lt;- st_sample(st_bbox(no2.st), 2)\nt &lt;- st_get_dimension_values(no2.st, 1)\nst_as_stars(list(pts = matrix(1, length(t), length(pt)))) |&gt;\n    st_set_dimensions(names = c(\"time\", \"station\")) |&gt;\n    st_set_dimensions(\"time\", t) |&gt;\n    st_set_dimensions(\"station\", pt) -&gt; new_pt"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#predikcija-na-novim-tačkama",
-    "href": "07_intepolacije/Interpolacije.html#predikcija-na-novim-tačkama",
+    "objectID": "07_interpolacije/interpolacije.html#predikcija-na-novim-tačkama",
+    "href": "07_interpolacije/interpolacije.html#predikcija-na-novim-tačkama",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Predikcija na novim tačkama",
     "text": "Predikcija na novim tačkama\n\ncrs = 32632\nno2.st &lt;- st_transform(no2.st, crs)\nnew_ts &lt;- krigeST(NO2~1, data = no2.st[\"NO2\"], \n                  newdata = dplyr::slice(new_pt, along=\"time\",1:100),\n         nmax = 10, stAni = StAni, modelList = fitProdSumModel,\n         progress = FALSE)\nplot(as.xts(new_ts[\"var1.pred\"]))"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#priprema-prostorno-vremenskog-grida-za-predikciju",
-    "href": "07_intepolacije/Interpolacije.html#priprema-prostorno-vremenskog-grida-za-predikciju",
+    "objectID": "07_interpolacije/interpolacije.html#priprema-prostorno-vremenskog-grida-za-predikciju",
+    "href": "07_interpolacije/interpolacije.html#priprema-prostorno-vremenskog-grida-za-predikciju",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Priprema prostorno vremenskog grida za predikciju",
     "text": "Priprema prostorno vremenskog grida za predikciju\n\n# Kreiranje prostornog grida (10km raster)\ngrd &lt;- st_as_stars(st_bbox(no2.sf), dx = 10000, dy = 10000)\n\nd &lt;- dim(grd)\n# t4 &lt;- t[(1:4 - 0.5) * (3*24*30)]\n# Pravljenje prazan stars sa dimenzijama x, y, time (4 vremenska isečka)\nt4  &lt;- as.POSIXct(c(\"2017-01-01 12:00:00\", \"2017-04-01 12:00:00\", \"2017-07-01 12:00:00\", \"2017-10-01 12:00:00\"), tz = \"CET\")\n\nst_as_stars(pts = array(1, c(d[1], d[2], time = length(t4)))) |&gt;\n    st_set_dimensions(\"time\", t4) |&gt;\n    st_set_dimensions(\"x\", st_get_dimension_values(grd, \"x\")) |&gt;\n    st_set_dimensions(\"y\", st_get_dimension_values(grd, \"y\")) |&gt;\n    st_set_crs(32632) -&gt; grd.st"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#predikcija-na-gridu",
-    "href": "07_intepolacije/Interpolacije.html#predikcija-na-gridu",
+    "objectID": "07_interpolacije/interpolacije.html#predikcija-na-gridu",
+    "href": "07_interpolacije/interpolacije.html#predikcija-na-gridu",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Predikcija na gridu",
     "text": "Predikcija na gridu\n\n# Predikcija na prostornom gridu proces je spor zbog operacija sa orgomnim matricama\nnew_int &lt;- krigeST(NO2~1, data = no2.st[\"NO2\"], newdata = grd.st,\n         nmax = 200, stAni = StAni, modelList = fitProdSumModel,\n         progress = TRUE)\nnames(new_int)[2] = \"NO2\"\n\nplot(new_int[\"NO2\"])\n\npng(\"imgs/STK.png\", width = 2000, height = 1500, res = 300, units = \"px\")\nplot(new_int[\"NO2\"])  \ndev.off()"
   },
   {
-    "objectID": "07_intepolacije/Interpolacije.html#literatura",
-    "href": "07_intepolacije/Interpolacije.html#literatura",
+    "objectID": "07_interpolacije/interpolacije.html#literatura",
+    "href": "07_interpolacije/interpolacije.html#literatura",
     "title": "Metode prostorne i prostorno vremenske interpolacije",
     "section": "Literatura",
     "text": "Literatura\n\nPebesma, E.; Bivand, R. (2023). Spatial Data Science: With Applications in R (1st ed.). 314 pages. Chapman and Hall/CRC, Boca Raton. https://doi.org/10.1201/9780429459016\nBreiman, L. (2001). Random Forests. Machine Learning, 45(1), 5–32. https://doi.org/10.1023/A:1010933404324\nHengl, T., Nussbaum, M., Wright, M. N., Heuvelink, G. B. M., & Gräler, B. (2018). Random forest as a generic framework for predictive modeling of spatial and spatio-temporal variables. PeerJ, 6, e5518. https://doi.org/10.7717/peerj.5518\nHuffman, G., Bolvin, D., Braithwaite, D., Hsu, K., Joyce, R., Xie, P. (2014). Integrated Multi-satellitE Retrievals for GPM (IMERG), version 4.4. NASA’s Precipitation Processing Center, accessed 31 March, 2019, ftp://jsimpson.pps.eosdis.nasa.gov/data/imerg/gis/\nKilibarda, M., Hengl, T., Heuvelink, G. B. M., Gräler, B., Pebesma, E., Perčec Tadic, M., Bajat, B. (2014). Spatio-temporal interpolation of daily temperatures for global land areas at 1 km resolution. Journal of Geophysical Research Atmospheres, 119(5), 2294–2313. https://doi.org/10.1002/2013JD020803\nSekulić, A., Kilibarda, M., Heuvelink, G. B., Nikolić, M. & Bajat, B. Random Forest Spatial Interpolation.Remote. Sens. 12, 1687,https://doi.org/10.3390/rs12101687 (2020).\nhttps://github.com/AleksandarSekulic/RFSI"
