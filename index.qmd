@@ -127,6 +127,20 @@ Ova prezentacija pruža sveobuhvatan pregled prostornih i prostornovremenskih in
 :::
 
 
+::: {.g-col-12 .g-col-md-6}
+::: {.card .h-100 .shadow-sm .p-3}
+
+### Analiza vremenskih serija satelitskih snimaka koristeći paket sits
+
+Ovo predavanje pruža celovit uvod u R paket sits, objašnjavajući analitički radni tok od kreiranja prostorno-vremenskih kocki satelitskih snimaka do primene modela mašinskog učenja za klasifikaciju pokrivača zemljišta.
+
+<br>
+[Otvori prezentaciju](08_sits/sits.html){.btn .btn-primary role="button"}
+
+:::
+:::
+
+
 
 
 :::

@@ -6,6 +6,7 @@
 05_time/
 06_stars/
 07_interpolacije/
+08_sits/
 !docs/02_introSpatial/
 !docs/00_R/
 !docs/01_tidyverse/
@@ -14,6 +15,7 @@
 !docs/05_time/
 !docs/06_stars/
 !docs/07_interpolacije/
+!docs/08_sits/
 .Rhistory
 .RData
 deploy.bat
