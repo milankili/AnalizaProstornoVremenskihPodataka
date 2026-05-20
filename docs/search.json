@@ -4295,7 +4295,7 @@
     "href": "08_sits/sits.html#osnovni-tipovi-objekata-u-sits",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Osnovni tipovi objekata u {sits}\n",
-    "text": "Osnovni tipovi objekata u {sits}\n\n\n\nUlazni podaci\n\n\n\nsits_cube\nKocka multi-vremenskih rastera (prostorno-vremenski skup podataka).\n\n\n\n\n\n\nsits_labels\nUzorci sa etiketama (i opciono izdvojenim vremenskim serijama). Takođe se naziva sits_samples.\n\n\n\n\n\n\n🧠 Model i rezultati modela\n\n\n\nsits_model\nIstrenirani ML model (npr. Random Forest, SVM ili Deep Learning).\n\n\n\n\n\n\nsits_probs\nKocka verovatnoće pojave klase (probability cube).\n\n\n\n\n\n\nsits_class\nFinalna tematska karta najverovatnijih klasa (label karta)."
+    "text": "Osnovni tipovi objekata u {sits}\n\n\n\nUlazni podaci\n\n\n\nsits_cube\nKocka multi-vremenskih rastera (prostorno-vremenski skup podataka).\n\n\n\n\n\n\nsits_labels\nUzorci sa etiketama (i opciono izdvojenim vremenskim serijama). Vremnske serije na uzorcima su sits_samples.\n\n\n\n\n\n\n🧠 Model i rezultati modela\n\n\n\nsits_model\nIstrenirani ML model (npr. Random Forest, SVM ili Deep Learning).\n\n\n\n\n\n\nsits_probs\nKocka verovatnoće pojave klase (probability cube).\n\n\n\n\n\n\nsits_class\nFinalna tematska karta najverovatnijih klasa (label karta)."
   },
   {
     "objectID": "08_sits/sits.html#koncept-rasterskih-vremenskih-serija-i-klasifikacije-snimaka",
@@ -4316,14 +4316,14 @@
     "href": "08_sits/sits.html#uvod-od-pitanja-do-karte",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Uvod: od pitanja do karte",
-    "text": "Uvod: od pitanja do karte\nZamislite da imate desetine scena kroz godinu za poljoprivredne parcele u Vojvodini; profesor vas pita:\n\n\n\n\n\n\nPitanje\n\n\n\n„Možemo li dobiti kartu useva za svaku godinu unazad?”\n\nsits “odgovara” kroz pet glavnih objekata.\n\n\n\n\n\n\nsits_cube je katalog i deskriptor koji zna gde su podaci i kako teku kroz vreme.\n\nsits_labels su naše zemaljske istine - uzorci sa etiketama.\n\nsits_model je naučen prevodilac između signala i klase.\n\nsits_probs je karta verovatnoća za svaku klasu.\n\nsits_class je čista tematska karta: najverovatnija klasa po pikselu."
+    "text": "Uvod: od pitanja do karte\nZamislite da imate desetine scena kroz jednu godinu za poljoprivredne parcele u Vojvodini:\n\n\n\n\n\n\nPitanje\n\n\n\n„Možemo li dobiti kartu useva za tu godinu koristeći vremensku seriju snimaka?”\n\nsits “odgovara” kroz pet glavnih objekata.\n\n\n\n\n\n\nsits_cube je katalog i deskriptor koji zna gde su podaci i kako teku kroz vreme.\n\nsits_labels su naše zemaljske istine - uzorci sa etiketama.\n\nsits_model je naučen prevodilac između signala i klase.\n\nsits_probs je karta verovatnoća za svaku klasu.\n\nsits_class je čista tematska karta: najverovatnija klasa po pikselu."
   },
   {
     "objectID": "08_sits/sits.html#ključne-funkcije-u-r-paketu-sits",
     "href": "08_sits/sits.html#ključne-funkcije-u-r-paketu-sits",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Ključne funkcije u R paketu sits\n",
-    "text": "Ključne funkcije u R paketu sits\n\n\nOkvir/Framework za klasifikaciju vremenskih serija satelitskih podataka.\nJednostavan API sa doslednim R objektima (kocke, uzorci, modeli, klasifikacije).\nOptimizovan za duge vremenske serije i velike površine; podržava paralelizam.\nTipičan skup funkcija:\n\n-   sits_cube() – pravljenje/učitavanje kocke;\n-   sits_regularize() / sits_apply() – priprema i transformacije;\n-   sits_get_data() – ekstrakcija TS po lokacijama uzoraka;\n-   sits_train() – obuka (npr. Random Forest, TempCNN…);\n-   sits_classify() – klasifikacija kocke;\n-   sits_smooth(), sits_uncertainty() – post-procesiranje;\n-   sits_accuracy() – evaluacija.\n\nIdeja ista semantika bez obzira da li radimo na malom setu podatka ili na velikom setu u klasteru."
+    "text": "Ključne funkcije u R paketu sits\n\n\nOkruženje/Framework za klasifikaciju vremenskih serija satelitskih podataka.\nJednostavan API sa doslednim R objektima (kocke, uzorci, modeli, klasifikacije).\nOptimizovan za duge vremenske serije i velike površine; podržava paralelizam.\nTipičan skup funkcija:\n\n-   sits_cube() – pravljenje/učitavanje kocke;\n-   sits_regularize() / sits_apply() – priprema i transformacije;\n-   sits_get_data() – ekstrakcija TS po lokacijama uzoraka;\n-   sits_train() – obuka (npr. Random Forest, TempCNN…);\n-   sits_classify() – klasifikacija kocke;\n-   sits_smooth(), sits_uncertainty() – post-procesiranje;\n-   sits_accuracy() – evaluacija.\n\nIdeja ista semantika bez obzira da li radimo na malom setu podatka ili na velikom setu u klasteru."
   },
   {
     "objectID": "08_sits/sits.html#ključne-funkcije-u-r-paketu-sits-1",
@@ -4344,7 +4344,7 @@
     "href": "08_sits/sits.html#sits_cube---kocka-podataka",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "\nsits_cube - kocka podataka",
-    "text": "sits_cube - kocka podataka\nsits_cube liči na virtuleni raster data cube - on opisuje kocku (prostorni opseg, vreme, spektralne kanale/bands, putanje do faljlova/rastera bilo da su na lokalnom disku ili na cloud serveru).\nTo znači da se isti kod elegantno skalira od mini-demoa do velikog projekta.\n\nKorišćen je NASA proizvod MODIS MOD13Q1 v6.1 – globalni dataset vegetacionih indeksa.\n\nSadrži NDVI (Normalized Difference Vegetation Index – meri „zelenilo”) iEVI (Enhanced Vegetation Index – poboljšan indeks vegetacije, otporniji na zasićenje i atmosferske efekte).\n\nProstorna rezolucija je 250 m, a vremenski korak 16 dana; u paketu sitsdata nalazi se mali subset za oblast Sinop (Brazil).\n\n\nsinop_cube &lt;- sits_cube(\n  source  = \"BDC\",\n  collection  = \"MOD13Q1-6.1\",\n  bands   = c(\"NDVI\", \"EVI\"),\n  data_dir    = system.file(\"extdata/sinop\", package = \"sitsdata\"),\n  parse_info  = c(\"satellite\", \"sensor\", \"tile\", \"band\", \"date\"),\n  progress    = FALSE\n)\n\nNapomene: - sits_cube je deskriptor kocke (meta + indeks fajlova), a podaci su na disku. - parse_info govori sits kako da iz imena fajlova izvuče dimenzije (SatelitskaMisija/senzor/tile/band/datum)."
+    "text": "sits_cube - kocka podataka\nsits_cube liči na virtuleni raster data cube - on opisuje kocku (prostorni opseg, vreme, spektralni kanali/bands, putanje do faljlova/rastera bilo da su na lokalnom disku ili na cloud serveru).\nTo znači da se isti kod elegantno skalira od mini-demoa do velikog projekta.\n\nPrimer korišćnja NASA proizvoda MODIS MOD13Q1 v6.1 – globalni dataset vegetacionih indeksa.\n\nSadrži NDVI (Normalized Difference Vegetation Index – meri „zelenilo”) iEVI (Enhanced Vegetation Index – poboljšan indeks vegetacije, otporniji na zasićenje i atmosferske efekte).\n\nProstorna rezolucija je 250 m, a vremenski korak 16 dana; u paketu sitsdata nalazi se mali subset za oblast Mato Grosso (Brazil).\n\n\nsinop_cube &lt;- sits_cube(\n  source  = \"BDC\",\n  collection  = \"MOD13Q1-6.1\",\n  bands   = c(\"NDVI\", \"EVI\"),\n  data_dir    = system.file(\"extdata/sinop\", package = \"sitsdata\"),\n  parse_info  = c(\"satellite\", \"sensor\", \"tile\", \"band\", \"date\"),\n  progress    = FALSE\n)\n\nNapomene:\n\n\nsits_cube je deskriptor kocke (meta + indeks fajlova), a podaci su na disku.\n\nparse_info govori sits kako da iz imena fajlova izvuče dimenzije (SatelitskaMisija/senzor/tile/band/datum)."
   },
   {
     "objectID": "08_sits/sits.html#osnovne-informacije-o-kocki",
@@ -4372,14 +4372,21 @@
     "href": "08_sits/sits.html#sits_labels-in-situ-uzorci-sa-oznakama",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "\nsits_labels — in-situ uzorci sa oznakama",
-    "text": "sits_labels — in-situ uzorci sa oznakama\n\nZašto su važni?\nBez kvalitetnih uzoraka nema ni dobrog modela.\n\nStruktura:tibble/data.frame sa kolonama:\n\n\nlongitude, latitude — WGS84 lokacija\n\n\nstart_date, end_date — period posmatranja\n\n\nlabel — klasa\n\n\ntime_series (opciono) — vremenska serija vrednosti\n\n\n\nKako nastaju?\n\nDefinišu se prostorne tačke i njihove klase (in-situ).\n\nVremenske serije se naknadno izdvajaju iz kocke i dodaju uzorcima.\n\n\n\nZa šta se koriste?\n\nObuka (training) i evaluacija (testing/validation) ML modela za klasifikaciju vremenskih serija.\n\n\nPrimer:\nUčitani su uzorci iz paketa sitsdata, filtrirani na relevantne kanale i već spojeni sa kockom."
+    "text": "sits_labels — in-situ uzorci sa oznakama\n\nZašto su važni?\nBez kvalitetnih uzoraka nema ni dobrog modela.\n\nStruktura:tibble/data.frame sa kolonama:\n\n\nlongitude, latitude — WGS84 lokacija\n\n\nstart_date, end_date — period posmatranja\n\n\nlabel — klasa"
   },
   {
-    "objectID": "08_sits/sits.html#sits_labels---insitu-uzorci-sa-oznakama",
-    "href": "08_sits/sits.html#sits_labels---insitu-uzorci-sa-oznakama",
+    "objectID": "08_sits/sits.html#sits_samples-vremenske-serije-uzoraka",
+    "href": "08_sits/sits.html#sits_samples-vremenske-serije-uzoraka",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
-    "section": "\nsits_labels - insitu uzorci sa oznakama",
-    "text": "sits_labels - insitu uzorci sa oznakama\nFunkcija sits_select() se koristi da iz uzoraka izdvoji samo relevantne bandove/indekse (ovde NDVI i EVI) koje ćemo kasnije koristiti u obuci i klasifikaciji.\nTako osiguravamo da uzorci i kocka imaju isti skup promenljivih.\n\nlabels &lt;- sits_select(samples_matogrosso_mod13q1, bands = c(\"NDVI\", \"EVI\"))\n# Brza provera klasa i njihova zastupljenost\nlabels |&gt; dplyr::count(label)\n\n# A tibble: 7 × 2\n  label          n\n  &lt;chr&gt;      &lt;int&gt;\n1 Cerrado      379\n2 Forest       131\n3 Pasture      344\n4 Soy_Corn     364\n5 Soy_Cotton   352\n6 Soy_Fallow    87\n7 Soy_Millet   180\n\n# Forest → Šuma\n# Pasture → Pašnjak\n# Soy_Corn → Soja_Kukuruz dve kulture u toku sezone\n# Soy_Cotton → Soja_Pamuk\n# Soy_Fallow → Soja_Ugar  (ugarisanje – zemljište je pripremljeno ili samo čeka seju narednog useva)\n# Soy_Millet → Soja_Proso\n# Cerrado (tip savane u Brazilu)"
+    "section": "\nsits_samples — vremenske serije uzoraka",
+    "text": "sits_samples — vremenske serije uzoraka\n\n\nKako nastaju?\n\nDefinišu se prostorne tačke i njihove klase (in-situ).\n\n\ntime_series — vremenska serija vrednosti\nVremenske serije se naknadno izdvajaju iz kocke i dodaju uzorcima. U ovom primeru su već izdvojene vrednosti iz prostorno vremenske kocke.\n\n\n\nZa šta se koriste?\n\nObuka (training) i evaluacija (testing/validation) ML modela za klasifikaciju vremenskih serija.\n\n\n\nPrimer:\nUčitani su uzorci iz paketa sitsdata, filtrirani na relevantne kanale i već spojeni sa kockom."
+  },
+  {
+    "objectID": "08_sits/sits.html#broj-uzorak-sa-oznakama-koja-će-se-koristiti-u-obuci-modela",
+    "href": "08_sits/sits.html#broj-uzorak-sa-oznakama-koja-će-se-koristiti-u-obuci-modela",
+    "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
+    "section": "Broj uzorak sa oznakama koja će se koristiti u obuci modela",
+    "text": "Broj uzorak sa oznakama koja će se koristiti u obuci modela\nFunkcija sits_select() se koristi da iz uzoraka izdvoji samo relevantne bandove/indekse (ovde NDVI i EVI) koje ćemo kasnije koristiti u obuci i klasifikaciji.\nTako osiguravamo da uzorci i kocka imaju isti skup promenljivih.\n\nlabels &lt;- sits_select(samples_matogrosso_mod13q1, bands = c(\"NDVI\", \"EVI\"))\n# Brza provera klasa i njihova zastupljenost\nlabels |&gt; dplyr::count(label)\n\n# A tibble: 7 × 2\n  label          n\n  &lt;chr&gt;      &lt;int&gt;\n1 Cerrado      379\n2 Forest       131\n3 Pasture      344\n4 Soy_Corn     364\n5 Soy_Cotton   352\n6 Soy_Fallow    87\n7 Soy_Millet   180\n\n# Forest → Šuma\n# Pasture → Pašnjak\n# Soy_Corn → Soja_Kukuruz dve kulture u toku sezone\n# Soy_Cotton → Soja_Pamuk\n# Soy_Fallow → Soja_Ugar  (ugarisanje – zemljište je pripremljeno ili samo čeka seju narednog useva)\n# Soy_Millet → Soja_Proso\n# Cerrado (tip savane u Brazilu)"
   },
   {
     "objectID": "08_sits/sits.html#raspored-uzoraka-u-prostoru",
@@ -4400,7 +4407,7 @@
     "href": "08_sits/sits.html#plot-insitu-podataka-cerrado-savana",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Plot insitu podataka Cerrado — Savana",
-    "text": "Plot insitu podataka Cerrado — Savana\n\nSvaka tanka plava linija = vremenska serija EVI za jedan uzorak, vrednosti NDVI vremenske serije na toj lociji/pikselu u kom je upao uzorak.\n\nCrvena linija = prosečna vrednost EVI kroz godinu, žute = granice varijabilnosti.\n\nObrasci pokazuju stabilnu vegetaciju sa blagim maksimumom u kišnom periodu i padom u sušnom periodu.\n\n\nevi = sits_select(labels, bands = c(\"EVI\"))\nsamples_cerrado &lt;- dplyr::filter(evi, label == \"Cerrado\")\nplot(samples_cerrado)"
+    "text": "Plot insitu podataka Cerrado — Savana\n\nSvaka tanka plava linija = vremenska serija EVI za jedan uzorak, vrednosti NDVI vremenske serije na toj lociji/pikselu u kom je upao uzorak.\n\nCrvena linija = prosečna vrednost EVI kroz godinu, žute linije = interval poverenja modela.\n\nObrasci pokazuju stabilnu vegetaciju sa blagim maksimumom u kišnom periodu i padom u sušnom periodu.\n\n\nevi = sits_select(labels, bands = c(\"EVI\"))\nsamples_cerrado &lt;- dplyr::filter(evi, label == \"Cerrado\")\nplot(samples_cerrado)"
   },
   {
     "objectID": "08_sits/sits.html#plot-insitu-podataka-forest-šuma",
@@ -4428,14 +4435,14 @@
     "href": "08_sits/sits.html#plot-insitu-podataka-soy_cotton-soja_pamuk",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Plot insitu podataka Soy_Cotton — Soja_Pamuk",
-    "text": "Plot insitu podataka Soy_Cotton — Soja_Pamuk\n\n\nSoy_Corn (Soja–Kukuruz) šrethodni slajd:\n\nprvi vrh viši i uži (soja brže raste i sazreva),\n\ndrugi vrh niži i širi (kukuruz daje stabilniji ali umereniji signal).\n\n\n\n\nSoy_Cotton (Soja–Pamuk):\n\nprvi vrh (soja) sličan, ali drugi vrh (pamuk) je često jači i produženiji,\n\nukupna sezona produžena jer pamuk ima duži ciklus.\n\n\n\nZaključak: oblik drugog maksimuma pomaže u razdvajanju rotacija soja–kukuruz i soja–pamuk.\n\n\nsamples_soy_cotton &lt;- dplyr::filter(evi, label == \"Soy_Cotton\")\nplot(samples_soy_cotton)"
+    "text": "Plot insitu podataka Soy_Cotton — Soja_Pamuk\n\n\nSoy_Corn (Soja–Kukuruz) prethodni slajd:\n\nprvi vrh viši i uži (soja brže raste i sazreva),\n\ndrugi vrh niži i širi (kukuruz daje stabilniji ali umereniji signal).\n\n\n\n\nSoy_Cotton (Soja–Pamuk):\n\nprvi vrh (soja) sličan, ali drugi vrh (pamuk) je često jači i produženiji,\n\nukupna sezona produžena jer pamuk ima duži ciklus.\n\n\n\nZaključak: oblik drugog maksimuma pomaže u razdvajanju rotacija soja–kukuruz i soja–pamuk.\n\n\nsamples_soy_cotton &lt;- dplyr::filter(evi, label == \"Soy_Cotton\")\nplot(samples_soy_cotton)"
   },
   {
     "objectID": "08_sits/sits.html#plot-insitu-podataka-soy_fallow-soja_ugar",
     "href": "08_sits/sits.html#plot-insitu-podataka-soy_fallow-soja_ugar",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Plot insitu podataka Soy_Fallow — Soja_Ugar",
-    "text": "Plot insitu podataka Soy_Fallow — Soja_Ugar\n\nObrazac ima jedan dominantan maksimum (soja), nakon čega sledi pad bez drugog ciklusa.\n\nPeriod ugarisanja prepoznaje se po niskim vrednostima EVI u drugom delu godine.\n\n\nsamples_soy_fallow &lt;- dplyr::filter(evi, label == \"Soy_Fallow\")\nplot(samples_soy_fallow)"
+    "text": "Plot insitu podataka Soy_Fallow — Soja_Ugar\n\nObrazac ima jedan dominantan maksimum (soja), nakon čega sledi pad bez drugog ciklusa.\n\nPeriod ugarisanja prepoznaje se po niskim vrednostima EVI u drugom delu godine.\nUgarisanje je namerno ostavljanje obradivog zemljišta bez useva, što se jasno vidi u sezonskom obrascu.\n\n\nsamples_soy_fallow &lt;- dplyr::filter(evi, label == \"Soy_Fallow\")\nplot(samples_soy_fallow)"
   },
   {
     "objectID": "08_sits/sits.html#plot-insitu-podataka-soy_millet-soja_proso",
@@ -4452,15 +4459,15 @@
     "text": "Plot insitu podataka sa vremenskim serijama"
   },
   {
-    "objectID": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku",
-    "href": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku",
+    "objectID": "08_sits/sits.html#procena-obrasca-koristeći-sits_patterns",
+    "href": "08_sits/sits.html#procena-obrasca-koristeći-sits_patterns",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
-    "section": "Procena obrasca za svaku klasu i prikaz na grafiku",
-    "text": "Procena obrasca za svaku klasu i prikaz na grafiku\n\nVelike vremenske serije se svode na jedan reprezentativni obrazac po klasi.\n\nKoristi se GAM (Generalized Additive Model) za statističku aproksimaciju.\n\nModel: \\(y = βᵢ + f(x) + ε\\), gde je \\(f(x)\\) glatka funkcija prediktora.\n\nFunkcija sits_patterns() daje idealizovani obrazac po klasama i bendovima.\n\n\n\nlabels |&gt;  \n    sits_patterns() |&gt; \n    plot()"
+    "section": "Procena obrasca koristeći sits_patterns\n",
+    "text": "Procena obrasca koristeći sits_patterns\n\n\nVelike vremenske serije se svode na jedan reprezentativni obrazac po klasi.\n\nKoristi se GAM (Generalized Additive Model) za statističku aproksimaciju.\n\nModel: \\(y = βᵢ + f(x) + ε\\), gde je \\(f(x)\\) glatka funkcija prediktora.\n\nFunkcija sits_patterns() daje idealizovani obrazac po klasama i bendovima.\n\n\n\nlabels |&gt;  \n    sits_patterns() |&gt; \n    plot()"
   },
   {
-    "objectID": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku-1",
-    "href": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku-1",
+    "objectID": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku",
+    "href": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Procena obrasca za svaku klasu i prikaz na grafiku",
     "text": "Procena obrasca za svaku klasu i prikaz na grafiku"
@@ -4491,7 +4498,7 @@
     "href": "08_sits/sits.html#sits_probs---verovatnoće-klasa-probability-cube",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "\nsits_probs - verovatnoće klasa (probability cube)",
-    "text": "sits_probs - verovatnoće klasa (probability cube)\n\nRezultat klasifikacije je kocka verovatnoća (probability cube).\n\nSvaki band = verovatnoća za jednu klasu.\n\nOmogućava pragovanje, spajanje modela i analizu neizvesnosti.\n\nUmesto „crno–belo“ odluke dobijamo potpuniju sliku klasifikacije.\n\n\n\nout_dir &lt;- file.path(\"data\", \"sinop_demo\", \"probs\")\ndir.create(out_dir, recursive = TRUE, showWarnings = FALSE)\nsinop_probs &lt;- sits_classify(\n  data   = sinop_cube,\n  ml_model   = rf_model,\n  multicores = 4,\n  output_dir = out_dir,\n  progress = FALSE)\n# Sanity check: mora biti probability cube\nclass(sinop_probs)\n\n[1] \"probs_cube\"   \"derived_cube\" \"raster_cube\"  \"tbl_df\"       \"tbl\"         \n[6] \"data.frame\"  \n\nsinop_probs\n\n# A tibble: 1 × 12\n  source collection satellite sensor tile     xmin    xmax    ymin    ymax crs  \n  &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;\n1 BDC    MOD13Q1-6… TERRA     MODIS  0120… -6.18e6 -5.96e6 -1.35e6 -1.23e6 \"PRO…\n# ℹ 2 more variables: file_info &lt;list&gt;, labels &lt;list&gt;\n\nsinop_probs$labels\n\n[[1]]\n           1            2            3            4            5            6 \n   \"Cerrado\"     \"Forest\"    \"Pasture\"   \"Soy_Corn\" \"Soy_Cotton\" \"Soy_Fallow\" \n           7 \n\"Soy_Millet\""
+    "text": "sits_probs - verovatnoće klasa (probability cube)\n\nRezultat klasifikacije je kocka verovatnoća (probability cube).\n\nSvaki kanal/band u rasteru = verovatnoća za jednu klasu.\n\nOmogućava pragovanje, spajanje modela i analizu neizvesnosti.\n\nUmesto „crno–belo“ odluke dobijamo potpuniju sliku klasifikacije.\n\n\n\nout_dir &lt;- file.path(\"data\", \"sinop_demo\", \"probs\")\ndir.create(out_dir, recursive = TRUE, showWarnings = FALSE)\nsinop_probs &lt;- sits_classify(\n  data   = sinop_cube,\n  ml_model   = rf_model,\n  multicores = 4,\n  output_dir = out_dir,\n  progress = FALSE)\n# Sanity check: mora biti probability cube\nclass(sinop_probs)\n\n[1] \"probs_cube\"   \"derived_cube\" \"raster_cube\"  \"tbl_df\"       \"tbl\"         \n[6] \"data.frame\"  \n\nsinop_probs\n\n# A tibble: 1 × 12\n  source collection satellite sensor tile     xmin    xmax    ymin    ymax crs  \n  &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;\n1 BDC    MOD13Q1-6… TERRA     MODIS  0120… -6.18e6 -5.96e6 -1.35e6 -1.23e6 \"PRO…\n# ℹ 2 more variables: file_info &lt;list&gt;, labels &lt;list&gt;\n\nsinop_probs$labels\n\n[[1]]\n           1            2            3            4            5            6 \n   \"Cerrado\"     \"Forest\"    \"Pasture\"   \"Soy_Corn\" \"Soy_Cotton\" \"Soy_Fallow\" \n           7 \n\"Soy_Millet\""
   },
   {
     "objectID": "08_sits/sits.html#primer-karte-verovatnoće-za-klasu-forest",
@@ -4533,7 +4540,7 @@
     "href": "08_sits/sits.html#krosvalidacija-i-ocena-tačnosti",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Krosvalidacija i ocena tačnosti",
-    "text": "Krosvalidacija i ocena tačnosti\n\n\nsits_kfold_validate() deli uzorke na više delova (foldova) i meri performanse modela na različitim podelama podataka.\n\n\n\nrfor_validate_mt &lt;- sits_kfold_validate(\n    samples = labels,\n    folds = 5,\n    ml_method = sits_rfor(num_trees = 100),\n    multicores = 5, \n    progress = FALSE)\nrfor_validate_mt\n\nConfusion Matrix and Statistics\n\n            Reference\nPrediction   Pasture Soy_Corn Soy_Millet Soy_Cotton Cerrado Forest Soy_Fallow\n  Pasture        323        4          3          2       3      0          0\n  Soy_Corn         2      341          7         15       0      0          0\n  Soy_Millet       0       12        167          0       0      0          2\n  Soy_Cotton       1        7          2        334       0      0          0\n  Cerrado         18        0          0          0     375      1          0\n  Forest           0        0          0          0       1    130          0\n  Soy_Fallow       0        0          1          1       0      0         85\n\nOverall Statistics\n                              \n Accuracy : 0.9554            \n   95% CI : ( 0.9449, 0.9643 )\n                              \n    Kappa : 0.9462            \n\nStatistics by Class:\n\n                     Class: Pasture Class: Soy_Corn Class: Soy_Millet\nProd Acc (Recall)            0.9390          0.9368            0.9278\nUser Acc (Precision)         0.9642          0.9342            0.9227\nF1 score                     0.9514          0.9355            0.9252\n                     Class: Soy_Cotton Class: Cerrado Class: Forest\nProd Acc (Recall)               0.9489         0.9894        0.9924\nUser Acc (Precision)            0.9709         0.9518        0.9924\nF1 score                        0.9598         0.9702        0.9924\n                     Class: Soy_Fallow\nProd Acc (Recall)                0.977\nUser Acc (Precision)             0.977\nF1 score                         0.977"
+    "text": "Krosvalidacija i ocena tačnosti\n\n\nsits_kfold_validate() deli uzorke na više delova (foldova) i meri performanse modela na različitim podelama podataka.\n\n\n\nrfor_validate_mt &lt;- sits_kfold_validate(\n    samples = labels,\n    folds = 5,\n    ml_method = sits_rfor(num_trees = 100),\n    multicores = 5, \n    progress = FALSE)\nrfor_validate_mt\n\nConfusion Matrix and Statistics\n\n            Reference\nPrediction   Pasture Soy_Corn Soy_Millet Soy_Cotton Cerrado Forest Soy_Fallow\n  Pasture        323        2          5          1       4      0          0\n  Soy_Corn         1      345          9         15       0      0          0\n  Soy_Millet       0       12        163          0       0      0          2\n  Soy_Cotton       1        5          2        335       0      0          0\n  Cerrado         19        0          0          0     374      1          0\n  Forest           0        0          0          0       1    130          0\n  Soy_Fallow       0        0          1          1       0      0         85\n\nOverall Statistics\n                              \n Accuracy : 0.9554            \n   95% CI : ( 0.9449, 0.9643 )\n                              \n    Kappa : 0.9462            \n\nStatistics by Class:\n\n                     Class: Pasture Class: Soy_Corn Class: Soy_Millet\nProd Acc (Recall)            0.9390          0.9478            0.9056\nUser Acc (Precision)         0.9642          0.9324            0.9209\nF1 score                     0.9514          0.9401            0.9132\n                     Class: Soy_Cotton Class: Cerrado Class: Forest\nProd Acc (Recall)               0.9517         0.9868        0.9924\nUser Acc (Precision)            0.9767         0.9492        0.9924\nF1 score                        0.9640         0.9677        0.9924\n                     Class: Soy_Fallow\nProd Acc (Recall)                0.977\nUser Acc (Precision)             0.977\nF1 score                         0.977"
   },
   {
     "objectID": "08_sits/sits.html#ocena-tačnosti-na-nezavisnom-test-skupu",
@@ -4652,7 +4659,7 @@
     "href": "08_sits/sits.html#trening-i-test-skup-insitu-podataka",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Trening i test skup insitu podataka",
-    "text": "Trening i test skup insitu podataka\n\nPotrebno je podeliti uzorke na trening (za obuku modela) i test (za evaluaciju).\n\nU ovom primeru: od ukupno ~38.000 tačaka, svaka 5. ide u trening skup.\n\nPreostale tačke čine test skup.\n\n\n\n# podela na trening i test skup\ntr  &lt;- pts[seq(1, nrow(pts), by = 5), ]   # trening (~20%)\ntst &lt;- pts[-seq(1, nrow(pts), by = 5), ]  # test (~80%)\n\n\n\n\n\n\n\nTip\n\n\nPoenta: Razdvajanje obezbeđuje da se model uči na jednom skupu podataka, a proverava na drugom — što daje realniju ocenu performansi. Ovde je neuobičajeno da je trening skup manji od test skupa, ali je to zbog velikog broja ukupnih uzoraka."
+    "text": "Trening i test skup insitu podataka\n\nPotrebno je podeliti uzorke na trening (za obuku modela) i test (za evaluaciju).\n\nU ovom primeru: od ukupno ~38.000 tačaka, svaka 5. ide u trening skup.\n\nPreostale tačke čine test skup.\n\n\n\n# podela na trening i test skup\ntr  &lt;- pts[seq(1, nrow(pts), by = 5), ]   # trening (~20%)\ntst &lt;- pts[-seq(1, nrow(pts), by = 5), ]  # test (~80%)\n\n\n\n\n\n\n\nTip\n\n\nPoenta:\nRazdvajanje obezbeđuje da se model uči na jednom skupu podataka, a proverava na drugom — što daje realniju ocenu performansi.\nOvde je neuobičajeno da je trening skup manji od test skupa, ali je to zbog velikog broja ukupnih uzoraka."
   },
   {
     "objectID": "08_sits/sits.html#kreiranje-sits-klase-sa-vremesnkim-serijama-iz-snimaka",
@@ -4662,8 +4669,8 @@
     "text": "Kreiranje sits klase sa vremesnkim serijama iz snimaka\n\nsits_get_data() povezuje in-situ uzorke (tr) sa podacima iz kocke (reg_cube).\nVraća vremenske serije za svaku tačku u tr iz rasterske kocke.\nRezultat je objekat tipa sits_labels gde svaka tačka sadrži kompletnu vremensku seriju (kanali + NDVI).\n\n\nsamples &lt;- sits_get_data(\n  cube       = reg_cube,                  \n  samples    = tr,\n  start_date = start_date,\n  end_date   = end_date,\n  multicores  = 6,\n  progress = FALSE\n)"
   },
   {
-    "objectID": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku-2",
-    "href": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku-2",
+    "objectID": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku-1",
+    "href": "08_sits/sits.html#procena-obrasca-za-svaku-klasu-i-prikaz-na-grafiku-1",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Procena obrasca za svaku klasu i prikaz na grafiku",
     "text": "Procena obrasca za svaku klasu i prikaz na grafiku\n\n\nAgricultural – NDVI raste tokom leta, uočljiva sezonska dinamika.\n\n\nForest – visoke i stabilne vrednosti NDVI kroz celu sezonu.\n\n\nUrban – niske i gotovo konstantne vrednosti, bez sezonskog signala.\n\n\nWater – veoma niske vrednosti NDVI i drugih kanala, jasno se odvaja od ostalih klasa.\n\n\n\nsamples |&gt;  \n    sits_patterns() |&gt; \n    plot()"
@@ -4680,7 +4687,7 @@
     "href": "08_sits/sits.html#prikaz-rezultata-ocene-tačnosti-1",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Prikaz rezultata ocene tačnosti",
-    "text": "Prikaz rezultata ocene tačnosti\n\n\nOverall Accuracy = 1 → gotovo savršena tačnost na ovom setu.\n\nSve klase imaju User/Producer Accuracy ≈ 1.0.\n\nPovršine su procenjene sa minimalnim odstupanjima i uskim intervalima poverenja.\n\nU praksi se ipak javlja problem: urbani parkovi se mešaju sa poljoprivrednim površinama.\n\n\n\nrf_s2_acc\n\nArea Weighted Statistics\nOverall Accuracy = 1\n\nArea-Weighted Users and Producers Accuracy\n             User Producer\nAgricultural 1.00     0.99\nForest       1.00     1.00\nUrban        0.98     0.99\nWater        1.00     1.00\n\nMapped Area x Estimated Area (ha)\n             Mapped Area (ha) Error-Adjusted Area (ha) Conf Interval (ha)\nAgricultural             10.0                    10.05               0.02\nForest                    9.0                     9.01               0.01\nUrban                     3.8                     3.74               0.02\nWater                     4.1                     4.10               0.00"
+    "text": "Prikaz rezultata ocene tačnosti\n\n\nOverall Accuracy = 1 → gotovo savršena tačnost na ovom setu. Lažna slika tačnosti.\n\nSve klase imaju User/Producer Accuracy ≈ 1.0.\n\nPovršine su procenjene sa minimalnim odstupanjima i uskim intervalima poverenja.\n\nU praksi se ipak javlja problem: urbani parkovi se mešaju sa poljoprivrednim površinama.\n\n\n\nrf_s2_acc\n\nArea Weighted Statistics\nOverall Accuracy = 1\n\nArea-Weighted Users and Producers Accuracy\n             User Producer\nAgricultural 1.00     0.99\nForest       1.00     1.00\nUrban        0.98     0.99\nWater        1.00     1.00\n\nMapped Area x Estimated Area (ha)\n             Mapped Area (ha) Error-Adjusted Area (ha) Conf Interval (ha)\nAgricultural             10.0                    10.05               0.02\nForest                    9.0                     9.01               0.01\nUrban                     3.8                     3.74               0.02\nWater                     4.1                     4.10               0.00"
   },
   {
     "objectID": "08_sits/sits.html#prikaz-karte-klasifikacije",
@@ -4708,7 +4715,7 @@
     "href": "08_sits/sits.html#zaključak",
     "title": "Analiza vremenskih serija satelitskih snimaka koristeći paket sits",
     "section": "Zaključak",
-    "text": "Zaključak\n\nVremenske serije satelitskih podataka omogućavaju praćenje sezonskih obrazaca i razliku između tipova Zemljišnog pokrivača, mohu biti izuzetno značajni prediktori i kod metoda prostorno vremenskih interpolacija.\nsits paket pruža kompletan tok: od pripreme in-situ uzoraka → ekstrakcije vremenskih serija → treniranja i evaluacije modela → dobijanja karata verovatnoća i klasa.\nKombinacija verovatnoća (sits_probs) i klasa (sits_class) daje fleksibilnost: analizu neizvesnosti i proizvodnju tematskih karata.\nPoenta: kvalitet uzoraka i pravilna priprema podataka su ključ za uspešnu klasifikaciju vremenskih serija isto važi i kod modeliranja svih prostorno-vremenskih fenomena."
+    "text": "Zaključak\n\n\nVremenske serije satelitskih podataka omogućavaju praćenje sezonskih obrazaca i razliku između tipova Zemljišnog pokrivača, mohu biti izuzetno značajni prediktori i kod metoda prostorno vremenskih interpolacija.\n\n\nsits paket pruža kompletan tok:\n\nod pripreme in-situ uzoraka → ekstrakcije vremenskih serija → treniranja i evaluacije modela → dobijanja karata verovatnoća i klasa.\n\nKombinacija verovatnoća (sits_probs) i klasa (sits_class) daje fleksibilnost: analizu neizvesnosti i proizvodnju tematskih karata.\nPoenta: kvalitet uzoraka i pravilna priprema podataka su ključ za uspešnu klasifikaciju vremenskih serija isto važi i kod modeliranja svih prostorno-vremenskih fenomena."
   },
   {
     "objectID": "08_sits/sits.html#literatura",
